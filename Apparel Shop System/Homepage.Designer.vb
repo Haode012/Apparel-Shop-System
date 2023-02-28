@@ -135,6 +135,7 @@ Partial Class Homepage
         'btnLogOut
         '
         Me.btnLogOut.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.White
         Me.btnLogOut.FlatAppearance.BorderSize = 0
         Me.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogOut.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -151,6 +152,7 @@ Partial Class Homepage
         'btnFeedback
         '
         Me.btnFeedback.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnFeedback.FlatAppearance.BorderColor = System.Drawing.Color.White
         Me.btnFeedback.FlatAppearance.BorderSize = 0
         Me.btnFeedback.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnFeedback.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -167,6 +169,7 @@ Partial Class Homepage
         'btnOrderHistory
         '
         Me.btnOrderHistory.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnOrderHistory.FlatAppearance.BorderColor = System.Drawing.Color.White
         Me.btnOrderHistory.FlatAppearance.BorderSize = 0
         Me.btnOrderHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnOrderHistory.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -183,6 +186,7 @@ Partial Class Homepage
         'btnMyCart
         '
         Me.btnMyCart.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnMyCart.FlatAppearance.BorderColor = System.Drawing.Color.White
         Me.btnMyCart.FlatAppearance.BorderSize = 0
         Me.btnMyCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnMyCart.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -199,6 +203,7 @@ Partial Class Homepage
         'btnCategory
         '
         Me.btnCategory.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnCategory.FlatAppearance.BorderColor = System.Drawing.Color.White
         Me.btnCategory.FlatAppearance.BorderSize = 0
         Me.btnCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCategory.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -215,6 +220,7 @@ Partial Class Homepage
         'btnHome
         '
         Me.btnHome.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnHome.FlatAppearance.BorderColor = System.Drawing.Color.White
         Me.btnHome.FlatAppearance.BorderSize = 0
         Me.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnHome.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -289,7 +295,7 @@ Partial Class Homepage
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "Homepage"
-        Me.Text = "Homepage"
+        Me.Text = "YJRC Apperal Shop System"
         Me.WindowState = System.Windows.Forms.FormWindowState.Minimized
         Me.leftPanel.ResumeLayout(False)
         Me.panelShow.ResumeLayout(False)
