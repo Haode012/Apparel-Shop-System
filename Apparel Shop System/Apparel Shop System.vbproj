@@ -73,6 +73,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.Designer.vb">
+      <DependentUpon>Category.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Category.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Home.Designer.vb">
       <DependentUpon>Home.vb</DependentUpon>
     </Compile>
@@ -103,6 +109,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Category.resx">
+      <DependentUpon>Category.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.vb</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +154,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\category_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cart_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order_history_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\feedback_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shirt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shoe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
