@@ -117,56 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="order_history_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\order_history_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnMenuMaintenance.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
+        MAAA6mAAADqYAAAXcJy6UTwAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAHdElNRQfnAwIINw3Kmb7wAAAB
+        z0lEQVRIS9WWvU4CQRSF78yuEKSUTunVXhtNjE+giTGojYUJLSYWVvgOWminlcZaE30DWhobfQQ7eALO
+        Ge+Gn/1xdyBEb/JlZ3fPPQd2dmAkKhM4dm0gHzaUPviekj696EnvWGngHuiCK7HSACfgWMd5oJY9DXqo
+        Fz3jxYtgH3TAhjsvuVuLYmQlF9CyR73oQS96xktFUeCmO7cwCKQJXsHbL1DT1B560aNgYCBL4Blz0cGc
+        tMBFCi1qqAU17fUOfATXQVmkvpUM71EDnsBMAm94nlaqpeb/Bs71kc7xpZn3stCqYlHXc0EtSr08Aw2w
+        OaGWB+9ACwsrVYxrmKdMqKGWPexVj4KBxhlcYvwF088sqKGWPexVj4KBeONhsAajI5D2zzDEyDp71Kt4
+        oE4JX5rJf4ZlXK/g48x4Do1UcDwD72B0CbyAUywBxsQK97wDSzjuYI4mF/o5rm8D/U7jxV7gEYg67LpD
+        OIHYBejdKF7q5REYSBkc4NHdj3BrjKz+dCWXek0V+DASeKeBiY+TpV5egcQiJBzDpIex1Msj0LPU628H
+        um3i2KIugHrl2iZGG+E2GqOfLx+4EW6rV+ZGONrq90DS9r0IPXrRcxgoMgDwFch1dt+3DAAAAABJRU5E
+        rkJggg==
+</value>
   </data>
-  <data name="category_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\category_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="shirt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\shirt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="log-out_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\log-out_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sock" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="search_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\search_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="user_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="close" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pant" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cart_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cart_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="menu_maintenance_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\menu_maintenance_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="apperal shop" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\apperal shop.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="shoe" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\shoe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="feedback_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\feedback_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sky" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sky.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="home_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\home_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="menu_maintenance_icon_big" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\menu_maintenance_icon_big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnHome.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
+        MAAA6mAAADqYAAAXcJy6UTwAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAHdElNRQfnAhkRETmBfKiwAAAC
+        NUlEQVRIS+3WO2jWUBTA8Yj4ANFVtKuIi4MovutgtbaDQxEEJ0FwUYeCnRQsbro4ipvt4KDOQluwFhzV
+        iigKgiA+F0ErYsVn//9yD1xj+kgqQsEDP7jffZyTL8lNUvyPiliGzYntPFZiG1qxC+uxFI1jNc7iQWJ7
+        FSKOYBRP8QxXsRaNYh36MI5fie3LcMzoRT5+H5tQKxZgO4bwDSZ6n9i2bxBbcAafEAXvYiNmHYuxH56+
+        nzDJExxMbNvnmP9mGJ9TX+2CK3AUr+Di7xjBXuxDR2rb55hz/LdxYLUKxs3xAS78givYieN4nZxIfY45
+        JwrVKugN4I0QF9+i5+Htfi79joS27XPMOfmY7mADpowdGECcIk9nN9xXU/2L+PfOcW5cAj3HAfwRi9AF
+        91BMfoRD6MQt5NemzDGvpXNd8xD2/4Cn1dzWmIzl8Lp4NLH4JtpxGI+RJ5+Oc13jWnPEQZr7GKxVXMA7
+        OPAVnh6vySm8QZ5wNt7iNMxhLnPabw1rFbdTx1jq2IpL+Ig8UR2uNYe5zGlu+601eSQ30IM16Ec8UebC
+        HOYy50lYw1rFQrjJDffMPVQlaMJcsQ+tYa3fwkHvqqrFTcy48Wcq6PPSN4L7Tbbtq5qrORe8hhZE2Pad
+        VzVXf6Wgz9kIX77/tKDt+Vcwf56WXUe5oAdRNVfmmragCXw1vcSLEt9/F+GXWYRt+xwrzzeHufIDrAy/
+        snajrWQP/Oxbggjb9jlWnm+Oxl9s8zWKYgIYM2qmMuNTlAAAAABJRU5ErkJggg==
+</value>
   </data>
 </root>

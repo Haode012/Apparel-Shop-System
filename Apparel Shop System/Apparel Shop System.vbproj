@@ -14,6 +14,21 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,6 +67,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -73,22 +89,27 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Category.Designer.vb">
+    <Compile Include="ApparelShopSystemDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApparelShopSystemDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Category.Designer.vb">
       <DependentUpon>Category.vb</DependentUpon>
     </Compile>
-    <Compile Include="Category.vb">
+    <Compile Include="Customer\Category.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home.Designer.vb">
+    <Compile Include="Customer\Home.Designer.vb">
       <DependentUpon>Home.vb</DependentUpon>
     </Compile>
-    <Compile Include="Home.vb">
+    <Compile Include="Customer\Home.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Homepage.vb">
+    <Compile Include="Customer\Homepage.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Homepage.Designer.vb">
+    <Compile Include="Customer\Homepage.Designer.vb">
       <DependentUpon>Homepage.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +117,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -107,15 +129,27 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Staff\MenuMaintenance.Designer.vb">
+      <DependentUpon>MenuMaintenance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\MenuMaintenance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff\StaffHomepage.Designer.vb">
+      <DependentUpon>StaffHomepage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\StaffHomepage.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Category.resx">
+    <EmbeddedResource Include="Customer\Category.resx">
       <DependentUpon>Category.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home.resx">
+    <EmbeddedResource Include="Customer\Home.resx">
       <DependentUpon>Home.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Homepage.resx">
+    <EmbeddedResource Include="Customer\Homepage.resx">
       <DependentUpon>Homepage.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -124,8 +158,25 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Staff\MenuMaintenance.resx">
+      <DependentUpon>MenuMaintenance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff\StaffHomepage.resx">
+      <DependentUpon>StaffHomepage.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ApparelShopSystemDataSet.xsc">
+      <DependentUpon>ApparelShopSystemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ApparelShopSystemDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApparelShopSystemDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="ApparelShopSystemDataSet.xss">
+      <DependentUpon>ApparelShopSystemDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -181,6 +232,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\search_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApparelShopSystemDatabase.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ApparelShopSystemDatabase_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>ApparelShopSystemDatabase.mdf</DependentUpon>
+    </Content>
+    <None Include="Resources\menu_maintenance_icon_big.png" />
+    <None Include="Resources\menu_maintenance_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
