@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class MenuMaintenance
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class MenuMaintenance
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -34,33 +34,37 @@ Partial Class MenuMaintenance
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.radMale = New System.Windows.Forms.RadioButton()
-        Me.radFemale = New System.Windows.Forms.RadioButton()
         Me.cmbProductCategory = New System.Windows.Forms.ComboBox()
         Me.txtProductDescription = New System.Windows.Forms.TextBox()
         Me.txtProductPrice = New System.Windows.Forms.TextBox()
         Me.txtProductStock = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.picImage = New System.Windows.Forms.PictureBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.btnSearch = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.btnDelete = New System.Windows.Forms.Button()
-        Me.btnCreate = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.btnChoose = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.btnCreate = New System.Windows.Forms.Button()
+        Me.btnDelete = New System.Windows.Forms.Button()
+        Me.btnUpdate = New System.Windows.Forms.Button()
+        Me.btnClear = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.radS = New System.Windows.Forms.RadioButton()
         Me.radM = New System.Windows.Forms.RadioButton()
         Me.radL = New System.Windows.Forms.RadioButton()
         Me.radXL = New System.Windows.Forms.RadioButton()
         Me.grpProductGender = New System.Windows.Forms.GroupBox()
+        Me.radMale = New System.Windows.Forms.RadioButton()
+        Me.radFemale = New System.Windows.Forms.RadioButton()
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnDisplay = New System.Windows.Forms.Button()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.picImage, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpProductGender.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'picDelete
@@ -182,30 +186,6 @@ Partial Class MenuMaintenance
         Me.Label7.TabIndex = 15
         Me.Label7.Text = "Product Stock:"
         '
-        'radMale
-        '
-        Me.radMale.AutoSize = True
-        Me.radMale.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radMale.Location = New System.Drawing.Point(24, 26)
-        Me.radMale.Name = "radMale"
-        Me.radMale.Size = New System.Drawing.Size(76, 29)
-        Me.radMale.TabIndex = 16
-        Me.radMale.TabStop = True
-        Me.radMale.Text = "Male"
-        Me.radMale.UseVisualStyleBackColor = True
-        '
-        'radFemale
-        '
-        Me.radFemale.AutoSize = True
-        Me.radFemale.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radFemale.Location = New System.Drawing.Point(116, 26)
-        Me.radFemale.Name = "radFemale"
-        Me.radFemale.Size = New System.Drawing.Size(98, 29)
-        Me.radFemale.TabIndex = 17
-        Me.radFemale.TabStop = True
-        Me.radFemale.Text = "Female"
-        Me.radFemale.UseVisualStyleBackColor = True
-        '
         'cmbProductCategory
         '
         Me.cmbProductCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -261,90 +241,6 @@ Partial Class MenuMaintenance
         Me.picImage.TabIndex = 23
         Me.picImage.TabStop = False
         '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.grpProductGender)
-        Me.Panel2.Controls.Add(Me.radXL)
-        Me.Panel2.Controls.Add(Me.radL)
-        Me.Panel2.Controls.Add(Me.radM)
-        Me.Panel2.Controls.Add(Me.radS)
-        Me.Panel2.Controls.Add(Me.Label9)
-        Me.Panel2.Controls.Add(Me.btnSearch)
-        Me.Panel2.Controls.Add(Me.Button2)
-        Me.Panel2.Controls.Add(Me.btnDelete)
-        Me.Panel2.Controls.Add(Me.btnCreate)
-        Me.Panel2.Controls.Add(Me.DataGridView1)
-        Me.Panel2.Controls.Add(Me.btnChoose)
-        Me.Panel2.Controls.Add(Me.picImage)
-        Me.Panel2.Controls.Add(Me.Label8)
-        Me.Panel2.Controls.Add(Me.txtProductStock)
-        Me.Panel2.Controls.Add(Me.txtProductPrice)
-        Me.Panel2.Controls.Add(Me.txtProductDescription)
-        Me.Panel2.Controls.Add(Me.cmbProductCategory)
-        Me.Panel2.Controls.Add(Me.Label7)
-        Me.Panel2.Controls.Add(Me.Label6)
-        Me.Panel2.Controls.Add(Me.Label5)
-        Me.Panel2.Controls.Add(Me.Label4)
-        Me.Panel2.Controls.Add(Me.Label3)
-        Me.Panel2.Controls.Add(Me.txtProductName)
-        Me.Panel2.Controls.Add(Me.Label2)
-        Me.Panel2.Controls.Add(Me.txtProductID)
-        Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Location = New System.Drawing.Point(38, 242)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1544, 665)
-        Me.Panel2.TabIndex = 8
-        '
-        'btnSearch
-        '
-        Me.btnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSearch.Location = New System.Drawing.Point(1307, 499)
-        Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(161, 69)
-        Me.btnSearch.TabIndex = 29
-        Me.btnSearch.Text = "&Search"
-        Me.btnSearch.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(1105, 499)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(161, 69)
-        Me.Button2.TabIndex = 28
-        Me.Button2.Text = "&Update"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'btnDelete
-        '
-        Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Location = New System.Drawing.Point(1307, 388)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(161, 69)
-        Me.btnDelete.TabIndex = 27
-        Me.btnDelete.Text = "&Delete"
-        Me.btnDelete.UseVisualStyleBackColor = True
-        '
-        'btnCreate
-        '
-        Me.btnCreate.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCreate.Location = New System.Drawing.Point(1105, 388)
-        Me.btnCreate.Name = "btnCreate"
-        Me.btnCreate.Size = New System.Drawing.Size(161, 69)
-        Me.btnCreate.TabIndex = 26
-        Me.btnCreate.Text = "&Create"
-        Me.btnCreate.UseVisualStyleBackColor = True
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(926, 13)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(598, 318)
-        Me.DataGridView1.TabIndex = 25
-        '
         'btnChoose
         '
         Me.btnChoose.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -354,6 +250,57 @@ Partial Class MenuMaintenance
         Me.btnChoose.TabIndex = 24
         Me.btnChoose.Text = "&Choose an Image"
         Me.btnChoose.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(726, 13)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersWidth = 30
+        Me.DataGridView1.RowTemplate.Height = 200
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView1.Size = New System.Drawing.Size(798, 318)
+        Me.DataGridView1.TabIndex = 25
+        '
+        'btnCreate
+        '
+        Me.btnCreate.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCreate.Location = New System.Drawing.Point(1068, 462)
+        Me.btnCreate.Name = "btnCreate"
+        Me.btnCreate.Size = New System.Drawing.Size(161, 69)
+        Me.btnCreate.TabIndex = 26
+        Me.btnCreate.Text = "&Create"
+        Me.btnCreate.UseVisualStyleBackColor = True
+        '
+        'btnDelete
+        '
+        Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.Location = New System.Drawing.Point(983, 548)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(161, 69)
+        Me.btnDelete.TabIndex = 27
+        Me.btnDelete.Text = "&Delete"
+        Me.btnDelete.UseVisualStyleBackColor = True
+        '
+        'btnUpdate
+        '
+        Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUpdate.Location = New System.Drawing.Point(1257, 462)
+        Me.btnUpdate.Name = "btnUpdate"
+        Me.btnUpdate.Size = New System.Drawing.Size(161, 69)
+        Me.btnUpdate.TabIndex = 28
+        Me.btnUpdate.Text = "&Update"
+        Me.btnUpdate.UseVisualStyleBackColor = True
+        '
+        'btnClear
+        '
+        Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClear.Location = New System.Drawing.Point(1339, 548)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(161, 69)
+        Me.btnClear.TabIndex = 29
+        Me.btnClear.Text = "C&lear"
+        Me.btnClear.UseVisualStyleBackColor = True
         '
         'Label9
         '
@@ -424,6 +371,106 @@ Partial Class MenuMaintenance
         Me.grpProductGender.TabIndex = 35
         Me.grpProductGender.TabStop = False
         '
+        'radMale
+        '
+        Me.radMale.AutoSize = True
+        Me.radMale.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radMale.Location = New System.Drawing.Point(24, 26)
+        Me.radMale.Name = "radMale"
+        Me.radMale.Size = New System.Drawing.Size(76, 29)
+        Me.radMale.TabIndex = 16
+        Me.radMale.TabStop = True
+        Me.radMale.Text = "Male"
+        Me.radMale.UseVisualStyleBackColor = True
+        '
+        'radFemale
+        '
+        Me.radFemale.AutoSize = True
+        Me.radFemale.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radFemale.Location = New System.Drawing.Point(116, 26)
+        Me.radFemale.Name = "radFemale"
+        Me.radFemale.Size = New System.Drawing.Size(98, 29)
+        Me.radFemale.TabIndex = 17
+        Me.radFemale.TabStop = True
+        Me.radFemale.Text = "Female"
+        Me.radFemale.UseVisualStyleBackColor = True
+        '
+        'btnSearch
+        '
+        Me.btnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSearch.Location = New System.Drawing.Point(1363, 361)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(161, 69)
+        Me.btnSearch.TabIndex = 37
+        Me.btnSearch.Text = "&Search"
+        Me.btnSearch.UseVisualStyleBackColor = True
+        '
+        'txtSearch
+        '
+        Me.txtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSearch.Location = New System.Drawing.Point(1174, 372)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(174, 45)
+        Me.txtSearch.TabIndex = 38
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(965, 379)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(191, 38)
+        Me.Label10.TabIndex = 39
+        Me.Label10.Text = "Product ID:"
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.btnDisplay)
+        Me.Panel2.Controls.Add(Me.Label10)
+        Me.Panel2.Controls.Add(Me.txtSearch)
+        Me.Panel2.Controls.Add(Me.btnSearch)
+        Me.Panel2.Controls.Add(Me.grpProductGender)
+        Me.Panel2.Controls.Add(Me.radXL)
+        Me.Panel2.Controls.Add(Me.radL)
+        Me.Panel2.Controls.Add(Me.radM)
+        Me.Panel2.Controls.Add(Me.radS)
+        Me.Panel2.Controls.Add(Me.Label9)
+        Me.Panel2.Controls.Add(Me.btnClear)
+        Me.Panel2.Controls.Add(Me.btnUpdate)
+        Me.Panel2.Controls.Add(Me.btnDelete)
+        Me.Panel2.Controls.Add(Me.btnCreate)
+        Me.Panel2.Controls.Add(Me.DataGridView1)
+        Me.Panel2.Controls.Add(Me.btnChoose)
+        Me.Panel2.Controls.Add(Me.picImage)
+        Me.Panel2.Controls.Add(Me.Label8)
+        Me.Panel2.Controls.Add(Me.txtProductStock)
+        Me.Panel2.Controls.Add(Me.txtProductPrice)
+        Me.Panel2.Controls.Add(Me.txtProductDescription)
+        Me.Panel2.Controls.Add(Me.cmbProductCategory)
+        Me.Panel2.Controls.Add(Me.Label7)
+        Me.Panel2.Controls.Add(Me.Label6)
+        Me.Panel2.Controls.Add(Me.Label5)
+        Me.Panel2.Controls.Add(Me.Label4)
+        Me.Panel2.Controls.Add(Me.Label3)
+        Me.Panel2.Controls.Add(Me.txtProductName)
+        Me.Panel2.Controls.Add(Me.Label2)
+        Me.Panel2.Controls.Add(Me.txtProductID)
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Location = New System.Drawing.Point(38, 242)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1544, 665)
+        Me.Panel2.TabIndex = 8
+        '
+        'btnDisplay
+        '
+        Me.btnDisplay.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDisplay.Location = New System.Drawing.Point(1162, 548)
+        Me.btnDisplay.Name = "btnDisplay"
+        Me.btnDisplay.Size = New System.Drawing.Size(161, 69)
+        Me.btnDisplay.TabIndex = 40
+        Me.btnDisplay.Text = "D&isplay"
+        Me.btnDisplay.UseVisualStyleBackColor = True
+        '
         'MenuMaintenance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -439,11 +486,11 @@ Partial Class MenuMaintenance
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         CType(Me.picImage, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpProductGender.ResumeLayout(False)
         Me.grpProductGender.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -460,25 +507,29 @@ Partial Class MenuMaintenance
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents radMale As RadioButton
-    Friend WithEvents radFemale As RadioButton
     Friend WithEvents cmbProductCategory As ComboBox
     Friend WithEvents txtProductDescription As TextBox
     Friend WithEvents txtProductPrice As TextBox
     Friend WithEvents txtProductStock As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents picImage As PictureBox
-    Friend WithEvents Panel2 As Panel
     Friend WithEvents btnChoose As Button
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents btnSearch As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents btnDelete As Button
     Friend WithEvents btnCreate As Button
-    Friend WithEvents radXL As RadioButton
-    Friend WithEvents radL As RadioButton
-    Friend WithEvents radM As RadioButton
-    Friend WithEvents radS As RadioButton
+    Friend WithEvents btnDelete As Button
+    Friend WithEvents btnUpdate As Button
+    Friend WithEvents btnClear As Button
     Friend WithEvents Label9 As Label
+    Friend WithEvents radS As RadioButton
+    Friend WithEvents radM As RadioButton
+    Friend WithEvents radL As RadioButton
+    Friend WithEvents radXL As RadioButton
     Friend WithEvents grpProductGender As GroupBox
+    Friend WithEvents radFemale As RadioButton
+    Friend WithEvents radMale As RadioButton
+    Friend WithEvents btnSearch As Button
+    Friend WithEvents txtSearch As TextBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents btnDisplay As Button
 End Class
