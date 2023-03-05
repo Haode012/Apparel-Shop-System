@@ -1,11 +1,14 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
 Imports System.Drawing.Imaging
+Imports System.Globalization
+Imports System.Text.RegularExpressions
 Public Class MenuMaintenance
 
     Dim con As New SqlConnection
     Dim cmd As New SqlCommand
     Dim i As Integer
+    Private dblPrice As Double
 
     Private Sub MenuMaintenance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         con.ConnectionString = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True"
@@ -37,19 +40,25 @@ Public Class MenuMaintenance
     End Sub
 
     Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
+
+
         Try
+            Dim price As Double
             Dim gender As String = ""
+            Dim size As String = ""
+
+            ' Create a new CultureInfo object for Malaysia
+            Dim myCultureInfo As System.Globalization.CultureInfo = System.Globalization.CultureInfo.CreateSpecificCulture("ms-MY")
+
+            ' Set the currency symbol to "RM"
+            myCultureInfo.NumberFormat.CurrencySymbol = "RM"
 
             If radMale.Checked Then
                 gender = "Male"
             ElseIf radFemale.Checked Then
                 gender = "Female"
-            Else
-                MessageBox.Show("Please select a product gender", "Error")
-                Return
             End If
 
-            Dim size As String = ""
             If radS.Checked Then
                 size = "S"
             ElseIf radM.Checked Then
@@ -58,37 +67,67 @@ Public Class MenuMaintenance
                 size = "L"
             ElseIf radXL.Checked Then
                 size = "XL"
-            Else
-                MessageBox.Show("Please select a product size", "Error")
-                Return
             End If
 
-            Dim ms As New MemoryStream
-            picImage.Image.Save(ms, picImage.Image.RawFormat)
-            Dim img As Byte() = ms.ToArray()
+            'validation
+            If txtProductName.Text = "" Then
+                MessageBox.Show("Please enter Product Name", "Invalid Product Name", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ElseIf IsNumeric(txtProductName.Text) Then
+                MessageBox.Show("Product Name cannot contain only digit number", "Invalid Product Name", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ElseIf String.IsNullOrEmpty(gender) Then
+                MessageBox.Show("Please select a Product Gender", "Invalid Product Gender", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ElseIf cmbProductCategory.SelectedItem Is Nothing Then
+                MessageBox.Show("Please select a Product Category", "Invalid Product Category", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ElseIf String.IsNullOrEmpty(size) Then
+                MessageBox.Show("Please select a Product Size", "Invalid Product Size", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ElseIf txtProductDescription.Text = "" Then
+                MessageBox.Show("Please enter Product Description", "Invalid Product Description", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ElseIf IsNumeric(txtProductDescription.Text) Then
+                MessageBox.Show("Product Description cannot contain only digit number", "Invalid Product Description", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                If Not Double.TryParse(txtProductPrice.Text, price) Then
+                    MessageBox.Show("Product Price cannot be empty, not letter and must remove RM first", "Invalid Product Price", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Else
 
-            Dim sql As String = "INSERT INTO Product (productName, productGender, productCategory, productSize, productDescription, productPrice, productStock, productImage) VALUES (@ProductName, @Gender, @Category, @Size, @Description, @Price, @Stock, @Image)"
-            Using cmd As New SqlCommand(sql, con)
-                cmd.Parameters.AddWithValue("@ProductName", txtProductName.Text)
-                cmd.Parameters.AddWithValue("@Gender", gender)
-                cmd.Parameters.AddWithValue("@Category", cmbProductCategory.Text)
-                cmd.Parameters.AddWithValue("@Size", size)
-                cmd.Parameters.AddWithValue("@Description", txtProductDescription.Text)
-                cmd.Parameters.AddWithValue("@Price", txtProductPrice.Text)
-                cmd.Parameters.AddWithValue("@Stock", txtProductStock.Text)
-                cmd.Parameters.AddWithValue("@Image", img)
+                    If txtProductStock.Text = "" Then
+                        MessageBox.Show("Please enter Product Stock", "Invalid Product Stock", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    ElseIf IsInputChar(txtProductStock.Text) Then
+                        MessageBox.Show("Product Stock cannot contain letter", "Invalid Product Stock", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    ElseIf picImage.Image Is Nothing Then
+                        MessageBox.Show("Please select a Product Image", "Invalid Product Image", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Else
+                        dblPrice = Double.Parse(txtProductPrice.Text)
+                        txtProductPrice.Text = dblPrice.ToString("C2", myCultureInfo)
 
-                cmd.ExecuteNonQuery()
+                        Dim ms As New MemoryStream
+                        picImage.Image.Save(ms, picImage.Image.RawFormat)
+                        Dim img As Byte() = ms.ToArray()
 
-                display_data()
+                        Dim sql As String = "INSERT INTO Product (productName, productGender, productCategory, productSize, productDescription, productPrice, productStock, productImage) VALUES (@ProductName, @Gender, @Category, @Size, @Description, @Price, @Stock, @Image)"
+                        Using cmd As New SqlCommand(sql, con)
+                            cmd.Parameters.AddWithValue("@ProductName", txtProductName.Text)
+                            cmd.Parameters.AddWithValue("@Gender", gender)
+                            cmd.Parameters.AddWithValue("@Category", cmbProductCategory.Text)
+                            cmd.Parameters.AddWithValue("@Size", size)
+                            cmd.Parameters.AddWithValue("@Description", txtProductDescription.Text)
+                            cmd.Parameters.AddWithValue("@Price", txtProductPrice.Text)
+                            cmd.Parameters.AddWithValue("@Stock", txtProductStock.Text)
+                            cmd.Parameters.AddWithValue("@Image", img)
 
-                MessageBox.Show("Record created successfully!", "Success")
+                            cmd.ExecuteNonQuery()
 
-            End Using
+                            display_data()
+
+                            MessageBox.Show("Record created successfully!", "Success")
+
+                        End Using
+                    End If
+                End If
+            End If
+
         Catch ex As Exception
-            MessageBox.Show("Error", "Error")
+            MessageBox.Show("Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-
     End Sub
 
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
@@ -182,7 +221,7 @@ Public Class MenuMaintenance
             End While
 
         Catch ex As Exception
-            MessageBox.Show("Error", "Error")
+            MessageBox.Show("Empty Data", "Error")
         End Try
 
     End Sub
@@ -190,6 +229,14 @@ Public Class MenuMaintenance
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
 
         Try
+            ' Create a new CultureInfo object for Malaysia
+            Dim myCultureInfo As System.Globalization.CultureInfo = System.Globalization.CultureInfo.CreateSpecificCulture("ms-MY")
+
+            ' Set the currency symbol to "RM"
+            myCultureInfo.NumberFormat.CurrencySymbol = "RM"
+
+            dblPrice = Double.Parse(txtProductPrice.Text)
+            txtProductPrice.Text = dblPrice.ToString("C2", myCultureInfo)
 
             Dim gender As String = ""
 
@@ -197,6 +244,9 @@ Public Class MenuMaintenance
                 gender = "Male"
             ElseIf radFemale.Checked Then
                 gender = "Female"
+            Else
+                MessageBox.Show("Please select a Product Gender", "Error")
+                Return
             End If
 
             Dim size As String = ""
@@ -208,6 +258,9 @@ Public Class MenuMaintenance
                 size = "L"
             ElseIf radXL.Checked Then
                 size = "XL"
+            Else
+                MessageBox.Show("Please select a Product Size", "Error")
+                Return
             End If
 
             Dim ms As New MemoryStream
@@ -233,7 +286,7 @@ Public Class MenuMaintenance
             MessageBox.Show("Record updated successfully!", "Success")
 
         Catch ex As Exception
-            MessageBox.Show("Error", "Error")
+            MessageBox.Show("Product Price should not have letter and remove RM", "Error")
         End Try
 
     End Sub
@@ -274,4 +327,9 @@ Public Class MenuMaintenance
     Private Sub btnDisplay_Click(sender As Object, e As EventArgs) Handles btnDisplay.Click
         display_data()
     End Sub
+
+    Private Function IsInputChar(ByVal inputString As String) As Boolean
+        Dim regex As Regex = New Regex("^[0-9]+$")
+        Return Not regex.IsMatch(inputString)
+    End Function
 End Class
