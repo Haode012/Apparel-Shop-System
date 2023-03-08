@@ -68,6 +68,7 @@ Public Class MenuMaintenance
             Dim price As Double
             Dim gender As String = ""
             Dim size As String = ""
+            Dim stock As Integer = 0
 
             ' Create a new CultureInfo object for Malaysia
             Dim myCultureInfo As System.Globalization.CultureInfo = System.Globalization.CultureInfo.CreateSpecificCulture("ms-MY")
@@ -114,6 +115,8 @@ Public Class MenuMaintenance
                     MessageBox.Show("Please enter Product Stock", "Missing Product Stock", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 ElseIf IsInputChar(txtProductStock.Text) Then
                     MessageBox.Show("Product Stock cannot contain letter", "Invalid Product Stock", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                ElseIf Not Integer.TryParse(txtProductStock.Text, stock) OrElse stock < 1 OrElse stock > 10 Then
+                    MessageBox.Show("Product Stock must between 1 to 10", "Invalid Product Stock", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 ElseIf picImage.Image Is Nothing Then
                     MessageBox.Show("Please select a Product Image", "Missing Product Image", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Else
@@ -249,6 +252,7 @@ Public Class MenuMaintenance
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
 
         Try
+            Dim stock As Integer = 0
             Dim price As Double
             Dim gender As String = ""
             Dim size As String = ""
@@ -298,6 +302,8 @@ Public Class MenuMaintenance
                     MessageBox.Show("Please enter Product Stock", "Missing Product Stock", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 ElseIf IsInputChar(txtProductStock.Text) Then
                     MessageBox.Show("Product Stock cannot contain letter", "Invalid Product Stock", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                ElseIf Not Integer.TryParse(txtProductStock.Text, stock) OrElse stock < 1 OrElse stock > 10 Then
+                    MessageBox.Show("Product Stock must between 1 to 10", "Invalid Product Stock", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 ElseIf picImage.Image Is Nothing Then
                     MessageBox.Show("Please select a Product Image", "Missing Product Image", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Else
