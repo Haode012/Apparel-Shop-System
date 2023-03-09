@@ -26,6 +26,7 @@ Partial Class Home
         Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.btnSearch = New System.Windows.Forms.Button()
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel1.SuspendLayout()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -69,11 +70,19 @@ Partial Class Home
         Me.btnSearch.TabIndex = 3
         Me.btnSearch.UseVisualStyleBackColor = True
         '
+        'FlowLayoutPanel1
+        '
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(132, 193)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1414, 555)
+        Me.FlowLayoutPanel1.TabIndex = 4
+        '
         'Home
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1612, 966)
+        Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.Panel1)
@@ -92,4 +101,5 @@ Partial Class Home
     Friend WithEvents picDelete As PictureBox
     Friend WithEvents txtSearch As TextBox
     Friend WithEvents btnSearch As Button
+    Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
 End Class

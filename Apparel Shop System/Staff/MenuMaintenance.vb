@@ -404,4 +404,5 @@ Public Class MenuMaintenance
         Dim regex As Regex = New Regex("^[0-9]+$")
         Return Not regex.IsMatch(inputString)
     End Function
+
 End Class

@@ -24,15 +24,15 @@ Partial Class StaffHomepage
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(StaffHomepage))
         Me.panelShow = New System.Windows.Forms.Panel()
+        Me.panelMenuMaintenance = New System.Windows.Forms.Panel()
+        Me.lblMenuMaintenance = New System.Windows.Forms.Label()
+        Me.btnMenuMaintenanceBig = New System.Windows.Forms.Button()
+        Me.lblWelcome = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.leftPanel = New System.Windows.Forms.Panel()
-        Me.lblWelcome = New System.Windows.Forms.Label()
-        Me.panelMenuMaintenance = New System.Windows.Forms.Panel()
-        Me.lblMenuMaintenance = New System.Windows.Forms.Label()
-        Me.btnMenuMaintenanceBig = New System.Windows.Forms.Button()
         Me.btnLogOut = New System.Windows.Forms.Button()
         Me.btnMenuMaintenance = New System.Windows.Forms.Button()
         Me.btnHome = New System.Windows.Forms.Button()
@@ -41,8 +41,8 @@ Partial Class StaffHomepage
         Me.lblUsername = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.panelShow.SuspendLayout()
-        Me.leftPanel.SuspendLayout()
         Me.panelMenuMaintenance.SuspendLayout()
+        Me.leftPanel.SuspendLayout()
         Me.imagePanel.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -56,6 +56,46 @@ Partial Class StaffHomepage
         Me.panelShow.Name = "panelShow"
         Me.panelShow.Size = New System.Drawing.Size(1652, 1035)
         Me.panelShow.TabIndex = 14
+        '
+        'panelMenuMaintenance
+        '
+        Me.panelMenuMaintenance.Controls.Add(Me.lblMenuMaintenance)
+        Me.panelMenuMaintenance.Controls.Add(Me.btnMenuMaintenanceBig)
+        Me.panelMenuMaintenance.Location = New System.Drawing.Point(916, 347)
+        Me.panelMenuMaintenance.Name = "panelMenuMaintenance"
+        Me.panelMenuMaintenance.Size = New System.Drawing.Size(304, 255)
+        Me.panelMenuMaintenance.TabIndex = 7
+        '
+        'lblMenuMaintenance
+        '
+        Me.lblMenuMaintenance.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMenuMaintenance.Location = New System.Drawing.Point(15, 196)
+        Me.lblMenuMaintenance.Name = "lblMenuMaintenance"
+        Me.lblMenuMaintenance.Size = New System.Drawing.Size(277, 36)
+        Me.lblMenuMaintenance.TabIndex = 1
+        Me.lblMenuMaintenance.Text = "Menu Maintenance"
+        Me.lblMenuMaintenance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnMenuMaintenanceBig
+        '
+        Me.btnMenuMaintenanceBig.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.menu_maintenance_icon_big
+        Me.btnMenuMaintenanceBig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnMenuMaintenanceBig.Location = New System.Drawing.Point(82, 33)
+        Me.btnMenuMaintenanceBig.Name = "btnMenuMaintenanceBig"
+        Me.btnMenuMaintenanceBig.Size = New System.Drawing.Size(141, 142)
+        Me.btnMenuMaintenanceBig.TabIndex = 0
+        Me.btnMenuMaintenanceBig.UseVisualStyleBackColor = True
+        '
+        'lblWelcome
+        '
+        Me.lblWelcome.BackColor = System.Drawing.Color.LightCyan
+        Me.lblWelcome.Font = New System.Drawing.Font("Segoe Script", 60.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWelcome.Location = New System.Drawing.Point(433, 95)
+        Me.lblWelcome.Name = "lblWelcome"
+        Me.lblWelcome.Size = New System.Drawing.Size(807, 165)
+        Me.lblWelcome.TabIndex = 5
+        Me.lblWelcome.Text = "Staff Panel"
+        Me.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Panel4
         '
@@ -105,46 +145,6 @@ Partial Class StaffHomepage
         Me.leftPanel.Name = "leftPanel"
         Me.leftPanel.Size = New System.Drawing.Size(250, 1055)
         Me.leftPanel.TabIndex = 9
-        '
-        'lblWelcome
-        '
-        Me.lblWelcome.BackColor = System.Drawing.Color.LightCyan
-        Me.lblWelcome.Font = New System.Drawing.Font("Segoe Script", 60.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblWelcome.Location = New System.Drawing.Point(433, 95)
-        Me.lblWelcome.Name = "lblWelcome"
-        Me.lblWelcome.Size = New System.Drawing.Size(807, 165)
-        Me.lblWelcome.TabIndex = 5
-        Me.lblWelcome.Text = "Staff Panel"
-        Me.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'panelMenuMaintenance
-        '
-        Me.panelMenuMaintenance.Controls.Add(Me.lblMenuMaintenance)
-        Me.panelMenuMaintenance.Controls.Add(Me.btnMenuMaintenanceBig)
-        Me.panelMenuMaintenance.Location = New System.Drawing.Point(916, 347)
-        Me.panelMenuMaintenance.Name = "panelMenuMaintenance"
-        Me.panelMenuMaintenance.Size = New System.Drawing.Size(304, 255)
-        Me.panelMenuMaintenance.TabIndex = 7
-        '
-        'lblMenuMaintenance
-        '
-        Me.lblMenuMaintenance.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMenuMaintenance.Location = New System.Drawing.Point(15, 196)
-        Me.lblMenuMaintenance.Name = "lblMenuMaintenance"
-        Me.lblMenuMaintenance.Size = New System.Drawing.Size(277, 36)
-        Me.lblMenuMaintenance.TabIndex = 1
-        Me.lblMenuMaintenance.Text = "Menu Maintenance"
-        Me.lblMenuMaintenance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnMenuMaintenanceBig
-        '
-        Me.btnMenuMaintenanceBig.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.menu_maintenance_icon_big
-        Me.btnMenuMaintenanceBig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnMenuMaintenanceBig.Location = New System.Drawing.Point(82, 33)
-        Me.btnMenuMaintenanceBig.Name = "btnMenuMaintenanceBig"
-        Me.btnMenuMaintenanceBig.Size = New System.Drawing.Size(141, 142)
-        Me.btnMenuMaintenanceBig.TabIndex = 0
-        Me.btnMenuMaintenanceBig.UseVisualStyleBackColor = True
         '
         'btnLogOut
         '
@@ -257,11 +257,11 @@ Partial Class StaffHomepage
         Me.Controls.Add(Me.leftPanel)
         Me.MaximizeBox = False
         Me.Name = "StaffHomepage"
-        Me.Text = "YJRC Apperal Shop System"
+        Me.Text = "YJRCH Apperal Shop System"
         Me.WindowState = System.Windows.Forms.FormWindowState.Minimized
         Me.panelShow.ResumeLayout(False)
-        Me.leftPanel.ResumeLayout(False)
         Me.panelMenuMaintenance.ResumeLayout(False)
+        Me.leftPanel.ResumeLayout(False)
         Me.imagePanel.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
