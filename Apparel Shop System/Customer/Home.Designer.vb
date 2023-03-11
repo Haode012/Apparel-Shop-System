@@ -23,10 +23,10 @@ Partial Class Home
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.txtSearch = New System.Windows.Forms.TextBox()
-        Me.btnSearch = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -41,17 +41,6 @@ Partial Class Home
         Me.Panel1.Size = New System.Drawing.Size(1612, 46)
         Me.Panel1.TabIndex = 1
         '
-        'picDelete
-        '
-        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
-        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
-        Me.picDelete.Location = New System.Drawing.Point(1566, 0)
-        Me.picDelete.Name = "picDelete"
-        Me.picDelete.Size = New System.Drawing.Size(46, 46)
-        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picDelete.TabIndex = 0
-        Me.picDelete.TabStop = False
-        '
         'txtSearch
         '
         Me.txtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -59,6 +48,13 @@ Partial Class Home
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(549, 45)
         Me.txtSearch.TabIndex = 2
+        '
+        'FlowLayoutPanel1
+        '
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(132, 193)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1414, 555)
+        Me.FlowLayoutPanel1.TabIndex = 4
         '
         'btnSearch
         '
@@ -70,12 +66,16 @@ Partial Class Home
         Me.btnSearch.TabIndex = 3
         Me.btnSearch.UseVisualStyleBackColor = True
         '
-        'FlowLayoutPanel1
+        'picDelete
         '
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(132, 193)
-        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1414, 555)
-        Me.FlowLayoutPanel1.TabIndex = 4
+        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
+        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
+        Me.picDelete.Location = New System.Drawing.Point(1566, 0)
+        Me.picDelete.Name = "picDelete"
+        Me.picDelete.Size = New System.Drawing.Size(46, 46)
+        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDelete.TabIndex = 0
+        Me.picDelete.TabStop = False
         '
         'Home
         '

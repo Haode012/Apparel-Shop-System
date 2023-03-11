@@ -147,12 +147,14 @@ Public Class Home
 
     Public Sub lblProductID_Click(sender As Object, e As EventArgs)
         MsgBox(sender.tag.ToString)
-        Dim productId As String = sender.Tag.ToString()
-        Dim productName As String = lblProductName.Text
-        Dim productGender As String = lblProductGender.Text
-        Dim productCategory As String = lblProductCategory.Text
 
-        'Dim form2 As New Form2(productId, productName, productGender, productCategory)
-        'form2.Show()
+        With MenuItemDetails
+            .TopLevel = False
+            Me.Controls.Add(MenuItemDetails)
+            .BringToFront()
+            .Show()
+        End With
     End Sub
+
+
 End Class
