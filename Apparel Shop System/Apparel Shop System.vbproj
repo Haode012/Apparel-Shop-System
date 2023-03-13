@@ -250,6 +250,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>ApparelShopSystemDatabase.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\remove_icon.png" />
     <None Include="Resources\back_arrow.png" />
     <None Include="Resources\menu_maintenance_icon_big.png" />
     <None Include="Resources\menu_maintenance_icon.png" />

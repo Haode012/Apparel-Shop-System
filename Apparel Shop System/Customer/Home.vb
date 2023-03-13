@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports Apparel_Shop_System.MenuItemDetails
 Public Class Home
     Dim con As New SqlConnection
     Dim cmd As New SqlCommand
@@ -27,7 +28,7 @@ Public Class Home
 
     Public Sub load_data()
         con.Open()
-        cmd = New SqlCommand("select productImage, productId, productName, productGender, productCategory from Product", con)
+        cmd = New SqlCommand("select productImage, productId, productName, productGender, productCategory, productSize, productDescription, productPrice, productStock from Product", con)
         dr = cmd.ExecuteReader
         While dr.Read
             Dim len As Long = dr.GetBytes(0, 0, Nothing, 0, 0)
@@ -43,8 +44,6 @@ Public Class Home
             picProductImage.BackgroundImageLayout = ImageLayout.Stretch
             picProductImage.Dock = DockStyle.Top
             picProductImage.BorderStyle = BorderStyle.FixedSingle
-            picProductImage.Tag = dr.Item("productId").ToString
-
 
             lbl1 = New Label
             lbl1.Width = 200
@@ -139,6 +138,26 @@ Public Class Home
 
             FlowLayoutPanel1.Controls.Add(panelShow)
 
+
+            ' Create a new instance of the MenuItemDetails user control
+            Dim menu As New MenuItemDetails()
+
+            ' Set the ProductID and ProductName properties of the user control
+
+            menu.ProductImage = Image.FromStream(ms)
+            menu.ProductID = dr.Item("productId").ToString()
+            menu.ProductName = dr.Item("productName").ToString()
+            menu.ProductGender = dr.Item("productGender").ToString()
+            menu.ProductCategory = dr.Item("productCategory").ToString()
+            menu.ProductSize = dr.Item("productSize").ToString()
+            menu.ProductDescription = dr.Item("productDescription").ToString()
+            menu.ProductPrice = dr.Item("productPrice").ToString()
+            menu.ProductStock = dr.Item("productStock").ToString()
+
+            ' Set the Tag property of the picture box control to the MenuItemDetails instance
+            picProductImage.Tag = menu
+
+            ' Add a handler for the Click event of the picture box control
             AddHandler picProductImage.Click, AddressOf lblProductID_Click
         End While
         dr.Close()
@@ -146,7 +165,10 @@ Public Class Home
     End Sub
 
     Public Sub lblProductID_Click(sender As Object, e As EventArgs)
-        MsgBox(sender.tag.ToString)
+
+        Dim menu As MenuItemDetails = DirectCast(sender, PictureBox).Tag
+
+        MenuItemDetails.ShowProductDetails(menu.ProductImage, menu.ProductID, menu.ProductName, menu.ProductGender, menu.ProductCategory, menu.ProductSize, menu.ProductDescription, menu.ProductPrice, menu.ProductStock)
 
         With MenuItemDetails
             .TopLevel = False
@@ -154,7 +176,9 @@ Public Class Home
             .BringToFront()
             .Show()
         End With
+
     End Sub
+
 
 
 End Class
