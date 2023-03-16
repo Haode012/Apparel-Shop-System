@@ -113,6 +113,12 @@
       <DependentUpon>Homepage.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Customer\MenuItem.Designer.vb">
+      <DependentUpon>MenuItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\MenuItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Customer\MenuItemDetails.Designer.vb">
       <DependentUpon>MenuItemDetails.vb</DependentUpon>
     </Compile>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\Homepage.resx">
       <DependentUpon>Homepage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\MenuItem.resx">
+      <DependentUpon>MenuItem.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\MenuItemDetails.resx">
       <DependentUpon>MenuItemDetails.vb</DependentUpon>

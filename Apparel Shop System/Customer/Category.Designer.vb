@@ -23,26 +23,26 @@ Partial Class Category
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.panelShirt = New System.Windows.Forms.Panel()
         Me.lblShirt = New System.Windows.Forms.Label()
+        Me.btnShirt = New System.Windows.Forms.Button()
         Me.panelPant = New System.Windows.Forms.Panel()
         Me.lblPant = New System.Windows.Forms.Label()
+        Me.btnPant = New System.Windows.Forms.Button()
         Me.panelShoe = New System.Windows.Forms.Panel()
         Me.lblShoe = New System.Windows.Forms.Label()
+        Me.btnShoe = New System.Windows.Forms.Button()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.lblSock = New System.Windows.Forms.Label()
-        Me.lblTitle = New System.Windows.Forms.Label()
         Me.btnSock = New System.Windows.Forms.Button()
-        Me.btnShoe = New System.Windows.Forms.Button()
-        Me.btnPant = New System.Windows.Forms.Button()
-        Me.btnShirt = New System.Windows.Forms.Button()
-        Me.picDelete = New System.Windows.Forms.PictureBox()
+        Me.lblTitle = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
+        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelShirt.SuspendLayout()
         Me.panelPant.SuspendLayout()
         Me.panelShoe.SuspendLayout()
         Me.Panel5.SuspendLayout()
-        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -54,6 +54,17 @@ Partial Class Category
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1612, 46)
         Me.Panel1.TabIndex = 2
+        '
+        'picDelete
+        '
+        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
+        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
+        Me.picDelete.Location = New System.Drawing.Point(1566, 0)
+        Me.picDelete.Name = "picDelete"
+        Me.picDelete.Size = New System.Drawing.Size(46, 46)
+        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDelete.TabIndex = 0
+        Me.picDelete.TabStop = False
         '
         'panelShirt
         '
@@ -73,6 +84,16 @@ Partial Class Category
         Me.lblShirt.TabIndex = 1
         Me.lblShirt.Text = "Shirt"
         '
+        'btnShirt
+        '
+        Me.btnShirt.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.shirt
+        Me.btnShirt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnShirt.Location = New System.Drawing.Point(82, 33)
+        Me.btnShirt.Name = "btnShirt"
+        Me.btnShirt.Size = New System.Drawing.Size(141, 142)
+        Me.btnShirt.TabIndex = 0
+        Me.btnShirt.UseVisualStyleBackColor = True
+        '
         'panelPant
         '
         Me.panelPant.Controls.Add(Me.lblPant)
@@ -90,6 +111,16 @@ Partial Class Category
         Me.lblPant.Size = New System.Drawing.Size(87, 36)
         Me.lblPant.TabIndex = 1
         Me.lblPant.Text = "Pant"
+        '
+        'btnPant
+        '
+        Me.btnPant.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.pant
+        Me.btnPant.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnPant.Location = New System.Drawing.Point(82, 33)
+        Me.btnPant.Name = "btnPant"
+        Me.btnPant.Size = New System.Drawing.Size(141, 142)
+        Me.btnPant.TabIndex = 0
+        Me.btnPant.UseVisualStyleBackColor = True
         '
         'panelShoe
         '
@@ -109,6 +140,16 @@ Partial Class Category
         Me.lblShoe.TabIndex = 1
         Me.lblShoe.Text = "Shoe"
         '
+        'btnShoe
+        '
+        Me.btnShoe.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.shoe
+        Me.btnShoe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnShoe.Location = New System.Drawing.Point(82, 33)
+        Me.btnShoe.Name = "btnShoe"
+        Me.btnShoe.Size = New System.Drawing.Size(141, 142)
+        Me.btnShoe.TabIndex = 0
+        Me.btnShoe.UseVisualStyleBackColor = True
+        '
         'Panel5
         '
         Me.Panel5.Controls.Add(Me.lblSock)
@@ -127,16 +168,6 @@ Partial Class Category
         Me.lblSock.TabIndex = 1
         Me.lblSock.Text = "Sock"
         '
-        'lblTitle
-        '
-        Me.lblTitle.AutoSize = True
-        Me.lblTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.Location = New System.Drawing.Point(636, 110)
-        Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(457, 55)
-        Me.lblTitle.TabIndex = 7
-        Me.lblTitle.Text = "Choose a Category"
-        '
         'btnSock
         '
         Me.btnSock.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.sock
@@ -147,46 +178,15 @@ Partial Class Category
         Me.btnSock.TabIndex = 0
         Me.btnSock.UseVisualStyleBackColor = True
         '
-        'btnShoe
+        'lblTitle
         '
-        Me.btnShoe.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.shoe
-        Me.btnShoe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnShoe.Location = New System.Drawing.Point(82, 33)
-        Me.btnShoe.Name = "btnShoe"
-        Me.btnShoe.Size = New System.Drawing.Size(141, 142)
-        Me.btnShoe.TabIndex = 0
-        Me.btnShoe.UseVisualStyleBackColor = True
-        '
-        'btnPant
-        '
-        Me.btnPant.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.pant
-        Me.btnPant.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnPant.Location = New System.Drawing.Point(82, 33)
-        Me.btnPant.Name = "btnPant"
-        Me.btnPant.Size = New System.Drawing.Size(141, 142)
-        Me.btnPant.TabIndex = 0
-        Me.btnPant.UseVisualStyleBackColor = True
-        '
-        'btnShirt
-        '
-        Me.btnShirt.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.shirt
-        Me.btnShirt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnShirt.Location = New System.Drawing.Point(82, 33)
-        Me.btnShirt.Name = "btnShirt"
-        Me.btnShirt.Size = New System.Drawing.Size(141, 142)
-        Me.btnShirt.TabIndex = 0
-        Me.btnShirt.UseVisualStyleBackColor = True
-        '
-        'picDelete
-        '
-        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
-        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
-        Me.picDelete.Location = New System.Drawing.Point(1566, 0)
-        Me.picDelete.Name = "picDelete"
-        Me.picDelete.Size = New System.Drawing.Size(46, 46)
-        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picDelete.TabIndex = 0
-        Me.picDelete.TabStop = False
+        Me.lblTitle.AutoSize = True
+        Me.lblTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.Location = New System.Drawing.Point(636, 110)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(457, 55)
+        Me.lblTitle.TabIndex = 7
+        Me.lblTitle.Text = "Choose a Category"
         '
         'Category
         '
@@ -204,11 +204,11 @@ Partial Class Category
         Me.Text = "Category"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
+        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelShirt.ResumeLayout(False)
         Me.panelPant.ResumeLayout(False)
         Me.panelShoe.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
-        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
