@@ -1,4 +1,10 @@
-﻿Public Class MenuItemDetails
+﻿Imports System.Data.SqlClient
+Imports System.IO
+Public Class MenuItemDetails
+
+    Dim con As New SqlConnection
+    Dim cmd As New SqlCommand
+
     Public Property ProductImage As Image
         Get
             Return picProductImage.Image
@@ -92,6 +98,14 @@
 
     Private Sub MenuItemDetails_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ShowProductDetails(ProductImage, ProductID, ProductName, ProductGender, ProductCategory, ProductSize, ProductDescription, ProductPrice, ProductStock)
+
+        con.ConnectionString = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True"
+
+        If con.State = ConnectionState.Open Then
+            con.Close()
+        End If
+
+        con.Open()
     End Sub
 
     Public Sub ShowProductDetails(ProductImage As Image, ProductId As String, ProductName As String, ProductGender As String, ProductCategory As String, ProductSize As String, ProductDescription As String, ProductPrice As String, ProductStock As String)
@@ -105,6 +119,62 @@
         lblProductDescription.Text = ProductDescription
         lblProductPrice.Text = ProductPrice
         lblProductStock.Text = ProductStock
+        lblProductQuantity.Text = ProductStock
     End Sub
 
+    Private Sub picRemove_Click(sender As Object, e As EventArgs) Handles picRemove.Click
+
+        Dim currentValue As Integer
+        currentValue = Integer.Parse(lblProductQuantity.Text)
+        If currentValue > 1 Then
+            lblProductQuantity.Text = (currentValue - 1).ToString()
+        End If
+
+    End Sub
+
+    Private Sub btnAddToCart_Click(sender As Object, e As EventArgs) Handles btnAddToCart.Click
+        Try
+
+            If con.State = ConnectionState.Open Then
+                con.Close()
+            End If
+
+            con.Open()
+
+            Dim ms As New MemoryStream
+            picProductImage.Image.Save(ms, picProductImage.Image.RawFormat)
+            Dim img As Byte() = ms.ToArray()
+            Dim imgBase64 As String = Convert.ToBase64String(img)
+
+            lblProductStock.Text = lblProductStock.Text - lblProductQuantity.Text
+
+            If (lblProductStock.Text = 0) Then
+                cmd = con.CreateCommand
+                cmd.CommandType = CommandType.Text
+                cmd.CommandText = "DELETE FROM Product WHERE productId=@id"
+                cmd.Parameters.AddWithValue("@id", lblProductID.Text)
+                cmd.ExecuteNonQuery()
+                MessageBox.Show("Deleted product successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                Me.Close()
+                MenuItem.Show()
+            Else
+                cmd = con.CreateCommand
+                cmd.CommandType = CommandType.Text
+                cmd.CommandText = "UPDATE Product SET productStock=@stock WHERE productId=@id"
+                cmd.Parameters.AddWithValue("@stock", lblProductStock.Text)
+                cmd.Parameters.AddWithValue("@id", lblProductID.Text)
+                cmd.ExecuteNonQuery()
+
+                MessageBox.Show("Stock updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Me.Close()
+                MenuItem.Show()
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Failed to update, try again later", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+
+    End Sub
 End Class

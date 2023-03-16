@@ -24,12 +24,23 @@ Public Class MenuItem
 
     Private Sub MenuItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         con.ConnectionString = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True"
+        If con.State = ConnectionState.Open Then
+            con.Close()
+        End If
+
+        con.Open()
+
         load_data()
     End Sub
 
     Public Sub load_data()
-        con.Open()
-        cmd = New SqlCommand("select productImage, productId, productName, productGender, productCategory, productSize, productDescription, productPrice, productStock from Product", con)
+
+        FlowLayoutPanel1.Controls.Clear()
+
+        cmd = con.CreateCommand
+        cmd.CommandType = CommandType.Text
+        cmd.CommandText = "select productImage, productId, productName, productGender, productCategory, productSize, productDescription, productPrice, productStock from Product"
+        cmd.ExecuteNonQuery()
         dr = cmd.ExecuteReader
         While dr.Read
             Dim len As Long = dr.GetBytes(0, 0, Nothing, 0, 0)
@@ -139,7 +150,6 @@ Public Class MenuItem
 
             FlowLayoutPanel1.Controls.Add(panelShow)
 
-
             ' Create a new instance of the MenuItemDetails user control
             Dim menu As New MenuItemDetails()
 
@@ -183,4 +193,6 @@ Public Class MenuItem
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
         Me.Close()
     End Sub
+
+
 End Class
