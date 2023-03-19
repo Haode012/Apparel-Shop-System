@@ -96,12 +96,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ApparelShopSystemDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Customer\Category.Designer.vb">
-      <DependentUpon>Category.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Customer\Category.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Customer\Home.Designer.vb">
       <DependentUpon>Home.vb</DependentUpon>
     </Compile>
@@ -157,9 +151,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Customer\Category.resx">
-      <DependentUpon>Category.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Customer\Home.resx">
       <DependentUpon>Home.vb</DependentUpon>
     </EmbeddedResource>
@@ -261,6 +252,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>ApparelShopSystemDatabase.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\Female.png" />
+    <None Include="Resources\Male.png" />
     <None Include="Resources\remove_icon.png" />
     <None Include="Resources\back_arrow.png" />
     <None Include="Resources\menu_maintenance_icon_big.png" />

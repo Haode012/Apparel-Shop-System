@@ -88,7 +88,6 @@ Public Class MenuItemDetails
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
         Me.Close()
         Home.Close()
-        Category.Close()
         MenuItem.Close()
     End Sub
 
@@ -167,14 +166,16 @@ Public Class MenuItemDetails
                 cmd.ExecuteNonQuery()
 
                 MessageBox.Show("Stock updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
                 Me.Close()
                 MenuItem.Show()
             End If
 
         Catch ex As Exception
-            MessageBox.Show("Failed to update, try again later", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
 
     End Sub
+
 End Class

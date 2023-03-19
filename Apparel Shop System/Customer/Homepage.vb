@@ -10,10 +10,10 @@
         MenuItemDetails.Close()
     End Sub
 
-    Private Sub btnCategory_Click(sender As Object, e As EventArgs) Handles btnCategory.Click
-        With Category
+    Private Sub btnMenu_Click(sender As Object, e As EventArgs) Handles btnMenu.Click
+        With MenuItem
             .TopLevel = False
-            panelShow.Controls.Add(Category)
+            panelShow.Controls.Add(MenuItem)
             .BringToFront()
             .Show()
         End With

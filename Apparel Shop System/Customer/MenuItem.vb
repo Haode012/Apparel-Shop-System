@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports Apparel_Shop_System.MenuItemDetails
+Imports System.Text.RegularExpressions
 Public Class MenuItem
     Dim con As New SqlConnection
     Dim cmd As New SqlCommand
@@ -19,7 +20,6 @@ Public Class MenuItem
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
         Me.Close()
         Home.Close()
-        Category.Close()
     End Sub
 
     Private Sub MenuItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -34,18 +34,16 @@ Public Class MenuItem
     End Sub
 
     Public Sub load_data()
-
-        FlowLayoutPanel1.Controls.Clear()
-
         cmd = con.CreateCommand
         cmd.CommandType = CommandType.Text
         cmd.CommandText = "select productImage, productId, productName, productGender, productCategory, productSize, productDescription, productPrice, productStock from Product"
         cmd.ExecuteNonQuery()
+        FlowLayoutPanel1.Controls.Clear()
         dr = cmd.ExecuteReader
         While dr.Read
-            Dim len As Long = dr.GetBytes(0, 0, Nothing, 0, 0)
+            Dim len As Long = dr.GetBytes(dr.GetOrdinal("productImage"), 0, Nothing, 0, 0)
             Dim array(CInt(len)) As Byte
-            dr.GetBytes(0, 0, array, 0, CInt(len))
+            dr.GetBytes(dr.GetOrdinal("productImage"), 0, array, 0, CInt(len))
 
             panelShow = New Panel
             panelShow.Height = 384
@@ -175,6 +173,7 @@ Public Class MenuItem
         con.Close()
     End Sub
 
+
     Public Sub lblProductID_Click(sender As Object, e As EventArgs)
 
         Dim menu As MenuItemDetails = DirectCast(sender, PictureBox).Tag
@@ -190,9 +189,171 @@ Public Class MenuItem
 
     End Sub
 
-    Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
+    Private Sub picBack_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
+
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        Try
+            If txtSearch.Text = "" Then
+                MessageBox.Show("Please enter Product ID", "Missing Product ID", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ElseIf IsInputChar(txtSearch.Text) Then
+                MessageBox.Show("Product ID cannot contain letter", "Invalid Product ID", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                If con.State = ConnectionState.Closed Then
+                    con.Open()
+                End If
+                cmd = con.CreateCommand
+                cmd.CommandType = CommandType.Text
+                cmd.CommandText = "SELECT * FROM Product WHERE productId=@productId"
+                cmd.Parameters.AddWithValue("@productId", txtSearch.Text)
+                dr = cmd.ExecuteReader()
+                If dr.HasRows Then
+                    FlowLayoutPanel1.Controls.Clear()
+                    While dr.Read()
+                        Dim len As Long = dr.GetBytes(dr.GetOrdinal("productImage"), 0, Nothing, 0, 0)
+                        Dim array(CInt(len)) As Byte
+                        dr.GetBytes(dr.GetOrdinal("productImage"), 0, array, 0, CInt(len))
+
+                        picProductImage = New PictureBox
+                        picProductImage.Width = 200
+                        picProductImage.Height = 200
+                        picProductImage.BackgroundImageLayout = ImageLayout.Stretch
+                        picProductImage.Dock = DockStyle.Top
+                        picProductImage.BorderStyle = BorderStyle.FixedSingle
+
+                        panelShow = New Panel
+                        panelShow.Height = 384
+
+                        lbl1 = New Label
+                        lbl1.Width = 200
+                        lbl1.ForeColor = Color.Black
+                        lbl1.Font = New Font(lbl1.Font, FontStyle.Bold)
+                        lbl1.BackColor = Color.LightCyan
+                        lbl1.Dock = DockStyle.Bottom
+                        lbl1.TextAlign = ContentAlignment.MiddleCenter
+                        lbl1.BorderStyle = BorderStyle.FixedSingle
+
+                        lblProductID = New Label
+                        lblProductID.Width = 200
+                        lblProductID.ForeColor = Color.Black
+                        lblProductID.BackColor = Color.White
+                        lblProductID.Dock = DockStyle.Bottom
+                        lblProductID.TextAlign = ContentAlignment.MiddleCenter
+                        lblProductID.BorderStyle = BorderStyle.FixedSingle
+
+                        lbl2 = New Label
+                        lbl2.Width = 200
+                        lbl2.ForeColor = Color.Black
+                        lbl2.Font = New Font(lbl2.Font, FontStyle.Bold)
+                        lbl2.BackColor = Color.LightCyan
+                        lbl2.Dock = DockStyle.Bottom
+                        lbl2.TextAlign = ContentAlignment.MiddleCenter
+                        lbl2.BorderStyle = BorderStyle.FixedSingle
+
+                        lblProductName = New Label
+                        lblProductName.Width = 200
+                        lblProductName.ForeColor = Color.Black
+                        lblProductName.BackColor = Color.White
+                        lblProductName.Dock = DockStyle.Bottom
+                        lblProductName.TextAlign = ContentAlignment.MiddleCenter
+                        lblProductName.BorderStyle = BorderStyle.FixedSingle
+
+                        lbl3 = New Label
+                        lbl3.Width = 200
+                        lbl3.ForeColor = Color.Black
+                        lbl3.Font = New Font(lbl3.Font, FontStyle.Bold)
+                        lbl3.BackColor = Color.LightCyan
+                        lbl3.Dock = DockStyle.Bottom
+                        lbl3.TextAlign = ContentAlignment.MiddleCenter
+                        lbl3.BorderStyle = BorderStyle.FixedSingle
+
+                        lblProductGender = New Label
+                        lblProductGender.Width = 200
+                        lblProductGender.ForeColor = Color.Black
+                        lblProductGender.BackColor = Color.White
+                        lblProductGender.Dock = DockStyle.Bottom
+                        lblProductGender.TextAlign = ContentAlignment.MiddleCenter
+                        lblProductGender.BorderStyle = BorderStyle.FixedSingle
+
+                        lbl4 = New Label
+                        lbl4.Width = 200
+                        lbl4.ForeColor = Color.Black
+                        lbl4.Font = New Font(lbl4.Font, FontStyle.Bold)
+                        lbl4.BackColor = Color.LightCyan
+                        lbl4.Dock = DockStyle.Bottom
+                        lbl4.TextAlign = ContentAlignment.MiddleCenter
+                        lbl4.BorderStyle = BorderStyle.FixedSingle
+
+                        lblProductCategory = New Label
+                        lblProductCategory.Width = 200
+                        lblProductCategory.ForeColor = Color.Black
+                        lblProductCategory.BackColor = Color.White
+                        lblProductCategory.Dock = DockStyle.Bottom
+                        lblProductCategory.TextAlign = ContentAlignment.MiddleCenter
+                        lblProductCategory.BorderStyle = BorderStyle.FixedSingle
+
+                        Dim ms As New System.IO.MemoryStream(array)
+                        Dim bitmap As New System.Drawing.Bitmap(ms)
+                        picProductImage.BackgroundImage = bitmap
+
+                        lbl1.Text = "Product ID"
+                        lblProductID.Text = dr.Item("productId").ToString
+                        lbl2.Text = "Product Name"
+                        lblProductName.Text = dr.Item("productName").ToString
+                        lbl3.Text = "Product For"
+                        lblProductGender.Text = dr.Item("productGender").ToString
+                        lbl4.Text = "Product Category"
+                        lblProductCategory.Text = dr.Item("productCategory").ToString
+
+                        panelShow.Controls.Add(picProductImage)
+                        panelShow.Controls.Add(lbl1)
+                        panelShow.Controls.Add(lblProductID)
+                        panelShow.Controls.Add(lbl2)
+                        panelShow.Controls.Add(lblProductName)
+                        panelShow.Controls.Add(lbl3)
+                        panelShow.Controls.Add(lblProductGender)
+                        panelShow.Controls.Add(lbl4)
+                        panelShow.Controls.Add(lblProductCategory)
+
+                        FlowLayoutPanel1.Controls.Add(panelShow)
+
+                        ' Create a new instance of the MenuItemDetails user control
+                        Dim menu As New MenuItemDetails()
+
+                        ' Set the ProductID and ProductName properties of the user control
+
+                        menu.ProductImage = Image.FromStream(ms)
+                        menu.ProductID = dr.Item("productId").ToString()
+                        menu.ProductName = dr.Item("productName").ToString()
+                        menu.ProductGender = dr.Item("productGender").ToString()
+                        menu.ProductCategory = dr.Item("productCategory").ToString()
+                        menu.ProductSize = dr.Item("productSize").ToString()
+                        menu.ProductDescription = dr.Item("productDescription").ToString()
+                        menu.ProductPrice = dr.Item("productPrice").ToString()
+                        menu.ProductStock = dr.Item("productStock").ToString()
+
+                        ' Set the Tag property of the picture box control to the MenuItemDetails instance
+                        picProductImage.Tag = menu
+
+                        ' Add a handler for the Click event of the picture box control
+                        AddHandler picProductImage.Click, AddressOf lblProductID_Click
+                    End While
+                Else
+                    MessageBox.Show("Please search available Product ID", "Product ID not available", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+                dr.Close()
+                con.Close()
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Function IsInputChar(ByVal inputString As String) As Boolean
+        Dim regex As Regex = New Regex("^[0-9]+$")
+        Return Not regex.IsMatch(inputString)
+    End Function
 
 
 End Class
