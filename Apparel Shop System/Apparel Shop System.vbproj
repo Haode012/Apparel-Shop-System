@@ -96,29 +96,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ApparelShopSystemDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Customer\Home.Designer.vb">
+    <Compile Include="Staff\Home.Designer.vb">
       <DependentUpon>Home.vb</DependentUpon>
     </Compile>
-    <Compile Include="Customer\Home.vb">
+    <Compile Include="Staff\Home.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer\Homepage.vb">
+    <Compile Include="Staff\Homepage.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer\Homepage.Designer.vb">
+    <Compile Include="Staff\Homepage.Designer.vb">
       <DependentUpon>Homepage.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer\MenuItem.Designer.vb">
-      <DependentUpon>MenuItem.vb</DependentUpon>
+    <Compile Include="Staff\ProductItem.Designer.vb">
+      <DependentUpon>ProductItem.vb</DependentUpon>
     </Compile>
-    <Compile Include="Customer\MenuItem.vb">
+    <Compile Include="Staff\ProductItem.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer\MenuItemDetails.Designer.vb">
-      <DependentUpon>MenuItemDetails.vb</DependentUpon>
+    <Compile Include="Staff\ProductItemDetails.Designer.vb">
+      <DependentUpon>ProductItemDetails.vb</DependentUpon>
     </Compile>
-    <Compile Include="Customer\MenuItemDetails.vb">
+    <Compile Include="Staff\ProductItemDetails.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -137,31 +137,31 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Staff\MenuMaintenance.Designer.vb">
-      <DependentUpon>MenuMaintenance.vb</DependentUpon>
+    <Compile Include="Manager\ProductMaintenance.Designer.vb">
+      <DependentUpon>ProductMaintenance.vb</DependentUpon>
     </Compile>
-    <Compile Include="Staff\MenuMaintenance.vb">
+    <Compile Include="Manager\ProductMaintenance.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Staff\StaffHomepage.Designer.vb">
-      <DependentUpon>StaffHomepage.vb</DependentUpon>
+    <Compile Include="Manager\ManagerHomepage.Designer.vb">
+      <DependentUpon>ManagerHomepage.vb</DependentUpon>
     </Compile>
-    <Compile Include="Staff\StaffHomepage.vb">
+    <Compile Include="Manager\ManagerHomepage.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Customer\Home.resx">
+    <EmbeddedResource Include="Staff\Home.resx">
       <DependentUpon>Home.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer\Homepage.resx">
+    <EmbeddedResource Include="Staff\Homepage.resx">
       <DependentUpon>Homepage.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer\MenuItem.resx">
-      <DependentUpon>MenuItem.vb</DependentUpon>
+    <EmbeddedResource Include="Staff\ProductItem.resx">
+      <DependentUpon>ProductItem.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer\MenuItemDetails.resx">
-      <DependentUpon>MenuItemDetails.vb</DependentUpon>
+    <EmbeddedResource Include="Staff\ProductItemDetails.resx">
+      <DependentUpon>ProductItemDetails.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -169,11 +169,11 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Staff\MenuMaintenance.resx">
-      <DependentUpon>MenuMaintenance.vb</DependentUpon>
+    <EmbeddedResource Include="Manager\ProductMaintenance.resx">
+      <DependentUpon>ProductMaintenance.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Staff\StaffHomepage.resx">
-      <DependentUpon>StaffHomepage.vb</DependentUpon>
+    <EmbeddedResource Include="Manager\ManagerHomepage.resx">
+      <DependentUpon>ManagerHomepage.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

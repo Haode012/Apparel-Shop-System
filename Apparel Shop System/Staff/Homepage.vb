@@ -7,18 +7,18 @@
             .Show()
         End With
 
-        MenuItemDetails.Close()
+        ProductItemDetails.Close()
     End Sub
 
-    Private Sub btnMenu_Click(sender As Object, e As EventArgs) Handles btnMenu.Click
-        With MenuItem
+    Private Sub btnMenu_Click(sender As Object, e As EventArgs) Handles btnProduct.Click
+        With ProductItem
             .TopLevel = False
-            panelShow.Controls.Add(MenuItem)
+            panelShow.Controls.Add(ProductItem)
             .BringToFront()
             .Show()
         End With
 
-        MenuItemDetails.Close()
+        ProductItemDetails.Close()
     End Sub
 
     Private Sub Homepage_Load(sender As Object, e As EventArgs) Handles MyBase.Load

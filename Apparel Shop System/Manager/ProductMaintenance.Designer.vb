@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class MenuMaintenance
+Partial Class ProductMaintenance
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -99,7 +99,7 @@ Partial Class MenuMaintenance
         Me.lblWelcome.Name = "lblWelcome"
         Me.lblWelcome.Size = New System.Drawing.Size(933, 107)
         Me.lblWelcome.TabIndex = 6
-        Me.lblWelcome.Text = "Menu Maintenance"
+        Me.lblWelcome.Text = "Product Maintenance"
         Me.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label1
@@ -498,7 +498,7 @@ Partial Class MenuMaintenance
         Me.btnDisplay.Text = "D&isplay"
         Me.btnDisplay.UseVisualStyleBackColor = True
         '
-        'MenuMaintenance
+        'ProductMaintenance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -507,7 +507,7 @@ Partial Class MenuMaintenance
         Me.Controls.Add(Me.lblWelcome)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "MenuMaintenance"
+        Me.Name = "ProductMaintenance"
         Me.Text = "MenuMaintenance"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()

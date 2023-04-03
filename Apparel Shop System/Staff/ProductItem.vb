@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
-Imports Apparel_Shop_System.MenuItemDetails
+Imports Apparel_Shop_System.ProductItemDetails
 Imports System.Text.RegularExpressions
-Public Class MenuItem
+Public Class ProductItem
     Dim con As New SqlConnection
     Dim cmd As New SqlCommand
     Dim dr As SqlDataReader
@@ -149,7 +149,7 @@ Public Class MenuItem
             FlowLayoutPanel1.Controls.Add(panelShow)
 
             ' Create a new instance of the MenuItemDetails user control
-            Dim menu As New MenuItemDetails()
+            Dim menu As New ProductItemDetails()
 
             ' Set the ProductID and ProductName properties of the user control
 
@@ -176,13 +176,13 @@ Public Class MenuItem
 
     Public Sub lblProductID_Click(sender As Object, e As EventArgs)
 
-        Dim menu As MenuItemDetails = DirectCast(sender, PictureBox).Tag
+        Dim menu As ProductItemDetails = DirectCast(sender, PictureBox).Tag
 
-        MenuItemDetails.ShowProductDetails(menu.ProductImage, menu.ProductID, menu.ProductName, menu.ProductGender, menu.ProductCategory, menu.ProductSize, menu.ProductDescription, menu.ProductPrice, menu.ProductStock)
+        ProductItemDetails.ShowProductDetails(menu.ProductImage, menu.ProductID, menu.ProductName, menu.ProductGender, menu.ProductCategory, menu.ProductSize, menu.ProductDescription, menu.ProductPrice, menu.ProductStock)
 
-        With MenuItemDetails
+        With ProductItemDetails
             .TopLevel = False
-            Me.Controls.Add(MenuItemDetails)
+            Me.Controls.Add(ProductItemDetails)
             .BringToFront()
             .Show()
         End With
@@ -319,7 +319,7 @@ Public Class MenuItem
                         FlowLayoutPanel1.Controls.Add(panelShow)
 
                         ' Create a new instance of the MenuItemDetails user control
-                        Dim menu As New MenuItemDetails()
+                        Dim menu As New ProductItemDetails()
 
                         ' Set the ProductID and ProductName properties of the user control
 

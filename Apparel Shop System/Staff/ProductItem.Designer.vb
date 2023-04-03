@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class MenuItem
+Partial Class ProductItem
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -48,14 +48,14 @@ Partial Class MenuItem
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1615, 46)
+        Me.Panel1.Size = New System.Drawing.Size(1594, 46)
         Me.Panel1.TabIndex = 2
         '
         'picDelete
         '
         Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
         Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
-        Me.picDelete.Location = New System.Drawing.Point(1569, 0)
+        Me.picDelete.Location = New System.Drawing.Point(1548, 0)
         Me.picDelete.Name = "picDelete"
         Me.picDelete.Size = New System.Drawing.Size(46, 46)
         Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -190,7 +190,7 @@ Partial Class MenuItem
         Me.Panel3.Size = New System.Drawing.Size(1580, 67)
         Me.Panel3.TabIndex = 15
         '
-        'MenuItem
+        'ProductItem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -203,7 +203,7 @@ Partial Class MenuItem
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "MenuItem"
+        Me.Name = "ProductItem"
         Me.Text = "MenuItem"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)

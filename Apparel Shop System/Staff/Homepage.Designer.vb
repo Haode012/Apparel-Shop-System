@@ -27,7 +27,7 @@ Partial Class Homepage
         Me.btnLogOut = New System.Windows.Forms.Button()
         Me.btnOrderHistory = New System.Windows.Forms.Button()
         Me.btnMyCart = New System.Windows.Forms.Button()
-        Me.btnMenu = New System.Windows.Forms.Button()
+        Me.btnProduct = New System.Windows.Forms.Button()
         Me.btnHome = New System.Windows.Forms.Button()
         Me.imagePanel = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -53,7 +53,7 @@ Partial Class Homepage
         Me.leftPanel.Controls.Add(Me.btnLogOut)
         Me.leftPanel.Controls.Add(Me.btnOrderHistory)
         Me.leftPanel.Controls.Add(Me.btnMyCart)
-        Me.leftPanel.Controls.Add(Me.btnMenu)
+        Me.leftPanel.Controls.Add(Me.btnProduct)
         Me.leftPanel.Controls.Add(Me.btnHome)
         Me.leftPanel.Controls.Add(Me.imagePanel)
         Me.leftPanel.Dock = System.Windows.Forms.DockStyle.Left
@@ -113,22 +113,22 @@ Partial Class Homepage
         Me.btnMyCart.Text = "&My Cart"
         Me.btnMyCart.UseVisualStyleBackColor = True
         '
-        'btnMenu
+        'btnProduct
         '
-        Me.btnMenu.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnMenu.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.btnMenu.FlatAppearance.BorderSize = 0
-        Me.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMenu.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMenu.ForeColor = System.Drawing.Color.Black
-        Me.btnMenu.Image = Global.Apparel_Shop_System.My.Resources.Resources.category_icon
-        Me.btnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnMenu.Location = New System.Drawing.Point(0, 235)
-        Me.btnMenu.Name = "btnMenu"
-        Me.btnMenu.Size = New System.Drawing.Size(250, 46)
-        Me.btnMenu.TabIndex = 5
-        Me.btnMenu.Text = "&Menu"
-        Me.btnMenu.UseVisualStyleBackColor = True
+        Me.btnProduct.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnProduct.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnProduct.FlatAppearance.BorderSize = 0
+        Me.btnProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnProduct.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnProduct.ForeColor = System.Drawing.Color.Black
+        Me.btnProduct.Image = Global.Apparel_Shop_System.My.Resources.Resources.category_icon
+        Me.btnProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnProduct.Location = New System.Drawing.Point(0, 235)
+        Me.btnProduct.Name = "btnProduct"
+        Me.btnProduct.Size = New System.Drawing.Size(250, 46)
+        Me.btnProduct.TabIndex = 5
+        Me.btnProduct.Text = "&Product"
+        Me.btnProduct.UseVisualStyleBackColor = True
         '
         'btnHome
         '
@@ -288,7 +288,7 @@ Partial Class Homepage
     End Sub
 
     Friend WithEvents leftPanel As Panel
-    Friend WithEvents btnMenu As Button
+    Friend WithEvents btnProduct As Button
     Friend WithEvents btnHome As Button
     Friend WithEvents imagePanel As Panel
     Friend WithEvents Label1 As Label

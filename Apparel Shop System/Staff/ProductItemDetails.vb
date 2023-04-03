@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
-Public Class MenuItemDetails
+Public Class ProductItemDetails
 
     Dim con As New SqlConnection
     Dim cmd As New SqlCommand
@@ -88,7 +88,7 @@ Public Class MenuItemDetails
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
         Me.Close()
         Home.Close()
-        MenuItem.Close()
+        ProductItem.Close()
     End Sub
 
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
@@ -156,7 +156,7 @@ Public Class MenuItemDetails
                 MessageBox.Show("Deleted product successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                 Me.Close()
-                MenuItem.Show()
+                ProductItem.Show()
             Else
                 cmd = con.CreateCommand
                 cmd.CommandType = CommandType.Text
@@ -168,7 +168,7 @@ Public Class MenuItemDetails
                 MessageBox.Show("Stock updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                 Me.Close()
-                MenuItem.Show()
+                ProductItem.Show()
             End If
 
         Catch ex As Exception

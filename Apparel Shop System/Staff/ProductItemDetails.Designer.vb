@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class MenuItemDetails
+Partial Class ProductItemDetails
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class MenuItemDetails
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MenuItemDetails))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ProductItemDetails))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.picBack = New System.Windows.Forms.PictureBox()
         Me.picDelete = New System.Windows.Forms.PictureBox()
@@ -35,7 +35,7 @@ Partial Class MenuItemDetails
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.lblMenuItemDetails = New System.Windows.Forms.Label()
+        Me.lblProductItemDetails = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.btnAddToCart = New System.Windows.Forms.Button()
         Me.lblProductQuantity = New System.Windows.Forms.Label()
@@ -178,16 +178,16 @@ Partial Class MenuItemDetails
         Me.Label10.TabIndex = 31
         Me.Label10.Text = "Product ID:"
         '
-        'lblMenuItemDetails
+        'lblProductItemDetails
         '
-        Me.lblMenuItemDetails.BackColor = System.Drawing.Color.LightCyan
-        Me.lblMenuItemDetails.Font = New System.Drawing.Font("Segoe Script", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMenuItemDetails.Location = New System.Drawing.Point(300, 63)
-        Me.lblMenuItemDetails.Name = "lblMenuItemDetails"
-        Me.lblMenuItemDetails.Size = New System.Drawing.Size(933, 107)
-        Me.lblMenuItemDetails.TabIndex = 40
-        Me.lblMenuItemDetails.Text = "Menu Item Details"
-        Me.lblMenuItemDetails.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblProductItemDetails.BackColor = System.Drawing.Color.LightCyan
+        Me.lblProductItemDetails.Font = New System.Drawing.Font("Segoe Script", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblProductItemDetails.Location = New System.Drawing.Point(300, 63)
+        Me.lblProductItemDetails.Name = "lblProductItemDetails"
+        Me.lblProductItemDetails.Size = New System.Drawing.Size(933, 107)
+        Me.lblProductItemDetails.TabIndex = 40
+        Me.lblProductItemDetails.Text = "Product Item Details"
+        Me.lblProductItemDetails.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label8
         '
@@ -335,7 +335,7 @@ Partial Class MenuItemDetails
         Me.picProductImage.TabIndex = 3
         Me.picProductImage.TabStop = False
         '
-        'MenuItemDetails
+        'ProductItemDetails
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -353,7 +353,7 @@ Partial Class MenuItemDetails
         Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.btnAddToCart)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.lblMenuItemDetails)
+        Me.Controls.Add(Me.lblProductItemDetails)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
@@ -366,7 +366,7 @@ Partial Class MenuItemDetails
         Me.Controls.Add(Me.picProductImage)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "MenuItemDetails"
+        Me.Name = "ProductItemDetails"
         Me.Text = "MenuItemDetails"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
@@ -392,7 +392,7 @@ Partial Class MenuItemDetails
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents lblMenuItemDetails As Label
+    Friend WithEvents lblProductItemDetails As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents btnAddToCart As Button
     Friend WithEvents lblProductQuantity As Label

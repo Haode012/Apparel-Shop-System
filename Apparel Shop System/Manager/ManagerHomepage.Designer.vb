@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class StaffHomepage
+Partial Class ManagerHomepage
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,11 +22,10 @@ Partial Class StaffHomepage
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(StaffHomepage))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ManagerHomepage))
         Me.panelShow = New System.Windows.Forms.Panel()
-        Me.panelMenuMaintenance = New System.Windows.Forms.Panel()
-        Me.lblMenuMaintenance = New System.Windows.Forms.Label()
-        Me.btnMenuMaintenanceBig = New System.Windows.Forms.Button()
+        Me.lblProductMaintenance = New System.Windows.Forms.Label()
+        Me.btnProductMaintenanceBig = New System.Windows.Forms.Button()
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -34,14 +33,13 @@ Partial Class StaffHomepage
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.leftPanel = New System.Windows.Forms.Panel()
         Me.btnLogOut = New System.Windows.Forms.Button()
-        Me.btnMenuMaintenance = New System.Windows.Forms.Button()
+        Me.btnProductMaintenance = New System.Windows.Forms.Button()
         Me.btnHome = New System.Windows.Forms.Button()
         Me.imagePanel = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblUsername = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.panelShow.SuspendLayout()
-        Me.panelMenuMaintenance.SuspendLayout()
         Me.leftPanel.SuspendLayout()
         Me.imagePanel.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -49,7 +47,8 @@ Partial Class StaffHomepage
         '
         'panelShow
         '
-        Me.panelShow.Controls.Add(Me.panelMenuMaintenance)
+        Me.panelShow.Controls.Add(Me.lblProductMaintenance)
+        Me.panelShow.Controls.Add(Me.btnProductMaintenanceBig)
         Me.panelShow.Controls.Add(Me.lblWelcome)
         Me.panelShow.Dock = System.Windows.Forms.DockStyle.Fill
         Me.panelShow.Location = New System.Drawing.Point(262, 10)
@@ -57,44 +56,35 @@ Partial Class StaffHomepage
         Me.panelShow.Size = New System.Drawing.Size(1652, 1035)
         Me.panelShow.TabIndex = 14
         '
-        'panelMenuMaintenance
+        'lblProductMaintenance
         '
-        Me.panelMenuMaintenance.Controls.Add(Me.lblMenuMaintenance)
-        Me.panelMenuMaintenance.Controls.Add(Me.btnMenuMaintenanceBig)
-        Me.panelMenuMaintenance.Location = New System.Drawing.Point(916, 347)
-        Me.panelMenuMaintenance.Name = "panelMenuMaintenance"
-        Me.panelMenuMaintenance.Size = New System.Drawing.Size(304, 255)
-        Me.panelMenuMaintenance.TabIndex = 7
+        Me.lblProductMaintenance.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblProductMaintenance.Location = New System.Drawing.Point(994, 464)
+        Me.lblProductMaintenance.Name = "lblProductMaintenance"
+        Me.lblProductMaintenance.Size = New System.Drawing.Size(276, 81)
+        Me.lblProductMaintenance.TabIndex = 1
+        Me.lblProductMaintenance.Text = "Product Maintenance"
+        Me.lblProductMaintenance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'lblMenuMaintenance
+        'btnProductMaintenanceBig
         '
-        Me.lblMenuMaintenance.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMenuMaintenance.Location = New System.Drawing.Point(15, 196)
-        Me.lblMenuMaintenance.Name = "lblMenuMaintenance"
-        Me.lblMenuMaintenance.Size = New System.Drawing.Size(277, 36)
-        Me.lblMenuMaintenance.TabIndex = 1
-        Me.lblMenuMaintenance.Text = "Menu Maintenance"
-        Me.lblMenuMaintenance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnMenuMaintenanceBig
-        '
-        Me.btnMenuMaintenanceBig.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.menu_maintenance_icon_big
-        Me.btnMenuMaintenanceBig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnMenuMaintenanceBig.Location = New System.Drawing.Point(82, 33)
-        Me.btnMenuMaintenanceBig.Name = "btnMenuMaintenanceBig"
-        Me.btnMenuMaintenanceBig.Size = New System.Drawing.Size(141, 142)
-        Me.btnMenuMaintenanceBig.TabIndex = 0
-        Me.btnMenuMaintenanceBig.UseVisualStyleBackColor = True
+        Me.btnProductMaintenanceBig.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.menu_maintenance_icon_big
+        Me.btnProductMaintenanceBig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnProductMaintenanceBig.Location = New System.Drawing.Point(1056, 303)
+        Me.btnProductMaintenanceBig.Name = "btnProductMaintenanceBig"
+        Me.btnProductMaintenanceBig.Size = New System.Drawing.Size(141, 142)
+        Me.btnProductMaintenanceBig.TabIndex = 0
+        Me.btnProductMaintenanceBig.UseVisualStyleBackColor = True
         '
         'lblWelcome
         '
         Me.lblWelcome.BackColor = System.Drawing.Color.LightCyan
         Me.lblWelcome.Font = New System.Drawing.Font("Segoe Script", 60.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblWelcome.Location = New System.Drawing.Point(433, 95)
+        Me.lblWelcome.Location = New System.Drawing.Point(290, 83)
         Me.lblWelcome.Name = "lblWelcome"
-        Me.lblWelcome.Size = New System.Drawing.Size(807, 165)
+        Me.lblWelcome.Size = New System.Drawing.Size(1187, 165)
         Me.lblWelcome.TabIndex = 5
-        Me.lblWelcome.Text = "Staff Panel"
+        Me.lblWelcome.Text = "Manager Panel"
         Me.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Panel4
@@ -137,7 +127,7 @@ Partial Class StaffHomepage
         '
         Me.leftPanel.BackColor = System.Drawing.Color.LightCyan
         Me.leftPanel.Controls.Add(Me.btnLogOut)
-        Me.leftPanel.Controls.Add(Me.btnMenuMaintenance)
+        Me.leftPanel.Controls.Add(Me.btnProductMaintenance)
         Me.leftPanel.Controls.Add(Me.btnHome)
         Me.leftPanel.Controls.Add(Me.imagePanel)
         Me.leftPanel.Dock = System.Windows.Forms.DockStyle.Left
@@ -163,22 +153,22 @@ Partial Class StaffHomepage
         Me.btnLogOut.Text = "&Log Out"
         Me.btnLogOut.UseVisualStyleBackColor = True
         '
-        'btnMenuMaintenance
+        'btnProductMaintenance
         '
-        Me.btnMenuMaintenance.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnMenuMaintenance.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.btnMenuMaintenance.FlatAppearance.BorderSize = 0
-        Me.btnMenuMaintenance.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMenuMaintenance.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMenuMaintenance.ForeColor = System.Drawing.Color.Black
-        Me.btnMenuMaintenance.Image = CType(resources.GetObject("btnMenuMaintenance.Image"), System.Drawing.Image)
-        Me.btnMenuMaintenance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnMenuMaintenance.Location = New System.Drawing.Point(0, 235)
-        Me.btnMenuMaintenance.Name = "btnMenuMaintenance"
-        Me.btnMenuMaintenance.Size = New System.Drawing.Size(250, 65)
-        Me.btnMenuMaintenance.TabIndex = 5
-        Me.btnMenuMaintenance.Text = "&Menu " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "maintenance"
-        Me.btnMenuMaintenance.UseVisualStyleBackColor = True
+        Me.btnProductMaintenance.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnProductMaintenance.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnProductMaintenance.FlatAppearance.BorderSize = 0
+        Me.btnProductMaintenance.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnProductMaintenance.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnProductMaintenance.ForeColor = System.Drawing.Color.Black
+        Me.btnProductMaintenance.Image = CType(resources.GetObject("btnProductMaintenance.Image"), System.Drawing.Image)
+        Me.btnProductMaintenance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnProductMaintenance.Location = New System.Drawing.Point(0, 235)
+        Me.btnProductMaintenance.Name = "btnProductMaintenance"
+        Me.btnProductMaintenance.Size = New System.Drawing.Size(250, 65)
+        Me.btnProductMaintenance.TabIndex = 5
+        Me.btnProductMaintenance.Text = "&Product " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Maintenance"
+        Me.btnProductMaintenance.UseVisualStyleBackColor = True
         '
         'btnHome
         '
@@ -228,7 +218,7 @@ Partial Class StaffHomepage
         Me.lblUsername.Name = "lblUsername"
         Me.lblUsername.Size = New System.Drawing.Size(209, 24)
         Me.lblUsername.TabIndex = 5
-        Me.lblUsername.Text = "Staff Name"
+        Me.lblUsername.Text = "Manager Name"
         Me.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'PictureBox1
@@ -244,7 +234,7 @@ Partial Class StaffHomepage
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
         '
-        'StaffHomepage
+        'ManagerHomepage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -256,11 +246,10 @@ Partial Class StaffHomepage
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.leftPanel)
         Me.MaximizeBox = False
-        Me.Name = "StaffHomepage"
+        Me.Name = "ManagerHomepage"
         Me.Text = "YJRCH Apperal Shop System"
         Me.WindowState = System.Windows.Forms.FormWindowState.Minimized
         Me.panelShow.ResumeLayout(False)
-        Me.panelMenuMaintenance.ResumeLayout(False)
         Me.leftPanel.ResumeLayout(False)
         Me.imagePanel.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -276,13 +265,12 @@ Partial Class StaffHomepage
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents btnMenuMaintenance As Button
+    Friend WithEvents btnProductMaintenance As Button
     Friend WithEvents btnHome As Button
     Friend WithEvents imagePanel As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents leftPanel As Panel
     Friend WithEvents lblWelcome As Label
-    Friend WithEvents panelMenuMaintenance As Panel
-    Friend WithEvents lblMenuMaintenance As Label
-    Friend WithEvents btnMenuMaintenanceBig As Button
+    Friend WithEvents lblProductMaintenance As Label
+    Friend WithEvents btnProductMaintenanceBig As Button
 End Class

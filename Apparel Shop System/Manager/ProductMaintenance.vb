@@ -3,7 +3,7 @@ Imports System.IO
 Imports System.Drawing.Imaging
 Imports System.Globalization
 Imports System.Text.RegularExpressions
-Public Class MenuMaintenance
+Public Class ProductMaintenance
 
     Dim con As New SqlConnection
     Dim cmd As New SqlCommand
