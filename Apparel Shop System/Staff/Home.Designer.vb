@@ -35,14 +35,14 @@ Partial Class Home
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1612, 46)
+        Me.Panel1.Size = New System.Drawing.Size(1654, 46)
         Me.Panel1.TabIndex = 1
         '
         'picDelete
         '
         Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
         Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
-        Me.picDelete.Location = New System.Drawing.Point(1566, 0)
+        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
         Me.picDelete.Name = "picDelete"
         Me.picDelete.Size = New System.Drawing.Size(46, 46)
         Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -53,7 +53,7 @@ Partial Class Home
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1612, 966)
+        Me.ClientSize = New System.Drawing.Size(1654, 1035)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Home"

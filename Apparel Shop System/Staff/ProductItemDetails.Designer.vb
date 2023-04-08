@@ -65,7 +65,7 @@ Partial Class ProductItemDetails
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1594, 46)
+        Me.Panel1.Size = New System.Drawing.Size(1654, 46)
         Me.Panel1.TabIndex = 2
         '
         'picBack
@@ -83,7 +83,7 @@ Partial Class ProductItemDetails
         '
         Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
         Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
-        Me.picDelete.Location = New System.Drawing.Point(1548, 0)
+        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
         Me.picDelete.Name = "picDelete"
         Me.picDelete.Size = New System.Drawing.Size(46, 46)
         Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -339,7 +339,7 @@ Partial Class ProductItemDetails
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1594, 919)
+        Me.ClientSize = New System.Drawing.Size(1654, 1035)
         Me.Controls.Add(Me.picRemove)
         Me.Controls.Add(Me.lblProductQuantity)
         Me.Controls.Add(Me.lblProductSize)

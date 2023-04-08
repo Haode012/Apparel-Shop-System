@@ -51,9 +51,9 @@ Partial Class ManagerHomepage
         Me.panelShow.Controls.Add(Me.btnProductMaintenanceBig)
         Me.panelShow.Controls.Add(Me.lblWelcome)
         Me.panelShow.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.panelShow.Location = New System.Drawing.Point(262, 10)
+        Me.panelShow.Location = New System.Drawing.Point(260, 10)
         Me.panelShow.Name = "panelShow"
-        Me.panelShow.Size = New System.Drawing.Size(1652, 1035)
+        Me.panelShow.Size = New System.Drawing.Size(1654, 1035)
         Me.panelShow.TabIndex = 14
         '
         'lblProductMaintenance
@@ -91,18 +91,18 @@ Partial Class ManagerHomepage
         '
         Me.Panel4.BackColor = System.Drawing.Color.White
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel4.Location = New System.Drawing.Point(262, 1045)
+        Me.Panel4.Location = New System.Drawing.Point(260, 1045)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(1652, 10)
+        Me.Panel4.Size = New System.Drawing.Size(1654, 10)
         Me.Panel4.TabIndex = 12
         '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.White
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel3.Location = New System.Drawing.Point(262, 0)
+        Me.Panel3.Location = New System.Drawing.Point(260, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1652, 10)
+        Me.Panel3.Size = New System.Drawing.Size(1654, 10)
         Me.Panel3.TabIndex = 11
         '
         'Panel1
@@ -111,7 +111,7 @@ Partial Class ManagerHomepage
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(250, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(12, 1055)
+        Me.Panel1.Size = New System.Drawing.Size(10, 1055)
         Me.Panel1.TabIndex = 10
         '
         'Panel2

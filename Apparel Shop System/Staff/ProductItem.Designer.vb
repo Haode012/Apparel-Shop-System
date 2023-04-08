@@ -48,14 +48,14 @@ Partial Class ProductItem
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1594, 46)
+        Me.Panel1.Size = New System.Drawing.Size(1654, 46)
         Me.Panel1.TabIndex = 2
         '
         'picDelete
         '
         Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
         Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
-        Me.picDelete.Location = New System.Drawing.Point(1548, 0)
+        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
         Me.picDelete.Name = "picDelete"
         Me.picDelete.Size = New System.Drawing.Size(46, 46)
         Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -64,7 +64,7 @@ Partial Class ProductItem
         '
         'FlowLayoutPanel1
         '
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(81, 350)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(82, 348)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1414, 557)
         Me.FlowLayoutPanel1.TabIndex = 7
@@ -72,7 +72,7 @@ Partial Class ProductItem
         'txtSearch
         '
         Me.txtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSearch.Location = New System.Drawing.Point(508, 125)
+        Me.txtSearch.Location = New System.Drawing.Point(509, 123)
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(549, 45)
         Me.txtSearch.TabIndex = 5
@@ -160,7 +160,7 @@ Partial Class ProductItem
         '
         Me.btnSearch.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.search_icon
         Me.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnSearch.Location = New System.Drawing.Point(1049, 125)
+        Me.btnSearch.Location = New System.Drawing.Point(1050, 123)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(51, 45)
         Me.btnSearch.TabIndex = 6
@@ -174,7 +174,7 @@ Partial Class ProductItem
         Me.Panel2.Controls.Add(Me.btnShirt)
         Me.Panel2.Controls.Add(Me.btnPant)
         Me.Panel2.Controls.Add(Me.btnShoe)
-        Me.Panel2.Location = New System.Drawing.Point(35, 192)
+        Me.Panel2.Location = New System.Drawing.Point(36, 190)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1580, 67)
         Me.Panel2.TabIndex = 14
@@ -185,7 +185,7 @@ Partial Class ProductItem
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel3.Controls.Add(Me.btnMale)
         Me.Panel3.Controls.Add(Me.btnFemale)
-        Me.Panel3.Location = New System.Drawing.Point(35, 261)
+        Me.Panel3.Location = New System.Drawing.Point(36, 259)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1580, 67)
         Me.Panel3.TabIndex = 15
@@ -195,7 +195,7 @@ Partial Class ProductItem
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1594, 919)
+        Me.ClientSize = New System.Drawing.Size(1654, 1035)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.FlowLayoutPanel1)

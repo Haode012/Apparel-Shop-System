@@ -200,25 +200,25 @@ Partial Class Homepage
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(250, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(12, 1055)
+        Me.Panel1.Size = New System.Drawing.Size(10, 1055)
         Me.Panel1.TabIndex = 3
         '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.White
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel3.Location = New System.Drawing.Point(262, 0)
+        Me.Panel3.Location = New System.Drawing.Point(260, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1662, 10)
+        Me.Panel3.Size = New System.Drawing.Size(1664, 10)
         Me.Panel3.TabIndex = 5
         '
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.White
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel4.Location = New System.Drawing.Point(262, 1045)
+        Me.Panel4.Location = New System.Drawing.Point(260, 1045)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(1662, 10)
+        Me.Panel4.Size = New System.Drawing.Size(1664, 10)
         Me.Panel4.TabIndex = 6
         '
         'Panel2
@@ -235,9 +235,9 @@ Partial Class Homepage
         Me.panelShow.Controls.Add(Me.lblWelcome)
         Me.panelShow.Controls.Add(Me.PictureBox2)
         Me.panelShow.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.panelShow.Location = New System.Drawing.Point(262, 10)
+        Me.panelShow.Location = New System.Drawing.Point(260, 10)
         Me.panelShow.Name = "panelShow"
-        Me.panelShow.Size = New System.Drawing.Size(1652, 1035)
+        Me.panelShow.Size = New System.Drawing.Size(1654, 1035)
         Me.panelShow.TabIndex = 8
         '
         'lblWelcome
@@ -257,7 +257,7 @@ Partial Class Homepage
         Me.PictureBox2.Image = Global.Apparel_Shop_System.My.Resources.Resources.apperal_shop
         Me.PictureBox2.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(1652, 1035)
+        Me.PictureBox2.Size = New System.Drawing.Size(1654, 1035)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 4
         Me.PictureBox2.TabStop = False
