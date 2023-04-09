@@ -96,6 +96,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ApparelShopSystemDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Login\ForgotPassword.Designer.vb">
+      <DependentUpon>ForgotPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login\ForgotPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\ManagerLogin.Designer.vb">
+      <DependentUpon>ManagerLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login\ManagerLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\StaffLogin.Designer.vb">
+      <DependentUpon>StaffLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login\StaffLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Staff\Home.Designer.vb">
       <DependentUpon>Home.vb</DependentUpon>
     </Compile>
@@ -151,6 +169,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Login\ForgotPassword.resx">
+      <DependentUpon>ForgotPassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\ManagerLogin.resx">
+      <DependentUpon>ManagerLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\StaffLogin.resx">
+      <DependentUpon>StaffLogin.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Staff\Home.resx">
       <DependentUpon>Home.vb</DependentUpon>
     </EmbeddedResource>
