@@ -91,11 +91,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApparelShopSystemDataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ApparelShopSystemDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Login\ForgotPassword.Designer.vb">
       <DependentUpon>ForgotPassword.vb</DependentUpon>
     </Compile>
@@ -112,6 +107,18 @@
       <DependentUpon>StaffLogin.vb</DependentUpon>
     </Compile>
     <Compile Include="Login\StaffLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\CreateProduct.Designer.vb">
+      <DependentUpon>CreateProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\CreateProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\UpdateProduct.Designer.vb">
+      <DependentUpon>UpdateProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\UpdateProduct.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Staff\Home.Designer.vb">
@@ -178,6 +185,12 @@
     <EmbeddedResource Include="Login\StaffLogin.resx">
       <DependentUpon>StaffLogin.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Manager\CreateProduct.resx">
+      <DependentUpon>CreateProduct.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\UpdateProduct.resx">
+      <DependentUpon>UpdateProduct.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Staff\Home.resx">
       <DependentUpon>Home.vb</DependentUpon>
     </EmbeddedResource>
@@ -204,17 +217,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ApparelShopSystemDataSet.xsc">
-      <DependentUpon>ApparelShopSystemDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="ApparelShopSystemDataSet.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ApparelShopSystemDataSet.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="ApparelShopSystemDataSet.xss">
-      <DependentUpon>ApparelShopSystemDataSet.xsd</DependentUpon>
-    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

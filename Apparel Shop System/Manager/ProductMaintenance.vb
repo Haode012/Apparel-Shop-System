@@ -5,9 +5,9 @@ Imports System.Globalization
 Imports System.Text.RegularExpressions
 Public Class ProductMaintenance
 
-    Dim con As New SqlConnection
-    Dim cmd As New SqlCommand
-    Dim i As Integer
+    Private con As New SqlConnection
+    Private cmd As New SqlCommand
+    Private i As Integer
     Private dblPrice As Double
 
     Private Sub MenuMaintenance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
