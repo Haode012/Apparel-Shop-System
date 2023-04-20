@@ -22,8 +22,8 @@ Partial Class CreateProduct
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CreateProduct))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.grpProductGender = New System.Windows.Forms.GroupBox()
         Me.radFemale = New System.Windows.Forms.RadioButton()
@@ -34,7 +34,6 @@ Partial Class CreateProduct
         Me.radS = New System.Windows.Forms.RadioButton()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.btnChoose = New System.Windows.Forms.Button()
-        Me.picImage = New System.Windows.Forms.PictureBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtProductStock = New System.Windows.Forms.TextBox()
         Me.txtProductPrice = New System.Windows.Forms.TextBox()
@@ -51,33 +50,27 @@ Partial Class CreateProduct
         Me.Label1 = New System.Windows.Forms.Label()
         Me.grpProductSize = New System.Windows.Forms.GroupBox()
         Me.btnCreate = New System.Windows.Forms.Button()
+        Me.picImage = New System.Windows.Forms.PictureBox()
+        Me.picDelete = New System.Windows.Forms.PictureBox()
+        Me.picBack = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
-        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpProductGender.SuspendLayout()
-        CType(Me.picImage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpProductSize.SuspendLayout()
+        CType(Me.picImage, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Silver
+        Me.Panel1.Controls.Add(Me.picBack)
         Me.Panel1.Controls.Add(Me.picDelete)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1654, 46)
         Me.Panel1.TabIndex = 4
-        '
-        'picDelete
-        '
-        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
-        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
-        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
-        Me.picDelete.Name = "picDelete"
-        Me.picDelete.Size = New System.Drawing.Size(46, 46)
-        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picDelete.TabIndex = 0
-        Me.picDelete.TabStop = False
         '
         'lblWelcome
         '
@@ -95,7 +88,7 @@ Partial Class CreateProduct
         Me.grpProductGender.BackColor = System.Drawing.Color.Transparent
         Me.grpProductGender.Controls.Add(Me.radFemale)
         Me.grpProductGender.Controls.Add(Me.radMale)
-        Me.grpProductGender.Location = New System.Drawing.Point(529, 337)
+        Me.grpProductGender.Location = New System.Drawing.Point(533, 312)
         Me.grpProductGender.Name = "grpProductGender"
         Me.grpProductGender.Size = New System.Drawing.Size(248, 68)
         Me.grpProductGender.TabIndex = 57
@@ -177,7 +170,7 @@ Partial Class CreateProduct
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(141, 475)
+        Me.Label9.Location = New System.Drawing.Point(145, 450)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(225, 38)
         Me.Label9.TabIndex = 52
@@ -186,28 +179,18 @@ Partial Class CreateProduct
         'btnChoose
         '
         Me.btnChoose.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnChoose.Location = New System.Drawing.Point(529, 816)
+        Me.btnChoose.Location = New System.Drawing.Point(531, 802)
         Me.btnChoose.Name = "btnChoose"
         Me.btnChoose.Size = New System.Drawing.Size(205, 51)
         Me.btnChoose.TabIndex = 51
         Me.btnChoose.Text = "&Choose an Image"
         Me.btnChoose.UseVisualStyleBackColor = True
         '
-        'picImage
-        '
-        Me.picImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.picImage.Location = New System.Drawing.Point(1000, 286)
-        Me.picImage.Name = "picImage"
-        Me.picImage.Size = New System.Drawing.Size(598, 512)
-        Me.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picImage.TabIndex = 50
-        Me.picImage.TabStop = False
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(141, 802)
+        Me.Label8.Location = New System.Drawing.Point(143, 788)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(251, 38)
         Me.Label8.TabIndex = 49
@@ -216,7 +199,7 @@ Partial Class CreateProduct
         'txtProductStock
         '
         Me.txtProductStock.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProductStock.Location = New System.Drawing.Point(531, 746)
+        Me.txtProductStock.Location = New System.Drawing.Point(533, 732)
         Me.txtProductStock.Name = "txtProductStock"
         Me.txtProductStock.Size = New System.Drawing.Size(100, 45)
         Me.txtProductStock.TabIndex = 48
@@ -224,7 +207,7 @@ Partial Class CreateProduct
         'txtProductPrice
         '
         Me.txtProductPrice.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProductPrice.Location = New System.Drawing.Point(531, 692)
+        Me.txtProductPrice.Location = New System.Drawing.Point(533, 678)
         Me.txtProductPrice.Name = "txtProductPrice"
         Me.txtProductPrice.Size = New System.Drawing.Size(246, 45)
         Me.txtProductPrice.TabIndex = 47
@@ -232,7 +215,7 @@ Partial Class CreateProduct
         'txtProductDescription
         '
         Me.txtProductDescription.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProductDescription.Location = New System.Drawing.Point(529, 528)
+        Me.txtProductDescription.Location = New System.Drawing.Point(533, 503)
         Me.txtProductDescription.Multiline = True
         Me.txtProductDescription.Name = "txtProductDescription"
         Me.txtProductDescription.Size = New System.Drawing.Size(423, 156)
@@ -244,7 +227,7 @@ Partial Class CreateProduct
         Me.cmbProductCategory.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbProductCategory.FormattingEnabled = True
         Me.cmbProductCategory.Items.AddRange(New Object() {"Shirt", "Pant", "Shoe", "Sock"})
-        Me.cmbProductCategory.Location = New System.Drawing.Point(529, 411)
+        Me.cmbProductCategory.Location = New System.Drawing.Point(533, 386)
         Me.cmbProductCategory.Name = "cmbProductCategory"
         Me.cmbProductCategory.Size = New System.Drawing.Size(248, 39)
         Me.cmbProductCategory.TabIndex = 45
@@ -253,7 +236,7 @@ Partial Class CreateProduct
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(141, 746)
+        Me.Label7.Location = New System.Drawing.Point(143, 732)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(245, 38)
         Me.Label7.TabIndex = 44
@@ -263,7 +246,7 @@ Partial Class CreateProduct
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(141, 692)
+        Me.Label6.Location = New System.Drawing.Point(143, 678)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(237, 38)
         Me.Label6.TabIndex = 43
@@ -273,7 +256,7 @@ Partial Class CreateProduct
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(141, 531)
+        Me.Label5.Location = New System.Drawing.Point(145, 506)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(332, 38)
         Me.Label5.TabIndex = 42
@@ -283,7 +266,7 @@ Partial Class CreateProduct
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(141, 409)
+        Me.Label4.Location = New System.Drawing.Point(145, 384)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(298, 38)
         Me.Label4.TabIndex = 41
@@ -293,7 +276,7 @@ Partial Class CreateProduct
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(141, 354)
+        Me.Label3.Location = New System.Drawing.Point(145, 329)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(272, 38)
         Me.Label3.TabIndex = 40
@@ -302,7 +285,7 @@ Partial Class CreateProduct
         'txtProductName
         '
         Me.txtProductName.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProductName.Location = New System.Drawing.Point(527, 286)
+        Me.txtProductName.Location = New System.Drawing.Point(531, 261)
         Me.txtProductName.Name = "txtProductName"
         Me.txtProductName.Size = New System.Drawing.Size(425, 45)
         Me.txtProductName.TabIndex = 39
@@ -311,7 +294,7 @@ Partial Class CreateProduct
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(141, 293)
+        Me.Label2.Location = New System.Drawing.Point(145, 268)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(248, 38)
         Me.Label2.TabIndex = 38
@@ -321,7 +304,7 @@ Partial Class CreateProduct
         '
         Me.txtProductID.Enabled = False
         Me.txtProductID.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProductID.Location = New System.Drawing.Point(529, 229)
+        Me.txtProductID.Location = New System.Drawing.Point(533, 204)
         Me.txtProductID.Name = "txtProductID"
         Me.txtProductID.Size = New System.Drawing.Size(100, 45)
         Me.txtProductID.TabIndex = 37
@@ -330,7 +313,7 @@ Partial Class CreateProduct
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(141, 236)
+        Me.Label1.Location = New System.Drawing.Point(145, 211)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(191, 38)
         Me.Label1.TabIndex = 36
@@ -342,7 +325,7 @@ Partial Class CreateProduct
         Me.grpProductSize.Controls.Add(Me.radS)
         Me.grpProductSize.Controls.Add(Me.radXL)
         Me.grpProductSize.Controls.Add(Me.radL)
-        Me.grpProductSize.Location = New System.Drawing.Point(529, 456)
+        Me.grpProductSize.Location = New System.Drawing.Point(533, 431)
         Me.grpProductSize.Name = "grpProductSize"
         Me.grpProductSize.Size = New System.Drawing.Size(285, 66)
         Me.grpProductSize.TabIndex = 58
@@ -353,12 +336,44 @@ Partial Class CreateProduct
         Me.btnCreate.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnCreate.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCreate.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnCreate.Location = New System.Drawing.Point(529, 885)
+        Me.btnCreate.Location = New System.Drawing.Point(531, 871)
         Me.btnCreate.Name = "btnCreate"
-        Me.btnCreate.Size = New System.Drawing.Size(369, 106)
+        Me.btnCreate.Size = New System.Drawing.Size(329, 65)
         Me.btnCreate.TabIndex = 59
         Me.btnCreate.Text = "&Create Product"
         Me.btnCreate.UseVisualStyleBackColor = False
+        '
+        'picImage
+        '
+        Me.picImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picImage.Location = New System.Drawing.Point(1004, 261)
+        Me.picImage.Name = "picImage"
+        Me.picImage.Size = New System.Drawing.Size(598, 512)
+        Me.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picImage.TabIndex = 50
+        Me.picImage.TabStop = False
+        '
+        'picDelete
+        '
+        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
+        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
+        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
+        Me.picDelete.Name = "picDelete"
+        Me.picDelete.Size = New System.Drawing.Size(46, 46)
+        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDelete.TabIndex = 0
+        Me.picDelete.TabStop = False
+        '
+        'picBack
+        '
+        Me.picBack.Dock = System.Windows.Forms.DockStyle.Left
+        Me.picBack.Image = CType(resources.GetObject("picBack.Image"), System.Drawing.Image)
+        Me.picBack.Location = New System.Drawing.Point(0, 0)
+        Me.picBack.Name = "picBack"
+        Me.picBack.Size = New System.Drawing.Size(46, 46)
+        Me.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picBack.TabIndex = 3
+        Me.picBack.TabStop = False
         '
         'CreateProduct
         '
@@ -390,14 +405,15 @@ Partial Class CreateProduct
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "CreateProduct"
         Me.Text = "AddProduct"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Minimized
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
-        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpProductGender.ResumeLayout(False)
         Me.grpProductGender.PerformLayout()
-        CType(Me.picImage, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpProductSize.ResumeLayout(False)
         Me.grpProductSize.PerformLayout()
+        CType(Me.picImage, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -432,4 +448,5 @@ Partial Class CreateProduct
     Friend WithEvents Label1 As Label
     Friend WithEvents grpProductSize As GroupBox
     Friend WithEvents btnCreate As Button
+    Friend WithEvents picBack As PictureBox
 End Class

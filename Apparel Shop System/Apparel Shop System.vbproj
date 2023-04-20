@@ -115,6 +115,24 @@
     <Compile Include="Manager\CreateProduct.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Manager\DeleteProduct.Designer.vb">
+      <DependentUpon>DeleteProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\DeleteProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\DisplayProduct.Designer.vb">
+      <DependentUpon>DisplayProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\DisplayProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\ProductReport.Designer.vb">
+      <DependentUpon>ProductReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\ProductReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Manager\UpdateProduct.Designer.vb">
       <DependentUpon>UpdateProduct.vb</DependentUpon>
     </Compile>
@@ -187,6 +205,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\CreateProduct.resx">
       <DependentUpon>CreateProduct.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\DeleteProduct.resx">
+      <DependentUpon>DeleteProduct.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\DisplayProduct.resx">
+      <DependentUpon>DisplayProduct.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\UpdateProduct.resx">
       <DependentUpon>UpdateProduct.vb</DependentUpon>
@@ -281,6 +305,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>ApparelShopSystemDatabase.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\product_report.png" />
+    <None Include="Resources\update_product.png" />
+    <None Include="Resources\create_product.png" />
+    <None Include="Resources\delete_product.png" />
+    <None Include="Resources\display_product.png" />
     <None Include="Resources\Female.png" />
     <None Include="Resources\Male.png" />
     <None Include="Resources\remove_icon.png" />

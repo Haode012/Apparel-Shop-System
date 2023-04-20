@@ -7,7 +7,6 @@ Imports System.Text.RegularExpressions
 Public Class CreateProduct
     Private con As New SqlConnection
     Private cmd As New SqlCommand
-    Private i As Integer
     Private dblPrice As Double
 
     Private Sub AddProduct_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -136,4 +135,17 @@ Public Class CreateProduct
         txtProductName.Focus()
     End Sub
 
+    Private Function IsInputChar(ByVal inputString As String) As Boolean
+        Dim regex As Regex = New Regex("^[0-9]+$")
+        Return Not regex.IsMatch(inputString)
+    End Function
+
+    Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
+        Me.Close()
+        ProductMaintenance.Close()
+    End Sub
+
+    Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
+        Me.Close()
+    End Sub
 End Class

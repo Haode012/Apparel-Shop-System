@@ -10,7 +10,7 @@
         ProductItemDetails.Close()
     End Sub
 
-    Private Sub btnMenu_Click(sender As Object, e As EventArgs) Handles btnProduct.Click
+    Private Sub btnProduct_Click(sender As Object, e As EventArgs) Handles btnProduct.Click
         With ProductItem
             .TopLevel = False
             panelShow.Controls.Add(ProductItem)
@@ -19,10 +19,6 @@
         End With
 
         ProductItemDetails.Close()
-    End Sub
-
-    Private Sub Homepage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
     End Sub
 
 End Class

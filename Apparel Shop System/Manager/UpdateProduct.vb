@@ -7,7 +7,6 @@ Imports System.Text.RegularExpressions
 Public Class UpdateProduct
     Private con As New SqlConnection
     Private cmd As New SqlCommand
-    Private i As Integer
     Private dblPrice As Double
     Private Sub UpdateProduct_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         con.ConnectionString = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True"
@@ -24,6 +23,11 @@ Public Class UpdateProduct
             cmbProductID.Items.Add(reader("productID"))
         End While
         reader.Close()
+
+        If cmbProductID.Text = "" Then
+            enabledFalse()
+        End If
+
     End Sub
 
     Private Sub cmbProductID_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbProductID.SelectedIndexChanged
@@ -84,6 +88,7 @@ Public Class UpdateProduct
             'Set the image of the PictureBox control from the MemoryStream
             picImage.Image = Image.FromStream(ms)
 
+            enabledTrue()
         End If
 
         reader.Close()
@@ -129,7 +134,9 @@ Public Class UpdateProduct
             End If
 
             'validation
-            If txtProductName.Text = "" Then
+            If cmbProductID.Text = "" Then
+                MessageBox.Show("Please choose a Product ID", "Missing Product ID", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ElseIf txtProductName.Text = "" Then
                 MessageBox.Show("Please enter Product Name", "Missing Product Name", MessageBoxButtons.OK, MessageBoxIcon.Error)
             ElseIf IsNumeric(txtProductName.Text) Then
                 MessageBox.Show("Product Name cannot contain only digit number", "Invalid Product Name", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -181,6 +188,7 @@ Public Class UpdateProduct
                     MessageBox.Show("Record updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                     clearData()
+                    enabledFalse()
 
                 End If
             End If
@@ -204,6 +212,41 @@ Public Class UpdateProduct
         txtProductPrice.Text = ""
         txtProductStock.Text = ""
         picImage.Image = Nothing
-        txtProductName.Focus()
+    End Sub
+
+    Public Sub enabledTrue()
+        txtProductName.Enabled = True
+        grpProductGender.Enabled = True
+        cmbProductCategory.Enabled = True
+        grpProductSize.Enabled = True
+        txtProductDescription.Enabled = True
+        txtProductPrice.Enabled = True
+        txtProductStock.Enabled = True
+        btnChoose.Enabled = True
+    End Sub
+
+    Public Sub enabledFalse()
+        txtProductName.Enabled = False
+        grpProductGender.Enabled = False
+        cmbProductCategory.Enabled = False
+        grpProductSize.Enabled = False
+        txtProductDescription.Enabled = False
+        txtProductPrice.Enabled = False
+        txtProductStock.Enabled = False
+        btnChoose.Enabled = False
+    End Sub
+
+    Private Function IsInputChar(ByVal inputString As String) As Boolean
+        Dim regex As Regex = New Regex("^[0-9]+$")
+        Return Not regex.IsMatch(inputString)
+    End Function
+
+    Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
+        Me.Close()
+        ProductMaintenance.Close()
+    End Sub
+
+    Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
+        Me.Close()
     End Sub
 End Class

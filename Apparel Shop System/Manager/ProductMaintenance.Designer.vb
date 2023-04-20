@@ -22,64 +22,22 @@ Partial Class ProductMaintenance
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lblWelcome = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtProductID = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtProductName = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.cmbProductCategory = New System.Windows.Forms.ComboBox()
-        Me.txtProductDescription = New System.Windows.Forms.TextBox()
-        Me.txtProductPrice = New System.Windows.Forms.TextBox()
-        Me.txtProductStock = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.picImage = New System.Windows.Forms.PictureBox()
-        Me.btnChoose = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.btnCreate = New System.Windows.Forms.Button()
+        Me.lblDisplay = New System.Windows.Forms.Label()
+        Me.lblCreate = New System.Windows.Forms.Label()
+        Me.lblUpdate = New System.Windows.Forms.Label()
+        Me.lblDelete = New System.Windows.Forms.Label()
+        Me.lblReport = New System.Windows.Forms.Label()
+        Me.btnReport = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
-        Me.btnClear = New System.Windows.Forms.Button()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.radS = New System.Windows.Forms.RadioButton()
-        Me.radM = New System.Windows.Forms.RadioButton()
-        Me.radL = New System.Windows.Forms.RadioButton()
-        Me.radXL = New System.Windows.Forms.RadioButton()
-        Me.grpProductGender = New System.Windows.Forms.GroupBox()
-        Me.radFemale = New System.Windows.Forms.RadioButton()
-        Me.radMale = New System.Windows.Forms.RadioButton()
-        Me.btnSearch = New System.Windows.Forms.Button()
-        Me.txtSearch = New System.Windows.Forms.TextBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnCreate = New System.Windows.Forms.Button()
         Me.btnDisplay = New System.Windows.Forms.Button()
-        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
-        CType(Me.picImage, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.grpProductGender.SuspendLayout()
-        Me.Panel2.SuspendLayout()
+        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'picDelete
-        '
-        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
-        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
-        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
-        Me.picDelete.Name = "picDelete"
-        Me.picDelete.Size = New System.Drawing.Size(46, 46)
-        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picDelete.TabIndex = 0
-        Me.picDelete.TabStop = False
         '
         'Panel1
         '
@@ -102,422 +60,140 @@ Partial Class ProductMaintenance
         Me.lblWelcome.Text = "Product Maintenance"
         Me.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label1
+        'lblDisplay
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(55, 20)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(191, 38)
-        Me.Label1.TabIndex = 7
-        Me.Label1.Text = "Product ID:"
+        Me.lblDisplay.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDisplay.Location = New System.Drawing.Point(257, 483)
+        Me.lblDisplay.Name = "lblDisplay"
+        Me.lblDisplay.Size = New System.Drawing.Size(276, 60)
+        Me.lblDisplay.TabIndex = 11
+        Me.lblDisplay.Text = "Display Product"
+        Me.lblDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'txtProductID
+        'lblCreate
         '
-        Me.txtProductID.Enabled = False
-        Me.txtProductID.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProductID.Location = New System.Drawing.Point(443, 13)
-        Me.txtProductID.Name = "txtProductID"
-        Me.txtProductID.Size = New System.Drawing.Size(100, 45)
-        Me.txtProductID.TabIndex = 8
+        Me.lblCreate.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCreate.Location = New System.Drawing.Point(727, 481)
+        Me.lblCreate.Name = "lblCreate"
+        Me.lblCreate.Size = New System.Drawing.Size(276, 62)
+        Me.lblCreate.TabIndex = 12
+        Me.lblCreate.Text = "Create Product"
+        Me.lblCreate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label2
+        'lblUpdate
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(55, 77)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(248, 38)
-        Me.Label2.TabIndex = 9
-        Me.Label2.Text = "Product Name:"
+        Me.lblUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUpdate.Location = New System.Drawing.Point(241, 819)
+        Me.lblUpdate.Name = "lblUpdate"
+        Me.lblUpdate.Size = New System.Drawing.Size(276, 62)
+        Me.lblUpdate.TabIndex = 13
+        Me.lblUpdate.Text = "Update Product"
+        Me.lblUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'txtProductName
+        'lblDelete
         '
-        Me.txtProductName.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProductName.Location = New System.Drawing.Point(441, 70)
-        Me.txtProductName.Name = "txtProductName"
-        Me.txtProductName.Size = New System.Drawing.Size(248, 45)
-        Me.txtProductName.TabIndex = 10
+        Me.lblDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDelete.Location = New System.Drawing.Point(727, 819)
+        Me.lblDelete.Name = "lblDelete"
+        Me.lblDelete.Size = New System.Drawing.Size(276, 62)
+        Me.lblDelete.TabIndex = 14
+        Me.lblDelete.Text = "Delete Product"
+        Me.lblDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label3
+        'lblReport
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(55, 138)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(272, 38)
-        Me.Label3.TabIndex = 11
-        Me.Label3.Text = "Product Gender:"
+        Me.lblReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblReport.Location = New System.Drawing.Point(1201, 631)
+        Me.lblReport.Name = "lblReport"
+        Me.lblReport.Size = New System.Drawing.Size(276, 62)
+        Me.lblReport.TabIndex = 16
+        Me.lblReport.Text = "Product Report"
+        Me.lblReport.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label4
+        'btnReport
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(55, 193)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(298, 38)
-        Me.Label4.TabIndex = 12
-        Me.Label4.Text = "Product Category:"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(53, 296)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(332, 38)
-        Me.Label5.TabIndex = 13
-        Me.Label5.Text = "Product Description:"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(53, 352)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(237, 38)
-        Me.Label6.TabIndex = 14
-        Me.Label6.Text = "Product Price:"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(53, 406)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(245, 38)
-        Me.Label7.TabIndex = 15
-        Me.Label7.Text = "Product Stock:"
-        '
-        'cmbProductCategory
-        '
-        Me.cmbProductCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbProductCategory.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbProductCategory.FormattingEnabled = True
-        Me.cmbProductCategory.Items.AddRange(New Object() {"Shirt", "Pant", "Shoe", "Sock"})
-        Me.cmbProductCategory.Location = New System.Drawing.Point(443, 195)
-        Me.cmbProductCategory.Name = "cmbProductCategory"
-        Me.cmbProductCategory.Size = New System.Drawing.Size(248, 39)
-        Me.cmbProductCategory.TabIndex = 18
-        '
-        'txtProductDescription
-        '
-        Me.txtProductDescription.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProductDescription.Location = New System.Drawing.Point(443, 293)
-        Me.txtProductDescription.Name = "txtProductDescription"
-        Me.txtProductDescription.Size = New System.Drawing.Size(248, 45)
-        Me.txtProductDescription.TabIndex = 19
-        '
-        'txtProductPrice
-        '
-        Me.txtProductPrice.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProductPrice.Location = New System.Drawing.Point(443, 352)
-        Me.txtProductPrice.Name = "txtProductPrice"
-        Me.txtProductPrice.Size = New System.Drawing.Size(100, 45)
-        Me.txtProductPrice.TabIndex = 20
-        '
-        'txtProductStock
-        '
-        Me.txtProductStock.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProductStock.Location = New System.Drawing.Point(443, 406)
-        Me.txtProductStock.Name = "txtProductStock"
-        Me.txtProductStock.Size = New System.Drawing.Size(100, 45)
-        Me.txtProductStock.TabIndex = 21
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(53, 462)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(251, 38)
-        Me.Label8.TabIndex = 22
-        Me.Label8.Text = "Product Image:"
-        '
-        'picImage
-        '
-        Me.picImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.picImage.Location = New System.Drawing.Point(607, 352)
-        Me.picImage.Name = "picImage"
-        Me.picImage.Size = New System.Drawing.Size(319, 307)
-        Me.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picImage.TabIndex = 23
-        Me.picImage.TabStop = False
-        '
-        'btnChoose
-        '
-        Me.btnChoose.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnChoose.Location = New System.Drawing.Point(441, 476)
-        Me.btnChoose.Name = "btnChoose"
-        Me.btnChoose.Size = New System.Drawing.Size(142, 70)
-        Me.btnChoose.TabIndex = 24
-        Me.btnChoose.Text = "&Choose an Image"
-        Me.btnChoose.UseVisualStyleBackColor = True
-        '
-        'DataGridView1
-        '
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle8
-        Me.DataGridView1.Location = New System.Drawing.Point(726, 13)
-        Me.DataGridView1.Name = "DataGridView1"
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
-        Me.DataGridView1.RowHeadersWidth = 30
-        Me.DataGridView1.RowTemplate.Height = 200
-        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(798, 318)
-        Me.DataGridView1.TabIndex = 25
-        '
-        'btnCreate
-        '
-        Me.btnCreate.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCreate.Location = New System.Drawing.Point(1068, 462)
-        Me.btnCreate.Name = "btnCreate"
-        Me.btnCreate.Size = New System.Drawing.Size(161, 69)
-        Me.btnCreate.TabIndex = 26
-        Me.btnCreate.Text = "&Create"
-        Me.btnCreate.UseVisualStyleBackColor = True
+        Me.btnReport.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.product_report
+        Me.btnReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnReport.Location = New System.Drawing.Point(1224, 409)
+        Me.btnReport.Name = "btnReport"
+        Me.btnReport.Size = New System.Drawing.Size(227, 219)
+        Me.btnReport.TabIndex = 15
+        Me.btnReport.UseVisualStyleBackColor = True
         '
         'btnDelete
         '
-        Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Location = New System.Drawing.Point(983, 548)
+        Me.btnDelete.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.delete_product
+        Me.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnDelete.Location = New System.Drawing.Point(754, 597)
         Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(161, 69)
-        Me.btnDelete.TabIndex = 27
-        Me.btnDelete.Text = "&Delete"
+        Me.btnDelete.Size = New System.Drawing.Size(227, 219)
+        Me.btnDelete.TabIndex = 10
         Me.btnDelete.UseVisualStyleBackColor = True
         '
         'btnUpdate
         '
-        Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUpdate.Location = New System.Drawing.Point(1257, 462)
+        Me.btnUpdate.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.update_product
+        Me.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnUpdate.Location = New System.Drawing.Point(263, 597)
         Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(161, 69)
-        Me.btnUpdate.TabIndex = 28
-        Me.btnUpdate.Text = "&Update"
+        Me.btnUpdate.Size = New System.Drawing.Size(227, 219)
+        Me.btnUpdate.TabIndex = 9
         Me.btnUpdate.UseVisualStyleBackColor = True
         '
-        'btnClear
+        'btnCreate
         '
-        Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Location = New System.Drawing.Point(1339, 548)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(161, 69)
-        Me.btnClear.TabIndex = 29
-        Me.btnClear.Text = "C&lear"
-        Me.btnClear.UseVisualStyleBackColor = True
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(55, 245)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(225, 38)
-        Me.Label9.TabIndex = 30
-        Me.Label9.Text = "Product Size:"
-        '
-        'radS
-        '
-        Me.radS.AutoSize = True
-        Me.radS.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radS.Location = New System.Drawing.Point(443, 247)
-        Me.radS.Name = "radS"
-        Me.radS.Size = New System.Drawing.Size(55, 36)
-        Me.radS.TabIndex = 31
-        Me.radS.TabStop = True
-        Me.radS.Text = "S"
-        Me.radS.UseVisualStyleBackColor = True
-        '
-        'radM
-        '
-        Me.radM.AutoSize = True
-        Me.radM.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radM.Location = New System.Drawing.Point(504, 247)
-        Me.radM.Name = "radM"
-        Me.radM.Size = New System.Drawing.Size(59, 36)
-        Me.radM.TabIndex = 32
-        Me.radM.TabStop = True
-        Me.radM.Text = "M"
-        Me.radM.UseVisualStyleBackColor = True
-        '
-        'radL
-        '
-        Me.radL.AutoSize = True
-        Me.radL.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radL.Location = New System.Drawing.Point(569, 247)
-        Me.radL.Name = "radL"
-        Me.radL.Size = New System.Drawing.Size(52, 36)
-        Me.radL.TabIndex = 33
-        Me.radL.TabStop = True
-        Me.radL.Text = "L"
-        Me.radL.UseVisualStyleBackColor = True
-        '
-        'radXL
-        '
-        Me.radXL.AutoSize = True
-        Me.radXL.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radXL.Location = New System.Drawing.Point(626, 247)
-        Me.radXL.Name = "radXL"
-        Me.radXL.Size = New System.Drawing.Size(71, 36)
-        Me.radXL.TabIndex = 34
-        Me.radXL.TabStop = True
-        Me.radXL.Text = "XL"
-        Me.radXL.UseVisualStyleBackColor = True
-        '
-        'grpProductGender
-        '
-        Me.grpProductGender.BackColor = System.Drawing.Color.Transparent
-        Me.grpProductGender.Controls.Add(Me.radFemale)
-        Me.grpProductGender.Controls.Add(Me.radMale)
-        Me.grpProductGender.Location = New System.Drawing.Point(443, 121)
-        Me.grpProductGender.Name = "grpProductGender"
-        Me.grpProductGender.Size = New System.Drawing.Size(248, 68)
-        Me.grpProductGender.TabIndex = 35
-        Me.grpProductGender.TabStop = False
-        '
-        'radFemale
-        '
-        Me.radFemale.AutoSize = True
-        Me.radFemale.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radFemale.Location = New System.Drawing.Point(116, 26)
-        Me.radFemale.Name = "radFemale"
-        Me.radFemale.Size = New System.Drawing.Size(98, 29)
-        Me.radFemale.TabIndex = 17
-        Me.radFemale.TabStop = True
-        Me.radFemale.Text = "Female"
-        Me.radFemale.UseVisualStyleBackColor = True
-        '
-        'radMale
-        '
-        Me.radMale.AutoSize = True
-        Me.radMale.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radMale.Location = New System.Drawing.Point(24, 26)
-        Me.radMale.Name = "radMale"
-        Me.radMale.Size = New System.Drawing.Size(76, 29)
-        Me.radMale.TabIndex = 16
-        Me.radMale.TabStop = True
-        Me.radMale.Text = "Male"
-        Me.radMale.UseVisualStyleBackColor = True
-        '
-        'btnSearch
-        '
-        Me.btnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSearch.Location = New System.Drawing.Point(1363, 361)
-        Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(161, 69)
-        Me.btnSearch.TabIndex = 37
-        Me.btnSearch.Text = "&Search"
-        Me.btnSearch.UseVisualStyleBackColor = True
-        '
-        'txtSearch
-        '
-        Me.txtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSearch.Location = New System.Drawing.Point(1174, 372)
-        Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(174, 45)
-        Me.txtSearch.TabIndex = 38
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(965, 379)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(191, 38)
-        Me.Label10.TabIndex = 39
-        Me.Label10.Text = "Product ID:"
-        '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.btnDisplay)
-        Me.Panel2.Controls.Add(Me.Label10)
-        Me.Panel2.Controls.Add(Me.txtSearch)
-        Me.Panel2.Controls.Add(Me.btnSearch)
-        Me.Panel2.Controls.Add(Me.grpProductGender)
-        Me.Panel2.Controls.Add(Me.radXL)
-        Me.Panel2.Controls.Add(Me.radL)
-        Me.Panel2.Controls.Add(Me.radM)
-        Me.Panel2.Controls.Add(Me.radS)
-        Me.Panel2.Controls.Add(Me.Label9)
-        Me.Panel2.Controls.Add(Me.btnClear)
-        Me.Panel2.Controls.Add(Me.btnUpdate)
-        Me.Panel2.Controls.Add(Me.btnDelete)
-        Me.Panel2.Controls.Add(Me.btnCreate)
-        Me.Panel2.Controls.Add(Me.DataGridView1)
-        Me.Panel2.Controls.Add(Me.btnChoose)
-        Me.Panel2.Controls.Add(Me.picImage)
-        Me.Panel2.Controls.Add(Me.Label8)
-        Me.Panel2.Controls.Add(Me.txtProductStock)
-        Me.Panel2.Controls.Add(Me.txtProductPrice)
-        Me.Panel2.Controls.Add(Me.txtProductDescription)
-        Me.Panel2.Controls.Add(Me.cmbProductCategory)
-        Me.Panel2.Controls.Add(Me.Label7)
-        Me.Panel2.Controls.Add(Me.Label6)
-        Me.Panel2.Controls.Add(Me.Label5)
-        Me.Panel2.Controls.Add(Me.Label4)
-        Me.Panel2.Controls.Add(Me.Label3)
-        Me.Panel2.Controls.Add(Me.txtProductName)
-        Me.Panel2.Controls.Add(Me.Label2)
-        Me.Panel2.Controls.Add(Me.txtProductID)
-        Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Location = New System.Drawing.Point(53, 241)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1544, 665)
-        Me.Panel2.TabIndex = 8
+        Me.btnCreate.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.create_product
+        Me.btnCreate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnCreate.Location = New System.Drawing.Point(754, 261)
+        Me.btnCreate.Name = "btnCreate"
+        Me.btnCreate.Size = New System.Drawing.Size(227, 219)
+        Me.btnCreate.TabIndex = 8
+        Me.btnCreate.UseVisualStyleBackColor = True
         '
         'btnDisplay
         '
-        Me.btnDisplay.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDisplay.Location = New System.Drawing.Point(1162, 548)
+        Me.btnDisplay.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.display_product
+        Me.btnDisplay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnDisplay.Location = New System.Drawing.Point(278, 261)
         Me.btnDisplay.Name = "btnDisplay"
-        Me.btnDisplay.Size = New System.Drawing.Size(161, 69)
-        Me.btnDisplay.TabIndex = 40
-        Me.btnDisplay.Text = "D&isplay"
+        Me.btnDisplay.Size = New System.Drawing.Size(227, 219)
+        Me.btnDisplay.TabIndex = 7
         Me.btnDisplay.UseVisualStyleBackColor = True
+        '
+        'picDelete
+        '
+        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
+        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
+        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
+        Me.picDelete.Name = "picDelete"
+        Me.picDelete.Size = New System.Drawing.Size(46, 46)
+        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDelete.TabIndex = 0
+        Me.picDelete.TabStop = False
         '
         'ProductMaintenance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1654, 1035)
-        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.lblReport)
+        Me.Controls.Add(Me.btnReport)
+        Me.Controls.Add(Me.lblDelete)
+        Me.Controls.Add(Me.lblUpdate)
+        Me.Controls.Add(Me.lblCreate)
+        Me.Controls.Add(Me.lblDisplay)
+        Me.Controls.Add(Me.btnDelete)
+        Me.Controls.Add(Me.btnUpdate)
+        Me.Controls.Add(Me.btnCreate)
+        Me.Controls.Add(Me.btnDisplay)
         Me.Controls.Add(Me.lblWelcome)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ProductMaintenance"
         Me.Text = "MenuMaintenance"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
-        CType(Me.picImage, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.grpProductGender.ResumeLayout(False)
-        Me.grpProductGender.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
+        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -525,38 +201,14 @@ Partial Class ProductMaintenance
     Friend WithEvents picDelete As PictureBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents lblWelcome As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents txtProductID As TextBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents txtProductName As TextBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents cmbProductCategory As ComboBox
-    Friend WithEvents txtProductDescription As TextBox
-    Friend WithEvents txtProductPrice As TextBox
-    Friend WithEvents txtProductStock As TextBox
-    Friend WithEvents Label8 As Label
-    Friend WithEvents picImage As PictureBox
-    Friend WithEvents btnChoose As Button
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents btnCreate As Button
-    Friend WithEvents btnDelete As Button
-    Friend WithEvents btnUpdate As Button
-    Friend WithEvents btnClear As Button
-    Friend WithEvents Label9 As Label
-    Friend WithEvents radS As RadioButton
-    Friend WithEvents radM As RadioButton
-    Friend WithEvents radL As RadioButton
-    Friend WithEvents radXL As RadioButton
-    Friend WithEvents grpProductGender As GroupBox
-    Friend WithEvents radFemale As RadioButton
-    Friend WithEvents radMale As RadioButton
-    Friend WithEvents btnSearch As Button
-    Friend WithEvents txtSearch As TextBox
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Panel2 As Panel
     Friend WithEvents btnDisplay As Button
+    Friend WithEvents btnCreate As Button
+    Friend WithEvents btnUpdate As Button
+    Friend WithEvents btnDelete As Button
+    Friend WithEvents lblDisplay As Label
+    Friend WithEvents lblCreate As Label
+    Friend WithEvents lblUpdate As Label
+    Friend WithEvents lblDelete As Label
+    Friend WithEvents btnReport As Button
+    Friend WithEvents lblReport As Label
 End Class
