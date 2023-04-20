@@ -147,7 +147,7 @@ Public Class ProductItemDetails
 
             lblProductStock.Text = lblProductStock.Text - lblProductQuantity.Text
 
-            If (lblProductStock.Text = 0) Then
+            If lblProductStock.Text = 0 Then
                 cmd = con.CreateCommand
                 cmd.CommandType = CommandType.Text
                 cmd.CommandText = "DELETE FROM Product WHERE productId=@id"
@@ -156,7 +156,7 @@ Public Class ProductItemDetails
                 MessageBox.Show("Deleted product successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                 Me.Close()
-                ProductItem.Show()
+                ProductItem.Close()
             Else
                 cmd = con.CreateCommand
                 cmd.CommandType = CommandType.Text
@@ -168,7 +168,7 @@ Public Class ProductItemDetails
                 MessageBox.Show("Stock updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                 Me.Close()
-                ProductItem.Show()
+                ProductItem.Close()
             End If
 
         Catch ex As Exception

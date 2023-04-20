@@ -201,13 +201,15 @@ Partial Class ProductItemDetails
         '
         'btnAddToCart
         '
+        Me.btnAddToCart.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnAddToCart.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddToCart.ForeColor = System.Drawing.Color.White
         Me.btnAddToCart.Location = New System.Drawing.Point(1314, 835)
         Me.btnAddToCart.Name = "btnAddToCart"
         Me.btnAddToCart.Size = New System.Drawing.Size(264, 58)
         Me.btnAddToCart.TabIndex = 42
         Me.btnAddToCart.Text = "&Add To Cart"
-        Me.btnAddToCart.UseVisualStyleBackColor = True
+        Me.btnAddToCart.UseVisualStyleBackColor = False
         '
         'lblProductQuantity
         '

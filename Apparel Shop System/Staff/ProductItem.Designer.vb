@@ -28,13 +28,14 @@ Partial Class ProductItem
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.btnFemale = New System.Windows.Forms.Button()
         Me.btnMale = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.btnSock = New System.Windows.Forms.Button()
         Me.btnShoe = New System.Windows.Forms.Button()
         Me.btnPant = New System.Windows.Forms.Button()
         Me.btnShirt = New System.Windows.Forms.Button()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnDisplay = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -64,15 +65,16 @@ Partial Class ProductItem
         '
         'FlowLayoutPanel1
         '
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(82, 348)
+        Me.FlowLayoutPanel1.AutoScroll = True
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(82, 312)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1414, 557)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1462, 590)
         Me.FlowLayoutPanel1.TabIndex = 7
         '
         'txtSearch
         '
         Me.txtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSearch.Location = New System.Drawing.Point(509, 123)
+        Me.txtSearch.Location = New System.Drawing.Point(509, 87)
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(549, 45)
         Me.txtSearch.TabIndex = 5
@@ -84,7 +86,7 @@ Partial Class ProductItem
         Me.btnFemale.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnFemale.Location = New System.Drawing.Point(843, 8)
         Me.btnFemale.Name = "btnFemale"
-        Me.btnFemale.Size = New System.Drawing.Size(269, 54)
+        Me.btnFemale.Size = New System.Drawing.Size(260, 54)
         Me.btnFemale.TabIndex = 13
         Me.btnFemale.Text = "For Female"
         Me.btnFemale.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -103,18 +105,18 @@ Partial Class ProductItem
         Me.btnMale.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnMale.UseVisualStyleBackColor = True
         '
-        'Button4
+        'btnSock
         '
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Image = Global.Apparel_Shop_System.My.Resources.Resources.sock
-        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button4.Location = New System.Drawing.Point(1033, 8)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(186, 54)
-        Me.Button4.TabIndex = 11
-        Me.Button4.Text = "Sock"
-        Me.Button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btnSock.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSock.Image = Global.Apparel_Shop_System.My.Resources.Resources.sock
+        Me.btnSock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSock.Location = New System.Drawing.Point(1033, 8)
+        Me.btnSock.Name = "btnSock"
+        Me.btnSock.Size = New System.Drawing.Size(186, 54)
+        Me.btnSock.TabIndex = 11
+        Me.btnSock.Text = "Sock"
+        Me.btnSock.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnSock.UseVisualStyleBackColor = True
         '
         'btnShoe
         '
@@ -160,7 +162,7 @@ Partial Class ProductItem
         '
         Me.btnSearch.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.search_icon
         Me.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnSearch.Location = New System.Drawing.Point(1050, 123)
+        Me.btnSearch.Location = New System.Drawing.Point(1050, 87)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(51, 45)
         Me.btnSearch.TabIndex = 6
@@ -170,11 +172,11 @@ Partial Class ProductItem
         '
         Me.Panel2.BackColor = System.Drawing.Color.LightCyan
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel2.Controls.Add(Me.Button4)
+        Me.Panel2.Controls.Add(Me.btnSock)
         Me.Panel2.Controls.Add(Me.btnShirt)
         Me.Panel2.Controls.Add(Me.btnPant)
         Me.Panel2.Controls.Add(Me.btnShoe)
-        Me.Panel2.Location = New System.Drawing.Point(36, 190)
+        Me.Panel2.Location = New System.Drawing.Point(36, 154)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1580, 67)
         Me.Panel2.TabIndex = 14
@@ -185,10 +187,22 @@ Partial Class ProductItem
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel3.Controls.Add(Me.btnMale)
         Me.Panel3.Controls.Add(Me.btnFemale)
-        Me.Panel3.Location = New System.Drawing.Point(36, 259)
+        Me.Panel3.Location = New System.Drawing.Point(36, 223)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1580, 67)
         Me.Panel3.TabIndex = 15
+        '
+        'btnDisplay
+        '
+        Me.btnDisplay.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnDisplay.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDisplay.ForeColor = System.Drawing.Color.Transparent
+        Me.btnDisplay.Location = New System.Drawing.Point(1315, 83)
+        Me.btnDisplay.Name = "btnDisplay"
+        Me.btnDisplay.Size = New System.Drawing.Size(301, 54)
+        Me.btnDisplay.TabIndex = 41
+        Me.btnDisplay.Text = "&Display All Products"
+        Me.btnDisplay.UseVisualStyleBackColor = False
         '
         'ProductItem
         '
@@ -196,6 +210,7 @@ Partial Class ProductItem
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(1654, 1035)
+        Me.Controls.Add(Me.btnDisplay)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.FlowLayoutPanel1)
@@ -223,9 +238,10 @@ Partial Class ProductItem
     Friend WithEvents btnShirt As Button
     Friend WithEvents btnPant As Button
     Friend WithEvents btnShoe As Button
-    Friend WithEvents Button4 As Button
+    Friend WithEvents btnSock As Button
     Friend WithEvents btnMale As Button
     Friend WithEvents btnFemale As Button
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel3 As Panel
+    Friend WithEvents btnDisplay As Button
 End Class
