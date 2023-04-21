@@ -158,12 +158,6 @@
     <Compile Include="Manager\DisplayProduct.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manager\ProductCrystalReport.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProductCrystalReport.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Manager\ProductReportViewer.Designer.vb">
       <DependentUpon>ProductReportViewer.vb</DependentUpon>
     </Compile>
@@ -248,10 +242,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\DisplayProduct.resx">
       <DependentUpon>DisplayProduct.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Manager\ProductCrystalReport.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ProductCrystalReport.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\ProductReportViewer.resx">
       <DependentUpon>ProductReportViewer.vb</DependentUpon>
