@@ -194,7 +194,7 @@ Public Class UpdateProduct
             End If
 
         Catch ex As Exception
-            MessageBox.Show("Failed to update, try again later", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 

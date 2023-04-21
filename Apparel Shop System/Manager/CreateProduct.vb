@@ -88,11 +88,13 @@ Public Class CreateProduct
                     dblPrice = Double.Parse(txtProductPrice.Text)
                     txtProductPrice.Text = dblPrice.ToString("C2", myCultureInfo)
 
+
+
                     Dim ms As New MemoryStream
                     picImage.Image.Save(ms, picImage.Image.RawFormat)
                     Dim img As Byte() = ms.ToArray()
 
-                    Dim sql As String = "INSERT INTO Product (productName, productGender, productCategory, productSize, productDescription, productPrice, productStock, productImage) VALUES (@ProductName, @Gender, @Category, @Size, @Description, @Price, @Stock, @Image)"
+                    Dim sql As String = "INSERT INTO Product (productName, productGender, productCategory, productSize, productDescription, productPrice, productStock, productImage, dateCreated) VALUES (@ProductName, @Gender, @Category, @Size, @Description, @Price, @Stock, @Image, CONVERT(nvarchar(10), GETDATE(), 103))"
                     Using cmd As New SqlCommand(sql, con)
                         cmd.Parameters.AddWithValue("@ProductName", txtProductName.Text)
                         cmd.Parameters.AddWithValue("@Gender", gender)
@@ -113,7 +115,7 @@ Public Class CreateProduct
             End If
 
         Catch ex As Exception
-            MessageBox.Show("Failed to create, try again later", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
     End Sub

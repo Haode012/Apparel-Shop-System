@@ -91,6 +91,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApparelShopSystemDataset.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApparelShopSystemDataset.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Login\ForgotPassword.Designer.vb">
       <DependentUpon>ForgotPassword.vb</DependentUpon>
     </Compile>
@@ -212,6 +217,9 @@
     <EmbeddedResource Include="Manager\DisplayProduct.resx">
       <DependentUpon>DisplayProduct.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Manager\ProductReport.resx">
+      <DependentUpon>ProductReport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Manager\UpdateProduct.resx">
       <DependentUpon>UpdateProduct.vb</DependentUpon>
     </EmbeddedResource>
@@ -241,6 +249,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ApparelShopSystemDataset.xsc">
+      <DependentUpon>ApparelShopSystemDataset.xsd</DependentUpon>
+    </None>
+    <None Include="ApparelShopSystemDataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApparelShopSystemDataset.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="ApparelShopSystemDataset.xss">
+      <DependentUpon>ApparelShopSystemDataset.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

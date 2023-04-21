@@ -118,7 +118,7 @@ Public Class DeleteProduct
             End If
 
         Catch ex As Exception
-            MessageBox.Show("Failed to delete, try again later", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
