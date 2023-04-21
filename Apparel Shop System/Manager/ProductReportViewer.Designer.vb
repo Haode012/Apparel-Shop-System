@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class ProductReport
+Partial Class ProductReportViewer
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,12 +22,13 @@ Partial Class ProductReport
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ProductReport))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ProductReportViewer))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.picBack = New System.Windows.Forms.PictureBox()
         Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.lblWelcome = New System.Windows.Forms.Label()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.ProductCrystalReport1 = New Apparel_Shop_System.ProductCrystalReport()
         Me.Panel1.SuspendLayout()
         CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -70,33 +71,36 @@ Partial Class ProductReport
         '
         Me.lblWelcome.BackColor = System.Drawing.Color.LightCyan
         Me.lblWelcome.Font = New System.Drawing.Font("Segoe Script", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblWelcome.Location = New System.Drawing.Point(347, 71)
+        Me.lblWelcome.Location = New System.Drawing.Point(343, 64)
         Me.lblWelcome.Name = "lblWelcome"
         Me.lblWelcome.Size = New System.Drawing.Size(933, 107)
         Me.lblWelcome.TabIndex = 60
         Me.lblWelcome.Text = "Product Report"
         Me.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'ReportViewer1
+        'CrystalReportViewer1
         '
-        Me.ReportViewer1.Location = New System.Drawing.Point(239, 225)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(396, 246)
-        Me.ReportViewer1.TabIndex = 61
+        Me.CrystalReportViewer1.ActiveViewIndex = 0
+        Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.CrystalReportViewer1.Location = New System.Drawing.Point(77, 185)
+        Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
+        Me.CrystalReportViewer1.ReportSource = Me.ProductCrystalReport1
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(1469, 736)
+        Me.CrystalReportViewer1.TabIndex = 61
+        Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
-        'ProductReport
+        'ProductReportViewer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1654, 1035)
-        Me.Controls.Add(Me.ReportViewer1)
+        Me.Controls.Add(Me.CrystalReportViewer1)
         Me.Controls.Add(Me.lblWelcome)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "ProductReport"
-        Me.Text = "ProductReport"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        Me.Name = "ProductReportViewer"
+        Me.Text = "ProductReportViewer"
         Me.Panel1.ResumeLayout(False)
         CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
@@ -108,5 +112,6 @@ Partial Class ProductReport
     Friend WithEvents picBack As PictureBox
     Friend WithEvents picDelete As PictureBox
     Friend WithEvents lblWelcome As Label
-    Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
+    Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents ProductCrystalReport1 As ProductCrystalReport
 End Class

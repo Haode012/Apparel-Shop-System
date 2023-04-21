@@ -14,7 +14,7 @@
         CreateProduct.Close()
         UpdateProduct.Close()
         DeleteProduct.Close()
-        ProductReport.Close()
+        ProductReportViewer.Close()
     End Sub
 
     Private Sub btnProductMaintenanceBig_Click(sender As Object, e As EventArgs) Handles btnProductMaintenanceBig.Click

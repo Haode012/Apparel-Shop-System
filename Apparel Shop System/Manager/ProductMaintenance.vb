@@ -41,9 +41,9 @@
     End Sub
 
     Private Sub btnReport_Click(sender As Object, e As EventArgs) Handles btnReport.Click
-        With ProductReport
+        With ProductReportViewer
             .TopLevel = False
-            Me.Controls.Add(ProductReport)
+            Me.Controls.Add(ProductReportViewer)
             .BringToFront()
             .Show()
         End With

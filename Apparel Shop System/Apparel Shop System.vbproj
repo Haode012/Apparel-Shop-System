@@ -69,6 +69,7 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -93,6 +94,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -156,10 +158,16 @@
     <Compile Include="Manager\DisplayProduct.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manager\ProductReport.Designer.vb">
-      <DependentUpon>ProductReport.vb</DependentUpon>
+    <Compile Include="Manager\ProductCrystalReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductCrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Manager\ProductReport.vb">
+    <Compile Include="Manager\ProductReportViewer.Designer.vb">
+      <DependentUpon>ProductReportViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\ProductReportViewer.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Manager\UpdateProduct.Designer.vb">
@@ -241,8 +249,12 @@
     <EmbeddedResource Include="Manager\DisplayProduct.resx">
       <DependentUpon>DisplayProduct.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manager\ProductReport.resx">
-      <DependentUpon>ProductReport.vb</DependentUpon>
+    <EmbeddedResource Include="Manager\ProductCrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ProductCrystalReport.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\ProductReportViewer.resx">
+      <DependentUpon>ProductReportViewer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\UpdateProduct.resx">
       <DependentUpon>UpdateProduct.vb</DependentUpon>
