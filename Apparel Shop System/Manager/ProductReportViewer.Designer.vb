@@ -27,6 +27,8 @@ Partial Class ProductReportViewer
         Me.picBack = New System.Windows.Forms.PictureBox()
         Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.lblWelcome = New System.Windows.Forms.Label()
+        Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.ProductCrystalReport1 = New Apparel_Shop_System.ProductCrystalReport()
         Me.btnDisplay = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,15 +79,26 @@ Partial Class ProductReportViewer
         Me.lblWelcome.Text = "Product Report"
         Me.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'CrystalReportViewer1
+        '
+        Me.CrystalReportViewer1.ActiveViewIndex = -1
+        Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.CrystalReportViewer1.Location = New System.Drawing.Point(106, 189)
+        Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(1444, 665)
+        Me.CrystalReportViewer1.TabIndex = 63
+        Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
+        '
         'btnDisplay
         '
         Me.btnDisplay.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnDisplay.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDisplay.ForeColor = System.Drawing.Color.Transparent
-        Me.btnDisplay.Location = New System.Drawing.Point(100, 718)
+        Me.btnDisplay.Location = New System.Drawing.Point(591, 871)
         Me.btnDisplay.Name = "btnDisplay"
-        Me.btnDisplay.Size = New System.Drawing.Size(154, 127)
-        Me.btnDisplay.TabIndex = 62
+        Me.btnDisplay.Size = New System.Drawing.Size(344, 52)
+        Me.btnDisplay.TabIndex = 64
         Me.btnDisplay.Text = "&Display Product Report"
         Me.btnDisplay.UseVisualStyleBackColor = False
         '
@@ -95,11 +108,13 @@ Partial Class ProductReportViewer
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1654, 1035)
         Me.Controls.Add(Me.btnDisplay)
+        Me.Controls.Add(Me.CrystalReportViewer1)
         Me.Controls.Add(Me.lblWelcome)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ProductReportViewer"
         Me.Text = "ProductReportViewer"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
@@ -111,5 +126,7 @@ Partial Class ProductReportViewer
     Friend WithEvents picBack As PictureBox
     Friend WithEvents picDelete As PictureBox
     Friend WithEvents lblWelcome As Label
+    Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents ProductCrystalReport1 As ProductCrystalReport
     Friend WithEvents btnDisplay As Button
 End Class
