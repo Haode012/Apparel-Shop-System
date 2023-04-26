@@ -153,7 +153,6 @@ Public Class ProductItemDetails
                 cmd.CommandText = "DELETE FROM Product WHERE productId=@id"
                 cmd.Parameters.AddWithValue("@id", lblProductID.Text)
                 cmd.ExecuteNonQuery()
-                MessageBox.Show("Deleted product successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                 Me.Close()
                 ProductItem.Close()
@@ -165,8 +164,6 @@ Public Class ProductItemDetails
                 cmd.Parameters.AddWithValue("@id", lblProductID.Text)
                 cmd.ExecuteNonQuery()
 
-                MessageBox.Show("Stock updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
                 Me.Close()
                 ProductItem.Close()
             End If
@@ -174,8 +171,6 @@ Public Class ProductItemDetails
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-
-
     End Sub
 
 End Class
