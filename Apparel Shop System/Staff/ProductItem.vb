@@ -199,17 +199,17 @@ Public Class ProductItem
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         Try
             If txtSearch.Text = "" Then
-                MessageBox.Show("Please enter Product ID", "Missing Product ID", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            ElseIf IsInputChar(txtSearch.Text) Then
-                MessageBox.Show("Product ID cannot contain letter", "Invalid Product ID", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Please enter Product Name", "Missing Product Name", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ElseIf IsNumeric(txtSearch.Text) Then
+                MessageBox.Show("Product Name cannot contain only digit number", "Invalid Product Name", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
                 If con.State = ConnectionState.Closed Then
                     con.Open()
                 End If
                 cmd = con.CreateCommand
                 cmd.CommandType = CommandType.Text
-                cmd.CommandText = "SELECT * FROM Product WHERE productId=@productId"
-                cmd.Parameters.AddWithValue("@productId", txtSearch.Text)
+                cmd.CommandText = "SELECT * FROM Product WHERE productName LIKE @productName + '%'"
+                cmd.Parameters.AddWithValue("@productName", txtSearch.Text)
                 dr = cmd.ExecuteReader()
                 If dr.HasRows Then
                     FlowLayoutPanel1.Controls.Clear()
@@ -343,7 +343,7 @@ Public Class ProductItem
                         AddHandler picProductImage.Click, AddressOf lblProductID_Click
                     End While
                 Else
-                    MessageBox.Show("Please search available Product ID", "Product ID not available", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("No product found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
                 dr.Close()
                 con.Close()
