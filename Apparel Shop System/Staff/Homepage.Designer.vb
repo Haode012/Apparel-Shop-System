@@ -186,7 +186,7 @@ Partial Class Homepage
         Me.PictureBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox1.Image = Global.Apparel_Shop_System.My.Resources.Resources.user_icon
+        Me.PictureBox1.Image = Global.Apparel_Shop_System.My.Resources.Resources.staff_users
         Me.PictureBox1.Location = New System.Drawing.Point(80, 10)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(101, 108)

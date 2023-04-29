@@ -361,6 +361,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>ApparelShopSystemDatabase.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\staff_users.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
