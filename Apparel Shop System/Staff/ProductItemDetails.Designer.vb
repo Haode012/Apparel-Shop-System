@@ -50,6 +50,8 @@ Partial Class ProductItemDetails
         Me.Label20 = New System.Windows.Forms.Label()
         Me.picRemove = New System.Windows.Forms.PictureBox()
         Me.picProductImage = New System.Windows.Forms.PictureBox()
+        Me.lblProductPromotion = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -112,7 +114,7 @@ Partial Class ProductItemDetails
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(673, 724)
+        Me.Label7.Location = New System.Drawing.Point(673, 766)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(245, 38)
         Me.Label7.TabIndex = 37
@@ -193,7 +195,7 @@ Partial Class ProductItemDetails
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(675, 778)
+        Me.Label8.Location = New System.Drawing.Point(675, 820)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(287, 38)
         Me.Label8.TabIndex = 41
@@ -204,7 +206,7 @@ Partial Class ProductItemDetails
         Me.btnAddToCart.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnAddToCart.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAddToCart.ForeColor = System.Drawing.Color.White
-        Me.btnAddToCart.Location = New System.Drawing.Point(1314, 835)
+        Me.btnAddToCart.Location = New System.Drawing.Point(1314, 877)
         Me.btnAddToCart.Name = "btnAddToCart"
         Me.btnAddToCart.Size = New System.Drawing.Size(264, 58)
         Me.btnAddToCart.TabIndex = 42
@@ -216,7 +218,7 @@ Partial Class ProductItemDetails
         Me.lblProductQuantity.AutoSize = True
         Me.lblProductQuantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblProductQuantity.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProductQuantity.Location = New System.Drawing.Point(1048, 781)
+        Me.lblProductQuantity.Location = New System.Drawing.Point(1048, 823)
         Me.lblProductQuantity.Name = "lblProductQuantity"
         Me.lblProductQuantity.Size = New System.Drawing.Size(63, 40)
         Me.lblProductQuantity.TabIndex = 52
@@ -238,7 +240,7 @@ Partial Class ProductItemDetails
         Me.lblProductStock.AutoSize = True
         Me.lblProductStock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblProductStock.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProductStock.Location = New System.Drawing.Point(1046, 727)
+        Me.lblProductStock.Location = New System.Drawing.Point(1046, 769)
         Me.lblProductStock.Name = "lblProductStock"
         Me.lblProductStock.Size = New System.Drawing.Size(247, 40)
         Me.lblProductStock.TabIndex = 50
@@ -320,7 +322,7 @@ Partial Class ProductItemDetails
         '
         Me.picRemove.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.picRemove.Image = CType(resources.GetObject("picRemove.Image"), System.Drawing.Image)
-        Me.picRemove.Location = New System.Drawing.Point(1126, 780)
+        Me.picRemove.Location = New System.Drawing.Point(1126, 822)
         Me.picRemove.Name = "picRemove"
         Me.picRemove.Size = New System.Drawing.Size(44, 41)
         Me.picRemove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -337,11 +339,34 @@ Partial Class ProductItemDetails
         Me.picProductImage.TabIndex = 3
         Me.picProductImage.TabStop = False
         '
+        'lblProductPromotion
+        '
+        Me.lblProductPromotion.AutoSize = True
+        Me.lblProductPromotion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblProductPromotion.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblProductPromotion.Location = New System.Drawing.Point(1046, 721)
+        Me.lblProductPromotion.Name = "lblProductPromotion"
+        Me.lblProductPromotion.Size = New System.Drawing.Size(312, 40)
+        Me.lblProductPromotion.TabIndex = 55
+        Me.lblProductPromotion.Text = "lblProductPromotion"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(673, 718)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(314, 38)
+        Me.Label12.TabIndex = 54
+        Me.Label12.Text = "Product Promotion:"
+        '
         'ProductItemDetails
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1654, 1035)
+        Me.Controls.Add(Me.lblProductPromotion)
+        Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.picRemove)
         Me.Controls.Add(Me.lblProductQuantity)
         Me.Controls.Add(Me.lblProductSize)
@@ -408,4 +433,6 @@ Partial Class ProductItemDetails
     Friend WithEvents lblProductID As Label
     Friend WithEvents Label20 As Label
     Friend WithEvents picRemove As PictureBox
+    Friend WithEvents lblProductPromotion As Label
+    Friend WithEvents Label12 As Label
 End Class

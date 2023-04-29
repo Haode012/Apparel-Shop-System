@@ -84,6 +84,15 @@ Public Class ProductItemDetails
         End Set
     End Property
 
+    Public Property ProductPromotion As String
+        Get
+            Return lblProductPromotion.Text
+        End Get
+        Set(value As String)
+            lblProductPromotion.Text = value
+        End Set
+    End Property
+
 
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
         Me.Close()
@@ -96,7 +105,7 @@ Public Class ProductItemDetails
     End Sub
 
     Private Sub MenuItemDetails_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ShowProductDetails(ProductImage, ProductID, ProductName, ProductGender, ProductCategory, ProductSize, ProductDescription, ProductPrice, ProductStock)
+        ShowProductDetails(ProductImage, ProductID, ProductName, ProductGender, ProductCategory, ProductSize, ProductDescription, ProductPrice, ProductStock, ProductPromotion)
 
         con.ConnectionString = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True"
 
@@ -107,7 +116,7 @@ Public Class ProductItemDetails
         con.Open()
     End Sub
 
-    Public Sub ShowProductDetails(ProductImage As Image, ProductId As String, ProductName As String, ProductGender As String, ProductCategory As String, ProductSize As String, ProductDescription As String, ProductPrice As String, ProductStock As String)
+    Public Sub ShowProductDetails(ProductImage As Image, ProductId As String, ProductName As String, ProductGender As String, ProductCategory As String, ProductSize As String, ProductDescription As String, ProductPrice As String, ProductStock As String, ProductPromotion As String)
         'Display the product details in the UI
         picProductImage.Image = ProductImage
         lblProductID.Text = ProductId
@@ -119,6 +128,7 @@ Public Class ProductItemDetails
         lblProductPrice.Text = ProductPrice
         lblProductStock.Text = ProductStock
         lblProductQuantity.Text = ProductStock
+        lblProductPromotion.Text = ProductPromotion
     End Sub
 
     Private Sub picRemove_Click(sender As Object, e As EventArgs) Handles picRemove.Click
@@ -132,6 +142,7 @@ Public Class ProductItemDetails
     End Sub
 
     Private Sub btnAddToCart_Click(sender As Object, e As EventArgs) Handles btnAddToCart.Click
+
         Try
 
             If con.State = ConnectionState.Open Then
@@ -154,6 +165,8 @@ Public Class ProductItemDetails
                 cmd.Parameters.AddWithValue("@id", lblProductID.Text)
                 cmd.ExecuteNonQuery()
 
+                Calculation()
+
                 Me.Close()
                 ProductItem.Close()
             Else
@@ -164,6 +177,8 @@ Public Class ProductItemDetails
                 cmd.Parameters.AddWithValue("@id", lblProductID.Text)
                 cmd.ExecuteNonQuery()
 
+                Calculation()
+
                 Me.Close()
                 ProductItem.Close()
             End If
@@ -171,6 +186,20 @@ Public Class ProductItemDetails
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+
+    Public Sub Calculation()
+        Dim priceString As String = lblProductPrice.Text
+        Dim priceWithoutRM As String = priceString.Replace("RM", "")
+        Dim price As Double = Double.Parse(priceWithoutRM)
+
+        Dim percentageString As String = lblProductPromotion.Text
+        Dim percentageWithoutPercent As String = percentageString.Replace("%", "")
+        Dim percentage As Double = Double.Parse(percentageWithoutPercent) / 100
+
+        Dim quantity As Integer = lblProductPrice.Text
+
+        Dim totalPrice As Double = price * percentage * quantity
     End Sub
 
 End Class

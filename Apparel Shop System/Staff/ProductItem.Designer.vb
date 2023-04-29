@@ -36,6 +36,7 @@ Partial Class ProductItem
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnDisplay = New System.Windows.Forms.Button()
+        Me.btnPromotion = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -74,7 +75,7 @@ Partial Class ProductItem
         'txtSearch
         '
         Me.txtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSearch.Location = New System.Drawing.Point(509, 87)
+        Me.txtSearch.Location = New System.Drawing.Point(570, 83)
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(549, 45)
         Me.txtSearch.TabIndex = 5
@@ -162,7 +163,7 @@ Partial Class ProductItem
         '
         Me.btnSearch.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.search_icon
         Me.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnSearch.Location = New System.Drawing.Point(1050, 87)
+        Me.btnSearch.Location = New System.Drawing.Point(1111, 83)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(51, 45)
         Me.btnSearch.TabIndex = 6
@@ -204,12 +205,25 @@ Partial Class ProductItem
         Me.btnDisplay.Text = "&Display All Products"
         Me.btnDisplay.UseVisualStyleBackColor = False
         '
+        'btnPromotion
+        '
+        Me.btnPromotion.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnPromotion.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPromotion.ForeColor = System.Drawing.Color.Transparent
+        Me.btnPromotion.Location = New System.Drawing.Point(36, 83)
+        Me.btnPromotion.Name = "btnPromotion"
+        Me.btnPromotion.Size = New System.Drawing.Size(414, 54)
+        Me.btnPromotion.TabIndex = 42
+        Me.btnPromotion.Text = "&Display Promotion Products"
+        Me.btnPromotion.UseVisualStyleBackColor = False
+        '
         'ProductItem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(1654, 1035)
+        Me.Controls.Add(Me.btnPromotion)
         Me.Controls.Add(Me.btnDisplay)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
@@ -244,4 +258,5 @@ Partial Class ProductItem
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents btnDisplay As Button
+    Friend WithEvents btnPromotion As Button
 End Class

@@ -303,6 +303,8 @@ Partial Public Class ApparelShopSystemDataset
         
         Private columndateCreated As Global.System.Data.DataColumn
         
+        Private columnproductPromotion As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -419,6 +421,14 @@ Partial Public Class ApparelShopSystemDataset
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property productPromotionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnproductPromotion
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -455,9 +465,9 @@ Partial Public Class ApparelShopSystemDataset
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddProductRow(ByVal productName As String, ByVal productGender As String, ByVal productCategory As String, ByVal productSize As String, ByVal productDescription As String, ByVal productPrice As String, ByVal productStock As String, ByVal productImage() As Byte, ByVal dateCreated As String) As ProductRow
+        Public Overloads Function AddProductRow(ByVal productName As String, ByVal productGender As String, ByVal productCategory As String, ByVal productSize As String, ByVal productDescription As String, ByVal productPrice As String, ByVal productStock As String, ByVal productImage() As Byte, ByVal dateCreated As String, ByVal productPromotion As String) As ProductRow
             Dim rowProductRow As ProductRow = CType(Me.NewRow,ProductRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, productName, productGender, productCategory, productSize, productDescription, productPrice, productStock, productImage, dateCreated}
+            Dim columnValuesArray() As Object = New Object() {Nothing, productName, productGender, productCategory, productSize, productDescription, productPrice, productStock, productImage, dateCreated, productPromotion}
             rowProductRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowProductRow)
             Return rowProductRow
@@ -496,6 +506,7 @@ Partial Public Class ApparelShopSystemDataset
             Me.columnproductStock = MyBase.Columns("productStock")
             Me.columnproductImage = MyBase.Columns("productImage")
             Me.columndateCreated = MyBase.Columns("dateCreated")
+            Me.columnproductPromotion = MyBase.Columns("productPromotion")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -521,6 +532,8 @@ Partial Public Class ApparelShopSystemDataset
             MyBase.Columns.Add(Me.columnproductImage)
             Me.columndateCreated = New Global.System.Data.DataColumn("dateCreated", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columndateCreated)
+            Me.columnproductPromotion = New Global.System.Data.DataColumn("productPromotion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnproductPromotion)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnproductId}, true))
             Me.columnproductId.AutoIncrement = true
             Me.columnproductId.AutoIncrementSeed = -1
@@ -545,6 +558,7 @@ Partial Public Class ApparelShopSystemDataset
             Me.columnproductImage.AllowDBNull = false
             Me.columndateCreated.AllowDBNull = false
             Me.columndateCreated.MaxLength = 2147483647
+            Me.columnproductPromotion.MaxLength = 2147483647
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -798,6 +812,33 @@ Partial Public Class ApparelShopSystemDataset
                 Me(Me.tableProduct.dateCreatedColumn) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property productPromotion() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableProduct.productPromotionColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'productPromotion' in table 'Product' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableProduct.productPromotionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsproductPromotionNull() As Boolean
+            Return Me.IsNull(Me.tableProduct.productPromotionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetproductPromotionNull()
+            Me(Me.tableProduct.productPromotionColumn) = Global.System.Convert.DBNull
+        End Sub
     End Class
     
     '''<summary>
@@ -976,6 +1017,7 @@ Namespace ApparelShopSystemDatasetTableAdapters
             tableMapping.ColumnMappings.Add("productStock", "productStock")
             tableMapping.ColumnMappings.Add("productImage", "productImage")
             tableMapping.ColumnMappings.Add("dateCreated", "dateCreated")
+            tableMapping.ColumnMappings.Add("productPromotion", "productPromotion")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -986,11 +1028,12 @@ Namespace ApparelShopSystemDatasetTableAdapters
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Product] ([productName], [productGender], [productCategory], ["& _ 
                 "productSize], [productDescription], [productPrice], [productStock], [productImag"& _ 
-                "e], [dateCreated]) VALUES (@productName, @productGender, @productCategory, @prod"& _ 
-                "uctSize, @productDescription, @productPrice, @productStock, @productImage, @date"& _ 
-                "Created);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT productId, productName, productGender, productCategory, produc"& _ 
-                "tSize, productDescription, productPrice, productStock, productImage, dateCreated"& _ 
-                " FROM Product WHERE (productId = SCOPE_IDENTITY())"
+                "e], [dateCreated], [productPromotion]) VALUES (@productName, @productGender, @pr"& _ 
+                "oductCategory, @productSize, @productDescription, @productPrice, @productStock, "& _ 
+                "@productImage, @dateCreated, @productPromotion);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT productId, productName,"& _ 
+                " productGender, productCategory, productSize, productDescription, productPrice, "& _ 
+                "productStock, productImage, dateCreated, productPromotion FROM Product WHERE (pr"& _ 
+                "oductId = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@productName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "productName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@productGender", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "productGender", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -1001,16 +1044,17 @@ Namespace ApparelShopSystemDatasetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@productStock", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "productStock", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@productImage", Global.System.Data.SqlDbType.VarBinary, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "productImage", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dateCreated", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dateCreated", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@productPromotion", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "productPromotion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Product] SET [productName] = @productName, [productGender] = @produ"& _ 
                 "ctGender, [productCategory] = @productCategory, [productSize] = @productSize, [p"& _ 
                 "roductDescription] = @productDescription, [productPrice] = @productPrice, [produ"& _ 
                 "ctStock] = @productStock, [productImage] = @productImage, [dateCreated] = @dateC"& _ 
-                "reated WHERE (([productId] = @Original_productId));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT productId, productNa"& _ 
-                "me, productGender, productCategory, productSize, productDescription, productPric"& _ 
-                "e, productStock, productImage, dateCreated FROM Product WHERE (productId = @prod"& _ 
-                "uctId)"
+                "reated, [productPromotion] = @productPromotion WHERE (([productId] = @Original_p"& _ 
+                "roductId));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT productId, productName, productGender, productCategory, prod"& _ 
+                "uctSize, productDescription, productPrice, productStock, productImage, dateCreat"& _ 
+                "ed, productPromotion FROM Product WHERE (productId = @productId)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@productName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "productName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@productGender", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "productGender", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -1021,6 +1065,7 @@ Namespace ApparelShopSystemDatasetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@productStock", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "productStock", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@productImage", Global.System.Data.SqlDbType.VarBinary, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "productImage", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dateCreated", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dateCreated", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@productPromotion", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "productPromotion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_productId", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "productId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@productId", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "productId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
@@ -1039,8 +1084,8 @@ Namespace ApparelShopSystemDatasetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT productId, productName, productGender, productCategory, productSize, produ"& _ 
-                "ctDescription, productPrice, productStock, productImage, dateCreated FROM dbo.Pr"& _ 
-                "oduct"
+                "ctDescription, productPrice, productStock, productImage, dateCreated, productPro"& _ 
+                "motion FROM dbo.Product"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -1121,7 +1166,7 @@ Namespace ApparelShopSystemDatasetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal productName As String, ByVal productGender As String, ByVal productCategory As String, ByVal productSize As String, ByVal productDescription As String, ByVal productPrice As String, ByVal productStock As String, ByVal productImage() As Byte, ByVal dateCreated As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal productName As String, ByVal productGender As String, ByVal productCategory As String, ByVal productSize As String, ByVal productDescription As String, ByVal productPrice As String, ByVal productStock As String, ByVal productImage() As Byte, ByVal dateCreated As String, ByVal productPromotion As String) As Integer
             If (productName Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("productName")
             Else
@@ -1167,6 +1212,11 @@ Namespace ApparelShopSystemDatasetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(8).Value = CType(dateCreated,String)
             End If
+            If (productPromotion Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(productPromotion,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -1186,7 +1236,7 @@ Namespace ApparelShopSystemDatasetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal productName As String, ByVal productGender As String, ByVal productCategory As String, ByVal productSize As String, ByVal productDescription As String, ByVal productPrice As String, ByVal productStock As String, ByVal productImage() As Byte, ByVal dateCreated As String, ByVal Original_productId As Integer, ByVal productId As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal productName As String, ByVal productGender As String, ByVal productCategory As String, ByVal productSize As String, ByVal productDescription As String, ByVal productPrice As String, ByVal productStock As String, ByVal productImage() As Byte, ByVal dateCreated As String, ByVal productPromotion As String, ByVal Original_productId As Integer, ByVal productId As Integer) As Integer
             If (productName Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("productName")
             Else
@@ -1232,8 +1282,13 @@ Namespace ApparelShopSystemDatasetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(8).Value = CType(dateCreated,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_productId,Integer)
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(productId,Integer)
+            If (productPromotion Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(productPromotion,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_productId,Integer)
+            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(productId,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -1253,8 +1308,8 @@ Namespace ApparelShopSystemDatasetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal productName As String, ByVal productGender As String, ByVal productCategory As String, ByVal productSize As String, ByVal productDescription As String, ByVal productPrice As String, ByVal productStock As String, ByVal productImage() As Byte, ByVal dateCreated As String, ByVal Original_productId As Integer) As Integer
-            Return Me.Update(productName, productGender, productCategory, productSize, productDescription, productPrice, productStock, productImage, dateCreated, Original_productId, Original_productId)
+        Public Overloads Overridable Function Update(ByVal productName As String, ByVal productGender As String, ByVal productCategory As String, ByVal productSize As String, ByVal productDescription As String, ByVal productPrice As String, ByVal productStock As String, ByVal productImage() As Byte, ByVal dateCreated As String, ByVal productPromotion As String, ByVal Original_productId As Integer) As Integer
+            Return Me.Update(productName, productGender, productCategory, productSize, productDescription, productPrice, productStock, productImage, dateCreated, productPromotion, Original_productId, Original_productId)
         End Function
     End Class
     

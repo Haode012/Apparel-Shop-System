@@ -187,9 +187,9 @@ Partial Class Homepage
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox1.Image = Global.Apparel_Shop_System.My.Resources.Resources.staff_users
-        Me.PictureBox1.Location = New System.Drawing.Point(80, 10)
+        Me.PictureBox1.Location = New System.Drawing.Point(75, 12)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(101, 108)
+        Me.PictureBox1.Size = New System.Drawing.Size(103, 100)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
