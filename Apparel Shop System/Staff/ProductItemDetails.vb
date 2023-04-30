@@ -96,7 +96,7 @@ Public Class ProductItemDetails
 
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
         Me.Close()
-        Home.Close()
+        Membership.Close()
         ProductItem.Close()
     End Sub
 
@@ -184,22 +184,35 @@ Public Class ProductItemDetails
             End If
 
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
     Public Sub Calculation()
+        ' Create a new CultureInfo object for Malaysia
+        Dim myCultureInfo As System.Globalization.CultureInfo = System.Globalization.CultureInfo.CreateSpecificCulture("ms-MY")
+
+        ' Set the currency symbol to "RM"
+        myCultureInfo.NumberFormat.CurrencySymbol = "RM"
+
         Dim priceString As String = lblProductPrice.Text
         Dim priceWithoutRM As String = priceString.Replace("RM", "")
         Dim price As Double = Double.Parse(priceWithoutRM)
 
         Dim percentageString As String = lblProductPromotion.Text
-        Dim percentageWithoutPercent As String = percentageString.Replace("%", "")
-        Dim percentage As Double = Double.Parse(percentageWithoutPercent) / 100
+        Dim percentage As Double
+        Dim totalPrice As Double
+        Dim quantity As Integer = lblProductQuantity.Text
 
-        Dim quantity As Integer = lblProductPrice.Text
-
-        Dim totalPrice As Double = price * percentage * quantity
+        If percentageString <> "-" Then
+            percentageString.Replace("%", "")
+            percentage = Double.Parse(percentageString) / 100
+            totalPrice = price * percentage * quantity
+            totalPrice.ToString("C2", myCultureInfo)
+        Else
+            totalPrice = price * quantity
+            totalPrice.ToString("C2", myCultureInfo)
+        End If
     End Sub
 
 End Class

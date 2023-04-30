@@ -1,8 +1,8 @@
 ﻿Public Class Homepage
-    Private Sub btnHome_Click(sender As Object, e As EventArgs) Handles btnHome.Click
-        With Home
+    Private Sub btnMembership_Click(sender As Object, e As EventArgs) Handles btnMembership.Click
+        With Membership
             .TopLevel = False
-            panelShow.Controls.Add(Home)
+            panelShow.Controls.Add(Membership)
             .BringToFront()
             .Show()
         End With

@@ -176,10 +176,10 @@
     <Compile Include="Manager\UpdateProduct.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Staff\Home.Designer.vb">
-      <DependentUpon>Home.vb</DependentUpon>
+    <Compile Include="Staff\Membership.Designer.vb">
+      <DependentUpon>Membership.vb</DependentUpon>
     </Compile>
-    <Compile Include="Staff\Home.vb">
+    <Compile Include="Staff\Membership.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Staff\Homepage.vb">
@@ -259,8 +259,8 @@
     <EmbeddedResource Include="Manager\UpdateProduct.resx">
       <DependentUpon>UpdateProduct.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Staff\Home.resx">
-      <DependentUpon>Home.vb</DependentUpon>
+    <EmbeddedResource Include="Staff\Membership.resx">
+      <DependentUpon>Membership.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff\Homepage.resx">
       <DependentUpon>Homepage.vb</DependentUpon>
@@ -362,6 +362,7 @@
       <DependentUpon>ApparelShopSystemDatabase.mdf</DependentUpon>
     </Content>
     <None Include="Resources\staff_users.png" />
+    <None Include="Resources\membership_icon.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

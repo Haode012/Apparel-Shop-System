@@ -22,13 +22,12 @@ Partial Class Homepage
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Homepage))
         Me.leftPanel = New System.Windows.Forms.Panel()
         Me.btnLogOut = New System.Windows.Forms.Button()
         Me.btnOrderHistory = New System.Windows.Forms.Button()
         Me.btnMyCart = New System.Windows.Forms.Button()
         Me.btnProduct = New System.Windows.Forms.Button()
-        Me.btnHome = New System.Windows.Forms.Button()
+        Me.btnMembership = New System.Windows.Forms.Button()
         Me.imagePanel = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblUsername = New System.Windows.Forms.Label()
@@ -54,7 +53,7 @@ Partial Class Homepage
         Me.leftPanel.Controls.Add(Me.btnOrderHistory)
         Me.leftPanel.Controls.Add(Me.btnMyCart)
         Me.leftPanel.Controls.Add(Me.btnProduct)
-        Me.leftPanel.Controls.Add(Me.btnHome)
+        Me.leftPanel.Controls.Add(Me.btnMembership)
         Me.leftPanel.Controls.Add(Me.imagePanel)
         Me.leftPanel.Dock = System.Windows.Forms.DockStyle.Left
         Me.leftPanel.Location = New System.Drawing.Point(0, 0)
@@ -130,22 +129,22 @@ Partial Class Homepage
         Me.btnProduct.Text = "&Product"
         Me.btnProduct.UseVisualStyleBackColor = True
         '
-        'btnHome
+        'btnMembership
         '
-        Me.btnHome.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnHome.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.btnHome.FlatAppearance.BorderSize = 0
-        Me.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnHome.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnHome.ForeColor = System.Drawing.Color.Black
-        Me.btnHome.Image = CType(resources.GetObject("btnHome.Image"), System.Drawing.Image)
-        Me.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnHome.Location = New System.Drawing.Point(0, 189)
-        Me.btnHome.Name = "btnHome"
-        Me.btnHome.Size = New System.Drawing.Size(250, 46)
-        Me.btnHome.TabIndex = 4
-        Me.btnHome.Text = "&Home"
-        Me.btnHome.UseVisualStyleBackColor = True
+        Me.btnMembership.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnMembership.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnMembership.FlatAppearance.BorderSize = 0
+        Me.btnMembership.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMembership.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMembership.ForeColor = System.Drawing.Color.Black
+        Me.btnMembership.Image = Global.Apparel_Shop_System.My.Resources.Resources.membership_icon
+        Me.btnMembership.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnMembership.Location = New System.Drawing.Point(0, 189)
+        Me.btnMembership.Name = "btnMembership"
+        Me.btnMembership.Size = New System.Drawing.Size(250, 46)
+        Me.btnMembership.TabIndex = 4
+        Me.btnMembership.Text = "&Membership"
+        Me.btnMembership.UseVisualStyleBackColor = True
         '
         'imagePanel
         '
@@ -288,7 +287,7 @@ Partial Class Homepage
 
     Friend WithEvents leftPanel As Panel
     Friend WithEvents btnProduct As Button
-    Friend WithEvents btnHome As Button
+    Friend WithEvents btnMembership As Button
     Friend WithEvents imagePanel As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents lblUsername As Label

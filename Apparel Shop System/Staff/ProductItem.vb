@@ -21,7 +21,7 @@ Public Class ProductItem
 
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
         Me.Close()
-        Home.Close()
+        Membership.Close()
     End Sub
 
     Private Sub MenuItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -359,6 +359,10 @@ Public Class ProductItem
                         lbl5.Text = "Product Promotion"
                         lblProductPromotion.Text = dr.Item("productPromotion").ToString
 
+                        If String.IsNullOrEmpty(lblProductPromotion.Text) Then
+                            lblProductPromotion.Text = "-"
+                        End If
+
                         panelShow.Controls.Add(picProductImage)
                         panelShow.Controls.Add(lbl1)
                         panelShow.Controls.Add(lblProductID)
@@ -388,6 +392,9 @@ Public Class ProductItem
                         menu.ProductPrice = dr.Item("productPrice").ToString()
                         menu.ProductStock = dr.Item("productStock").ToString()
                         menu.ProductPromotion = dr.Item("productPromotion").ToString()
+                        If String.IsNullOrEmpty(menu.ProductPromotion) Then
+                            menu.ProductPromotion = "-"
+                        End If
 
                         ' Set the Tag property of the picture box control to the MenuItemDetails instance
                         picProductImage.Tag = menu
@@ -419,6 +426,8 @@ Public Class ProductItem
         con.Close()
 
         load_data()
+        txtSearch.Text = ""
+        txtSearch.Focus()
     End Sub
 
     Private Sub btnShirt_Click(sender As Object, e As EventArgs) Handles btnShirt.Click
@@ -591,6 +600,8 @@ Public Class ProductItem
                     ' Add a handler for the Click event of the picture box control
                     AddHandler picProductImage.Click, AddressOf lblProductID_Click
                 End While
+                txtSearch.Text = ""
+                txtSearch.Focus()
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -769,6 +780,8 @@ Public Class ProductItem
                     ' Add a handler for the Click event of the picture box control
                     AddHandler picProductImage.Click, AddressOf lblProductID_Click
                 End While
+                txtSearch.Text = ""
+                txtSearch.Focus()
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -947,6 +960,8 @@ Public Class ProductItem
                     ' Add a handler for the Click event of the picture box control
                     AddHandler picProductImage.Click, AddressOf lblProductID_Click
                 End While
+                txtSearch.Text = ""
+                txtSearch.Focus()
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1125,6 +1140,8 @@ Public Class ProductItem
                     ' Add a handler for the Click event of the picture box control
                     AddHandler picProductImage.Click, AddressOf lblProductID_Click
                 End While
+                txtSearch.Text = ""
+                txtSearch.Focus()
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1303,6 +1320,8 @@ Public Class ProductItem
                     ' Add a handler for the Click event of the picture box control
                     AddHandler picProductImage.Click, AddressOf lblProductID_Click
                 End While
+                txtSearch.Text = ""
+                txtSearch.Focus()
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1481,6 +1500,8 @@ Public Class ProductItem
                     ' Add a handler for the Click event of the picture box control
                     AddHandler picProductImage.Click, AddressOf lblProductID_Click
                 End While
+                txtSearch.Text = ""
+                txtSearch.Focus()
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1657,6 +1678,9 @@ Public Class ProductItem
 
                     ' Add a handler for the Click event of the picture box control
                     AddHandler picProductImage.Click, AddressOf lblProductID_Click
+
+                    txtSearch.Text = ""
+                    txtSearch.Focus()
                 End While
             End If
         Catch ex As Exception
