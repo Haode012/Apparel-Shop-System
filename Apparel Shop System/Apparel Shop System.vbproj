@@ -275,6 +275,18 @@
       <DependentUpon>Homepage.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Staff\OrderCart.Designer.vb">
+      <DependentUpon>OrderCart.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\OrderCart.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff\Payment.Designer.vb">
+      <DependentUpon>Payment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\Payment.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Staff\ProductItem.Designer.vb">
       <DependentUpon>ProductItem.vb</DependentUpon>
     </Compile>
@@ -392,6 +404,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Staff\Homepage.resx">
       <DependentUpon>Homepage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff\OrderCart.resx">
+      <DependentUpon>OrderCart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff\Payment.resx">
+      <DependentUpon>Payment.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff\ProductItem.resx">
       <DependentUpon>ProductItem.vb</DependentUpon>
@@ -543,6 +561,11 @@
     <None Include="Resources\user_icon1.png" />
     <None Include="Resources\promotion_maintenance_icon.png" />
     <None Include="Resources\promotion_maintenance_icon_big.png" />
+    <None Include="Resources\335-3354780_icon-02-green-shopping-cart-icon.png" />
+    <None Include="Resources\download %281%29.png" />
+    <None Include="Resources\png-transparent-mastercard-credit-card-business-debit-card-logo-mastercard-text-service-orange.png" />
+    <None Include="Resources\tng example QR.png" />
+    <None Include="Resources\61225.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

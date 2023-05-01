@@ -200,19 +200,57 @@ Public Class ProductItemDetails
         Dim price As Double = Double.Parse(priceWithoutRM)
 
         Dim percentageString As String = lblProductPromotion.Text
+        Dim percentageWithoutS As String
         Dim percentage As Double
         Dim totalPrice As Double
         Dim quantity As Integer = lblProductQuantity.Text
 
         If percentageString <> "-" Then
-            percentageString.Replace("%", "")
-            percentage = Double.Parse(percentageString) / 100
+            percentageWithoutS = percentageString.Replace("%", "")
+            percentage = Double.Parse(percentageWithoutS) / 100
             totalPrice = price * percentage * quantity
             totalPrice.ToString("C2", myCultureInfo)
+
+            addToCart()
         Else
             totalPrice = price * quantity
             totalPrice.ToString("C2", myCultureInfo)
+
+            addToCart()
         End If
+
+
+    End Sub
+
+
+    Public Sub addToCart()
+
+
+        Dim ms As New MemoryStream
+        picProductImage.Image.Save(ms, picProductImage.Image.RawFormat)
+        Dim img As Byte() = ms.ToArray()
+        Dim imgBase64 As String = Convert.ToBase64String(img)
+
+        cmd = con.CreateCommand
+        cmd.CommandType = CommandType.Text
+        cmd.CommandText = "INSERT INTO Cart (productId, productName, productPrice, productQuantity, productImage,productPromotion) VALUES (@ProductId,@ProductName,@ProductPrice, @ProductQuantity,@ProductImage,@ProductPromotion)"
+
+        'cmd.Parameters.AddWithValue("@CartId", "1")
+
+
+        cmd.Parameters.AddWithValue("@ProductId", lblProductID.Text)
+
+        cmd.Parameters.AddWithValue("@ProductName", lblProductName.Text)
+
+        cmd.Parameters.AddWithValue("@ProductPrice", lblProductPrice.Text)
+        cmd.Parameters.AddWithValue("@ProductQuantity", lblProductQuantity.Text)
+        cmd.Parameters.AddWithValue("@ProductImage", img)
+        cmd.Parameters.AddWithValue("@ProductPromotion", lblProductPromotion.Text)
+
+        cmd.ExecuteNonQuery()
+
+        MessageBox.Show("Add To Cart Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
     End Sub
 
 End Class

@@ -241,11 +241,20 @@
   <data name="membership_maintenance_big" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\membership_maintenance_big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="335-3354780_icon-02-green-shopping-cart-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\335-3354780_icon-02-green-shopping-cart-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="61225" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\61225.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="block_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\block_FILL0_wght400_GRAD0_opsz48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="campaign" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\campaign_FILL0_wght400_GRAD0_opsz48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="download (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_FILL0_wght400_GRAD0_opsz48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -261,6 +270,9 @@
   </data>
   <data name="left_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\navigate_before_FILL0_wght400_GRAD0_opsz48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="png-transparent-mastercard-credit-card-business-debit-card-logo-mastercard-text-service-orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\png-transparent-mastercard-credit-card-business-debit-card-logo-mastercard-text-service-orange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="print_FILL0_wght400_GRAD0_opsz48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\print_FILL0_wght400_GRAD0_opsz48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -291,5 +303,8 @@
   </data>
   <data name="tng example" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tng example.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tng example QR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tng example QR.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

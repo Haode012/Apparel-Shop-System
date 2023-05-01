@@ -25,4 +25,16 @@
         Me.Close()
         StaffLogin.Show()
     End Sub
+
+    Private Sub btnMyCart_Click(sender As Object, e As EventArgs) Handles btnMyCart.Click
+        With OrderCart
+            .TopLevel = False
+            panelShow.Controls.Add(OrderCart)
+            .BringToFront()
+            .Show()
+        End With
+
+        ProductItemDetails.Close()
+
+    End Sub
 End Class
