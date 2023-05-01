@@ -25,15 +25,18 @@ Partial Class ManagerHomepage
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ManagerHomepage))
         Me.panelShow = New System.Windows.Forms.Panel()
         Me.lblProductMaintenance = New System.Windows.Forms.Label()
-        Me.btnProductMaintenanceBig = New System.Windows.Forms.Button()
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.leftPanel = New System.Windows.Forms.Panel()
-        Me.btnLogOut = New System.Windows.Forms.Button()
+        Me.lblStaffMaintenance = New System.Windows.Forms.Label()
+        Me.btnStaffMaintenanceBig = New System.Windows.Forms.Button()
+        Me.btnProductMaintenanceBig = New System.Windows.Forms.Button()
         Me.btnProductMaintenance = New System.Windows.Forms.Button()
+        Me.btnLogOut = New System.Windows.Forms.Button()
+        Me.btnStaffMaintenance = New System.Windows.Forms.Button()
         Me.btnHome = New System.Windows.Forms.Button()
         Me.imagePanel = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -47,6 +50,8 @@ Partial Class ManagerHomepage
         '
         'panelShow
         '
+        Me.panelShow.Controls.Add(Me.lblStaffMaintenance)
+        Me.panelShow.Controls.Add(Me.btnStaffMaintenanceBig)
         Me.panelShow.Controls.Add(Me.lblProductMaintenance)
         Me.panelShow.Controls.Add(Me.btnProductMaintenanceBig)
         Me.panelShow.Controls.Add(Me.lblWelcome)
@@ -59,22 +64,12 @@ Partial Class ManagerHomepage
         'lblProductMaintenance
         '
         Me.lblProductMaintenance.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProductMaintenance.Location = New System.Drawing.Point(994, 464)
+        Me.lblProductMaintenance.Location = New System.Drawing.Point(791, 461)
         Me.lblProductMaintenance.Name = "lblProductMaintenance"
         Me.lblProductMaintenance.Size = New System.Drawing.Size(276, 81)
         Me.lblProductMaintenance.TabIndex = 1
         Me.lblProductMaintenance.Text = "Product Maintenance"
         Me.lblProductMaintenance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnProductMaintenanceBig
-        '
-        Me.btnProductMaintenanceBig.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.menu_maintenance_icon_big
-        Me.btnProductMaintenanceBig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnProductMaintenanceBig.Location = New System.Drawing.Point(1056, 303)
-        Me.btnProductMaintenanceBig.Name = "btnProductMaintenanceBig"
-        Me.btnProductMaintenanceBig.Size = New System.Drawing.Size(141, 142)
-        Me.btnProductMaintenanceBig.TabIndex = 0
-        Me.btnProductMaintenanceBig.UseVisualStyleBackColor = True
         '
         'lblWelcome
         '
@@ -126,8 +121,9 @@ Partial Class ManagerHomepage
         'leftPanel
         '
         Me.leftPanel.BackColor = System.Drawing.Color.LightCyan
-        Me.leftPanel.Controls.Add(Me.btnLogOut)
         Me.leftPanel.Controls.Add(Me.btnProductMaintenance)
+        Me.leftPanel.Controls.Add(Me.btnLogOut)
+        Me.leftPanel.Controls.Add(Me.btnStaffMaintenance)
         Me.leftPanel.Controls.Add(Me.btnHome)
         Me.leftPanel.Controls.Add(Me.imagePanel)
         Me.leftPanel.Dock = System.Windows.Forms.DockStyle.Left
@@ -136,22 +132,35 @@ Partial Class ManagerHomepage
         Me.leftPanel.Size = New System.Drawing.Size(250, 1055)
         Me.leftPanel.TabIndex = 9
         '
-        'btnLogOut
+        'lblStaffMaintenance
         '
-        Me.btnLogOut.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.btnLogOut.FlatAppearance.BorderSize = 0
-        Me.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLogOut.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLogOut.ForeColor = System.Drawing.Color.Black
-        Me.btnLogOut.Image = Global.Apparel_Shop_System.My.Resources.Resources.log_out_icon
-        Me.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnLogOut.Location = New System.Drawing.Point(0, 300)
-        Me.btnLogOut.Name = "btnLogOut"
-        Me.btnLogOut.Size = New System.Drawing.Size(250, 46)
-        Me.btnLogOut.TabIndex = 9
-        Me.btnLogOut.Text = "&Log Out"
-        Me.btnLogOut.UseVisualStyleBackColor = True
+        Me.lblStaffMaintenance.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStaffMaintenance.Location = New System.Drawing.Point(333, 461)
+        Me.lblStaffMaintenance.Name = "lblStaffMaintenance"
+        Me.lblStaffMaintenance.Size = New System.Drawing.Size(276, 81)
+        Me.lblStaffMaintenance.TabIndex = 7
+        Me.lblStaffMaintenance.Text = "Staff " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Maintenance"
+        Me.lblStaffMaintenance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnStaffMaintenanceBig
+        '
+        Me.btnStaffMaintenanceBig.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.staff_maintenance_big
+        Me.btnStaffMaintenanceBig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnStaffMaintenanceBig.Location = New System.Drawing.Point(396, 303)
+        Me.btnStaffMaintenanceBig.Name = "btnStaffMaintenanceBig"
+        Me.btnStaffMaintenanceBig.Size = New System.Drawing.Size(141, 142)
+        Me.btnStaffMaintenanceBig.TabIndex = 6
+        Me.btnStaffMaintenanceBig.UseVisualStyleBackColor = True
+        '
+        'btnProductMaintenanceBig
+        '
+        Me.btnProductMaintenanceBig.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.menu_maintenance_icon_big
+        Me.btnProductMaintenanceBig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnProductMaintenanceBig.Location = New System.Drawing.Point(850, 303)
+        Me.btnProductMaintenanceBig.Name = "btnProductMaintenanceBig"
+        Me.btnProductMaintenanceBig.Size = New System.Drawing.Size(141, 142)
+        Me.btnProductMaintenanceBig.TabIndex = 0
+        Me.btnProductMaintenanceBig.UseVisualStyleBackColor = True
         '
         'btnProductMaintenance
         '
@@ -161,14 +170,48 @@ Partial Class ManagerHomepage
         Me.btnProductMaintenance.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnProductMaintenance.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnProductMaintenance.ForeColor = System.Drawing.Color.Black
-        Me.btnProductMaintenance.Image = CType(resources.GetObject("btnProductMaintenance.Image"), System.Drawing.Image)
+        Me.btnProductMaintenance.Image = Global.Apparel_Shop_System.My.Resources.Resources.menu_maintenance_icon
         Me.btnProductMaintenance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnProductMaintenance.Location = New System.Drawing.Point(0, 235)
+        Me.btnProductMaintenance.Location = New System.Drawing.Point(0, 300)
         Me.btnProductMaintenance.Name = "btnProductMaintenance"
         Me.btnProductMaintenance.Size = New System.Drawing.Size(250, 65)
-        Me.btnProductMaintenance.TabIndex = 5
+        Me.btnProductMaintenance.TabIndex = 11
         Me.btnProductMaintenance.Text = "&Product " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Maintenance"
         Me.btnProductMaintenance.UseVisualStyleBackColor = True
+        '
+        'btnLogOut
+        '
+        Me.btnLogOut.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnLogOut.FlatAppearance.BorderSize = 0
+        Me.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLogOut.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLogOut.ForeColor = System.Drawing.Color.Black
+        Me.btnLogOut.Image = Global.Apparel_Shop_System.My.Resources.Resources.log_out_icon
+        Me.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnLogOut.Location = New System.Drawing.Point(0, 1009)
+        Me.btnLogOut.Name = "btnLogOut"
+        Me.btnLogOut.Size = New System.Drawing.Size(250, 46)
+        Me.btnLogOut.TabIndex = 9
+        Me.btnLogOut.Text = "&Log Out"
+        Me.btnLogOut.UseVisualStyleBackColor = True
+        '
+        'btnStaffMaintenance
+        '
+        Me.btnStaffMaintenance.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnStaffMaintenance.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnStaffMaintenance.FlatAppearance.BorderSize = 0
+        Me.btnStaffMaintenance.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnStaffMaintenance.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnStaffMaintenance.ForeColor = System.Drawing.Color.Black
+        Me.btnStaffMaintenance.Image = Global.Apparel_Shop_System.My.Resources.Resources.staff_maintenance_icon
+        Me.btnStaffMaintenance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnStaffMaintenance.Location = New System.Drawing.Point(0, 235)
+        Me.btnStaffMaintenance.Name = "btnStaffMaintenance"
+        Me.btnStaffMaintenance.Size = New System.Drawing.Size(250, 65)
+        Me.btnStaffMaintenance.TabIndex = 10
+        Me.btnStaffMaintenance.Text = "&Staff " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Maintenance"
+        Me.btnStaffMaintenance.UseVisualStyleBackColor = True
         '
         'btnHome
         '
@@ -265,7 +308,6 @@ Partial Class ManagerHomepage
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents btnProductMaintenance As Button
     Friend WithEvents btnHome As Button
     Friend WithEvents imagePanel As Panel
     Friend WithEvents Panel2 As Panel
@@ -273,4 +315,8 @@ Partial Class ManagerHomepage
     Friend WithEvents lblWelcome As Label
     Friend WithEvents lblProductMaintenance As Label
     Friend WithEvents btnProductMaintenanceBig As Button
+    Friend WithEvents btnStaffMaintenance As Button
+    Friend WithEvents btnProductMaintenance As Button
+    Friend WithEvents btnStaffMaintenanceBig As Button
+    Friend WithEvents lblStaffMaintenance As Label
 End Class

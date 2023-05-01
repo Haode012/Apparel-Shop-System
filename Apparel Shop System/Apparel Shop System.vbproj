@@ -122,10 +122,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ApparelShopSystemDataset.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Login\ChangePassword.Designer.vb">
+      <DependentUpon>ChangePassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login\ChangePassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login\ForgotPassword.Designer.vb">
       <DependentUpon>ForgotPassword.vb</DependentUpon>
     </Compile>
     <Compile Include="Login\ForgotPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\Main.Designer.vb">
+      <DependentUpon>Main.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Main.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login\ManagerLogin.Designer.vb">
@@ -138,6 +150,12 @@
       <DependentUpon>StaffLogin.vb</DependentUpon>
     </Compile>
     <Compile Include="Login\StaffLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\AddStaff.Designer.vb">
+      <DependentUpon>AddStaff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\AddStaff.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Manager\CreateProduct.Designer.vb">
@@ -158,6 +176,12 @@
     <Compile Include="Manager\DisplayProduct.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Manager\FireStaffvb.Designer.vb">
+      <DependentUpon>FireStaffvb.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\FireStaffvb.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Manager\Product%28CrystalReport%29.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -170,12 +194,32 @@
     <Compile Include="Manager\ProductReportViewer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Manager\StaffMaintenance.Designer.vb">
+      <DependentUpon>StaffMaintenance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\StaffMaintenance.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Manager\UpdateProduct.Designer.vb">
       <DependentUpon>UpdateProduct.vb</DependentUpon>
     </Compile>
     <Compile Include="Manager\UpdateProduct.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Manager\UpdateStaffDetails.Designer.vb">
+      <DependentUpon>UpdateStaffDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\UpdateStaffDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\ViewStaffDetails.Designer.vb">
+      <DependentUpon>ViewStaffDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\ViewStaffDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module1.vb" />
+    <Compile Include="ModulePublicVariable.vb" />
     <Compile Include="Staff\Membership.Designer.vb">
       <DependentUpon>Membership.vb</DependentUpon>
     </Compile>
@@ -231,14 +275,23 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Login\ChangePassword.resx">
+      <DependentUpon>ChangePassword.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login\ForgotPassword.resx">
       <DependentUpon>ForgotPassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\Main.resx">
+      <DependentUpon>Main.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\ManagerLogin.resx">
       <DependentUpon>ManagerLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\StaffLogin.resx">
       <DependentUpon>StaffLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\AddStaff.resx">
+      <DependentUpon>AddStaff.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\CreateProduct.resx">
       <DependentUpon>CreateProduct.vb</DependentUpon>
@@ -249,6 +302,9 @@
     <EmbeddedResource Include="Manager\DisplayProduct.resx">
       <DependentUpon>DisplayProduct.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Manager\FireStaffvb.resx">
+      <DependentUpon>FireStaffvb.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Manager\Product%28CrystalReport%29.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Product%28CrystalReport%29.vb</LastGenOutput>
@@ -256,8 +312,17 @@
     <EmbeddedResource Include="Manager\ProductReportViewer.resx">
       <DependentUpon>ProductReportViewer.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Manager\StaffMaintenance.resx">
+      <DependentUpon>StaffMaintenance.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Manager\UpdateProduct.resx">
       <DependentUpon>UpdateProduct.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\UpdateStaffDetails.resx">
+      <DependentUpon>UpdateStaffDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\ViewStaffDetails.resx">
+      <DependentUpon>ViewStaffDetails.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff\Membership.resx">
       <DependentUpon>Membership.vb</DependentUpon>
@@ -363,6 +428,18 @@
     </Content>
     <None Include="Resources\staff_users.png" />
     <None Include="Resources\membership_icon.png" />
+    <None Include="Resources\add icon.png" />
+    <None Include="Resources\add staff.jpg" />
+    <None Include="Resources\background.jpg" />
+    <None Include="Resources\cancel icon new.png" />
+    <None Include="Resources\change password icon.jpg" />
+    <None Include="Resources\eye 1.png" />
+    <None Include="Resources\eye 2.png" />
+    <None Include="Resources\fire staff 1.png" />
+    <None Include="Resources\forgot password.jpg" />
+    <None Include="Resources\tick new.png" />
+    <None Include="Resources\staff_maintenance_icon.png" />
+    <None Include="Resources\staff_maintenance_big.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
