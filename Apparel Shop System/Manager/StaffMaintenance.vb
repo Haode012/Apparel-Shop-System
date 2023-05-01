@@ -334,6 +334,7 @@ Public Class StaffMaintenance
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
         Me.Close()
         ProductMaintenance.Close()
+        MembershipMaintenance.Close()
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click

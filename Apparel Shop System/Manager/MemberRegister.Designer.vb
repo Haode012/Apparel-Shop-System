@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Membership
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class MemberRegister
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()>
+    <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,13 +20,13 @@ Partial Class Membership
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()>
+    <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MemberRegister))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.lblWelcome = New System.Windows.Forms.Label()
+        Me.picBack = New System.Windows.Forms.PictureBox()
         Me.picDelete = New System.Windows.Forms.PictureBox()
-        Me.btnCancel = New System.Windows.Forms.Button()
-        Me.btnRegister = New System.Windows.Forms.Button()
+        Me.lblWelcome = New System.Windows.Forms.Label()
         Me.txtMemberIC = New System.Windows.Forms.TextBox()
         Me.txtMemberPhoneNumber = New System.Windows.Forms.TextBox()
         Me.txtMemberEmail = New System.Windows.Forms.TextBox()
@@ -35,30 +35,34 @@ Partial Class Membership
         Me.lblMemberPhoneNumber = New System.Windows.Forms.Label()
         Me.lblMemberID = New System.Windows.Forms.Label()
         Me.lblMemberName = New System.Windows.Forms.Label()
+        Me.btnRegister = New System.Windows.Forms.Button()
+        Me.btnCancel = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
+        CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Silver
+        Me.Panel1.Controls.Add(Me.picBack)
         Me.Panel1.Controls.Add(Me.picDelete)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1654, 46)
-        Me.Panel1.TabIndex = 1
+        Me.Panel1.TabIndex = 8
         '
-        'lblWelcome
+        'picBack
         '
-        Me.lblWelcome.BackColor = System.Drawing.Color.LightCyan
-        Me.lblWelcome.Font = New System.Drawing.Font("Segoe Script", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblWelcome.Location = New System.Drawing.Point(269, 72)
-        Me.lblWelcome.Name = "lblWelcome"
-        Me.lblWelcome.Size = New System.Drawing.Size(1091, 113)
-        Me.lblWelcome.TabIndex = 60
-        Me.lblWelcome.Text = "Membership Register Form"
-        Me.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.picBack.Dock = System.Windows.Forms.DockStyle.Left
+        Me.picBack.Image = CType(resources.GetObject("picBack.Image"), System.Drawing.Image)
+        Me.picBack.Location = New System.Drawing.Point(0, 0)
+        Me.picBack.Name = "picBack"
+        Me.picBack.Size = New System.Drawing.Size(46, 46)
+        Me.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picBack.TabIndex = 3
+        Me.picBack.TabStop = False
         '
         'picDelete
         '
@@ -71,101 +75,112 @@ Partial Class Membership
         Me.picDelete.TabIndex = 0
         Me.picDelete.TabStop = False
         '
-        'btnCancel
+        'lblWelcome
         '
-        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(739, 503)
-        Me.btnCancel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(157, 53)
-        Me.btnCancel.TabIndex = 83
-        Me.btnCancel.Text = "&Cancel"
-        Me.btnCancel.UseVisualStyleBackColor = True
-        '
-        'btnRegister
-        '
-        Me.btnRegister.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRegister.Location = New System.Drawing.Point(564, 503)
-        Me.btnRegister.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnRegister.Name = "btnRegister"
-        Me.btnRegister.Size = New System.Drawing.Size(157, 53)
-        Me.btnRegister.TabIndex = 82
-        Me.btnRegister.Text = "&Register"
-        Me.btnRegister.UseVisualStyleBackColor = True
+        Me.lblWelcome.BackColor = System.Drawing.Color.LightCyan
+        Me.lblWelcome.Font = New System.Drawing.Font("Segoe Script", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWelcome.Location = New System.Drawing.Point(294, 78)
+        Me.lblWelcome.Name = "lblWelcome"
+        Me.lblWelcome.Size = New System.Drawing.Size(1091, 113)
+        Me.lblWelcome.TabIndex = 61
+        Me.lblWelcome.Text = "Membership Register Form"
+        Me.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'txtMemberIC
         '
         Me.txtMemberIC.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMemberIC.Location = New System.Drawing.Point(707, 402)
+        Me.txtMemberIC.Location = New System.Drawing.Point(706, 405)
         Me.txtMemberIC.Name = "txtMemberIC"
         Me.txtMemberIC.Size = New System.Drawing.Size(291, 45)
-        Me.txtMemberIC.TabIndex = 81
+        Me.txtMemberIC.TabIndex = 69
         '
         'txtMemberPhoneNumber
         '
         Me.txtMemberPhoneNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMemberPhoneNumber.Location = New System.Drawing.Point(707, 340)
+        Me.txtMemberPhoneNumber.Location = New System.Drawing.Point(706, 343)
         Me.txtMemberPhoneNumber.Name = "txtMemberPhoneNumber"
         Me.txtMemberPhoneNumber.Size = New System.Drawing.Size(474, 45)
-        Me.txtMemberPhoneNumber.TabIndex = 80
+        Me.txtMemberPhoneNumber.TabIndex = 68
         '
         'txtMemberEmail
         '
         Me.txtMemberEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMemberEmail.Location = New System.Drawing.Point(707, 286)
+        Me.txtMemberEmail.Location = New System.Drawing.Point(706, 289)
         Me.txtMemberEmail.Name = "txtMemberEmail"
         Me.txtMemberEmail.Size = New System.Drawing.Size(474, 45)
-        Me.txtMemberEmail.TabIndex = 79
+        Me.txtMemberEmail.TabIndex = 67
         '
         'txtMemberName
         '
         Me.txtMemberName.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMemberName.Location = New System.Drawing.Point(707, 235)
+        Me.txtMemberName.Location = New System.Drawing.Point(706, 238)
         Me.txtMemberName.Name = "txtMemberName"
         Me.txtMemberName.Size = New System.Drawing.Size(474, 45)
-        Me.txtMemberName.TabIndex = 78
+        Me.txtMemberName.TabIndex = 66
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(487, 402)
+        Me.Label4.Location = New System.Drawing.Point(486, 405)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(195, 38)
-        Me.Label4.TabIndex = 77
+        Me.Label4.TabIndex = 65
         Me.Label4.Text = "Member IC :"
         '
         'lblMemberPhoneNumber
         '
         Me.lblMemberPhoneNumber.AutoSize = True
         Me.lblMemberPhoneNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMemberPhoneNumber.Location = New System.Drawing.Point(293, 346)
+        Me.lblMemberPhoneNumber.Location = New System.Drawing.Point(292, 349)
         Me.lblMemberPhoneNumber.Name = "lblMemberPhoneNumber"
         Me.lblMemberPhoneNumber.Size = New System.Drawing.Size(382, 38)
-        Me.lblMemberPhoneNumber.TabIndex = 76
+        Me.lblMemberPhoneNumber.TabIndex = 64
         Me.lblMemberPhoneNumber.Text = "Member Phone Number :"
         '
         'lblMemberID
         '
         Me.lblMemberID.AutoSize = True
         Me.lblMemberID.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMemberID.Location = New System.Drawing.Point(436, 286)
+        Me.lblMemberID.Location = New System.Drawing.Point(435, 289)
         Me.lblMemberID.Name = "lblMemberID"
         Me.lblMemberID.Size = New System.Drawing.Size(244, 38)
-        Me.lblMemberID.TabIndex = 75
+        Me.lblMemberID.TabIndex = 63
         Me.lblMemberID.Text = "Member Email :"
         '
         'lblMemberName
         '
         Me.lblMemberName.AutoSize = True
         Me.lblMemberName.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMemberName.Location = New System.Drawing.Point(431, 235)
+        Me.lblMemberName.Location = New System.Drawing.Point(430, 238)
         Me.lblMemberName.Name = "lblMemberName"
         Me.lblMemberName.Size = New System.Drawing.Size(250, 38)
-        Me.lblMemberName.TabIndex = 74
+        Me.lblMemberName.TabIndex = 62
         Me.lblMemberName.Text = "Member Name :"
         '
-        'Membership
+        'btnRegister
+        '
+        Me.btnRegister.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRegister.Location = New System.Drawing.Point(563, 506)
+        Me.btnRegister.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnRegister.Name = "btnRegister"
+        Me.btnRegister.Size = New System.Drawing.Size(157, 53)
+        Me.btnRegister.TabIndex = 72
+        Me.btnRegister.Text = "&Register"
+        Me.btnRegister.UseVisualStyleBackColor = True
+        '
+        'btnCancel
+        '
+        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancel.Location = New System.Drawing.Point(738, 506)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(157, 53)
+        Me.btnCancel.TabIndex = 73
+        Me.btnCancel.Text = "&Cancel"
+        Me.btnCancel.UseVisualStyleBackColor = True
+        '
+        'MemberRegister
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -183,10 +198,11 @@ Partial Class Membership
         Me.Controls.Add(Me.lblWelcome)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "Membership"
-        Me.Text = "Home"
+        Me.Name = "MemberRegister"
+        Me.Text = "MemberRegister"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
+        CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -194,10 +210,9 @@ Partial Class Membership
     End Sub
 
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents picBack As PictureBox
     Friend WithEvents picDelete As PictureBox
     Friend WithEvents lblWelcome As Label
-    Friend WithEvents btnCancel As Button
-    Friend WithEvents btnRegister As Button
     Friend WithEvents txtMemberIC As TextBox
     Friend WithEvents txtMemberPhoneNumber As TextBox
     Friend WithEvents txtMemberEmail As TextBox
@@ -206,4 +221,6 @@ Partial Class Membership
     Friend WithEvents lblMemberPhoneNumber As Label
     Friend WithEvents lblMemberID As Label
     Friend WithEvents lblMemberName As Label
+    Friend WithEvents btnRegister As Button
+    Friend WithEvents btnCancel As Button
 End Class

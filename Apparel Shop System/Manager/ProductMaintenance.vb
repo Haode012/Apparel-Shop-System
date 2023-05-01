@@ -3,6 +3,7 @@
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
         Me.Close()
         StaffMaintenance.Close()
+        MembershipMaintenance.Close()
     End Sub
 
     Private Sub btnDisplay_Click(sender As Object, e As EventArgs) Handles btnDisplay.Click

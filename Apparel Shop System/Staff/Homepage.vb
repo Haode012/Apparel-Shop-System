@@ -21,4 +21,8 @@
         ProductItemDetails.Close()
     End Sub
 
+    Private Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
+        Me.Close()
+        StaffLogin.Show()
+    End Sub
 End Class
