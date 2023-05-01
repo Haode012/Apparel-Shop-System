@@ -4,6 +4,7 @@
         Me.Close()
         StaffMaintenance.Close()
         MembershipMaintenance.Close()
+        PromotionMaintenance.Close()
     End Sub
 
     Private Sub btnDisplay_Click(sender As Object, e As EventArgs) Handles btnDisplay.Click

@@ -212,6 +212,30 @@
     <Compile Include="Manager\ProductReportViewer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Manager\PromotionMaintenance.Designer.vb">
+      <DependentUpon>PromotionMaintenance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\PromotionMaintenance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\Promotion_Add.Designer.vb">
+      <DependentUpon>Promotion_Add.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Promotion_Add.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\Promotion_Details.Designer.vb">
+      <DependentUpon>Promotion_Details.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Promotion_Details.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\Promotion_Edit.Designer.vb">
+      <DependentUpon>Promotion_Edit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Promotion_Edit.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Manager\StaffMaintenance.Designer.vb">
       <DependentUpon>StaffMaintenance.vb</DependentUpon>
     </Compile>
@@ -338,6 +362,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\ProductReportViewer.resx">
       <DependentUpon>ProductReportViewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\PromotionMaintenance.resx">
+      <DependentUpon>PromotionMaintenance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\Promotion_Add.resx">
+      <DependentUpon>Promotion_Add.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\Promotion_Details.resx">
+      <DependentUpon>Promotion_Details.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\Promotion_Edit.resx">
+      <DependentUpon>Promotion_Edit.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\StaffMaintenance.resx">
       <DependentUpon>StaffMaintenance.vb</DependentUpon>
@@ -468,6 +504,45 @@
     <None Include="Resources\staff_maintenance_icon.png" />
     <None Include="Resources\staff_maintenance_big.png" />
     <None Include="Resources\membership_maintenance_big.png" />
+    <None Include="Resources\baseline_add_black_24dp.png" />
+    <None Include="Resources\apperal shop1.jpg" />
+    <None Include="Resources\back_arrow1.png" />
+    <None Include="Resources\block_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Include="Resources\campaign_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Include="Resources\cart_icon1.png" />
+    <None Include="Resources\category_icon1.png" />
+    <None Include="Resources\close1.png" />
+    <None Include="Resources\edit_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Include="Resources\expand_less_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Include="Resources\expand_more_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Include="Resources\feedback_icon1.png" />
+    <None Include="Resources\Female1.png" />
+    <None Include="Resources\home_icon1.png" />
+    <None Include="Resources\keyboard_double_arrow_left_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Include="Resources\navigate_before_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Include="Resources\log-out_icon1.png" />
+    <None Include="Resources\Male1.png" />
+    <None Include="Resources\menu_maintenance_icon1.png" />
+    <None Include="Resources\menu_maintenance_icon_big1.png" />
+    <None Include="Resources\order_history_icon1.png" />
+    <None Include="Resources\pant1.png" />
+    <None Include="Resources\print_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Include="Resources\vecteezy_sales-promotion-line-icon-logo-vector_.jpg" />
+    <None Include="Resources\remove_icon1.png" />
+    <None Include="Resources\reply_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Include="Resources\keyboard_double_arrow_right_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Include="Resources\chevron_right_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Include="Resources\search_icon1.png" />
+    <None Include="Resources\shirt1.png" />
+    <None Include="Resources\shoe1.png" />
+    <None Include="Resources\skip_next_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Include="Resources\skip_previous_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Include="Resources\sky1.png" />
+    <None Include="Resources\sock1.png" />
+    <None Include="Resources\tng example.png" />
+    <None Include="Resources\user_icon1.png" />
+    <None Include="Resources\promotion_maintenance_icon.png" />
+    <None Include="Resources\promotion_maintenance_icon_big.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

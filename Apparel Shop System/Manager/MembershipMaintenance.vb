@@ -14,6 +14,7 @@ Public Class MembershipMaintenance
         Me.Close()
         StaffMaintenance.Close()
         ProductMaintenance.Close()
+        PromotionMaintenance.Close()
     End Sub
 
     Private Sub dgvList_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvList.CellDoubleClick

@@ -335,6 +335,7 @@ Public Class StaffMaintenance
         Me.Close()
         ProductMaintenance.Close()
         MembershipMaintenance.Close()
+        PromotionMaintenance.Close()
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click

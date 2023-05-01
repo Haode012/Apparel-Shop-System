@@ -24,6 +24,8 @@ Partial Class ManagerHomepage
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ManagerHomepage))
         Me.panelShow = New System.Windows.Forms.Panel()
+        Me.lblMembershipMaintenance = New System.Windows.Forms.Label()
+        Me.lblStaffMaintenance = New System.Windows.Forms.Label()
         Me.lblProductMaintenance = New System.Windows.Forms.Label()
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
@@ -31,10 +33,10 @@ Partial Class ManagerHomepage
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.leftPanel = New System.Windows.Forms.Panel()
-        Me.lblStaffMaintenance = New System.Windows.Forms.Label()
         Me.btnMembershipMaintenanceBig = New System.Windows.Forms.Button()
         Me.btnStaffMaintenanceBig = New System.Windows.Forms.Button()
         Me.btnProductMaintenanceBig = New System.Windows.Forms.Button()
+        Me.btnPromotion = New System.Windows.Forms.Button()
         Me.btnMembershipMaintenance = New System.Windows.Forms.Button()
         Me.btnProductMaintenance = New System.Windows.Forms.Button()
         Me.btnLogOut = New System.Windows.Forms.Button()
@@ -44,7 +46,8 @@ Partial Class ManagerHomepage
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblUsername = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.lblMembershipMaintenance = New System.Windows.Forms.Label()
+        Me.btnPromotionMaintenanceBig = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.panelShow.SuspendLayout()
         Me.leftPanel.SuspendLayout()
         Me.imagePanel.SuspendLayout()
@@ -53,6 +56,8 @@ Partial Class ManagerHomepage
         '
         'panelShow
         '
+        Me.panelShow.Controls.Add(Me.Label2)
+        Me.panelShow.Controls.Add(Me.btnPromotionMaintenanceBig)
         Me.panelShow.Controls.Add(Me.lblMembershipMaintenance)
         Me.panelShow.Controls.Add(Me.btnMembershipMaintenanceBig)
         Me.panelShow.Controls.Add(Me.lblStaffMaintenance)
@@ -65,6 +70,26 @@ Partial Class ManagerHomepage
         Me.panelShow.Name = "panelShow"
         Me.panelShow.Size = New System.Drawing.Size(1654, 1035)
         Me.panelShow.TabIndex = 14
+        '
+        'lblMembershipMaintenance
+        '
+        Me.lblMembershipMaintenance.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMembershipMaintenance.Location = New System.Drawing.Point(1196, 467)
+        Me.lblMembershipMaintenance.Name = "lblMembershipMaintenance"
+        Me.lblMembershipMaintenance.Size = New System.Drawing.Size(276, 81)
+        Me.lblMembershipMaintenance.TabIndex = 9
+        Me.lblMembershipMaintenance.Text = "Membership Maintenance"
+        Me.lblMembershipMaintenance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblStaffMaintenance
+        '
+        Me.lblStaffMaintenance.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStaffMaintenance.Location = New System.Drawing.Point(303, 467)
+        Me.lblStaffMaintenance.Name = "lblStaffMaintenance"
+        Me.lblStaffMaintenance.Size = New System.Drawing.Size(276, 81)
+        Me.lblStaffMaintenance.TabIndex = 7
+        Me.lblStaffMaintenance.Text = "Staff " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Maintenance"
+        Me.lblStaffMaintenance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblProductMaintenance
         '
@@ -126,6 +151,7 @@ Partial Class ManagerHomepage
         'leftPanel
         '
         Me.leftPanel.BackColor = System.Drawing.Color.LightCyan
+        Me.leftPanel.Controls.Add(Me.btnPromotion)
         Me.leftPanel.Controls.Add(Me.btnMembershipMaintenance)
         Me.leftPanel.Controls.Add(Me.btnProductMaintenance)
         Me.leftPanel.Controls.Add(Me.btnLogOut)
@@ -137,16 +163,6 @@ Partial Class ManagerHomepage
         Me.leftPanel.Name = "leftPanel"
         Me.leftPanel.Size = New System.Drawing.Size(250, 1055)
         Me.leftPanel.TabIndex = 9
-        '
-        'lblStaffMaintenance
-        '
-        Me.lblStaffMaintenance.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStaffMaintenance.Location = New System.Drawing.Point(303, 467)
-        Me.lblStaffMaintenance.Name = "lblStaffMaintenance"
-        Me.lblStaffMaintenance.Size = New System.Drawing.Size(276, 81)
-        Me.lblStaffMaintenance.TabIndex = 7
-        Me.lblStaffMaintenance.Text = "Staff " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Maintenance"
-        Me.lblStaffMaintenance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnMembershipMaintenanceBig
         '
@@ -177,6 +193,23 @@ Partial Class ManagerHomepage
         Me.btnProductMaintenanceBig.Size = New System.Drawing.Size(141, 142)
         Me.btnProductMaintenanceBig.TabIndex = 0
         Me.btnProductMaintenanceBig.UseVisualStyleBackColor = True
+        '
+        'btnPromotion
+        '
+        Me.btnPromotion.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnPromotion.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnPromotion.FlatAppearance.BorderSize = 0
+        Me.btnPromotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPromotion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPromotion.ForeColor = System.Drawing.Color.Black
+        Me.btnPromotion.Image = Global.Apparel_Shop_System.My.Resources.Resources.promotion_maintenance_icon
+        Me.btnPromotion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnPromotion.Location = New System.Drawing.Point(0, 433)
+        Me.btnPromotion.Name = "btnPromotion"
+        Me.btnPromotion.Size = New System.Drawing.Size(250, 68)
+        Me.btnPromotion.TabIndex = 13
+        Me.btnPromotion.Text = "&Promotion " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Maintenance"
+        Me.btnPromotion.UseVisualStyleBackColor = True
         '
         'btnMembershipMaintenance
         '
@@ -310,15 +343,25 @@ Partial Class ManagerHomepage
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
         '
-        'lblMembershipMaintenance
+        'btnPromotionMaintenanceBig
         '
-        Me.lblMembershipMaintenance.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMembershipMaintenance.Location = New System.Drawing.Point(1196, 467)
-        Me.lblMembershipMaintenance.Name = "lblMembershipMaintenance"
-        Me.lblMembershipMaintenance.Size = New System.Drawing.Size(276, 81)
-        Me.lblMembershipMaintenance.TabIndex = 9
-        Me.lblMembershipMaintenance.Text = "Membership Maintenance"
-        Me.lblMembershipMaintenance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.btnPromotionMaintenanceBig.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.promotion_maintenance_icon_big
+        Me.btnPromotionMaintenanceBig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnPromotionMaintenanceBig.Location = New System.Drawing.Point(583, 621)
+        Me.btnPromotionMaintenanceBig.Name = "btnPromotionMaintenanceBig"
+        Me.btnPromotionMaintenanceBig.Size = New System.Drawing.Size(141, 142)
+        Me.btnPromotionMaintenanceBig.TabIndex = 10
+        Me.btnPromotionMaintenanceBig.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(523, 781)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(276, 81)
+        Me.Label2.TabIndex = 11
+        Me.Label2.Text = "Promotion Maintenance"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ManagerHomepage
         '
@@ -365,4 +408,7 @@ Partial Class ManagerHomepage
     Friend WithEvents btnMembershipMaintenanceBig As Button
     Friend WithEvents btnMembershipMaintenance As Button
     Friend WithEvents lblMembershipMaintenance As Label
+    Friend WithEvents btnPromotion As Button
+    Friend WithEvents Label2 As Label
+    Friend WithEvents btnPromotionMaintenanceBig As Button
 End Class

@@ -179,6 +179,7 @@ Public Class FireStaffvb
         StaffMaintenance.Close()
         ProductMaintenance.Close()
         MembershipMaintenance.Close()
+        PromotionMaintenance.Close()
     End Sub
 
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click

@@ -66,4 +66,23 @@
         Me.Close()
         ManagerLogin.Show()
     End Sub
+
+    Private Sub btnPromotionMaintenanceBig_Click(sender As Object, e As EventArgs) Handles btnPromotionMaintenanceBig.Click
+        With PromotionMaintenance
+            .TopLevel = False
+            panelShow.Controls.Add(PromotionMaintenance)
+            .BringToFront()
+            .Show()
+        End With
+    End Sub
+
+    Private Sub btnPromotion_Click(sender As Object, e As EventArgs) Handles btnPromotion.Click
+        With PromotionMaintenance
+            .TopLevel = False
+            panelShow.Controls.Add(PromotionMaintenance)
+            .BringToFront()
+            .Show()
+        End With
+    End Sub
+
 End Class
