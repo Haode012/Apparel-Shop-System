@@ -262,6 +262,12 @@
     </Compile>
     <Compile Include="Module1.vb" />
     <Compile Include="ModulePublicVariable.vb" />
+    <Compile Include="SplashScreen.Designer.vb">
+      <DependentUpon>SplashScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Staff\Membership.Designer.vb">
       <DependentUpon>Membership.vb</DependentUpon>
     </Compile>
@@ -398,6 +404,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\ViewStaffDetails.resx">
       <DependentUpon>ViewStaffDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff\Membership.resx">
       <DependentUpon>Membership.vb</DependentUpon>
