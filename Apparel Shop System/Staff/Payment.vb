@@ -34,15 +34,54 @@ Public Class Payment
 
         ShowMembershipDetails(MembershipID, MembershipName)
         display_all_record()
+        display_all_record2()
 
 
     End Sub
     Public Sub ShowMembershipDetails(MembershipID As String, MembershipName As String)
         lblMembershipID.Text = MembershipID
         lblMembershipName.Text = MembershipName
+        lblMembershipID2.Text = MembershipID
+        lblMembershipName2.Text = MembershipName
 
     End Sub
+    Public Sub display_all_record2()
+        cmd = con.CreateCommand
+        cmd.CommandType = CommandType.Text
+        cmd.CommandText = "select * from Cart"
+        cmd.ExecuteNonQuery()
+        Dim dt As New DataTable()
+        Dim da As New SqlDataAdapter(cmd)
 
+
+
+        da.Fill(dt)
+        dgvTng.DataSource = dt
+        dgvTng.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None
+
+        For Each col As DataGridViewColumn In dgvTng.Columns
+            col.Width = 157 ' Set the width of each column to 157
+        Next
+
+        ' Calculate the total price
+
+        Dim totalPrice As Decimal = 0
+        For Each row As DataRow In dt.Rows
+            Dim quantity As Integer = CInt(row("productQuantity"))
+
+            Dim priceString As String = row("productPrice").ToString()
+            priceString = priceString.Replace("RM", "") ' Remove "RM" from the string
+            Dim price As Decimal = Decimal.Parse(priceString)
+            Dim rowTotalPrice As Decimal = quantity * price
+            totalPrice += rowTotalPrice
+        Next
+
+        ' Display the total price in a label or textbox
+        Dim nfi As New System.Globalization.NumberFormatInfo()
+        nfi.CurrencySymbol = "RM" ' Replace with "RM" 
+        lblTotalAmount1.Text = totalPrice.ToString("C", nfi)
+
+    End Sub
     Public Sub display_all_record()
         cmd = con.CreateCommand
         cmd.CommandType = CommandType.Text
@@ -60,13 +99,7 @@ Public Class Payment
         For Each col As DataGridViewColumn In dgvMasterCard.Columns
             col.Width = 157 ' Set the width of each column to 157
         Next
-        da.Fill(dt)
-        dgvTng.DataSource = dt
-        dgvTng.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None
 
-        For Each col As DataGridViewColumn In dgvTng.Columns
-            col.Width = 157 ' Set the width of each column to 157
-        Next
         ' Calculate the total price
 
         Dim totalPrice As Decimal = 0
@@ -84,7 +117,7 @@ Public Class Payment
         Dim nfi As New System.Globalization.NumberFormatInfo()
         nfi.CurrencySymbol = "RM" ' Replace with "RM" 
         lblTotalAmount.Text = totalPrice.ToString("C", nfi)
-        lblTotalAmount1.Text = totalPrice.ToString("C", nfi)
+
 
 
     End Sub

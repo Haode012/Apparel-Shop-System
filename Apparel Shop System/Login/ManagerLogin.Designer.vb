@@ -22,7 +22,6 @@ Partial Class ManagerLogin
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ManagerLogin))
         Me.txtUserId = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -39,7 +38,7 @@ Partial Class ManagerLogin
         '
         Me.txtUserId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtUserId.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUserId.Location = New System.Drawing.Point(301, 189)
+        Me.txtUserId.Location = New System.Drawing.Point(274, 191)
         Me.txtUserId.Name = "txtUserId"
         Me.txtUserId.Size = New System.Drawing.Size(300, 32)
         Me.txtUserId.TabIndex = 17
@@ -61,7 +60,7 @@ Partial Class ManagerLogin
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(355, 286)
+        Me.Label3.Location = New System.Drawing.Point(328, 288)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(152, 24)
         Me.Label3.TabIndex = 14
@@ -72,7 +71,7 @@ Partial Class ManagerLogin
         Me.btnLogin.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogin.ForeColor = System.Drawing.SystemColors.Window
-        Me.btnLogin.Location = New System.Drawing.Point(285, 322)
+        Me.btnLogin.Location = New System.Drawing.Point(258, 324)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(300, 51)
         Me.btnLogin.TabIndex = 13
@@ -83,7 +82,7 @@ Partial Class ManagerLogin
         '
         Me.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPassword.Location = New System.Drawing.Point(301, 241)
+        Me.txtPassword.Location = New System.Drawing.Point(274, 243)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.Size = New System.Drawing.Size(300, 32)
         Me.txtPassword.TabIndex = 12
@@ -92,7 +91,7 @@ Partial Class ManagerLogin
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(171, 241)
+        Me.Label2.Location = New System.Drawing.Point(144, 243)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(104, 25)
         Me.Label2.TabIndex = 11
@@ -102,7 +101,7 @@ Partial Class ManagerLogin
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(171, 192)
+        Me.Label1.Location = New System.Drawing.Point(144, 194)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(82, 25)
         Me.Label1.TabIndex = 10
@@ -110,10 +109,11 @@ Partial Class ManagerLogin
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(359, 59)
+        Me.PictureBox1.Image = Global.Apparel_Shop_System.My.Resources.Resources.user_icon
+        Me.PictureBox1.Location = New System.Drawing.Point(344, 68)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(162, 117)
+        Me.PictureBox1.Size = New System.Drawing.Size(123, 117)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 16
         Me.PictureBox1.TabStop = False
         '
@@ -122,7 +122,7 @@ Partial Class ManagerLogin
         Me.btnBack.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBack.ForeColor = System.Drawing.Color.White
-        Me.btnBack.Location = New System.Drawing.Point(285, 379)
+        Me.btnBack.Location = New System.Drawing.Point(258, 381)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(300, 51)
         Me.btnBack.TabIndex = 24

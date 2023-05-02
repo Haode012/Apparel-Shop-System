@@ -39,6 +39,10 @@ Partial Class Payment
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.tbMasterCard = New System.Windows.Forms.TabPage()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.lblMembershipName2 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.lblMembershipID2 = New System.Windows.Forms.Label()
         Me.lblTotalAmount = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.dgvMasterCard = New System.Windows.Forms.DataGridView()
@@ -55,13 +59,14 @@ Partial Class Payment
         Me.MaskedTextBox2 = New System.Windows.Forms.MaskedTextBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.picBack = New System.Windows.Forms.PictureBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.lblExpirationDate = New System.Windows.Forms.Label()
         Me.tabPaymentMethod.SuspendLayout()
         Me.tbTouchNgo.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -290,6 +295,10 @@ Partial Class Payment
         Me.tbMasterCard.BackColor = System.Drawing.Color.LightCoral
         Me.tbMasterCard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.tbMasterCard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.tbMasterCard.Controls.Add(Me.Label7)
+        Me.tbMasterCard.Controls.Add(Me.lblMembershipName2)
+        Me.tbMasterCard.Controls.Add(Me.Label9)
+        Me.tbMasterCard.Controls.Add(Me.lblMembershipID2)
         Me.tbMasterCard.Controls.Add(Me.lblTotalAmount)
         Me.tbMasterCard.Controls.Add(Me.Label4)
         Me.tbMasterCard.Controls.Add(Me.dgvMasterCard)
@@ -304,6 +313,62 @@ Partial Class Payment
         Me.tbMasterCard.Size = New System.Drawing.Size(1646, 967)
         Me.tbMasterCard.TabIndex = 1
         Me.tbMasterCard.Text = "Master Card "
+        '
+        'Label7
+        '
+        Me.Label7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.Transparent
+        Me.Label7.Location = New System.Drawing.Point(1210, 67)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(196, 32)
+        Me.Label7.TabIndex = 84
+        Me.Label7.Text = "Name              :"
+        '
+        'lblMembershipName2
+        '
+        Me.lblMembershipName2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblMembershipName2.AutoSize = True
+        Me.lblMembershipName2.BackColor = System.Drawing.Color.LightCyan
+        Me.lblMembershipName2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblMembershipName2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMembershipName2.ForeColor = System.Drawing.Color.Black
+        Me.lblMembershipName2.Location = New System.Drawing.Point(1429, 72)
+        Me.lblMembershipName2.Name = "lblMembershipName2"
+        Me.lblMembershipName2.Size = New System.Drawing.Size(173, 27)
+        Me.lblMembershipName2.TabIndex = 83
+        Me.lblMembershipName2.Text = "membershipName"
+        '
+        'Label9
+        '
+        Me.Label9.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.Transparent
+        Me.Label9.Location = New System.Drawing.Point(1210, 21)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(213, 32)
+        Me.Label9.TabIndex = 82
+        Me.Label9.Text = "Membership ID:"
+        '
+        'lblMembershipID2
+        '
+        Me.lblMembershipID2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblMembershipID2.AutoSize = True
+        Me.lblMembershipID2.BackColor = System.Drawing.Color.LightCyan
+        Me.lblMembershipID2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblMembershipID2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMembershipID2.ForeColor = System.Drawing.Color.Black
+        Me.lblMembershipID2.Location = New System.Drawing.Point(1429, 27)
+        Me.lblMembershipID2.Name = "lblMembershipID2"
+        Me.lblMembershipID2.Size = New System.Drawing.Size(140, 27)
+        Me.lblMembershipID2.TabIndex = 81
+        Me.lblMembershipID2.Text = "membershipID"
         '
         'lblTotalAmount
         '
@@ -358,7 +423,7 @@ Partial Class Payment
         Me.GroupBox3.Controls.Add(Me.TableLayoutPanel1)
         Me.GroupBox3.Controls.Add(Me.TableLayoutPanel2)
         Me.GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.GroupBox3.Location = New System.Drawing.Point(891, 82)
+        Me.GroupBox3.Location = New System.Drawing.Point(899, 136)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -411,14 +476,14 @@ Partial Class Payment
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.52941!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(636, 158)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(636, 189)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'Label32
         '
         Me.Label32.AutoSize = True
         Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label32.Location = New System.Drawing.Point(3, 69)
+        Me.Label32.Location = New System.Drawing.Point(3, 100)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(129, 25)
         Me.Label32.TabIndex = 4
@@ -436,7 +501,7 @@ Partial Class Payment
         '
         'txtOwner
         '
-        Me.txtOwner.Location = New System.Drawing.Point(3, 38)
+        Me.txtOwner.Location = New System.Drawing.Point(3, 53)
         Me.txtOwner.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtOwner.Name = "txtOwner"
         Me.txtOwner.Size = New System.Drawing.Size(413, 30)
@@ -454,7 +519,7 @@ Partial Class Payment
         '
         'mskCardNumber
         '
-        Me.mskCardNumber.Location = New System.Drawing.Point(3, 111)
+        Me.mskCardNumber.Location = New System.Drawing.Point(3, 142)
         Me.mskCardNumber.Mask = "0000 0000 0000 0000"
         Me.mskCardNumber.Name = "mskCardNumber"
         Me.mskCardNumber.Size = New System.Drawing.Size(413, 30)
@@ -462,7 +527,7 @@ Partial Class Payment
         '
         'MaskedTextBox2
         '
-        Me.MaskedTextBox2.Location = New System.Drawing.Point(444, 39)
+        Me.MaskedTextBox2.Location = New System.Drawing.Point(444, 54)
         Me.MaskedTextBox2.Mask = "000"
         Me.MaskedTextBox2.Name = "MaskedTextBox2"
         Me.MaskedTextBox2.Size = New System.Drawing.Size(100, 30)
@@ -470,13 +535,17 @@ Partial Class Payment
         '
         'TableLayoutPanel2
         '
-        Me.TableLayoutPanel2.ColumnCount = 2
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.11848!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.88152!))
+        Me.TableLayoutPanel2.ColumnCount = 5
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 211.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.ComboBox1, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.ComboBox2, 1, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.Label33, 0, 0)
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(45, 204)
+        Me.TableLayoutPanel2.Controls.Add(Me.lblExpirationDate, 3, 1)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(45, 254)
         Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 2
@@ -493,15 +562,6 @@ Partial Class Payment
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(129, 33)
         Me.ComboBox1.TabIndex = 7
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(162, 52)
-        Me.ComboBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(95, 33)
-        Me.ComboBox2.TabIndex = 8
         '
         'Label33
         '
@@ -569,6 +629,27 @@ Partial Class Payment
         Me.picBack.TabIndex = 3
         Me.picBack.TabStop = False
         '
+        'ComboBox2
+        '
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(153, 52)
+        Me.ComboBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(95, 33)
+        Me.ComboBox2.TabIndex = 8
+        '
+        'lblExpirationDate
+        '
+        Me.lblExpirationDate.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblExpirationDate.BackColor = System.Drawing.SystemColors.Control
+        Me.lblExpirationDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblExpirationDate.ForeColor = System.Drawing.Color.Black
+        Me.lblExpirationDate.Location = New System.Drawing.Point(274, 50)
+        Me.lblExpirationDate.Name = "lblExpirationDate"
+        Me.lblExpirationDate.Size = New System.Drawing.Size(205, 35)
+        Me.lblExpirationDate.TabIndex = 86
+        '
         'Payment
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -635,11 +716,16 @@ Partial Class Payment
     Friend WithEvents MaskedTextBox2 As MaskedTextBox
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents Label33 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents picDelete As PictureBox
     Friend WithEvents Panel3 As Panel
     Friend WithEvents picBack As PictureBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents lblMembershipName2 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents lblMembershipID2 As Label
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents lblExpirationDate As Label
 End Class
