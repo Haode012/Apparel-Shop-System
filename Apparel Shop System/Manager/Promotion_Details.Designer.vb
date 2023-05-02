@@ -24,8 +24,12 @@ Partial Class Promotion_Details
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Promotion_Details))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.picBack = New System.Windows.Forms.PictureBox()
+        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.tctPromotion = New System.Windows.Forms.TabControl()
         Me.tabPromOverview = New System.Windows.Forms.TabPage()
+        Me.btnEditPromo = New System.Windows.Forms.Button()
+        Me.Button17 = New System.Windows.Forms.Button()
         Me.pnlPromotionInfo = New System.Windows.Forms.Panel()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -47,6 +51,7 @@ Partial Class Promotion_Details
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.btnExpendInfo = New System.Windows.Forms.Button()
         Me.lblPromoInfo = New System.Windows.Forms.Label()
         Me.tabPromotionApply = New System.Windows.Forms.TabPage()
         Me.Label26 = New System.Windows.Forms.Label()
@@ -55,20 +60,6 @@ Partial Class Promotion_Details
         Me.Button14 = New System.Windows.Forms.Button()
         Me.Button13 = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
-        Me.ListBox2 = New System.Windows.Forms.ListBox()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.Button18 = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnEditPromo = New System.Windows.Forms.Button()
-        Me.Button17 = New System.Windows.Forms.Button()
-        Me.btnExpendInfo = New System.Windows.Forms.Button()
         Me.Button16 = New System.Windows.Forms.Button()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
@@ -76,19 +67,28 @@ Partial Class Promotion_Details
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
+        Me.ListBox2 = New System.Windows.Forms.ListBox()
+        Me.Label25 = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Button18 = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.btnReturn = New System.Windows.Forms.Button()
-        Me.picBack = New System.Windows.Forms.PictureBox()
-        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
+        CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tctPromotion.SuspendLayout()
         Me.tabPromOverview.SuspendLayout()
         Me.pnlPromotionInfo.SuspendLayout()
         Me.tabPromotionApply.SuspendLayout()
         Me.TabPage1.SuspendLayout()
-        CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -101,6 +101,28 @@ Partial Class Promotion_Details
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1654, 46)
         Me.Panel1.TabIndex = 9
+        '
+        'picBack
+        '
+        Me.picBack.Dock = System.Windows.Forms.DockStyle.Left
+        Me.picBack.Image = CType(resources.GetObject("picBack.Image"), System.Drawing.Image)
+        Me.picBack.Location = New System.Drawing.Point(0, 0)
+        Me.picBack.Name = "picBack"
+        Me.picBack.Size = New System.Drawing.Size(46, 46)
+        Me.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picBack.TabIndex = 3
+        Me.picBack.TabStop = False
+        '
+        'picDelete
+        '
+        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
+        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
+        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
+        Me.picDelete.Name = "picDelete"
+        Me.picDelete.Size = New System.Drawing.Size(46, 46)
+        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDelete.TabIndex = 0
+        Me.picDelete.TabStop = False
         '
         'tctPromotion
         '
@@ -130,6 +152,37 @@ Partial Class Promotion_Details
         Me.tabPromOverview.Size = New System.Drawing.Size(1523, 614)
         Me.tabPromOverview.TabIndex = 0
         Me.tabPromOverview.Text = "Overview"
+        '
+        'btnEditPromo
+        '
+        Me.btnEditPromo.BackColor = System.Drawing.SystemColors.Control
+        Me.btnEditPromo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.btnEditPromo.Image = Global.Apparel_Shop_System.My.Resources.Resources.edit_icon
+        Me.btnEditPromo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEditPromo.Location = New System.Drawing.Point(1052, 24)
+        Me.btnEditPromo.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnEditPromo.Name = "btnEditPromo"
+        Me.btnEditPromo.Size = New System.Drawing.Size(114, 56)
+        Me.btnEditPromo.TabIndex = 113
+        Me.btnEditPromo.Text = "&Edit"
+        Me.btnEditPromo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnEditPromo.UseVisualStyleBackColor = False
+        '
+        'Button17
+        '
+        Me.Button17.BackColor = System.Drawing.Color.Red
+        Me.Button17.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Button17.ForeColor = System.Drawing.Color.Black
+        Me.Button17.Image = Global.Apparel_Shop_System.My.Resources.Resources.block_icon
+        Me.Button17.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button17.Location = New System.Drawing.Point(1188, 24)
+        Me.Button17.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button17.Name = "Button17"
+        Me.Button17.Size = New System.Drawing.Size(246, 56)
+        Me.Button17.TabIndex = 110
+        Me.Button17.Text = "End Promotion"
+        Me.Button17.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button17.UseVisualStyleBackColor = False
         '
         'pnlPromotionInfo
         '
@@ -352,6 +405,15 @@ Partial Class Promotion_Details
         Me.Label10.TabIndex = 82
         Me.Label10.Text = "Promotion Name"
         '
+        'btnExpendInfo
+        '
+        Me.btnExpendInfo.Image = Global.Apparel_Shop_System.My.Resources.Resources.expand_more_FILL0_wght400_GRAD0_opsz48
+        Me.btnExpendInfo.Location = New System.Drawing.Point(34, 66)
+        Me.btnExpendInfo.Name = "btnExpendInfo"
+        Me.btnExpendInfo.Size = New System.Drawing.Size(30, 30)
+        Me.btnExpendInfo.TabIndex = 80
+        Me.btnExpendInfo.UseVisualStyleBackColor = True
+        '
         'lblPromoInfo
         '
         Me.lblPromoInfo.AutoSize = True
@@ -464,165 +526,6 @@ Partial Class Promotion_Details
         Me.Button12.Text = "1"
         Me.Button12.UseVisualStyleBackColor = True
         '
-        'ListBox2
-        '
-        Me.ListBox2.FormattingEnabled = True
-        Me.ListBox2.ItemHeight = 25
-        Me.ListBox2.Location = New System.Drawing.Point(779, 187)
-        Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(610, 354)
-        Me.ListBox2.TabIndex = 89
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.ForeColor = System.Drawing.SystemColors.Highlight
-        Me.Label25.Location = New System.Drawing.Point(774, 106)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(392, 29)
-        Me.Label25.TabIndex = 84
-        Me.Label25.Text = "Apply promotion on these product"
-        Me.Label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'ListBox1
-        '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.ItemHeight = 25
-        Me.ListBox1.Location = New System.Drawing.Point(58, 187)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(610, 354)
-        Me.ListBox1.TabIndex = 83
-        '
-        'Label24
-        '
-        Me.Label24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.ForeColor = System.Drawing.Color.Black
-        Me.Label24.Location = New System.Drawing.Point(372, 148)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(296, 40)
-        Me.Label24.TabIndex = 82
-        Me.Label24.Text = "Product ID"
-        Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label23
-        '
-        Me.Label23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.ForeColor = System.Drawing.Color.Black
-        Me.Label23.Location = New System.Drawing.Point(58, 148)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(315, 40)
-        Me.Label23.TabIndex = 81
-        Me.Label23.Text = "Product Name"
-        Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.ForeColor = System.Drawing.SystemColors.Highlight
-        Me.Label22.Location = New System.Drawing.Point(58, 110)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(113, 29)
-        Me.Label22.TabIndex = 80
-        Me.Label22.Text = "Products"
-        Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(63, 36)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(346, 36)
-        Me.TextBox1.TabIndex = 0
-        Me.TextBox1.Text = "Search..."
-        '
-        'TabPage1
-        '
-        Me.TabPage1.Controls.Add(Me.Button18)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 68)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1523, 614)
-        Me.TabPage1.TabIndex = 2
-        Me.TabPage1.Text = "Report"
-        Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'Button18
-        '
-        Me.Button18.AutoSize = True
-        Me.Button18.Image = Global.Apparel_Shop_System.My.Resources.Resources.print_FILL0_wght400_GRAD0_opsz48
-        Me.Button18.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button18.Location = New System.Drawing.Point(1373, 32)
-        Me.Button18.Name = "Button18"
-        Me.Button18.Size = New System.Drawing.Size(126, 63)
-        Me.Button18.TabIndex = 0
-        Me.Button18.Text = "&Print"
-        Me.Button18.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button18.UseVisualStyleBackColor = True
-        '
-        'Label2
-        '
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label2.Location = New System.Drawing.Point(278, 73)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(510, 50)
-        Me.Label2.TabIndex = 12
-        Me.Label2.Text = "(Promotion Name Show Here)"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label1
-        '
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label1.Location = New System.Drawing.Point(116, 73)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(157, 50)
-        Me.Label1.TabIndex = 11
-        Me.Label1.Text = "Promotions :"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnEditPromo
-        '
-        Me.btnEditPromo.BackColor = System.Drawing.SystemColors.Control
-        Me.btnEditPromo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.btnEditPromo.Image = Global.Apparel_Shop_System.My.Resources.Resources.edit_icon
-        Me.btnEditPromo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEditPromo.Location = New System.Drawing.Point(1052, 24)
-        Me.btnEditPromo.Margin = New System.Windows.Forms.Padding(4)
-        Me.btnEditPromo.Name = "btnEditPromo"
-        Me.btnEditPromo.Size = New System.Drawing.Size(114, 56)
-        Me.btnEditPromo.TabIndex = 113
-        Me.btnEditPromo.Text = "&Edit"
-        Me.btnEditPromo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnEditPromo.UseVisualStyleBackColor = False
-        '
-        'Button17
-        '
-        Me.Button17.BackColor = System.Drawing.Color.Red
-        Me.Button17.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button17.ForeColor = System.Drawing.Color.Black
-        Me.Button17.Image = Global.Apparel_Shop_System.My.Resources.Resources.block_icon
-        Me.Button17.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button17.Location = New System.Drawing.Point(1188, 24)
-        Me.Button17.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button17.Name = "Button17"
-        Me.Button17.Size = New System.Drawing.Size(246, 56)
-        Me.Button17.TabIndex = 110
-        Me.Button17.Text = "End Promotion"
-        Me.Button17.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button17.UseVisualStyleBackColor = False
-        '
-        'btnExpendInfo
-        '
-        Me.btnExpendInfo.Image = Global.Apparel_Shop_System.My.Resources.Resources.expand_more_FILL0_wght400_GRAD0_opsz48
-        Me.btnExpendInfo.Location = New System.Drawing.Point(34, 66)
-        Me.btnExpendInfo.Name = "btnExpendInfo"
-        Me.btnExpendInfo.Size = New System.Drawing.Size(30, 30)
-        Me.btnExpendInfo.TabIndex = 80
-        Me.btnExpendInfo.UseVisualStyleBackColor = True
-        '
         'Button16
         '
         Me.Button16.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
@@ -701,6 +604,27 @@ Partial Class Promotion_Details
         Me.Button6.TabIndex = 90
         Me.Button6.UseVisualStyleBackColor = True
         '
+        'ListBox2
+        '
+        Me.ListBox2.FormattingEnabled = True
+        Me.ListBox2.ItemHeight = 25
+        Me.ListBox2.Location = New System.Drawing.Point(779, 187)
+        Me.ListBox2.Name = "ListBox2"
+        Me.ListBox2.Size = New System.Drawing.Size(610, 354)
+        Me.ListBox2.TabIndex = 89
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.ForeColor = System.Drawing.SystemColors.Highlight
+        Me.Label25.Location = New System.Drawing.Point(774, 106)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(392, 29)
+        Me.Label25.TabIndex = 84
+        Me.Label25.Text = "Apply promotion on these product"
+        Me.Label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'Button5
         '
         Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
@@ -712,6 +636,60 @@ Partial Class Promotion_Details
         Me.Button5.TabIndex = 87
         Me.Button5.UseVisualStyleBackColor = True
         '
+        'ListBox1
+        '
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.ItemHeight = 25
+        Me.ListBox1.Location = New System.Drawing.Point(58, 187)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.Size = New System.Drawing.Size(610, 354)
+        Me.ListBox1.TabIndex = 83
+        '
+        'Label24
+        '
+        Me.Label24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.ForeColor = System.Drawing.Color.Black
+        Me.Label24.Location = New System.Drawing.Point(372, 148)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(296, 40)
+        Me.Label24.TabIndex = 82
+        Me.Label24.Text = "Product ID"
+        Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label23
+        '
+        Me.Label23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.ForeColor = System.Drawing.Color.Black
+        Me.Label23.Location = New System.Drawing.Point(58, 148)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(315, 40)
+        Me.Label23.TabIndex = 81
+        Me.Label23.Text = "Product Name"
+        Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.SystemColors.Highlight
+        Me.Label22.Location = New System.Drawing.Point(58, 110)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(113, 29)
+        Me.Label22.TabIndex = 80
+        Me.Label22.Text = "Products"
+        Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(63, 36)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(346, 36)
+        Me.TextBox1.TabIndex = 0
+        Me.TextBox1.Text = "Search..."
+        '
         'Button4
         '
         Me.Button4.AutoSize = True
@@ -722,6 +700,50 @@ Partial Class Promotion_Details
         Me.Button4.TabIndex = 4
         Me.Button4.UseVisualStyleBackColor = True
         '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.Button18)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 68)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(1523, 614)
+        Me.TabPage1.TabIndex = 2
+        Me.TabPage1.Text = "Report"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'Button18
+        '
+        Me.Button18.AutoSize = True
+        Me.Button18.Image = Global.Apparel_Shop_System.My.Resources.Resources.print_FILL0_wght400_GRAD0_opsz48
+        Me.Button18.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button18.Location = New System.Drawing.Point(1373, 32)
+        Me.Button18.Name = "Button18"
+        Me.Button18.Size = New System.Drawing.Size(126, 63)
+        Me.Button18.TabIndex = 0
+        Me.Button18.Text = "&Print"
+        Me.Button18.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button18.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label2.Location = New System.Drawing.Point(278, 73)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(510, 50)
+        Me.Label2.TabIndex = 12
+        Me.Label2.Text = "(Promotion Name Show Here)"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label1
+        '
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label1.Location = New System.Drawing.Point(116, 73)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(157, 50)
+        Me.Label1.TabIndex = 11
+        Me.Label1.Text = "Promotions :"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'btnReturn
         '
         Me.btnReturn.Image = Global.Apparel_Shop_System.My.Resources.Resources.return_icon
@@ -731,32 +753,11 @@ Partial Class Promotion_Details
         Me.btnReturn.TabIndex = 10
         Me.btnReturn.UseVisualStyleBackColor = True
         '
-        'picBack
-        '
-        Me.picBack.Dock = System.Windows.Forms.DockStyle.Left
-        Me.picBack.Image = CType(resources.GetObject("picBack.Image"), System.Drawing.Image)
-        Me.picBack.Location = New System.Drawing.Point(0, 0)
-        Me.picBack.Name = "picBack"
-        Me.picBack.Size = New System.Drawing.Size(46, 46)
-        Me.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picBack.TabIndex = 3
-        Me.picBack.TabStop = False
-        '
-        'picDelete
-        '
-        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
-        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
-        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
-        Me.picDelete.Name = "picDelete"
-        Me.picDelete.Size = New System.Drawing.Size(46, 46)
-        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picDelete.TabIndex = 0
-        Me.picDelete.TabStop = False
-        '
         'Promotion_Details
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(1654, 1035)
         Me.Controls.Add(Me.tctPromotion)
         Me.Controls.Add(Me.Label2)
@@ -768,6 +769,8 @@ Partial Class Promotion_Details
         Me.Text = "Promotion_Details"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
+        CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tctPromotion.ResumeLayout(False)
         Me.tabPromOverview.ResumeLayout(False)
         Me.tabPromOverview.PerformLayout()
@@ -777,8 +780,6 @@ Partial Class Promotion_Details
         Me.tabPromotionApply.PerformLayout()
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
-        CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

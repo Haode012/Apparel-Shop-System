@@ -22,6 +22,7 @@ Public Class ProductItem
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
         Me.Close()
         Membership.Close()
+        OrderCart.Close()
     End Sub
 
     Private Sub MenuItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load

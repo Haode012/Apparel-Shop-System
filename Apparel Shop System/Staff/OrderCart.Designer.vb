@@ -33,16 +33,16 @@ Partial Class OrderCart
         Me.cmbMemberID = New System.Windows.Forms.ComboBox()
         Me.lblOrderCart = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.dgvOrderCart = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.picRefresh = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.grpOrderCart.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        CType(Me.dgvOrderCart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvOrderCart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picRefresh, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -141,6 +141,18 @@ Partial Class OrderCart
         Me.Panel1.Size = New System.Drawing.Size(1654, 46)
         Me.Panel1.TabIndex = 95
         '
+        'picDelete
+        '
+        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
+        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
+        Me.picDelete.Location = New System.Drawing.Point(1609, 0)
+        Me.picDelete.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.picDelete.Name = "picDelete"
+        Me.picDelete.Size = New System.Drawing.Size(45, 46)
+        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDelete.TabIndex = 0
+        Me.picDelete.TabStop = False
+        '
         'dgvOrderCart
         '
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -196,18 +208,6 @@ Partial Class OrderCart
         Me.Label2.TabIndex = 101
         Me.Label2.Text = "Refresh"
         '
-        'picDelete
-        '
-        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
-        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
-        Me.picDelete.Location = New System.Drawing.Point(1609, 0)
-        Me.picDelete.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.picDelete.Name = "picDelete"
-        Me.picDelete.Size = New System.Drawing.Size(45, 46)
-        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picDelete.TabIndex = 0
-        Me.picDelete.TabStop = False
-        '
         'picRefresh
         '
         Me.picRefresh.Image = Global.Apparel_Shop_System.My.Resources.Resources._61225
@@ -235,6 +235,7 @@ Partial Class OrderCart
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
+        Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(1654, 1035)
         Me.Controls.Add(Me.grpOrderCart)
         Me.Controls.Add(Me.lblOrderCart)
@@ -251,8 +252,8 @@ Partial Class OrderCart
         Me.grpOrderCart.ResumeLayout(False)
         Me.grpOrderCart.PerformLayout()
         Me.Panel1.ResumeLayout(False)
-        CType(Me.dgvOrderCart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvOrderCart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picRefresh, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

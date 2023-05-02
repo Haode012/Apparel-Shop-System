@@ -28,6 +28,8 @@ Public Class OrderCart
 
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
         Me.Close()
+        ProductItem.Close()
+        Membership.Close()
     End Sub
 
     Public Sub display_all_record()

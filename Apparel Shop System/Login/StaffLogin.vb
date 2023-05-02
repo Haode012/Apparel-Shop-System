@@ -16,7 +16,7 @@ Public Class StaffLogin
         Dim strPasswd = txtPassword.Text
         Dim dbPasswd As String
         'For userID to show in staff Management'
-        ' strPassName = strUserId
+        strPassStaffName = strName
         If strName = "" And strPasswd = "" Then
             MessageBox.Show("Please input all the fields", "Validation")
         Else

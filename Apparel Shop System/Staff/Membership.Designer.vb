@@ -23,8 +23,8 @@ Partial Class Membership
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.lblWelcome = New System.Windows.Forms.Label()
         Me.picDelete = New System.Windows.Forms.PictureBox()
+        Me.lblWelcome = New System.Windows.Forms.Label()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnRegister = New System.Windows.Forms.Button()
         Me.txtMemberIC = New System.Windows.Forms.TextBox()
@@ -49,17 +49,6 @@ Partial Class Membership
         Me.Panel1.Size = New System.Drawing.Size(1654, 46)
         Me.Panel1.TabIndex = 1
         '
-        'lblWelcome
-        '
-        Me.lblWelcome.BackColor = System.Drawing.Color.LightCyan
-        Me.lblWelcome.Font = New System.Drawing.Font("Segoe Script", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblWelcome.Location = New System.Drawing.Point(269, 72)
-        Me.lblWelcome.Name = "lblWelcome"
-        Me.lblWelcome.Size = New System.Drawing.Size(1091, 113)
-        Me.lblWelcome.TabIndex = 60
-        Me.lblWelcome.Text = "Membership Register Form"
-        Me.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'picDelete
         '
         Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
@@ -70,6 +59,17 @@ Partial Class Membership
         Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.picDelete.TabIndex = 0
         Me.picDelete.TabStop = False
+        '
+        'lblWelcome
+        '
+        Me.lblWelcome.BackColor = System.Drawing.Color.LightCyan
+        Me.lblWelcome.Font = New System.Drawing.Font("Segoe Script", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWelcome.Location = New System.Drawing.Point(269, 72)
+        Me.lblWelcome.Name = "lblWelcome"
+        Me.lblWelcome.Size = New System.Drawing.Size(1091, 113)
+        Me.lblWelcome.TabIndex = 60
+        Me.lblWelcome.Text = "Membership Register Form"
+        Me.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnCancel
         '
@@ -169,6 +169,7 @@ Partial Class Membership
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(1654, 1035)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnRegister)

@@ -5,6 +5,7 @@ Public Class Membership
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
         Me.Close()
         ProductItem.Close()
+        OrderCart.Close()
     End Sub
 
     Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click

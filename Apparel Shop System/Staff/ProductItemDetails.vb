@@ -98,6 +98,7 @@ Public Class ProductItemDetails
         Me.Close()
         Membership.Close()
         ProductItem.Close()
+        OrderCart.Close()
     End Sub
 
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click

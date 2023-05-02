@@ -8,6 +8,7 @@
         End With
 
         ProductItemDetails.Close()
+        Payment.Close()
     End Sub
 
     Private Sub btnProduct_Click(sender As Object, e As EventArgs) Handles btnProduct.Click
@@ -19,6 +20,7 @@
         End With
 
         ProductItemDetails.Close()
+        Payment.Close()
     End Sub
 
     Private Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
@@ -35,6 +37,10 @@
         End With
 
         ProductItemDetails.Close()
+        Payment.Close()
+    End Sub
 
+    Private Sub Homepage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        lblUsername.Text = strPassStaffName
     End Sub
 End Class

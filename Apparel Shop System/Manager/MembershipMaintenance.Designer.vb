@@ -24,13 +24,10 @@ Partial Class MembershipMaintenance
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.dgvList = New System.Windows.Forms.DataGridView()
-        Me.btnAdd = New System.Windows.Forms.Button()
-        Me.btnReport = New System.Windows.Forms.Button()
-        Me.btnSearch = New System.Windows.Forms.Button()
-        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.MemberIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MemberNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MemberICDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -40,10 +37,13 @@ Partial Class MembershipMaintenance
         Me.MemberStatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MembershipBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ApparelShopSystemDataset = New Apparel_Shop_System.ApparelShopSystemDataset()
+        Me.btnAdd = New System.Windows.Forms.Button()
+        Me.btnReport = New System.Windows.Forms.Button()
+        Me.btnSearch = New System.Windows.Forms.Button()
         Me.MembershipTableAdapter = New Apparel_Shop_System.ApparelShopSystemDatasetTableAdapters.MembershipTableAdapter()
         Me.Panel1.SuspendLayout()
-        CType(Me.dgvList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MembershipBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApparelShopSystemDataset, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -57,6 +57,17 @@ Partial Class MembershipMaintenance
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1654, 46)
         Me.Panel1.TabIndex = 5
+        '
+        'picDelete
+        '
+        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
+        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
+        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
+        Me.picDelete.Name = "picDelete"
+        Me.picDelete.Size = New System.Drawing.Size(46, 46)
+        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDelete.TabIndex = 0
+        Me.picDelete.TabStop = False
         '
         'lblWelcome
         '
@@ -89,50 +100,6 @@ Partial Class MembershipMaintenance
         Me.dgvList.RowTemplate.Height = 24
         Me.dgvList.Size = New System.Drawing.Size(1137, 464)
         Me.dgvList.TabIndex = 8
-        '
-        'btnAdd
-        '
-        Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Location = New System.Drawing.Point(316, 189)
-        Me.btnAdd.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(157, 53)
-        Me.btnAdd.TabIndex = 57
-        Me.btnAdd.Text = "&Add"
-        Me.btnAdd.UseVisualStyleBackColor = True
-        '
-        'btnReport
-        '
-        Me.btnReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReport.Location = New System.Drawing.Point(506, 189)
-        Me.btnReport.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnReport.Name = "btnReport"
-        Me.btnReport.Size = New System.Drawing.Size(157, 53)
-        Me.btnReport.TabIndex = 60
-        Me.btnReport.Text = "&Report"
-        Me.btnReport.UseVisualStyleBackColor = True
-        '
-        'btnSearch
-        '
-        Me.btnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSearch.Location = New System.Drawing.Point(1279, 260)
-        Me.btnSearch.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(157, 53)
-        Me.btnSearch.TabIndex = 61
-        Me.btnSearch.Text = "&Search"
-        Me.btnSearch.UseVisualStyleBackColor = True
-        '
-        'picDelete
-        '
-        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
-        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
-        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
-        Me.picDelete.Name = "picDelete"
-        Me.picDelete.Size = New System.Drawing.Size(46, 46)
-        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picDelete.TabIndex = 0
-        Me.picDelete.TabStop = False
         '
         'MemberIDDataGridViewTextBoxColumn
         '
@@ -201,6 +168,39 @@ Partial Class MembershipMaintenance
         Me.ApparelShopSystemDataset.DataSetName = "ApparelShopSystemDataset"
         Me.ApparelShopSystemDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'btnAdd
+        '
+        Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdd.Location = New System.Drawing.Point(316, 189)
+        Me.btnAdd.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(157, 53)
+        Me.btnAdd.TabIndex = 57
+        Me.btnAdd.Text = "&Add"
+        Me.btnAdd.UseVisualStyleBackColor = True
+        '
+        'btnReport
+        '
+        Me.btnReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReport.Location = New System.Drawing.Point(506, 189)
+        Me.btnReport.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnReport.Name = "btnReport"
+        Me.btnReport.Size = New System.Drawing.Size(157, 53)
+        Me.btnReport.TabIndex = 60
+        Me.btnReport.Text = "&Report"
+        Me.btnReport.UseVisualStyleBackColor = True
+        '
+        'btnSearch
+        '
+        Me.btnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSearch.Location = New System.Drawing.Point(1279, 260)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(157, 53)
+        Me.btnSearch.TabIndex = 61
+        Me.btnSearch.Text = "&Search"
+        Me.btnSearch.UseVisualStyleBackColor = True
+        '
         'MembershipTableAdapter
         '
         Me.MembershipTableAdapter.ClearBeforeFill = True
@@ -209,6 +209,7 @@ Partial Class MembershipMaintenance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(1654, 1035)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.btnReport)
@@ -222,8 +223,8 @@ Partial Class MembershipMaintenance
         Me.Text = "MembershipMaintenance"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
-        CType(Me.dgvList, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvList, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MembershipBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ApparelShopSystemDataset, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

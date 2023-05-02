@@ -91,8 +91,12 @@ Public Class Payment
 
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
         Me.Close()
-
+        Membership.Close()
+        ProductItem.Close()
+        OrderCart.Close()
     End Sub
 
-
+    Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
+        Me.Close()
+    End Sub
 End Class
