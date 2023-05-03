@@ -107,8 +107,7 @@ Public Class ProductItemDetails
     Private Sub MenuItemDetails_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ShowProductDetails(ProductImage, ProductID, ProductName, ProductGender, ProductCategory, ProductSize, ProductDescription, ProductPrice, ProductStock, ProductPromotion)
 
-        Dim quantityValue As Integer = Integer.Parse(lblProductQuantity.Text)
-        quantityValue = 1
+        lblProductQuantity.Text = 1
 
         con.ConnectionString = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True"
 
@@ -257,11 +256,11 @@ Public Class ProductItemDetails
     Private Sub picAdd_Click(sender As Object, e As EventArgs) Handles picAdd.Click
         Dim quantityValue As Integer = Integer.Parse(lblProductQuantity.Text)
 
-        If quantityValue <= 10 Then
-            lblProductQuantity.Text = (quantityValue + 1).ToString()
-        End If
-
         If (quantityValue + 1) > lblProductStock.Text Then
+        Else
+            If quantityValue < lblProductStock.Text Then
+                lblProductQuantity.Text = (quantityValue + 1).ToString()
+            End If
         End If
     End Sub
 

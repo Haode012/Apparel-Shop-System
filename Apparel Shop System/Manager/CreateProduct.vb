@@ -80,8 +80,8 @@ Public Class CreateProduct
                     MessageBox.Show("Please enter Product Stock", "Missing Product Stock", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 ElseIf IsInputChar(txtProductStock.Text) Then
                     MessageBox.Show("Product Stock cannot contain letter", "Invalid Product Stock", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                ElseIf Not Integer.TryParse(txtProductStock.Text, stock) OrElse stock < 1 OrElse stock > 10 Then
-                    MessageBox.Show("Product Stock must between 1 to 10", "Invalid Product Stock", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                ElseIf Not Integer.TryParse(txtProductStock.Text, stock) OrElse stock < 1 Then
+                    MessageBox.Show("Product Stock must be more than 1", "Invalid Product Stock", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 ElseIf picImage.Image Is Nothing Then
                     MessageBox.Show("Please select a Product Image", "Missing Product Image", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Else

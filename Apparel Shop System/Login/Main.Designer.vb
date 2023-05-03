@@ -26,6 +26,7 @@ Partial Class Main
         Me.btnStaffLogin = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'btnManagerLogin
@@ -33,7 +34,7 @@ Partial Class Main
         Me.btnManagerLogin.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnManagerLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnManagerLogin.ForeColor = System.Drawing.SystemColors.Window
-        Me.btnManagerLogin.Location = New System.Drawing.Point(268, 206)
+        Me.btnManagerLogin.Location = New System.Drawing.Point(268, 207)
         Me.btnManagerLogin.Name = "btnManagerLogin"
         Me.btnManagerLogin.Size = New System.Drawing.Size(300, 51)
         Me.btnManagerLogin.TabIndex = 14
@@ -45,7 +46,7 @@ Partial Class Main
         Me.btnStaffLogin.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnStaffLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnStaffLogin.ForeColor = System.Drawing.SystemColors.Window
-        Me.btnStaffLogin.Location = New System.Drawing.Point(268, 281)
+        Me.btnStaffLogin.Location = New System.Drawing.Point(268, 319)
         Me.btnStaffLogin.Name = "btnStaffLogin"
         Me.btnStaffLogin.Size = New System.Drawing.Size(300, 51)
         Me.btnStaffLogin.TabIndex = 15
@@ -68,18 +69,29 @@ Partial Class Main
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(293, 147)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(157, 132)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(252, 32)
+        Me.Label1.Size = New System.Drawing.Size(527, 32)
         Me.Label1.TabIndex = 17
-        Me.Label1.Text = "Choose One Login"
+        Me.Label1.Text = "Choose Manager Login Or Staff Login"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(395, 272)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(40, 29)
+        Me.Label2.TabIndex = 18
+        Me.Label2.Text = "Or"
         '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.btnStaffLogin)
@@ -95,4 +107,5 @@ Partial Class Main
     Friend WithEvents btnStaffLogin As Button
     Friend WithEvents Label5 As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
 End Class
