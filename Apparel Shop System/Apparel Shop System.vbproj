@@ -584,6 +584,7 @@
     <None Include="Resources\png-transparent-mastercard-credit-card-business-debit-card-logo-mastercard-text-service-orange.png" />
     <None Include="Resources\tng example QR.png" />
     <None Include="Resources\61225.png" />
+    <None Include="Resources\add_icon.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

@@ -115,6 +115,10 @@ Public Class ProductItemDetails
         End If
 
         con.Open()
+
+        Dim quantityValue As String
+        quantityValue = Integer.Parse(lblProductQuantity.Text)
+        quantityValue = 1
     End Sub
 
     Public Sub ShowProductDetails(ProductImage As Image, ProductId As String, ProductName As String, ProductGender As String, ProductCategory As String, ProductSize As String, ProductDescription As String, ProductPrice As String, ProductStock As String, ProductPromotion As String)
@@ -128,7 +132,6 @@ Public Class ProductItemDetails
         lblProductDescription.Text = ProductDescription
         lblProductPrice.Text = ProductPrice
         lblProductStock.Text = ProductStock
-        lblProductQuantity.Text = ProductStock
         lblProductPromotion.Text = ProductPromotion
     End Sub
 
@@ -136,6 +139,7 @@ Public Class ProductItemDetails
 
         Dim currentValue As Integer
         currentValue = Integer.Parse(lblProductQuantity.Text)
+
         If currentValue > 1 Then
             lblProductQuantity.Text = (currentValue - 1).ToString()
         End If
@@ -252,6 +256,13 @@ Public Class ProductItemDetails
 
         MessageBox.Show("Add To Cart Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
+    End Sub
+
+    Private Sub picAdd_Click(sender As Object, e As EventArgs) Handles picAdd.Click
+        Dim currentValue As Integer
+        currentValue = Integer.Parse(lblProductQuantity.Text)
+        If (currentValue + 1) > lblProductStock.Text Then
+        End If
     End Sub
 
 End Class
