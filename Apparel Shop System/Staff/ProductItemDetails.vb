@@ -93,7 +93,6 @@ Public Class ProductItemDetails
         End Set
     End Property
 
-
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
         Me.Close()
         Membership.Close()
@@ -108,6 +107,9 @@ Public Class ProductItemDetails
     Private Sub MenuItemDetails_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ShowProductDetails(ProductImage, ProductID, ProductName, ProductGender, ProductCategory, ProductSize, ProductDescription, ProductPrice, ProductStock, ProductPromotion)
 
+        Dim quantityValue As Integer = Integer.Parse(lblProductQuantity.Text)
+        quantityValue = 1
+
         con.ConnectionString = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True"
 
         If con.State = ConnectionState.Open Then
@@ -116,9 +118,6 @@ Public Class ProductItemDetails
 
         con.Open()
 
-        Dim quantityValue As String
-        quantityValue = Integer.Parse(lblProductQuantity.Text)
-        quantityValue = 1
     End Sub
 
     Public Sub ShowProductDetails(ProductImage As Image, ProductId As String, ProductName As String, ProductGender As String, ProductCategory As String, ProductSize As String, ProductDescription As String, ProductPrice As String, ProductStock As String, ProductPromotion As String)
@@ -136,12 +135,9 @@ Public Class ProductItemDetails
     End Sub
 
     Private Sub picRemove_Click(sender As Object, e As EventArgs) Handles picRemove.Click
-
-        Dim currentValue As Integer
-        currentValue = Integer.Parse(lblProductQuantity.Text)
-
-        If currentValue > 1 Then
-            lblProductQuantity.Text = (currentValue - 1).ToString()
+        Dim quantityValue As Integer = Integer.Parse(lblProductQuantity.Text)
+        If quantityValue > 1 Then
+            lblProductQuantity.Text = (quantityValue - 1).ToString()
         End If
 
     End Sub
@@ -259,9 +255,13 @@ Public Class ProductItemDetails
     End Sub
 
     Private Sub picAdd_Click(sender As Object, e As EventArgs) Handles picAdd.Click
-        Dim currentValue As Integer
-        currentValue = Integer.Parse(lblProductQuantity.Text)
-        If (currentValue + 1) > lblProductStock.Text Then
+        Dim quantityValue As Integer = Integer.Parse(lblProductQuantity.Text)
+
+        If quantityValue <= 10 Then
+            lblProductQuantity.Text = (quantityValue + 1).ToString()
+        End If
+
+        If (quantityValue + 1) > lblProductStock.Text Then
         End If
     End Sub
 
