@@ -176,6 +176,12 @@
     <Compile Include="Manager\DisplayProduct.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Manager\DisplayProductDetails.Designer.vb">
+      <DependentUpon>DisplayProductDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\DisplayProductDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Manager\FireStaffvb.Designer.vb">
       <DependentUpon>FireStaffvb.vb</DependentUpon>
     </Compile>
@@ -361,6 +367,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\DisplayProduct.resx">
       <DependentUpon>DisplayProduct.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\DisplayProductDetails.resx">
+      <DependentUpon>DisplayProductDetails.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\FireStaffvb.resx">
       <DependentUpon>FireStaffvb.vb</DependentUpon>

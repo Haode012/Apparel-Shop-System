@@ -19,7 +19,12 @@
 
 
     Private Sub btnEditPromo_Click(sender As Object, e As EventArgs) Handles btnEditPromo.Click
-        Promotion_Edit.ShowDialog()
+        With Promotion_Edit
+            .TopLevel = False
+            Me.Controls.Add(Promotion_Edit)
+            .BringToFront()
+            .Show()
+        End With
     End Sub
 
     Private Sub btnExpendInfo_Click(sender As Object, e As EventArgs) Handles btnExpendInfo.Click
@@ -31,4 +36,6 @@
             pnlPromotionInfo.Visible = True
         End If
     End Sub
+
+
 End Class

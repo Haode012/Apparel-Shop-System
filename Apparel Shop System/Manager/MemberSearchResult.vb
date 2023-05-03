@@ -53,7 +53,7 @@ Public Class MemberSearchResult
                 cmd.ExecuteNonQuery()
             End Using
             MessageBox.Show("Member updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            MembershipMaintenance.RefreshData()
+            MembershipMaintenance.RefreshDataGridView()
             Me.Close()
 
         Catch ex As Exception

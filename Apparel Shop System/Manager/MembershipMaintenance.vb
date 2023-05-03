@@ -50,7 +50,7 @@ Public Class MembershipMaintenance
             dgvList.DataSource = dt
         End Using
     End Sub
-    Public Sub RefreshData()
+    Public Sub RefreshDataGridView()
         LoadData()
     End Sub
 

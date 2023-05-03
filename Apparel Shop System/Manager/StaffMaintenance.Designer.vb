@@ -24,12 +24,12 @@ Partial Class StaffMaintenance
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(StaffMaintenance))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.imagePanel = New System.Windows.Forms.Panel()
         Me.lblUsername = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.lblWelcome = New System.Windows.Forms.Label()
@@ -52,14 +52,14 @@ Partial Class StaffMaintenance
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.PrintDocumentStaff = New System.Drawing.Printing.PrintDocument()
         Me.FileSystemWatcher1 = New System.IO.FileSystemWatcher()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
-        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.imagePanel.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dtgAllStaff, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -71,17 +71,6 @@ Partial Class StaffMaintenance
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1654, 46)
         Me.Panel1.TabIndex = 4
-        '
-        'picDelete
-        '
-        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
-        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
-        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
-        Me.picDelete.Name = "picDelete"
-        Me.picDelete.Size = New System.Drawing.Size(46, 46)
-        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picDelete.TabIndex = 0
-        Me.picDelete.TabStop = False
         '
         'Panel2
         '
@@ -144,6 +133,18 @@ Partial Class StaffMaintenance
         Me.Button3.TabIndex = 9
         Me.Button3.Text = "Fire Staff"
         Me.Button3.UseVisualStyleBackColor = False
+        '
+        'Button4
+        '
+        Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.ForeColor = System.Drawing.SystemColors.Window
+        Me.Button4.Location = New System.Drawing.Point(7, 598)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(219, 101)
+        Me.Button4.TabIndex = 10
+        Me.Button4.Text = "Back To Home"
+        Me.Button4.UseVisualStyleBackColor = False
         '
         'Button1
         '
@@ -363,17 +364,16 @@ Partial Class StaffMaintenance
         Me.FileSystemWatcher1.EnableRaisingEvents = True
         Me.FileSystemWatcher1.SynchronizingObject = Me
         '
-        'Button4
+        'picDelete
         '
-        Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ForeColor = System.Drawing.SystemColors.Window
-        Me.Button4.Location = New System.Drawing.Point(7, 598)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(219, 101)
-        Me.Button4.TabIndex = 10
-        Me.Button4.Text = "Back To Home"
-        Me.Button4.UseVisualStyleBackColor = False
+        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
+        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
+        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
+        Me.picDelete.Name = "picDelete"
+        Me.picDelete.Size = New System.Drawing.Size(46, 46)
+        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDelete.TabIndex = 0
+        Me.picDelete.TabStop = False
         '
         'StaffMaintenance
         '
@@ -401,13 +401,13 @@ Partial Class StaffMaintenance
         Me.Text = "StaffMaintenance"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
-        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.imagePanel.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.dtgAllStaff, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -60,7 +60,7 @@ Public Class MemberRegister
         End Using
 
         MessageBox.Show("Member registered successfully")
-        MembershipMaintenance.RefreshData()
+        MembershipMaintenance.RefreshDataGridView()
 
     End Sub
 

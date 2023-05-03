@@ -110,4 +110,30 @@ Public Class DisplayProduct
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
         Me.Close()
     End Sub
+
+    Private Sub dgvProduct_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvProduct.CellDoubleClick
+        Dim intNo As Integer = e.RowIndex
+        DisplayProductDetails.strSelectedProductID = CStr(dgvProduct.Rows(intNo).Cells(0).Value)
+        With DisplayProductDetails
+            .TopLevel = False
+            Me.Controls.Add(DisplayProductDetails)
+            .BringToFront()
+            .Show()
+        End With
+        Load()
+    End Sub
+
+    Private Shadows Sub Load()
+
+        Dim MySqlCommand As New SqlCommand
+        Dim strSql As String
+
+        strSql = "Select * From Product"
+        MySqlCommand = New SqlCommand(strSql, conn)
+        Dim adapter As New SqlDataAdapter(MySqlCommand)
+        Dim dataTable As New DataTable()
+        adapter.Fill(dataTable)
+        dgvProduct.DataSource = dataTable
+    End Sub
+
 End Class
