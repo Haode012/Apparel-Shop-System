@@ -9,20 +9,28 @@ Public Class OrderCart
     Private Sub OrderCart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         con.ConnectionString = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True"
 
+
         If con.State = ConnectionState.Open Then
             con.Close()
         End If
 
         con.Open()
+        If cmbMemberName.Text <> "" Then
+        Else
+            If cmbMemberName.Text = "" Then
+                btnPayAsMembership.Enabled = False
 
-        Dim cmd As New SqlCommand("select memberId from Membership", con)
-        Dim reader As SqlDataReader = cmd.ExecuteReader()
-        While reader.Read()
-            cmbMemberID.Items.Add(reader("memberId"))
-        End While
-        reader.Close()
+            End If
+        End If
 
         display_all_record()
+
+        Dim cmd As New SqlCommand("select memberName from Membership", con)
+        Dim reader As SqlDataReader = cmd.ExecuteReader()
+        While reader.Read()
+            cmbMemberName.Items.Add(reader("memberName"))
+        End While
+        reader.Close()
 
     End Sub
 
@@ -45,10 +53,18 @@ Public Class OrderCart
         dgvOrderCart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None
 
         For Each col As DataGridViewColumn In dgvOrderCart.Columns
-            col.Width = 157 ' Set the width of each column to 157
+            col.Width = 145 ' Set the width of each column to 157
         Next
 
-        cmbMemberID.SelectedIndex = -1
+        cmbMemberName.SelectedIndex = -1
+
+        If cmbMemberName.Text <> "" Then
+        Else
+            If cmbMemberName.Text = "" Then
+                btnPayAsMembership.Enabled = False
+
+            End If
+        End If
 
     End Sub
 
@@ -57,44 +73,15 @@ Public Class OrderCart
     End Sub
 
     Private Sub dgvOrderCart_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvOrderCart.CellDoubleClick
-        Try
-            If con.State = ConnectionState.Open Then
-                con.Close()
-            End If
-
-            con.Open()
-
-
-
-            Dim result As DialogResult = MessageBox.Show("Are you sure to delete this Cart Item?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1)
-            If result = DialogResult.OK Then
-                i = Convert.ToInt32(dgvOrderCart.SelectedCells.Item(0).Value.ToString())
-
-                cmd = con.CreateCommand
-                cmd.CommandType = CommandType.Text
-                cmd.CommandText = "delete from Cart where cartId=" & i & ""
-                cmd.ExecuteNonQuery()
-
-                MessageBox.Show("Cart Item deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            End If
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
-        End Try
-
-
 
     End Sub
 
 
 
-    Private Sub cmbMemberID_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbMemberID.SelectedIndexChanged
+    Private Sub cmbMemberName_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbMemberName.SelectedIndexChanged
 
 
-
-
-        'Get the selected cart ID
-        Dim selectedMemberId As String = cmbMemberID.Text
+        Dim selectedMemberName As String = cmbMemberName.Text
 
         If con.State = ConnectionState.Open Then
             con.Close()
@@ -102,25 +89,36 @@ Public Class OrderCart
 
         con.Open()
 
-        If selectedMemberId = "" Then
-            lblMemberName.Text = ""
+        If selectedMemberName = "" Then
+            lblMemberId.Text = ""
         Else
-            'Create a SQL command to select only the rows with the selected product ID
-            Dim sql As String = "SELECT * FROM Membership WHERE memberId = @MemberID"
+
+            Dim sql As String = "SELECT * FROM Membership WHERE memberName = @MemberName"
             Dim cmd As New SqlCommand(sql, con)
-            cmd.Parameters.AddWithValue("@MemberID", selectedMemberId)
+            cmd.Parameters.AddWithValue("@MemberName", selectedMemberName)
             'Execute the SQL command and read the result
             Dim reader As SqlDataReader = cmd.ExecuteReader()
             If reader.Read() Then
-                'Set the lblMemberName.Text with the memberName from the selected row
-                lblMemberName.Text = reader("memberName").ToString()
+                'Set the lblMemberId.Text with the memberName from the selected row
+                lblMemberId.Text = reader("memberId").ToString()
             Else
                 'If no row is returned, clear the lblMemberName.Text
-                lblMemberName.Text = ""
+                lblMemberId.Text = ""
             End If
             reader.Close()
 
         End If
+
+
+
+        If cmbMemberName.Text = "" Then
+        Else
+            If cmbMemberName.Text <> "" Then
+                btnPayAsMembership.Enabled = True
+
+            End If
+        End If
+
     End Sub
 
 
@@ -137,13 +135,26 @@ Public Class OrderCart
     End Sub
 
     Private Sub btnPayAsMembership_Click(sender As Object, e As EventArgs) Handles btnPayAsMembership.Click
+
         Dim payment As New Payment()
         btnPayAsMembership.Tag = payment
 
         Dim args As Payment = DirectCast(sender.Tag, Payment)
-        Dim membershipID As String = cmbMemberID.Text
-        Dim membershipName As String = lblMemberName.Text
+        Dim membershipID As String = lblMemberId.Text
+        Dim membershipName As String = cmbMemberName.Text
+
+        'Dim cmbValue As String = cmbMemberName.Text.ToString
+
+        If cmbMemberName.Text = "" Then
+        Else
+            If cmbMemberName.Text <> "" Then
+                btnPayAsMembership.Enabled = True
+
+            End If
+        End If
+
         args.ShowMembershipDetails(membershipID, membershipName)
+
         With payment
             .TopLevel = False
             Me.Controls.Add(payment)
@@ -153,4 +164,36 @@ Public Class OrderCart
 
     End Sub
 
+    Private Sub PictureBox2_Click(sender As Object, e As EventArgs)
+        display_all_record()
+    End Sub
+
+    Private Sub dgvOrderCart_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvOrderCart.CellMouseClick
+        Try
+            If con.State = ConnectionState.Open Then
+                con.Close()
+            End If
+
+            con.Open()
+
+            Dim result As DialogResult = MessageBox.Show("Are you sure to delete this Cart Item?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1)
+            If result = DialogResult.OK Then
+                i = Convert.ToInt32(dgvOrderCart.SelectedCells.Item(0).Value.ToString())
+
+                cmd = con.CreateCommand
+                cmd.CommandType = CommandType.Text
+                cmd.CommandText = "delete from Cart where cartId=" & i & ""
+                cmd.ExecuteNonQuery()
+
+                MessageBox.Show("Cart Item deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        End Try
+    End Sub
+
+    Private Sub picCancel_Click(sender As Object, e As EventArgs) Handles picCancel.Click
+        display_all_record()
+    End Sub
 End Class

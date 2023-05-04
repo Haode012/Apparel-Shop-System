@@ -26,11 +26,11 @@ Partial Class OrderCart
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.grpOrderCart = New System.Windows.Forms.GroupBox()
-        Me.lblMemberName = New System.Windows.Forms.Label()
+        Me.lblMemberId = New System.Windows.Forms.Label()
         Me.btnNotMembership = New System.Windows.Forms.Button()
         Me.btnPayAsMembership = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.cmbMemberID = New System.Windows.Forms.ComboBox()
+        Me.cmbMemberName = New System.Windows.Forms.ComboBox()
         Me.lblOrderCart = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.picDelete = New System.Windows.Forms.PictureBox()
@@ -39,45 +39,49 @@ Partial Class OrderCart
         Me.Label2 = New System.Windows.Forms.Label()
         Me.picRefresh = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.picCancel = New System.Windows.Forms.PictureBox()
         Me.grpOrderCart.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvOrderCart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picRefresh, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picCancel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grpOrderCart
         '
-        Me.grpOrderCart.Controls.Add(Me.lblMemberName)
+        Me.grpOrderCart.Controls.Add(Me.picCancel)
+        Me.grpOrderCart.Controls.Add(Me.lblMemberId)
         Me.grpOrderCart.Controls.Add(Me.btnNotMembership)
         Me.grpOrderCart.Controls.Add(Me.btnPayAsMembership)
         Me.grpOrderCart.Controls.Add(Me.Label10)
-        Me.grpOrderCart.Controls.Add(Me.cmbMemberID)
-        Me.grpOrderCart.Location = New System.Drawing.Point(226, 235)
+        Me.grpOrderCart.Controls.Add(Me.cmbMemberName)
+        Me.grpOrderCart.Location = New System.Drawing.Point(226, 211)
         Me.grpOrderCart.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.grpOrderCart.Name = "grpOrderCart"
         Me.grpOrderCart.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.grpOrderCart.Size = New System.Drawing.Size(1327, 138)
+        Me.grpOrderCart.Size = New System.Drawing.Size(1384, 168)
         Me.grpOrderCart.TabIndex = 102
         Me.grpOrderCart.TabStop = False
         '
-        'lblMemberName
+        'lblMemberId
         '
-        Me.lblMemberName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblMemberName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMemberName.Location = New System.Drawing.Point(245, 86)
-        Me.lblMemberName.Name = "lblMemberName"
-        Me.lblMemberName.Size = New System.Drawing.Size(337, 29)
-        Me.lblMemberName.TabIndex = 90
-        Me.lblMemberName.Text = "lblMemberName"
+        Me.lblMemberId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblMemberId.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMemberId.Location = New System.Drawing.Point(309, 91)
+        Me.lblMemberId.Name = "lblMemberId"
+        Me.lblMemberId.Size = New System.Drawing.Size(262, 29)
+        Me.lblMemberId.TabIndex = 90
+        Me.lblMemberId.Text = "--"
+        Me.lblMemberId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnNotMembership
         '
         Me.btnNotMembership.BackColor = System.Drawing.Color.Red
         Me.btnNotMembership.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNotMembership.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnNotMembership.Location = New System.Drawing.Point(979, 15)
+        Me.btnNotMembership.Location = New System.Drawing.Point(1036, 15)
         Me.btnNotMembership.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnNotMembership.Name = "btnNotMembership"
         Me.btnNotMembership.Size = New System.Drawing.Size(329, 65)
@@ -90,7 +94,7 @@ Partial Class OrderCart
         Me.btnPayAsMembership.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnPayAsMembership.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPayAsMembership.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnPayAsMembership.Location = New System.Drawing.Point(620, 15)
+        Me.btnPayAsMembership.Location = New System.Drawing.Point(676, 15)
         Me.btnPayAsMembership.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnPayAsMembership.Name = "btnPayAsMembership"
         Me.btnPayAsMembership.Size = New System.Drawing.Size(329, 65)
@@ -101,23 +105,24 @@ Partial Class OrderCart
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(5, 30)
+        Me.Label10.BackColor = System.Drawing.Color.Transparent
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(44, 32)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(206, 38)
+        Me.Label10.Size = New System.Drawing.Size(228, 32)
         Me.Label10.TabIndex = 82
-        Me.Label10.Text = "Member ID :"
+        Me.Label10.Text = "Member Name :"
         '
-        'cmbMemberID
+        'cmbMemberName
         '
-        Me.cmbMemberID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbMemberID.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbMemberID.FormattingEnabled = True
-        Me.cmbMemberID.Location = New System.Drawing.Point(245, 30)
-        Me.cmbMemberID.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.cmbMemberID.Name = "cmbMemberID"
-        Me.cmbMemberID.Size = New System.Drawing.Size(337, 39)
-        Me.cmbMemberID.TabIndex = 83
+        Me.cmbMemberName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbMemberName.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbMemberName.FormattingEnabled = True
+        Me.cmbMemberName.Location = New System.Drawing.Point(309, 29)
+        Me.cmbMemberName.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cmbMemberName.Name = "cmbMemberName"
+        Me.cmbMemberName.Size = New System.Drawing.Size(262, 39)
+        Me.cmbMemberName.TabIndex = 83
         '
         'lblOrderCart
         '
@@ -155,6 +160,8 @@ Partial Class OrderCart
         '
         'dgvOrderCart
         '
+        Me.dgvOrderCart.BackgroundColor = System.Drawing.SystemColors.Window
+        Me.dgvOrderCart.BorderStyle = System.Windows.Forms.BorderStyle.None
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -230,6 +237,17 @@ Partial Class OrderCart
         Me.PictureBox1.TabIndex = 100
         Me.PictureBox1.TabStop = False
         '
+        'picCancel
+        '
+        Me.picCancel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.picCancel.Image = Global.Apparel_Shop_System.My.Resources.Resources.cancel_icon_new
+        Me.picCancel.Location = New System.Drawing.Point(577, 29)
+        Me.picCancel.Name = "picCancel"
+        Me.picCancel.Size = New System.Drawing.Size(44, 41)
+        Me.picCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picCancel.TabIndex = 91
+        Me.picCancel.TabStop = False
+        '
         'OrderCart
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -256,17 +274,18 @@ Partial Class OrderCart
         CType(Me.dgvOrderCart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picRefresh, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picCancel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents grpOrderCart As GroupBox
-    Friend WithEvents lblMemberName As Label
+    Friend WithEvents lblMemberId As Label
     Friend WithEvents btnNotMembership As Button
     Friend WithEvents btnPayAsMembership As Button
     Friend WithEvents Label10 As Label
-    Friend WithEvents cmbMemberID As ComboBox
+    Friend WithEvents cmbMemberName As ComboBox
     Friend WithEvents lblOrderCart As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents picDelete As PictureBox
@@ -275,4 +294,5 @@ Partial Class OrderCart
     Friend WithEvents Label2 As Label
     Friend WithEvents picRefresh As PictureBox
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents picCancel As PictureBox
 End Class

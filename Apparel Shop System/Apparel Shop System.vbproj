@@ -299,6 +299,12 @@
     <Compile Include="Staff\Payment.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Staff\PaymentReceipt.Designer.vb">
+      <DependentUpon>PaymentReceipt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\PaymentReceipt.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Staff\ProductItem.Designer.vb">
       <DependentUpon>ProductItem.vb</DependentUpon>
     </Compile>
@@ -428,6 +434,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Staff\Payment.resx">
       <DependentUpon>Payment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff\PaymentReceipt.resx">
+      <DependentUpon>PaymentReceipt.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff\ProductItem.resx">
       <DependentUpon>ProductItem.vb</DependentUpon>

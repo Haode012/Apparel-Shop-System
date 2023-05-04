@@ -1,4 +1,9 @@
 ﻿Module Module1
+
+    Public decTotalAmount As Decimal
+    Public totalAmount As String
+
+
     Public conn As New System.Data.SqlClient.SqlConnection
     Public Function OpenConnection() As Boolean
         Dim strMySQLConnectionString As String

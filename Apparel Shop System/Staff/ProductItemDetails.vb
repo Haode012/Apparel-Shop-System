@@ -184,7 +184,7 @@ Public Class ProductItemDetails
             End If
 
         Catch ex As Exception
-        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -203,28 +203,32 @@ Public Class ProductItemDetails
         Dim percentageWithoutS As String
         Dim percentage As Double
         Dim totalPrice As Double
+        Dim totalPrices As String
         Dim quantity As Integer = lblProductQuantity.Text
+
+        Dim prices As String = price.ToString("0.00")
 
         If percentageString <> "-" Then
             percentageWithoutS = percentageString.Replace("%", "")
             percentage = Double.Parse(percentageWithoutS) / 100
             totalPrice = price * percentage * quantity
-            totalPrice.ToString("C2", myCultureInfo)
+            totalPrices = totalPrice.ToString("0.00")
 
-            addToCart()
+            addToCart(totalPrices, prices)
         Else
             totalPrice = price * quantity
-            totalPrice.ToString("C2", myCultureInfo)
+            'totalPrice.ToString("C2", myCultureInfo)
+            totalPrices = totalPrice.ToString("0.00")
 
-            addToCart()
+
+            addToCart(totalPrices, prices)
         End If
 
 
     End Sub
 
 
-    Public Sub addToCart()
-
+    Public Sub addToCart(totalPrices As String, prices As String)
 
         Dim ms As New MemoryStream
         picProductImage.Image.Save(ms, picProductImage.Image.RawFormat)
@@ -233,19 +237,17 @@ Public Class ProductItemDetails
 
         cmd = con.CreateCommand
         cmd.CommandType = CommandType.Text
-        cmd.CommandText = "INSERT INTO Cart (productId, productName, productPrice, productQuantity, productImage,productPromotion) VALUES (@ProductId,@ProductName,@ProductPrice, @ProductQuantity,@ProductImage,@ProductPromotion)"
+        cmd.CommandText = "INSERT INTO Cart (productId, productName, productPrice, productQuantity, productImage,productPromotion,totalPrice) VALUES (@ProductId,@ProductName,@ProductPrice, @ProductQuantity,@ProductImage,@ProductPromotion,@TotalPrice)"
 
         'cmd.Parameters.AddWithValue("@CartId", "1")
 
-
         cmd.Parameters.AddWithValue("@ProductId", lblProductID.Text)
-
         cmd.Parameters.AddWithValue("@ProductName", lblProductName.Text)
-
-        cmd.Parameters.AddWithValue("@ProductPrice", lblProductPrice.Text)
+        cmd.Parameters.AddWithValue("@ProductPrice", prices)
         cmd.Parameters.AddWithValue("@ProductQuantity", lblProductQuantity.Text)
         cmd.Parameters.AddWithValue("@ProductImage", img)
         cmd.Parameters.AddWithValue("@ProductPromotion", lblProductPromotion.Text)
+        cmd.Parameters.AddWithValue("@TotalPrice", totalPrices)
 
         cmd.ExecuteNonQuery()
 
