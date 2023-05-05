@@ -107,7 +107,16 @@ Public Class ProductItemDetails
     Private Sub MenuItemDetails_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ShowProductDetails(ProductImage, ProductID, ProductName, ProductGender, ProductCategory, ProductSize, ProductDescription, ProductPrice, ProductStock, ProductPromotion)
 
-        lblProductQuantity.Text = 1
+        If lblProductStock.Text <> 0 Then
+            lblProductQuantity.Text = 1
+        Else
+            lblProductQuantity.Text = 0
+            btnAddToCart.Text = "Out Of Stock"
+            btnAddToCart.ForeColor = Color.White
+            btnAddToCart.BackColor = Color.Red
+            btnAddToCart.Enabled = False
+        End If
+
 
         con.ConnectionString = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True"
 
@@ -159,9 +168,17 @@ Public Class ProductItemDetails
             lblProductStock.Text = lblProductStock.Text - lblProductQuantity.Text
 
             If lblProductStock.Text = 0 Then
+
+                lblProductQuantity.Text = 0
+                btnAddToCart.Text = "Out Of Stock"
+                btnAddToCart.ForeColor = Color.White
+                btnAddToCart.BackColor = Color.Red
+                btnAddToCart.Enabled = False
+
                 cmd = con.CreateCommand
                 cmd.CommandType = CommandType.Text
-                cmd.CommandText = "DELETE FROM Product WHERE productId=@id"
+                cmd.CommandText = "UPDATE Product SET productStock=@stock WHERE productId=@id"
+                cmd.Parameters.AddWithValue("@stock", lblProductStock.Text)
                 cmd.Parameters.AddWithValue("@id", lblProductID.Text)
                 cmd.ExecuteNonQuery()
 
@@ -169,6 +186,7 @@ Public Class ProductItemDetails
 
                 Me.Close()
                 ProductItem.Close()
+                OrderCart.Close()
             Else
                 cmd = con.CreateCommand
                 cmd.CommandType = CommandType.Text
@@ -181,6 +199,7 @@ Public Class ProductItemDetails
 
                 Me.Close()
                 ProductItem.Close()
+                OrderCart.Close()
             End If
 
         Catch ex As Exception
