@@ -194,9 +194,8 @@ Partial Class Payment
         Me.lblMembershipName.ForeColor = System.Drawing.Color.Black
         Me.lblMembershipName.Location = New System.Drawing.Point(1323, 56)
         Me.lblMembershipName.Name = "lblMembershipName"
-        Me.lblMembershipName.Size = New System.Drawing.Size(28, 27)
+        Me.lblMembershipName.Size = New System.Drawing.Size(2, 27)
         Me.lblMembershipName.TabIndex = 79
-        Me.lblMembershipName.Text = "--"
         Me.lblMembershipName.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label3
@@ -223,9 +222,8 @@ Partial Class Payment
         Me.lblMembershipID.ForeColor = System.Drawing.Color.Black
         Me.lblMembershipID.Location = New System.Drawing.Point(1323, 11)
         Me.lblMembershipID.Name = "lblMembershipID"
-        Me.lblMembershipID.Size = New System.Drawing.Size(28, 27)
+        Me.lblMembershipID.Size = New System.Drawing.Size(2, 27)
         Me.lblMembershipID.TabIndex = 77
-        Me.lblMembershipID.Text = "--"
         Me.lblMembershipID.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'PictureBox3
@@ -562,7 +560,7 @@ Partial Class Payment
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.Transparent
-        Me.Label7.Location = New System.Drawing.Point(1205, 66)
+        Me.Label7.Location = New System.Drawing.Point(1206, 81)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(196, 32)
         Me.Label7.TabIndex = 94
@@ -577,11 +575,10 @@ Partial Class Payment
         Me.lblMembershipName2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblMembershipName2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMembershipName2.ForeColor = System.Drawing.Color.Black
-        Me.lblMembershipName2.Location = New System.Drawing.Point(1424, 71)
+        Me.lblMembershipName2.Location = New System.Drawing.Point(1425, 86)
         Me.lblMembershipName2.Name = "lblMembershipName2"
-        Me.lblMembershipName2.Size = New System.Drawing.Size(28, 27)
+        Me.lblMembershipName2.Size = New System.Drawing.Size(2, 27)
         Me.lblMembershipName2.TabIndex = 93
-        Me.lblMembershipName2.Text = "--"
         Me.lblMembershipName2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label9
@@ -591,7 +588,7 @@ Partial Class Payment
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.Transparent
-        Me.Label9.Location = New System.Drawing.Point(1205, 20)
+        Me.Label9.Location = New System.Drawing.Point(1206, 35)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(213, 32)
         Me.Label9.TabIndex = 92
@@ -606,11 +603,10 @@ Partial Class Payment
         Me.lblMembershipID2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblMembershipID2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMembershipID2.ForeColor = System.Drawing.Color.Black
-        Me.lblMembershipID2.Location = New System.Drawing.Point(1424, 26)
+        Me.lblMembershipID2.Location = New System.Drawing.Point(1425, 41)
         Me.lblMembershipID2.Name = "lblMembershipID2"
-        Me.lblMembershipID2.Size = New System.Drawing.Size(28, 27)
+        Me.lblMembershipID2.Size = New System.Drawing.Size(2, 27)
         Me.lblMembershipID2.TabIndex = 91
-        Me.lblMembershipID2.Text = "--"
         Me.lblMembershipID2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label1

@@ -39,7 +39,8 @@ Public Class Payment
         display_all_record()
         display_all_record2()
         cmbExpirationMonthYear()
-
+        strMemberId = lblMembershipID.Text.ToString
+        strMemberName = lblMembershipName.Text.ToString
 
     End Sub
     Public Sub ShowMembershipDetails(MembershipID As String, MembershipName As String)
@@ -65,21 +66,36 @@ Public Class Payment
             col.Width = 140 ' Set the width of each column to 157
         Next
 
+        ' Calculate the total price
+        Dim discount As Decimal = 0.2
         Dim totalPrice As Decimal = 0
+        Dim totalPriceD As Decimal = 0
         For Each row As DataRow In dt.Rows
             Dim quantity As Integer = CInt(row("productQuantity"))
-
             Dim priceString As String = row("productPrice").ToString()
             priceString = priceString.Replace("RM", "") ' Remove "RM" from the string
             Dim price As Decimal = Decimal.Parse(priceString)
-            Dim rowTotalPrice As Decimal = quantity * price
-            totalPrice += rowTotalPrice
+
+            Dim memberId As String = lblMembershipID.Text.ToString
+
+            If lblMembershipID.Text.ToString = "" AndAlso lblMembershipID2.Text.ToString = "" Then
+                Dim rowTotalPrice As Decimal = quantity * price
+                totalPrice += rowTotalPrice
+            Else
+                Dim rowTotalPrice As Decimal = quantity * price
+                totalPriceD += rowTotalPrice
+                totalPrice = totalPriceD * (1 - discount)
+            End If
         Next
 
+        ' Display the total price in a label or textbox
         Dim nfi As New System.Globalization.NumberFormatInfo()
         nfi.CurrencySymbol = "RM" ' Replace with "RM" 
-
         lblTotalAmount1.Text = totalPrice.ToString("C", nfi)
+
+        totalAmount = totalPrice.ToString("0.00")
+
+
     End Sub
 
     Public Sub display_all_record()
@@ -101,16 +117,25 @@ Public Class Payment
         Next
 
         ' Calculate the total price
-
+        Dim discount As Decimal = 0.2
         Dim totalPrice As Decimal = 0
+        Dim totalPriceD As Decimal = 0
         For Each row As DataRow In dt.Rows
             Dim quantity As Integer = CInt(row("productQuantity"))
-
             Dim priceString As String = row("productPrice").ToString()
             priceString = priceString.Replace("RM", "") ' Remove "RM" from the string
             Dim price As Decimal = Decimal.Parse(priceString)
-            Dim rowTotalPrice As Decimal = quantity * price
-            totalPrice += rowTotalPrice
+
+            Dim memberId As String = lblMembershipID.Text.ToString
+
+            If lblMembershipID.Text.ToString = "" AndAlso lblMembershipID2.Text.ToString = "" Then
+                Dim rowTotalPrice As Decimal = quantity * price
+                totalPrice += rowTotalPrice
+            Else
+                Dim rowTotalPrice As Decimal = quantity * price
+                totalPriceD += rowTotalPrice
+                totalPrice = totalPriceD * (1 - discount)
+            End If
         Next
 
         ' Display the total price in a label or textbox
@@ -118,7 +143,7 @@ Public Class Payment
         nfi.CurrencySymbol = "RM" ' Replace with "RM" 
         lblTotalAmount.Text = totalPrice.ToString("C", nfi)
 
-        totalAmount = totalPrice.ToString
+        totalAmount = totalPrice.ToString("0.00")
 
 
     End Sub
@@ -128,109 +153,7 @@ Public Class Payment
 
     End Sub
 
-    Private Sub btnSubmit_Click(sender As Object, e As EventArgs)
-        Dim cardNumber As String = mskCardNumber.Text
-        Dim cvvNumber As String = mskCVV.Text
-        Dim expirationDate As String = cmbExpirationMonth.Text & "/" & cmbExpirationYear.Text
-        Dim cardHolderName As String = txtCardHolder.Text
-        Dim isCardNumberValid As Boolean = ValidateMastercardNumber(cardNumber)
-        Dim isCVVValid As Boolean = ValidateCVV(cvvNumber)
-        'Dim expirationDateString As String = ValidateExpirationDate(expirationDate)
-        Dim isCardHolderValid As Boolean = ValidateCardHolder(cardHolderName)
 
-        lblExpirationDate.Text = expirationDate
-
-
-        If Not ValidateCardHolder(cardHolderName) Then
-            MessageBox.Show("Card holder name is not valid.", "Validation Result", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            txtCardHolder.Focus()
-            Exit Sub
-        End If
-
-        If Not ValidateCVV(cvvNumber) Then
-            MessageBox.Show("CVV is not valid.", "Validation Result", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            mskCardNumber.Focus()
-            Exit Sub
-        End If
-
-
-        Dim expirationDateString As String = ValidateExpirationDate(expirationDate)
-
-        If String.IsNullOrEmpty(expirationDateString) Then
-
-
-            MessageBox.Show("Expiration date is not valid.", "Validation Result", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            cmbExpirationMonth.Focus()
-            Exit Sub
-        End If
-
-        If Not ValidateMastercardNumber(cardNumber) Then
-
-            'valid input eg, 5555555555554444
-            MessageBox.Show("Card Number is not valid.", "Validation Result", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            mskCardNumber.Focus()
-            Exit Sub
-        End If
-
-
-        MessageBox.Show("All information is valid.", "Validation Result", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-        Dim numbers As String = "1234567890"
-
-        Dim characters As String = numbers
-        Dim length As Integer = 10
-        Dim id As String = String.Empty
-        For i As Integer = 0 To length - 1
-            Dim character As String = String.Empty
-            Do
-                Dim index As Integer = New Random().Next(0, characters.Length)
-                character = characters.ToCharArray()(index).ToString()
-            Loop While id.IndexOf(character) <> -1
-            id += character
-        Next
-        Dim paymentId As String = "P" + id
-
-
-        Dim PaymentReceipt As New PaymentReceipt()
-        btnSubmit.Tag = PaymentReceipt
-
-        Dim args As PaymentReceipt = DirectCast(sender.Tag, PaymentReceipt)
-
-
-        Dim sql As String = "INSERT INTO OrderItem (productId,productName,receiptId,memberId,unitPrice,quantity,promotion,amount,orderDate) " &
-                    "SELECT productId,productName,@ReceiptId,@MemberId,productPrice,productQuantity,productPromotion,totalPrice, CONVERT(nvarchar(19), GETDATE(), 120) " &
-                    "FROM Cart"
-
-
-
-        Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\USERS\USER\DESKTOP\VB\APPAREL-SHOP-SYSTEM\APPAREL SHOP SYSTEM\APPARELSHOPSYSTEMDATABASE.MDF"";Integrated Security=True")
-            Using cmd As New SqlCommand(sql, con)
-                cmd.Parameters.AddWithValue("@ReceiptId", paymentId)
-                'cmd.Parameters.AddWithValue("@Amount", )
-                cmd.Parameters.AddWithValue("@MemberId", lblMembershipID.Text)
-
-
-                con.Open()
-                cmd.ExecuteNonQuery()
-                MessageBox.Show("Data inserted into OrderItem table.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            End Using
-        End Using
-
-        Dim sql2 As String = "INSERT INTO OrderHistory(paymentId) VALUE (@paymentId)"
-
-        args.ShowPaymentReceipt(paymentId)
-
-        orderItem(paymentId)
-
-        With PaymentReceipt
-            .TopLevel = False
-            Me.Controls.Add(PaymentReceipt)
-            .BringToFront()
-            .Show()
-        End With
-
-
-    End Sub
 
     Private Function ValidateMastercardNumber(cardNumber As String) As Boolean
         If Not (cardNumber.Length = 16 AndAlso cardNumber.StartsWith("5")) Then
@@ -321,6 +244,8 @@ Public Class Payment
         Membership.Close()
         ProductItem.Close()
         OrderCart.Close()
+
+
     End Sub
 
 
@@ -352,9 +277,9 @@ Public Class Payment
                     "SELECT productId,productName,@ReceiptId,@MemberId,productPrice,productQuantity,productPromotion,totalPrice, CONVERT(nvarchar(19), GETDATE(), 120) " &
                     "FROM Cart"
 
+        Dim sql2 As String = "DELETE FROM Cart"
 
-
-        Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True")
+        Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\USERS\HP\SOURCE\REPOS\HAODE012\APPAREL-SHOP-SYSTEM\APPAREL SHOP SYSTEM\APPARELSHOPSYSTEMDATABASE.MDF"";Integrated Security=True")
             Using cmd As New SqlCommand(sql, con)
                 cmd.Parameters.AddWithValue("@ReceiptId", paymentId)
                 'cmd.Parameters.AddWithValue("@Amount", )
@@ -367,11 +292,18 @@ Public Class Payment
             End Using
         End Using
 
-        Dim sql2 As String = "INSERT INTO OrderHistory(paymentId) VALUE (@paymentId)"
+        'Dim sql2 As String = "INSERT INTO OrderHistory(paymentId) VALUE (@paymentId)"
+
+        Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\USERS\HP\SOURCE\REPOS\HAODE012\APPAREL-SHOP-SYSTEM\APPAREL SHOP SYSTEM\APPARELSHOPSYSTEMDATABASE.MDF"";Integrated Security=True")
+            Using cmd As New SqlCommand(sql2, con)
+                con.Open()
+                cmd.ExecuteNonQuery()
+            End Using
+        End Using
+
+
 
         args.ShowPaymentReceipt(paymentId)
-
-        orderItem(paymentId)
 
         With PaymentReceipt
             .TopLevel = False
@@ -385,9 +317,7 @@ Public Class Payment
 
     End Sub
 
-    Public Sub orderItem(paymentId As String)
 
-    End Sub
 
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
         Me.Close()
@@ -395,5 +325,119 @@ Public Class Payment
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         Me.Close()
+
+    End Sub
+
+    Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
+        Dim cardNumber As String = mskCardNumber.Text
+        Dim cvvNumber As String = mskCVV.Text
+        Dim expirationDate As String = cmbExpirationMonth.Text & "/" & cmbExpirationYear.Text
+        Dim cardHolderName As String = txtCardHolder.Text
+        Dim isCardNumberValid As Boolean = ValidateMastercardNumber(cardNumber)
+        Dim isCVVValid As Boolean = ValidateCVV(cvvNumber)
+        'Dim expirationDateString As String = ValidateExpirationDate(expirationDate)
+        Dim isCardHolderValid As Boolean = ValidateCardHolder(cardHolderName)
+
+        lblExpirationDate.Text = expirationDate
+
+
+        If Not ValidateCardHolder(cardHolderName) Then
+            MessageBox.Show("Card holder name is not valid.", "Validation Result", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            txtCardHolder.Focus()
+            Exit Sub
+        End If
+
+        If Not ValidateCVV(cvvNumber) Then
+            MessageBox.Show("CVV is not valid.", "Validation Result", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            mskCardNumber.Focus()
+            Exit Sub
+        End If
+
+
+        Dim expirationDateString As String = ValidateExpirationDate(expirationDate)
+
+        If String.IsNullOrEmpty(expirationDateString) Then
+
+
+            MessageBox.Show("Expiration date is not valid.", "Validation Result", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            cmbExpirationMonth.Focus()
+            Exit Sub
+        End If
+
+        If Not ValidateMastercardNumber(cardNumber) Then
+
+            'valid input eg, 5555555555554444
+            MessageBox.Show("Card Number is not valid.", "Validation Result", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            mskCardNumber.Focus()
+            Exit Sub
+        End If
+
+
+        MessageBox.Show("All information is valid.", "Validation Result", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Dim numbers As String = "1234567890"
+
+        Dim characters As String = numbers
+        Dim length As Integer = 10
+        Dim id As String = String.Empty
+        For i As Integer = 0 To length - 1
+            Dim character As String = String.Empty
+            Do
+                Dim index As Integer = New Random().Next(0, characters.Length)
+                character = characters.ToCharArray()(index).ToString()
+            Loop While id.IndexOf(character) <> -1
+            id += character
+        Next
+        Dim paymentId As String = "P" + id
+
+
+        Dim PaymentReceipt As New PaymentReceipt()
+        btnSubmit.Tag = PaymentReceipt
+
+        Dim args As PaymentReceipt = DirectCast(sender.Tag, PaymentReceipt)
+
+
+        Dim sql As String = "INSERT INTO OrderItem (productId,productName,receiptId,memberId,unitPrice,quantity,promotion,amount,orderDate) " &
+                    "SELECT productId,productName,@ReceiptId,@MemberId,productPrice,productQuantity,productPromotion,totalPrice, CONVERT(nvarchar(19), GETDATE(), 120) " &
+                    "FROM Cart"
+
+        Dim sql2 As String = "DELETE FROM Cart"
+
+        Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\USERS\HP\SOURCE\REPOS\HAODE012\APPAREL-SHOP-SYSTEM\APPAREL SHOP SYSTEM\APPARELSHOPSYSTEMDATABASE.MDF"";Integrated Security=True")
+            Using cmd As New SqlCommand(sql, con)
+                cmd.Parameters.AddWithValue("@ReceiptId", paymentId)
+                'cmd.Parameters.AddWithValue("@Amount", )
+                cmd.Parameters.AddWithValue("@MemberId", lblMembershipID.Text)
+
+
+                con.Open()
+                cmd.ExecuteNonQuery()
+                MessageBox.Show("Payment successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End Using
+        End Using
+
+        'Dim sql2 As String = "INSERT INTO OrderHistory(paymentId) VALUE (@paymentId)"
+
+
+
+
+        Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\USERS\HP\SOURCE\REPOS\HAODE012\APPAREL-SHOP-SYSTEM\APPAREL SHOP SYSTEM\APPARELSHOPSYSTEMDATABASE.MDF"";Integrated Security=True")
+            Using cmd As New SqlCommand(sql2, con)
+                con.Open()
+                cmd.ExecuteNonQuery()
+            End Using
+        End Using
+
+
+        args.ShowPaymentReceipt(paymentId)
+
+
+
+        With PaymentReceipt
+            .TopLevel = False
+            Me.Controls.Add(PaymentReceipt)
+            .BringToFront()
+            .Show()
+        End With
     End Sub
 End Class

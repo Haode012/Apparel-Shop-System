@@ -26,6 +26,7 @@ Partial Class OrderCart
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.grpOrderCart = New System.Windows.Forms.GroupBox()
+        Me.picCancel = New System.Windows.Forms.PictureBox()
         Me.lblMemberId = New System.Windows.Forms.Label()
         Me.btnNotMembership = New System.Windows.Forms.Button()
         Me.btnPayAsMembership = New System.Windows.Forms.Button()
@@ -39,14 +40,14 @@ Partial Class OrderCart
         Me.Label2 = New System.Windows.Forms.Label()
         Me.picRefresh = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.picCancel = New System.Windows.Forms.PictureBox()
+        Me.lblStock = New System.Windows.Forms.Label()
         Me.grpOrderCart.SuspendLayout()
+        CType(Me.picCancel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvOrderCart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picRefresh, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picCancel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grpOrderCart
@@ -64,6 +65,17 @@ Partial Class OrderCart
         Me.grpOrderCart.Size = New System.Drawing.Size(1384, 168)
         Me.grpOrderCart.TabIndex = 102
         Me.grpOrderCart.TabStop = False
+        '
+        'picCancel
+        '
+        Me.picCancel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.picCancel.Image = Global.Apparel_Shop_System.My.Resources.Resources.cancel_icon_new
+        Me.picCancel.Location = New System.Drawing.Point(577, 29)
+        Me.picCancel.Name = "picCancel"
+        Me.picCancel.Size = New System.Drawing.Size(44, 41)
+        Me.picCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picCancel.TabIndex = 91
+        Me.picCancel.TabStop = False
         '
         'lblMemberId
         '
@@ -237,16 +249,17 @@ Partial Class OrderCart
         Me.PictureBox1.TabIndex = 100
         Me.PictureBox1.TabStop = False
         '
-        'picCancel
+        'lblStock
         '
-        Me.picCancel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.picCancel.Image = Global.Apparel_Shop_System.My.Resources.Resources.cancel_icon_new
-        Me.picCancel.Location = New System.Drawing.Point(577, 29)
-        Me.picCancel.Name = "picCancel"
-        Me.picCancel.Size = New System.Drawing.Size(44, 41)
-        Me.picCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picCancel.TabIndex = 91
-        Me.picCancel.TabStop = False
+        Me.lblStock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblStock.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStock.Location = New System.Drawing.Point(12, 63)
+        Me.lblStock.Name = "lblStock"
+        Me.lblStock.Size = New System.Drawing.Size(262, 29)
+        Me.lblStock.TabIndex = 112
+        Me.lblStock.Text = "--"
+        Me.lblStock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblStock.Visible = False
         '
         'OrderCart
         '
@@ -255,6 +268,7 @@ Partial Class OrderCart
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(1654, 1035)
+        Me.Controls.Add(Me.lblStock)
         Me.Controls.Add(Me.grpOrderCart)
         Me.Controls.Add(Me.lblOrderCart)
         Me.Controls.Add(Me.Panel1)
@@ -269,12 +283,12 @@ Partial Class OrderCart
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.grpOrderCart.ResumeLayout(False)
         Me.grpOrderCart.PerformLayout()
+        CType(Me.picCancel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvOrderCart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picRefresh, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picCancel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -295,4 +309,5 @@ Partial Class OrderCart
     Friend WithEvents picRefresh As PictureBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents picCancel As PictureBox
+    Friend WithEvents lblStock As Label
 End Class

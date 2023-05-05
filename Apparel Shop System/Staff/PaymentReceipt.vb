@@ -19,7 +19,7 @@ Public Class PaymentReceipt
     End Sub
 
 
-    Private con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True")
+    Private con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\USERS\HP\SOURCE\REPOS\HAODE012\APPAREL-SHOP-SYSTEM\APPAREL SHOP SYSTEM\APPARELSHOPSYSTEMDATABASE.MDF"";Integrated Security=True")
     Private cmd As New SqlCommand
     Private Sub PaymentReceipt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -28,7 +28,25 @@ Public Class PaymentReceipt
 )
         lblDate.Text = receiptDate
         lblTotalAmount1.Text = totalAmount.ToString
+
+        If strMemberId.ToString = "" Then
+            lblDiscount.Text = "-"
+            lblMemberId.Text = "-"
+            lblMemberName.Text = "-"
+        Else
+            lblDiscount.Text = "20"
+            lblMemberId.Text = strMemberId.ToString
+            lblMemberName.Text = strMemberName.ToString
+
+        End If
+
+
+
+
         display_all_record(PaymentId)
+
+
+
     End Sub
 
 
@@ -121,7 +139,15 @@ Public Class PaymentReceipt
 "Printed on {0:dd-MMMM-yyyy hh:mm:ss tt}", DateTime.Now)
         Dim strSubHeader2 As String = "RECEIPT#" + lblPaymentId.Text.ToString
         Dim strSubHeader3 As String = "CONTACT US : 011-1234 5678"
-        Dim strTotalAmount As String = "Total Amount = " + totalAmount
+        Dim strSubHeader4 As String = "ADDRESS :Jalan Genting Kelang, Setapak,
+53300 Kuala Lumpur."
+        Dim strSubHeader5 As String = "MEMBER ID :" + strMemberId.ToString
+        Dim strSubHeader6 As String = "MEMBER NAME :" + strMemberName.ToString
+
+        Dim strTotalAmount As String = "Total amount(RM) = " + totalAmount
+        Dim strDiscount As String = "Discount(%) = " + lblDiscount.Text.ToString
+
+
         ' (3) Print header and sub-header
 
         'Dim headerPicture As New RectangleF(rightMargin, yPos, 500, 100)
@@ -146,6 +172,18 @@ Public Class PaymentReceipt
 
         Dim subHeader3Bounds As New RectangleF(leftMargin, yPos, 500, fntSubHeader.Height)
         e.Graphics.DrawString(strSubHeader3, fntSubHeader, Brushes.Black, subHeader3Bounds)
+        yPos += fntSubHeader.Height + 20 ' add spacing between subheader and table
+
+        Dim subHeader4Bounds As New RectangleF(leftMargin, yPos, 500, fntSubHeader.Height)
+        e.Graphics.DrawString(strSubHeader4, fntSubHeader, Brushes.Black, subHeader4Bounds)
+        yPos += fntSubHeader.Height + 20 ' add spacing between subheader and table
+
+        Dim subHeader5Bounds As New RectangleF(leftMargin, yPos, 500, fntSubHeader.Height)
+        e.Graphics.DrawString(strSubHeader5, fntSubHeader, Brushes.Black, subHeader5Bounds)
+        yPos += fntSubHeader.Height + 20 ' add spacing between subheader and table
+
+        Dim subHeader6Bounds As New RectangleF(leftMargin, yPos, 500, fntSubHeader.Height)
+        e.Graphics.DrawString(strSubHeader6, fntSubHeader, Brushes.Black, subHeader6Bounds)
         yPos += fntSubHeader.Height + 20 ' add spacing between subheader and table
 
 
@@ -181,16 +219,16 @@ Public Class PaymentReceipt
             ' Draw the top border for each row
             e.Graphics.DrawLine(pen, e.MarginBounds.Left, yPos, e.MarginBounds.Right, yPos)
         Next
+        yPos += printFont.Height + 20
 
-        ' Draw the bottom border for the last row
-        'e.Graphics.DrawLine(pen, e.MarginBounds.Left, yPos + printFont.Height, e.MarginBounds.Right, yPos + printFont.Height)
-
-
-
-        Dim totalAmountLeft As Single = e.MarginBounds.Left + 700
+        Dim totalAmountLeft As Single = e.MarginBounds.Left + 670
 
         Dim totalAmountBounds2 As New RectangleF(totalAmountLeft, yPos, e.MarginBounds.Right - totalAmountLeft, printFont.Height)
-        e.Graphics.DrawString(strTotalAmount, printFont, Brushes.Black, totalAmountBounds2)
+        e.Graphics.DrawString(strDiscount, printFont, Brushes.Black, totalAmountBounds2)
+        yPos += printFont.Height + 20
+
+        Dim totalAmountBounds3 As New RectangleF(totalAmountLeft, yPos, e.MarginBounds.Right - totalAmountLeft, printFont.Height)
+        e.Graphics.DrawString(strTotalAmount, printFont, Brushes.Black, totalAmountBounds3)
 
 
 
@@ -200,4 +238,6 @@ Public Class PaymentReceipt
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
         Me.Close()
     End Sub
+
+
 End Class

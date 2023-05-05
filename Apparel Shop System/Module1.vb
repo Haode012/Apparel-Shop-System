@@ -2,7 +2,8 @@
 
     Public decTotalAmount As Decimal
     Public totalAmount As String
-
+    Public strMemberId As String
+    Public strMemberName As String
 
     Public conn As New System.Data.SqlClient.SqlConnection
     Public Function OpenConnection() As Boolean
