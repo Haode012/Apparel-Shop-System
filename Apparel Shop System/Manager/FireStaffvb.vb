@@ -2,7 +2,7 @@
 Imports System.Data.SqlClient
 Public Class FireStaffvb
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         If cbId.SelectedIndex = -1 Then
             MessageBox.Show("Please select a staff to fire", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
@@ -48,11 +48,11 @@ Public Class FireStaffvb
             MySqlCommand.Parameters.AddWithValue("@StaffId", selectedID)
             MySqlCommand.Parameters.AddWithValue("@Name", txtStaffName.Text)
             MySqlCommand.Parameters.AddWithValue("@Address", txtStaffAddress.Text)
-            MySqlCommand.Parameters.AddWithValue("@PhoneNumber", txtStaffPhone.Text)
+
             MySqlCommand.Parameters.AddWithValue("@DateOfBirth", txtDateOfBirth.Text)
             MySqlCommand.Parameters.AddWithValue("@startDate", txtStaffStartDate.Text)
             MySqlCommand.Parameters.AddWithValue("@endDate", dtpStaffFireDate.Value.ToLongDateString)
-            MySqlCommand.Parameters.AddWithValue("@IcNo", txtIcNo.Text)
+
             MySqlCommand.Parameters.AddWithValue("@Position", txtPosition.Text)
             MySqlCommand.Parameters.AddWithValue("@Status", "Inactive")
             MySqlCommand.Parameters.AddWithValue("@FiredReason", txtStaffLeavingReason.Text)
@@ -130,10 +130,8 @@ Public Class FireStaffvb
         End If
 
         txtStaffName.Text = selectedName
-        txtIcNo.Text = icNo
         txtStaffAddress.Text = address
         txtPosition.Text = position
-        txtStaffPhone.Text = phoneNum
         txtDateOfBirth.Text = dob
         txtStaffStartDate.Text = startDate
     End Sub
@@ -159,16 +157,16 @@ Public Class FireStaffvb
         End If
     End Sub
 
-    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs)
 
     End Sub
     Private Sub Reset()
         cbId.SelectedIndex = -1
         txtStaffName.Text = ""
-        txtIcNo.Text = ""
+
         txtStaffAddress.Text = ""
         txtPosition.Text = ""
-        txtStaffPhone.Text = ""
+
         txtDateOfBirth.Text = ""
         txtStaffStartDate.Text = ""
         txtStaffLeavingReason.Text = ""

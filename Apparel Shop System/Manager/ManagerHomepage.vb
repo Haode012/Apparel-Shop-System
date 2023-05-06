@@ -41,7 +41,7 @@
     End Sub
 
     Private Sub ManagerHomepage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        lblUsername.Text = strPassName
+        lblUsername.Text = strFullName
     End Sub
 
     Private Sub btnMembershipMaintenance_Click(sender As Object, e As EventArgs) Handles btnMembershipMaintenance.Click
@@ -64,6 +64,9 @@
 
     Private Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
         Me.Close()
+        ManagerLogin.txtUserId.Text = ""
+        ManagerLogin.txtPassword.Text = ""
+        ManagerLogin.txtUserId.Focus()
         ManagerLogin.Show()
     End Sub
 
@@ -85,5 +88,11 @@
         End With
     End Sub
 
+    Private Sub btnChangePassowrd_Click(sender As Object, e As EventArgs) Handles btnChangePassowrd.Click
+        ChangePassword.Show()
+    End Sub
 
+    Private Sub btnChangeSecret_Click(sender As Object, e As EventArgs) Handles btnChangeSecret.Click
+        ChangeSecretQuestionAndAnswer.Show()
+    End Sub
 End Class

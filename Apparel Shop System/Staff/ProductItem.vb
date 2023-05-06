@@ -17,7 +17,7 @@ Public Class ProductItem
     Private WithEvents lbl4 As New Label
     Private WithEvents lblProductCategory As New Label
     Private WithEvents lbl5 As New Label
-    Private WithEvents lblProductPromotion As New Label
+    Private WithEvents lblPromotionDiscount As New Label
 
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
         Me.Close()
@@ -43,7 +43,7 @@ Public Class ProductItem
         FlowLayoutPanel1.Controls.Clear()
         cmd = con.CreateCommand
         cmd.CommandType = CommandType.Text
-        cmd.CommandText = "select productImage, productId, productName, productGender, productCategory, productSize, productDescription, productPrice, productStock, dateCreated, productPromotion from Product"
+        cmd.CommandText = "select productImage, productId, productName, productGender, productCategory, productSize, productDescription, productPrice, productStock, dateCreated, promotionDiscount from Product"
         cmd.ExecuteNonQuery()
         dr = cmd.ExecuteReader
         While dr.Read
@@ -138,13 +138,13 @@ Public Class ProductItem
             lbl5.TextAlign = ContentAlignment.MiddleCenter
             lbl5.BorderStyle = BorderStyle.FixedSingle
 
-            lblProductPromotion = New Label
-            lblProductPromotion.Width = 200
-            lblProductPromotion.ForeColor = Color.Black
-            lblProductPromotion.BackColor = Color.White
-            lblProductPromotion.Dock = DockStyle.Bottom
-            lblProductPromotion.TextAlign = ContentAlignment.MiddleCenter
-            lblProductPromotion.BorderStyle = BorderStyle.FixedSingle
+            lblPromotionDiscount = New Label
+            lblPromotionDiscount.Width = 200
+            lblPromotionDiscount.ForeColor = Color.Black
+            lblPromotionDiscount.BackColor = Color.White
+            lblPromotionDiscount.Dock = DockStyle.Bottom
+            lblPromotionDiscount.TextAlign = ContentAlignment.MiddleCenter
+            lblPromotionDiscount.BorderStyle = BorderStyle.FixedSingle
 
             Dim ms As New System.IO.MemoryStream(array)
             Dim bitmap As New System.Drawing.Bitmap(ms)
@@ -158,11 +158,11 @@ Public Class ProductItem
             lblProductGender.Text = dr.Item("productGender").ToString
             lbl4.Text = "Product Category"
             lblProductCategory.Text = dr.Item("productCategory").ToString
-            lbl5.Text = "Product Promotion"
-            lblProductPromotion.Text = dr.Item("productPromotion").ToString
+            lbl5.Text = "Promotion Discount"
+            lblPromotionDiscount.Text = dr.Item("promotionDiscount").ToString
 
-            If String.IsNullOrEmpty(lblProductPromotion.Text) Then
-                lblProductPromotion.Text = "-"
+            If String.IsNullOrEmpty(lblPromotionDiscount.Text) Then
+                lblPromotionDiscount.Text = "-"
             End If
 
             panelShow.Controls.Add(picProductImage)
@@ -175,7 +175,7 @@ Public Class ProductItem
             panelShow.Controls.Add(lbl4)
             panelShow.Controls.Add(lblProductCategory)
             panelShow.Controls.Add(lbl5)
-            panelShow.Controls.Add(lblProductPromotion)
+            panelShow.Controls.Add(lblPromotionDiscount)
 
             FlowLayoutPanel1.Controls.Add(panelShow)
 
@@ -193,9 +193,9 @@ Public Class ProductItem
             menu.ProductDescription = dr.Item("productDescription").ToString()
             menu.ProductPrice = dr.Item("productPrice").ToString()
             menu.ProductStock = dr.Item("productStock").ToString()
-            menu.ProductPromotion = dr.Item("productPromotion").ToString()
-            If String.IsNullOrEmpty(menu.ProductPromotion) Then
-                menu.ProductPromotion = "-"
+            menu.PromotionDiscount = dr.Item("promotionDiscount").ToString()
+            If String.IsNullOrEmpty(menu.PromotionDiscount) Then
+                menu.PromotionDiscount = "-"
             End If
 
             ' Set the Tag property of the picture box control to the MenuItemDetails instance
@@ -213,7 +213,7 @@ Public Class ProductItem
 
         Dim menu As ProductItemDetails = DirectCast(sender, PictureBox).Tag
 
-        ProductItemDetails.ShowProductDetails(menu.ProductImage, menu.ProductID, menu.ProductName, menu.ProductGender, menu.ProductCategory, menu.ProductSize, menu.ProductDescription, menu.ProductPrice, menu.ProductStock, menu.ProductPromotion)
+        ProductItemDetails.ShowProductDetails(menu.ProductImage, menu.ProductID, menu.ProductName, menu.ProductGender, menu.ProductCategory, menu.ProductSize, menu.ProductDescription, menu.ProductPrice, menu.ProductStock, menu.PromotionDiscount)
 
         With ProductItemDetails
             .TopLevel = False
@@ -337,13 +337,13 @@ Public Class ProductItem
                         lbl5.TextAlign = ContentAlignment.MiddleCenter
                         lbl5.BorderStyle = BorderStyle.FixedSingle
 
-                        lblProductPromotion = New Label
-                        lblProductPromotion.Width = 200
-                        lblProductPromotion.ForeColor = Color.Black
-                        lblProductPromotion.BackColor = Color.White
-                        lblProductPromotion.Dock = DockStyle.Bottom
-                        lblProductPromotion.TextAlign = ContentAlignment.MiddleCenter
-                        lblProductPromotion.BorderStyle = BorderStyle.FixedSingle
+                        lblPromotionDiscount = New Label
+                        lblPromotionDiscount.Width = 200
+                        lblPromotionDiscount.ForeColor = Color.Black
+                        lblPromotionDiscount.BackColor = Color.White
+                        lblPromotionDiscount.Dock = DockStyle.Bottom
+                        lblPromotionDiscount.TextAlign = ContentAlignment.MiddleCenter
+                        lblPromotionDiscount.BorderStyle = BorderStyle.FixedSingle
 
                         Dim ms As New System.IO.MemoryStream(array)
                         Dim bitmap As New System.Drawing.Bitmap(ms)
@@ -357,11 +357,11 @@ Public Class ProductItem
                         lblProductGender.Text = dr.Item("productGender").ToString
                         lbl4.Text = "Product Category"
                         lblProductCategory.Text = dr.Item("productCategory").ToString
-                        lbl5.Text = "Product Promotion"
-                        lblProductPromotion.Text = dr.Item("productPromotion").ToString
+                        lbl5.Text = "Promotion Discount"
+                        lblPromotionDiscount.Text = dr.Item("promotionDiscount").ToString
 
-                        If String.IsNullOrEmpty(lblProductPromotion.Text) Then
-                            lblProductPromotion.Text = "-"
+                        If String.IsNullOrEmpty(lblPromotionDiscount.Text) Then
+                            lblPromotionDiscount.Text = "-"
                         End If
 
                         panelShow.Controls.Add(picProductImage)
@@ -374,7 +374,7 @@ Public Class ProductItem
                         panelShow.Controls.Add(lbl4)
                         panelShow.Controls.Add(lblProductCategory)
                         panelShow.Controls.Add(lbl5)
-                        panelShow.Controls.Add(lblProductPromotion)
+                        panelShow.Controls.Add(lblPromotionDiscount)
 
                         FlowLayoutPanel1.Controls.Add(panelShow)
 
@@ -392,9 +392,9 @@ Public Class ProductItem
                         menu.ProductDescription = dr.Item("productDescription").ToString()
                         menu.ProductPrice = dr.Item("productPrice").ToString()
                         menu.ProductStock = dr.Item("productStock").ToString()
-                        menu.ProductPromotion = dr.Item("productPromotion").ToString()
-                        If String.IsNullOrEmpty(menu.ProductPromotion) Then
-                            menu.ProductPromotion = "-"
+                        menu.PromotionDiscount = dr.Item("productPromotion").ToString()
+                        If String.IsNullOrEmpty(menu.PromotionDiscount) Then
+                            menu.PromotionDiscount = "-"
                         End If
 
                         ' Set the Tag property of the picture box control to the MenuItemDetails instance
@@ -535,13 +535,13 @@ Public Class ProductItem
                     lbl5.TextAlign = ContentAlignment.MiddleCenter
                     lbl5.BorderStyle = BorderStyle.FixedSingle
 
-                    lblProductPromotion = New Label
-                    lblProductPromotion.Width = 200
-                    lblProductPromotion.ForeColor = Color.Black
-                    lblProductPromotion.BackColor = Color.White
-                    lblProductPromotion.Dock = DockStyle.Bottom
-                    lblProductPromotion.TextAlign = ContentAlignment.MiddleCenter
-                    lblProductPromotion.BorderStyle = BorderStyle.FixedSingle
+                    lblPromotionDiscount = New Label
+                    lblPromotionDiscount.Width = 200
+                    lblPromotionDiscount.ForeColor = Color.Black
+                    lblPromotionDiscount.BackColor = Color.White
+                    lblPromotionDiscount.Dock = DockStyle.Bottom
+                    lblPromotionDiscount.TextAlign = ContentAlignment.MiddleCenter
+                    lblPromotionDiscount.BorderStyle = BorderStyle.FixedSingle
 
                     Dim ms As New System.IO.MemoryStream(array)
                     Dim bitmap As New System.Drawing.Bitmap(ms)
@@ -555,11 +555,11 @@ Public Class ProductItem
                     lblProductGender.Text = dr.Item("productGender").ToString
                     lbl4.Text = "Product Category"
                     lblProductCategory.Text = dr.Item("productCategory").ToString
-                    lbl5.Text = "Product Promotion"
-                    lblProductPromotion.Text = dr.Item("productPromotion").ToString
+                    lbl5.Text = "Promotion Discount"
+                    lblPromotionDiscount.Text = dr.Item("promotionDiscount").ToString
 
-                    If String.IsNullOrEmpty(lblProductPromotion.Text) Then
-                        lblProductPromotion.Text = "-"
+                    If String.IsNullOrEmpty(lblPromotionDiscount.Text) Then
+                        lblPromotionDiscount.Text = "-"
                     End If
 
                     panelShow.Controls.Add(picProductImage)
@@ -572,7 +572,7 @@ Public Class ProductItem
                     panelShow.Controls.Add(lbl4)
                     panelShow.Controls.Add(lblProductCategory)
                     panelShow.Controls.Add(lbl5)
-                    panelShow.Controls.Add(lblProductPromotion)
+                    panelShow.Controls.Add(lblPromotionDiscount)
 
                     FlowLayoutPanel1.Controls.Add(panelShow)
 
@@ -590,9 +590,9 @@ Public Class ProductItem
                     menu.ProductDescription = dr.Item("productDescription").ToString()
                     menu.ProductPrice = dr.Item("productPrice").ToString()
                     menu.ProductStock = dr.Item("productStock").ToString()
-                    menu.ProductPromotion = dr.Item("productPromotion").ToString()
-                    If String.IsNullOrEmpty(menu.ProductPromotion) Then
-                        menu.ProductPromotion = "-"
+                    menu.PromotionDiscount = dr.Item("promotionDiscount").ToString()
+                    If String.IsNullOrEmpty(menu.PromotionDiscount) Then
+                        menu.PromotionDiscount = "-"
                     End If
 
                     ' Set the Tag property of the picture box control to the MenuItemDetails instance
@@ -715,13 +715,13 @@ Public Class ProductItem
                     lbl5.TextAlign = ContentAlignment.MiddleCenter
                     lbl5.BorderStyle = BorderStyle.FixedSingle
 
-                    lblProductPromotion = New Label
-                    lblProductPromotion.Width = 200
-                    lblProductPromotion.ForeColor = Color.Black
-                    lblProductPromotion.BackColor = Color.White
-                    lblProductPromotion.Dock = DockStyle.Bottom
-                    lblProductPromotion.TextAlign = ContentAlignment.MiddleCenter
-                    lblProductPromotion.BorderStyle = BorderStyle.FixedSingle
+                    lblPromotionDiscount = New Label
+                    lblPromotionDiscount.Width = 200
+                    lblPromotionDiscount.ForeColor = Color.Black
+                    lblPromotionDiscount.BackColor = Color.White
+                    lblPromotionDiscount.Dock = DockStyle.Bottom
+                    lblPromotionDiscount.TextAlign = ContentAlignment.MiddleCenter
+                    lblPromotionDiscount.BorderStyle = BorderStyle.FixedSingle
 
                     Dim ms As New System.IO.MemoryStream(array)
                     Dim bitmap As New System.Drawing.Bitmap(ms)
@@ -735,11 +735,11 @@ Public Class ProductItem
                     lblProductGender.Text = dr.Item("productGender").ToString
                     lbl4.Text = "Product Category"
                     lblProductCategory.Text = dr.Item("productCategory").ToString
-                    lbl5.Text = "Product Promotion"
-                    lblProductPromotion.Text = dr.Item("productPromotion").ToString
+                    lbl5.Text = "Promotion Discount"
+                    lblPromotionDiscount.Text = dr.Item("promotionDiscount").ToString
 
-                    If String.IsNullOrEmpty(lblProductPromotion.Text) Then
-                        lblProductPromotion.Text = "-"
+                    If String.IsNullOrEmpty(lblPromotionDiscount.Text) Then
+                        lblPromotionDiscount.Text = "-"
                     End If
 
                     panelShow.Controls.Add(picProductImage)
@@ -752,7 +752,7 @@ Public Class ProductItem
                     panelShow.Controls.Add(lbl4)
                     panelShow.Controls.Add(lblProductCategory)
                     panelShow.Controls.Add(lbl5)
-                    panelShow.Controls.Add(lblProductPromotion)
+                    panelShow.Controls.Add(lblPromotionDiscount)
 
                     FlowLayoutPanel1.Controls.Add(panelShow)
 
@@ -770,9 +770,9 @@ Public Class ProductItem
                     menu.ProductDescription = dr.Item("productDescription").ToString()
                     menu.ProductPrice = dr.Item("productPrice").ToString()
                     menu.ProductStock = dr.Item("productStock").ToString()
-                    menu.ProductPromotion = dr.Item("productPromotion").ToString()
-                    If String.IsNullOrEmpty(menu.ProductPromotion) Then
-                        menu.ProductPromotion = "-"
+                    menu.PromotionDiscount = dr.Item("promotionDiscount").ToString()
+                    If String.IsNullOrEmpty(menu.PromotionDiscount) Then
+                        menu.PromotionDiscount = "-"
                     End If
 
                     ' Set the Tag property of the picture box control to the MenuItemDetails instance
@@ -895,13 +895,13 @@ Public Class ProductItem
                     lbl5.TextAlign = ContentAlignment.MiddleCenter
                     lbl5.BorderStyle = BorderStyle.FixedSingle
 
-                    lblProductPromotion = New Label
-                    lblProductPromotion.Width = 200
-                    lblProductPromotion.ForeColor = Color.Black
-                    lblProductPromotion.BackColor = Color.White
-                    lblProductPromotion.Dock = DockStyle.Bottom
-                    lblProductPromotion.TextAlign = ContentAlignment.MiddleCenter
-                    lblProductPromotion.BorderStyle = BorderStyle.FixedSingle
+                    lblPromotionDiscount = New Label
+                    lblPromotionDiscount.Width = 200
+                    lblPromotionDiscount.ForeColor = Color.Black
+                    lblPromotionDiscount.BackColor = Color.White
+                    lblPromotionDiscount.Dock = DockStyle.Bottom
+                    lblPromotionDiscount.TextAlign = ContentAlignment.MiddleCenter
+                    lblPromotionDiscount.BorderStyle = BorderStyle.FixedSingle
 
                     Dim ms As New System.IO.MemoryStream(array)
                     Dim bitmap As New System.Drawing.Bitmap(ms)
@@ -915,11 +915,11 @@ Public Class ProductItem
                     lblProductGender.Text = dr.Item("productGender").ToString
                     lbl4.Text = "Product Category"
                     lblProductCategory.Text = dr.Item("productCategory").ToString
-                    lbl5.Text = "Product Promotion"
-                    lblProductPromotion.Text = dr.Item("productPromotion").ToString
+                    lbl5.Text = "Promotion Discount"
+                    lblPromotionDiscount.Text = dr.Item("promotionDiscount").ToString
 
-                    If String.IsNullOrEmpty(lblProductPromotion.Text) Then
-                        lblProductPromotion.Text = "-"
+                    If String.IsNullOrEmpty(lblPromotionDiscount.Text) Then
+                        lblPromotionDiscount.Text = "-"
                     End If
 
                     panelShow.Controls.Add(picProductImage)
@@ -932,7 +932,7 @@ Public Class ProductItem
                     panelShow.Controls.Add(lbl4)
                     panelShow.Controls.Add(lblProductCategory)
                     panelShow.Controls.Add(lbl5)
-                    panelShow.Controls.Add(lblProductPromotion)
+                    panelShow.Controls.Add(lblPromotionDiscount)
 
                     FlowLayoutPanel1.Controls.Add(panelShow)
 
@@ -950,9 +950,9 @@ Public Class ProductItem
                     menu.ProductDescription = dr.Item("productDescription").ToString()
                     menu.ProductPrice = dr.Item("productPrice").ToString()
                     menu.ProductStock = dr.Item("productStock").ToString()
-                    menu.ProductPromotion = dr.Item("productPromotion").ToString()
-                    If String.IsNullOrEmpty(menu.ProductPromotion) Then
-                        menu.ProductPromotion = "-"
+                    menu.PromotionDiscount = dr.Item("promotionDiscount").ToString()
+                    If String.IsNullOrEmpty(menu.PromotionDiscount) Then
+                        menu.PromotionDiscount = "-"
                     End If
 
                     ' Set the Tag property of the picture box control to the MenuItemDetails instance
@@ -1075,13 +1075,13 @@ Public Class ProductItem
                     lbl5.TextAlign = ContentAlignment.MiddleCenter
                     lbl5.BorderStyle = BorderStyle.FixedSingle
 
-                    lblProductPromotion = New Label
-                    lblProductPromotion.Width = 200
-                    lblProductPromotion.ForeColor = Color.Black
-                    lblProductPromotion.BackColor = Color.White
-                    lblProductPromotion.Dock = DockStyle.Bottom
-                    lblProductPromotion.TextAlign = ContentAlignment.MiddleCenter
-                    lblProductPromotion.BorderStyle = BorderStyle.FixedSingle
+                    lblPromotionDiscount = New Label
+                    lblPromotionDiscount.Width = 200
+                    lblPromotionDiscount.ForeColor = Color.Black
+                    lblPromotionDiscount.BackColor = Color.White
+                    lblPromotionDiscount.Dock = DockStyle.Bottom
+                    lblPromotionDiscount.TextAlign = ContentAlignment.MiddleCenter
+                    lblPromotionDiscount.BorderStyle = BorderStyle.FixedSingle
 
                     Dim ms As New System.IO.MemoryStream(array)
                     Dim bitmap As New System.Drawing.Bitmap(ms)
@@ -1095,11 +1095,11 @@ Public Class ProductItem
                     lblProductGender.Text = dr.Item("productGender").ToString
                     lbl4.Text = "Product Category"
                     lblProductCategory.Text = dr.Item("productCategory").ToString
-                    lbl5.Text = "Product Promotion"
-                    lblProductPromotion.Text = dr.Item("productPromotion").ToString
+                    lbl5.Text = "Promotion Discount"
+                    lblPromotionDiscount.Text = dr.Item("promotionDiscount").ToString
 
-                    If String.IsNullOrEmpty(lblProductPromotion.Text) Then
-                        lblProductPromotion.Text = "-"
+                    If String.IsNullOrEmpty(lblPromotionDiscount.Text) Then
+                        lblPromotionDiscount.Text = "-"
                     End If
 
                     panelShow.Controls.Add(picProductImage)
@@ -1112,7 +1112,7 @@ Public Class ProductItem
                     panelShow.Controls.Add(lbl4)
                     panelShow.Controls.Add(lblProductCategory)
                     panelShow.Controls.Add(lbl5)
-                    panelShow.Controls.Add(lblProductPromotion)
+                    panelShow.Controls.Add(lblPromotionDiscount)
 
                     FlowLayoutPanel1.Controls.Add(panelShow)
 
@@ -1130,9 +1130,9 @@ Public Class ProductItem
                     menu.ProductDescription = dr.Item("productDescription").ToString()
                     menu.ProductPrice = dr.Item("productPrice").ToString()
                     menu.ProductStock = dr.Item("productStock").ToString()
-                    menu.ProductPromotion = dr.Item("productPromotion").ToString()
-                    If String.IsNullOrEmpty(menu.ProductPromotion) Then
-                        menu.ProductPromotion = "-"
+                    menu.PromotionDiscount = dr.Item("promotionDiscount").ToString()
+                    If String.IsNullOrEmpty(menu.PromotionDiscount) Then
+                        menu.PromotionDiscount = "-"
                     End If
 
                     ' Set the Tag property of the picture box control to the MenuItemDetails instance
@@ -1255,13 +1255,13 @@ Public Class ProductItem
                     lbl5.TextAlign = ContentAlignment.MiddleCenter
                     lbl5.BorderStyle = BorderStyle.FixedSingle
 
-                    lblProductPromotion = New Label
-                    lblProductPromotion.Width = 200
-                    lblProductPromotion.ForeColor = Color.Black
-                    lblProductPromotion.BackColor = Color.White
-                    lblProductPromotion.Dock = DockStyle.Bottom
-                    lblProductPromotion.TextAlign = ContentAlignment.MiddleCenter
-                    lblProductPromotion.BorderStyle = BorderStyle.FixedSingle
+                    lblPromotionDiscount = New Label
+                    lblPromotionDiscount.Width = 200
+                    lblPromotionDiscount.ForeColor = Color.Black
+                    lblPromotionDiscount.BackColor = Color.White
+                    lblPromotionDiscount.Dock = DockStyle.Bottom
+                    lblPromotionDiscount.TextAlign = ContentAlignment.MiddleCenter
+                    lblPromotionDiscount.BorderStyle = BorderStyle.FixedSingle
 
                     Dim ms As New System.IO.MemoryStream(array)
                     Dim bitmap As New System.Drawing.Bitmap(ms)
@@ -1275,11 +1275,11 @@ Public Class ProductItem
                     lblProductGender.Text = dr.Item("productGender").ToString
                     lbl4.Text = "Product Category"
                     lblProductCategory.Text = dr.Item("productCategory").ToString
-                    lbl5.Text = "Product Promotion"
-                    lblProductPromotion.Text = dr.Item("productPromotion").ToString
+                    lbl5.Text = "Promotion Discount"
+                    lblPromotionDiscount.Text = dr.Item("promotionDiscount").ToString
 
-                    If String.IsNullOrEmpty(lblProductPromotion.Text) Then
-                        lblProductPromotion.Text = "-"
+                    If String.IsNullOrEmpty(lblPromotionDiscount.Text) Then
+                        lblPromotionDiscount.Text = "-"
                     End If
 
                     panelShow.Controls.Add(picProductImage)
@@ -1292,7 +1292,7 @@ Public Class ProductItem
                     panelShow.Controls.Add(lbl4)
                     panelShow.Controls.Add(lblProductCategory)
                     panelShow.Controls.Add(lbl5)
-                    panelShow.Controls.Add(lblProductPromotion)
+                    panelShow.Controls.Add(lblPromotionDiscount)
 
                     FlowLayoutPanel1.Controls.Add(panelShow)
 
@@ -1310,9 +1310,9 @@ Public Class ProductItem
                     menu.ProductDescription = dr.Item("productDescription").ToString()
                     menu.ProductPrice = dr.Item("productPrice").ToString()
                     menu.ProductStock = dr.Item("productStock").ToString()
-                    menu.ProductPromotion = dr.Item("productPromotion").ToString()
-                    If String.IsNullOrEmpty(menu.ProductPromotion) Then
-                        menu.ProductPromotion = "-"
+                    menu.PromotionDiscount = dr.Item("promotionDiscount").ToString()
+                    If String.IsNullOrEmpty(menu.PromotionDiscount) Then
+                        menu.PromotionDiscount = "-"
                     End If
 
                     ' Set the Tag property of the picture box control to the MenuItemDetails instance
@@ -1435,13 +1435,13 @@ Public Class ProductItem
                     lbl5.TextAlign = ContentAlignment.MiddleCenter
                     lbl5.BorderStyle = BorderStyle.FixedSingle
 
-                    lblProductPromotion = New Label
-                    lblProductPromotion.Width = 200
-                    lblProductPromotion.ForeColor = Color.Black
-                    lblProductPromotion.BackColor = Color.White
-                    lblProductPromotion.Dock = DockStyle.Bottom
-                    lblProductPromotion.TextAlign = ContentAlignment.MiddleCenter
-                    lblProductPromotion.BorderStyle = BorderStyle.FixedSingle
+                    lblPromotionDiscount = New Label
+                    lblPromotionDiscount.Width = 200
+                    lblPromotionDiscount.ForeColor = Color.Black
+                    lblPromotionDiscount.BackColor = Color.White
+                    lblPromotionDiscount.Dock = DockStyle.Bottom
+                    lblPromotionDiscount.TextAlign = ContentAlignment.MiddleCenter
+                    lblPromotionDiscount.BorderStyle = BorderStyle.FixedSingle
 
                     Dim ms As New System.IO.MemoryStream(array)
                     Dim bitmap As New System.Drawing.Bitmap(ms)
@@ -1455,11 +1455,11 @@ Public Class ProductItem
                     lblProductGender.Text = dr.Item("productGender").ToString
                     lbl4.Text = "Product Category"
                     lblProductCategory.Text = dr.Item("productCategory").ToString
-                    lbl5.Text = "Product Promotion"
-                    lblProductPromotion.Text = dr.Item("productPromotion").ToString
+                    lbl5.Text = "Promotion Discount"
+                    lblPromotionDiscount.Text = dr.Item("promotionDiscount").ToString
 
-                    If String.IsNullOrEmpty(lblProductPromotion.Text) Then
-                        lblProductPromotion.Text = "-"
+                    If String.IsNullOrEmpty(lblPromotionDiscount.Text) Then
+                        lblPromotionDiscount.Text = "-"
                     End If
 
                     panelShow.Controls.Add(picProductImage)
@@ -1472,7 +1472,7 @@ Public Class ProductItem
                     panelShow.Controls.Add(lbl4)
                     panelShow.Controls.Add(lblProductCategory)
                     panelShow.Controls.Add(lbl5)
-                    panelShow.Controls.Add(lblProductPromotion)
+                    panelShow.Controls.Add(lblPromotionDiscount)
 
                     FlowLayoutPanel1.Controls.Add(panelShow)
 
@@ -1490,9 +1490,9 @@ Public Class ProductItem
                     menu.ProductDescription = dr.Item("productDescription").ToString()
                     menu.ProductPrice = dr.Item("productPrice").ToString()
                     menu.ProductStock = dr.Item("productStock").ToString()
-                    menu.ProductPromotion = dr.Item("productPromotion").ToString()
-                    If String.IsNullOrEmpty(menu.ProductPromotion) Then
-                        menu.ProductPromotion = "-"
+                    menu.PromotionDiscount = dr.Item("promotionDiscount").ToString()
+                    If String.IsNullOrEmpty(menu.PromotionDiscount) Then
+                        menu.PromotionDiscount = "-"
                     End If
 
                     ' Set the Tag property of the picture box control to the MenuItemDetails instance
@@ -1518,7 +1518,7 @@ Public Class ProductItem
             End If
             cmd = con.CreateCommand
             cmd.CommandType = CommandType.Text
-            cmd.CommandText = "SELECT * FROM Product WHERE productPromotion IS NOT NULL"
+            cmd.CommandText = "SELECT * FROM Product WHERE promotionDiscount IS NOT NULL"
             dr = cmd.ExecuteReader()
             If dr.HasRows Then
                 FlowLayoutPanel1.Controls.Clear()
@@ -1614,13 +1614,13 @@ Public Class ProductItem
                     lbl5.TextAlign = ContentAlignment.MiddleCenter
                     lbl5.BorderStyle = BorderStyle.FixedSingle
 
-                    lblProductPromotion = New Label
-                    lblProductPromotion.Width = 200
-                    lblProductPromotion.ForeColor = Color.Black
-                    lblProductPromotion.BackColor = Color.White
-                    lblProductPromotion.Dock = DockStyle.Bottom
-                    lblProductPromotion.TextAlign = ContentAlignment.MiddleCenter
-                    lblProductPromotion.BorderStyle = BorderStyle.FixedSingle
+                    lblPromotionDiscount = New Label
+                    lblPromotionDiscount.Width = 200
+                    lblPromotionDiscount.ForeColor = Color.Black
+                    lblPromotionDiscount.BackColor = Color.White
+                    lblPromotionDiscount.Dock = DockStyle.Bottom
+                    lblPromotionDiscount.TextAlign = ContentAlignment.MiddleCenter
+                    lblPromotionDiscount.BorderStyle = BorderStyle.FixedSingle
 
                     Dim ms As New System.IO.MemoryStream(array)
                     Dim bitmap As New System.Drawing.Bitmap(ms)
@@ -1634,11 +1634,11 @@ Public Class ProductItem
                     lblProductGender.Text = dr.Item("productGender").ToString
                     lbl4.Text = "Product Category"
                     lblProductCategory.Text = dr.Item("productCategory").ToString
-                    lbl5.Text = "Product Promotion"
-                    lblProductPromotion.Text = dr.Item("productPromotion").ToString
+                    lbl5.Text = "Promotion Discount"
+                    lblPromotionDiscount.Text = dr.Item("promotionDiscount").ToString
 
-                    If String.IsNullOrEmpty(lblProductPromotion.Text) Then
-                        lblProductPromotion.Text = "-"
+                    If String.IsNullOrEmpty(lblPromotionDiscount.Text) Then
+                        lblPromotionDiscount.Text = "-"
                     End If
 
                     panelShow.Controls.Add(picProductImage)
@@ -1651,7 +1651,7 @@ Public Class ProductItem
                     panelShow.Controls.Add(lbl4)
                     panelShow.Controls.Add(lblProductCategory)
                     panelShow.Controls.Add(lbl5)
-                    panelShow.Controls.Add(lblProductPromotion)
+                    panelShow.Controls.Add(lblPromotionDiscount)
 
                     FlowLayoutPanel1.Controls.Add(panelShow)
 
@@ -1669,9 +1669,9 @@ Public Class ProductItem
                     menu.ProductDescription = dr.Item("productDescription").ToString()
                     menu.ProductPrice = dr.Item("productPrice").ToString()
                     menu.ProductStock = dr.Item("productStock").ToString()
-                    menu.ProductPromotion = dr.Item("productPromotion").ToString()
-                    If String.IsNullOrEmpty(menu.ProductPromotion) Then
-                        menu.ProductPromotion = "-"
+                    menu.PromotionDiscount = dr.Item("promotionDiscount").ToString()
+                    If String.IsNullOrEmpty(menu.PromotionDiscount) Then
+                        menu.PromotionDiscount = "-"
                     End If
 
                     ' Set the Tag property of the picture box control to the MenuItemDetails instance
@@ -1679,9 +1679,6 @@ Public Class ProductItem
 
                     ' Add a handler for the Click event of the picture box control
                     AddHandler picProductImage.Click, AddressOf lblProductID_Click
-
-                    txtSearch.Text = ""
-                    txtSearch.Focus()
                 End While
             End If
         Catch ex As Exception

@@ -84,12 +84,12 @@ Public Class ProductItemDetails
         End Set
     End Property
 
-    Public Property ProductPromotion As String
+    Public Property PromotionDiscount As String
         Get
-            Return lblProductPromotion.Text
+            Return lblPromotionDiscount.Text
         End Get
         Set(value As String)
-            lblProductPromotion.Text = value
+            lblPromotionDiscount.Text = value
         End Set
     End Property
 
@@ -105,7 +105,7 @@ Public Class ProductItemDetails
     End Sub
 
     Private Sub MenuItemDetails_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ShowProductDetails(ProductImage, ProductID, ProductName, ProductGender, ProductCategory, ProductSize, ProductDescription, ProductPrice, ProductStock, ProductPromotion)
+        ShowProductDetails(ProductImage, ProductID, ProductName, ProductGender, ProductCategory, ProductSize, ProductDescription, ProductPrice, ProductStock, PromotionDiscount)
 
         If lblProductStock.Text <> 0 Then
             lblProductQuantity.Text = 1
@@ -128,7 +128,7 @@ Public Class ProductItemDetails
 
     End Sub
 
-    Public Sub ShowProductDetails(ProductImage As Image, ProductId As String, ProductName As String, ProductGender As String, ProductCategory As String, ProductSize As String, ProductDescription As String, ProductPrice As String, ProductStock As String, ProductPromotion As String)
+    Public Sub ShowProductDetails(ProductImage As Image, ProductId As String, ProductName As String, ProductGender As String, ProductCategory As String, ProductSize As String, ProductDescription As String, ProductPrice As String, ProductStock As String, PromotionDiscount As String)
         'Display the product details in the UI
         picProductImage.Image = ProductImage
         lblProductID.Text = ProductId
@@ -139,7 +139,7 @@ Public Class ProductItemDetails
         lblProductDescription.Text = ProductDescription
         lblProductPrice.Text = ProductPrice
         lblProductStock.Text = ProductStock
-        lblProductPromotion.Text = ProductPromotion
+        lblPromotionDiscount.Text = PromotionDiscount
     End Sub
 
     Private Sub picRemove_Click(sender As Object, e As EventArgs) Handles picRemove.Click
@@ -153,53 +153,50 @@ Public Class ProductItemDetails
     Private Sub btnAddToCart_Click(sender As Object, e As EventArgs) Handles btnAddToCart.Click
 
         Try
+            If strPosition = "Cashier" Then
+                If con.State = ConnectionState.Open Then
+                    con.Close()
+                End If
 
-            If con.State = ConnectionState.Open Then
-                con.Close()
-            End If
+                con.Open()
 
-            con.Open()
+                Dim ms As New MemoryStream
+                picProductImage.Image.Save(ms, picProductImage.Image.RawFormat)
+                Dim img As Byte() = ms.ToArray()
+                Dim imgBase64 As String = Convert.ToBase64String(img)
 
-            Dim ms As New MemoryStream
-            picProductImage.Image.Save(ms, picProductImage.Image.RawFormat)
-            Dim img As Byte() = ms.ToArray()
-            Dim imgBase64 As String = Convert.ToBase64String(img)
+                lblProductStock.Text = lblProductStock.Text - lblProductQuantity.Text
 
-            lblProductStock.Text = lblProductStock.Text - lblProductQuantity.Text
+                If lblProductStock.Text = 0 Then
 
-            If lblProductStock.Text = 0 Then
+                    cmd = con.CreateCommand
+                    cmd.CommandType = CommandType.Text
+                    cmd.CommandText = "UPDATE Product SET productStock=@stock WHERE productId=@id"
+                    cmd.Parameters.AddWithValue("@stock", lblProductStock.Text)
+                    cmd.Parameters.AddWithValue("@id", lblProductID.Text)
+                    cmd.ExecuteNonQuery()
 
-                lblProductQuantity.Text = 0
-                btnAddToCart.Text = "Out Of Stock"
-                btnAddToCart.ForeColor = Color.White
-                btnAddToCart.BackColor = Color.Red
-                btnAddToCart.Enabled = False
+                    Calculation()
 
-                cmd = con.CreateCommand
-                cmd.CommandType = CommandType.Text
-                cmd.CommandText = "UPDATE Product SET productStock=@stock WHERE productId=@id"
-                cmd.Parameters.AddWithValue("@stock", lblProductStock.Text)
-                cmd.Parameters.AddWithValue("@id", lblProductID.Text)
-                cmd.ExecuteNonQuery()
+                    Me.Close()
+                    ProductItem.Close()
+                    OrderCart.Close()
+                Else
+                    cmd = con.CreateCommand
+                    cmd.CommandType = CommandType.Text
+                    cmd.CommandText = "UPDATE Product SET productStock=@stock WHERE productId=@id"
+                    cmd.Parameters.AddWithValue("@stock", lblProductStock.Text)
+                    cmd.Parameters.AddWithValue("@id", lblProductID.Text)
+                    cmd.ExecuteNonQuery()
 
-                Calculation()
+                    Calculation()
 
-                Me.Close()
-                ProductItem.Close()
-                OrderCart.Close()
+                    Me.Close()
+                    ProductItem.Close()
+                    OrderCart.Close()
+                End If
             Else
-                cmd = con.CreateCommand
-                cmd.CommandType = CommandType.Text
-                cmd.CommandText = "UPDATE Product SET productStock=@stock WHERE productId=@id"
-                cmd.Parameters.AddWithValue("@stock", lblProductStock.Text)
-                cmd.Parameters.AddWithValue("@id", lblProductID.Text)
-                cmd.ExecuteNonQuery()
-
-                Calculation()
-
-                Me.Close()
-                ProductItem.Close()
-                OrderCart.Close()
+                MessageBox.Show("Only Cashier allow to add to cart", "Unauthorized Access", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
 
         Catch ex As Exception
@@ -218,7 +215,7 @@ Public Class ProductItemDetails
         Dim priceWithoutRM As String = priceString.Replace("RM", "")
         Dim price As Double = Double.Parse(priceWithoutRM)
 
-        Dim percentageString As String = lblProductPromotion.Text
+        Dim percentageString As String = lblPromotionDiscount.Text
         Dim percentageWithoutS As String
         Dim percentage As Double
         Dim totalPrice As Double
@@ -256,7 +253,7 @@ Public Class ProductItemDetails
 
         cmd = con.CreateCommand
         cmd.CommandType = CommandType.Text
-        cmd.CommandText = "INSERT INTO Cart (productId, productName, productPrice, productQuantity, productImage,productPromotion,totalPrice) VALUES (@ProductId,@ProductName,@ProductPrice, @ProductQuantity,@ProductImage,@ProductPromotion,@TotalPrice)"
+        cmd.CommandText = "INSERT INTO Cart (productId, productName, productPrice, productQuantity, productImage, promotionDiscount,totalPrice) VALUES (@ProductId,@ProductName,@ProductPrice, @ProductQuantity,@ProductImage,@PromotionDiscount,@TotalPrice)"
 
         'cmd.Parameters.AddWithValue("@CartId", "1")
 
@@ -265,7 +262,7 @@ Public Class ProductItemDetails
         cmd.Parameters.AddWithValue("@ProductPrice", prices)
         cmd.Parameters.AddWithValue("@ProductQuantity", lblProductQuantity.Text)
         cmd.Parameters.AddWithValue("@ProductImage", img)
-        cmd.Parameters.AddWithValue("@ProductPromotion", lblProductPromotion.Text)
+        cmd.Parameters.AddWithValue("@PromotionDiscount", lblPromotionDiscount.Text)
         cmd.Parameters.AddWithValue("@TotalPrice", totalPrices)
 
         cmd.ExecuteNonQuery()

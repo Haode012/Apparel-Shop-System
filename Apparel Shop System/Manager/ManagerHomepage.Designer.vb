@@ -39,6 +39,8 @@ Partial Class ManagerHomepage
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.leftPanel = New System.Windows.Forms.Panel()
         Me.btnLogOut = New System.Windows.Forms.Button()
+        Me.btnChangeSecret = New System.Windows.Forms.Button()
+        Me.btnChangePassowrd = New System.Windows.Forms.Button()
         Me.btnPromotion = New System.Windows.Forms.Button()
         Me.btnMembershipMaintenance = New System.Windows.Forms.Button()
         Me.btnProductMaintenance = New System.Windows.Forms.Button()
@@ -203,6 +205,8 @@ Partial Class ManagerHomepage
         '
         Me.leftPanel.BackColor = System.Drawing.Color.LightCyan
         Me.leftPanel.Controls.Add(Me.btnLogOut)
+        Me.leftPanel.Controls.Add(Me.btnChangeSecret)
+        Me.leftPanel.Controls.Add(Me.btnChangePassowrd)
         Me.leftPanel.Controls.Add(Me.btnPromotion)
         Me.leftPanel.Controls.Add(Me.btnMembershipMaintenance)
         Me.leftPanel.Controls.Add(Me.btnProductMaintenance)
@@ -225,12 +229,46 @@ Partial Class ManagerHomepage
         Me.btnLogOut.ForeColor = System.Drawing.Color.Black
         Me.btnLogOut.Image = Global.Apparel_Shop_System.My.Resources.Resources.log_out_icon
         Me.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnLogOut.Location = New System.Drawing.Point(0, 501)
+        Me.btnLogOut.Location = New System.Drawing.Point(0, 654)
         Me.btnLogOut.Name = "btnLogOut"
         Me.btnLogOut.Size = New System.Drawing.Size(250, 42)
-        Me.btnLogOut.TabIndex = 14
+        Me.btnLogOut.TabIndex = 16
         Me.btnLogOut.Text = "&Log Out"
         Me.btnLogOut.UseVisualStyleBackColor = True
+        '
+        'btnChangeSecret
+        '
+        Me.btnChangeSecret.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnChangeSecret.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnChangeSecret.FlatAppearance.BorderSize = 0
+        Me.btnChangeSecret.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnChangeSecret.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnChangeSecret.ForeColor = System.Drawing.Color.Black
+        Me.btnChangeSecret.Image = Global.Apparel_Shop_System.My.Resources.Resources.secret_icon
+        Me.btnChangeSecret.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnChangeSecret.Location = New System.Drawing.Point(0, 570)
+        Me.btnChangeSecret.Name = "btnChangeSecret"
+        Me.btnChangeSecret.Size = New System.Drawing.Size(250, 84)
+        Me.btnChangeSecret.TabIndex = 15
+        Me.btnChangeSecret.Text = "C&hange Secret " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Question " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Information"
+        Me.btnChangeSecret.UseVisualStyleBackColor = True
+        '
+        'btnChangePassowrd
+        '
+        Me.btnChangePassowrd.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnChangePassowrd.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnChangePassowrd.FlatAppearance.BorderSize = 0
+        Me.btnChangePassowrd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnChangePassowrd.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnChangePassowrd.ForeColor = System.Drawing.Color.Black
+        Me.btnChangePassowrd.Image = Global.Apparel_Shop_System.My.Resources.Resources.change_password_icon1
+        Me.btnChangePassowrd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnChangePassowrd.Location = New System.Drawing.Point(0, 501)
+        Me.btnChangePassowrd.Name = "btnChangePassowrd"
+        Me.btnChangePassowrd.Size = New System.Drawing.Size(250, 69)
+        Me.btnChangePassowrd.TabIndex = 14
+        Me.btnChangePassowrd.Text = "&Change " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Password"
+        Me.btnChangePassowrd.UseVisualStyleBackColor = True
         '
         'btnPromotion
         '
@@ -246,7 +284,7 @@ Partial Class ManagerHomepage
         Me.btnPromotion.Name = "btnPromotion"
         Me.btnPromotion.Size = New System.Drawing.Size(250, 68)
         Me.btnPromotion.TabIndex = 13
-        Me.btnPromotion.Text = "&Promotion " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Maintenance"
+        Me.btnPromotion.Text = "P&romotion " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Maintenance"
         Me.btnPromotion.UseVisualStyleBackColor = True
         '
         'btnMembershipMaintenance
@@ -411,5 +449,7 @@ Partial Class ManagerHomepage
     Friend WithEvents btnPromotion As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents btnPromotionMaintenanceBig As Button
+    Friend WithEvents btnChangePassowrd As Button
     Friend WithEvents btnLogOut As Button
+    Friend WithEvents btnChangeSecret As Button
 End Class

@@ -25,6 +25,9 @@
 
     Private Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
         Me.Close()
+        StaffLogin.txtStaffId.Text = ""
+        StaffLogin.txtPassword.Text = ""
+        StaffLogin.txtStaffId.Focus()
         StaffLogin.Show()
     End Sub
 
@@ -41,6 +44,13 @@
     End Sub
 
     Private Sub Homepage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        lblUsername.Text = strPassStaffName
+        lblUsername.Text = strFullName
+    End Sub
+    Private Sub btnChangePassowrd_Click(sender As Object, e As EventArgs) Handles btnChangePassowrd.Click
+        ChangePassword.Show()
+    End Sub
+
+    Private Sub btnChangeSecret_Click(sender As Object, e As EventArgs) Handles btnChangeSecret.Click
+        ChangeSecretQuestionAndAnswer.Show()
     End Sub
 End Class

@@ -13,9 +13,10 @@ Public Class DisplayProductDetails
         Dim strProductSize As String
         Dim strProductDescription As String
         Dim strProductPrice As String
-        Dim strProductPromotion As String
         Dim strProductStock As String
         Dim strDateCreated As String
+        Dim strPromotionDiscount As String
+        Dim strPromotionID As String
         Dim picProductImage As Image
         
         If OpenConnection() = True Then
@@ -42,9 +43,10 @@ Public Class DisplayProductDetails
                     strProductSize = reader("productSize").ToString
                     strProductDescription = reader("productDescription").ToString
                     strProductPrice = reader("productPrice").ToString
-                    strProductPromotion = reader("productPromotion").ToString
                     strDateCreated = reader("dateCreated").ToString
                     strProductStock = reader("productStock").ToString
+                    strPromotionID = reader("promotionId").ToString
+                    strPromotionDiscount = reader("promotionDiscount").ToString
                     lblProductID.Text = strProductID
                     lblProductName.Text = strProductName
                     lblProductGender.Text = strProductGender
@@ -53,11 +55,15 @@ Public Class DisplayProductDetails
                     lblProductDescription.Text = strProductDescription
                     lblProductPrice.Text = strProductPrice
                     lblDateCreated.Text = strDateCreated
-                    lblProductPromotion.Text = strProductPromotion
-                    If lblProductPromotion.Text = "" Then
-                        lblProductPromotion.Text = "-"
+                    lblPromotionDiscount.Text = strPromotionDiscount
+                    If lblPromotionDiscount.Text = "" Then
+                        lblPromotionDiscount.Text = "-"
                     End If
                     lblProductStock.Text = strProductStock
+                    lblPromotionID.Text = strPromotionID
+                    If lblPromotionID.Text = "" Then
+                        lblPromotionID.Text = "-"
+                    End If
                     picImage.Image = picProductImage
                     CloseConnection()
                 End If

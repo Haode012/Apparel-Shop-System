@@ -128,6 +128,12 @@
     <Compile Include="Login\ChangePassword.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Login\ChangeSecretQuestionAndAnswer.Designer.vb">
+      <DependentUpon>ChangeSecretQuestionAndAnswer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login\ChangeSecretQuestionAndAnswer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login\ForgotPassword.Designer.vb">
       <DependentUpon>ForgotPassword.vb</DependentUpon>
     </Compile>
@@ -349,6 +355,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Login\ChangePassword.resx">
       <DependentUpon>ChangePassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\ChangeSecretQuestionAndAnswer.resx">
+      <DependentUpon>ChangeSecretQuestionAndAnswer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\ForgotPassword.resx">
       <DependentUpon>ForgotPassword.vb</DependentUpon>
@@ -594,6 +603,11 @@
     <None Include="Resources\tng example QR.png" />
     <None Include="Resources\61225.png" />
     <None Include="Resources\add_icon.png" />
+    <None Include="Resources\secretq.png" />
+    <None Include="Resources\NewLogIn.png" />
+    <None Include="Resources\update staff.png" />
+    <None Include="Resources\change_password_icon.png" />
+    <None Include="Resources\secret_icon.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

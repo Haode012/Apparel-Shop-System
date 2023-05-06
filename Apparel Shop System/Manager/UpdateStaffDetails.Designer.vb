@@ -27,7 +27,12 @@ Partial Class UpdateStaffDetails
         Me.picBack = New System.Windows.Forms.PictureBox()
         Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.lblWelcome = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.mtxtStaffPhoneNumber = New System.Windows.Forms.MaskedTextBox()
+        Me.mtxtStaffIcNo = New System.Windows.Forms.MaskedTextBox()
+        Me.btnUpdate = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.txtStaffDob = New System.Windows.Forms.TextBox()
         Me.txtStaffJoinedDate = New System.Windows.Forms.TextBox()
         Me.txtStaffPosition = New System.Windows.Forms.TextBox()
@@ -38,21 +43,19 @@ Partial Class UpdateStaffDetails
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtStaffID = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.dtpStaffJoinedDate = New System.Windows.Forms.DateTimePicker()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtStaffPhoneNumber = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtStaffHomeAddress = New System.Windows.Forms.TextBox()
         Me.txtStaffName = New System.Windows.Forms.TextBox()
         Me.dtpDob = New System.Windows.Forms.DateTimePicker()
-        Me.txtStaffIc = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -100,8 +103,22 @@ Partial Class UpdateStaffDetails
         Me.lblWelcome.Text = "Update Staff Details"
         Me.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Apparel_Shop_System.My.Resources.Resources.update_staff
+        Me.PictureBox1.Location = New System.Drawing.Point(17, 259)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(488, 532)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 61
+        Me.PictureBox1.TabStop = False
+        '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.mtxtStaffPhoneNumber)
+        Me.GroupBox1.Controls.Add(Me.mtxtStaffIcNo)
+        Me.GroupBox1.Controls.Add(Me.btnUpdate)
+        Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.txtStaffDob)
         Me.GroupBox1.Controls.Add(Me.txtStaffJoinedDate)
         Me.GroupBox1.Controls.Add(Me.txtStaffPosition)
@@ -112,23 +129,66 @@ Partial Class UpdateStaffDetails
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.txtStaffID)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.dtpStaffJoinedDate)
         Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.txtStaffPhoneNumber)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.txtStaffHomeAddress)
         Me.GroupBox1.Controls.Add(Me.txtStaffName)
         Me.GroupBox1.Controls.Add(Me.dtpDob)
-        Me.GroupBox1.Controls.Add(Me.txtStaffIc)
-        Me.GroupBox1.Location = New System.Drawing.Point(403, 208)
+        Me.GroupBox1.Location = New System.Drawing.Point(537, 212)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1221, 718)
-        Me.GroupBox1.TabIndex = 60
+        Me.GroupBox1.Size = New System.Drawing.Size(1105, 718)
+        Me.GroupBox1.TabIndex = 62
         Me.GroupBox1.TabStop = False
+        '
+        'mtxtStaffPhoneNumber
+        '
+        Me.mtxtStaffPhoneNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!)
+        Me.mtxtStaffPhoneNumber.Location = New System.Drawing.Point(361, 369)
+        Me.mtxtStaffPhoneNumber.Mask = "000-00000000"
+        Me.mtxtStaffPhoneNumber.Name = "mtxtStaffPhoneNumber"
+        Me.mtxtStaffPhoneNumber.Size = New System.Drawing.Size(355, 45)
+        Me.mtxtStaffPhoneNumber.TabIndex = 68
+        '
+        'mtxtStaffIcNo
+        '
+        Me.mtxtStaffIcNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!)
+        Me.mtxtStaffIcNo.Location = New System.Drawing.Point(361, 161)
+        Me.mtxtStaffIcNo.Mask = "000000-00-0000"
+        Me.mtxtStaffIcNo.Name = "mtxtStaffIcNo"
+        Me.mtxtStaffIcNo.Size = New System.Drawing.Size(355, 45)
+        Me.mtxtStaffIcNo.TabIndex = 67
+        '
+        'btnUpdate
+        '
+        Me.btnUpdate.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUpdate.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnUpdate.Location = New System.Drawing.Point(361, 628)
+        Me.btnUpdate.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnUpdate.Name = "btnUpdate"
+        Me.btnUpdate.Size = New System.Drawing.Size(241, 69)
+        Me.btnUpdate.TabIndex = 66
+        Me.btnUpdate.Text = "Update"
+        Me.btnUpdate.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button2.Location = New System.Drawing.Point(729, 628)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(241, 69)
+        Me.Button2.TabIndex = 65
+        Me.Button2.Text = "Cancel"
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'txtStaffDob
         '
@@ -137,7 +197,7 @@ Partial Class UpdateStaffDetails
         Me.txtStaffDob.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtStaffDob.Name = "txtStaffDob"
         Me.txtStaffDob.ReadOnly = True
-        Me.txtStaffDob.Size = New System.Drawing.Size(311, 45)
+        Me.txtStaffDob.Size = New System.Drawing.Size(355, 45)
         Me.txtStaffDob.TabIndex = 64
         '
         'txtStaffJoinedDate
@@ -147,7 +207,7 @@ Partial Class UpdateStaffDetails
         Me.txtStaffJoinedDate.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtStaffJoinedDate.Name = "txtStaffJoinedDate"
         Me.txtStaffJoinedDate.ReadOnly = True
-        Me.txtStaffJoinedDate.Size = New System.Drawing.Size(322, 45)
+        Me.txtStaffJoinedDate.Size = New System.Drawing.Size(355, 45)
         Me.txtStaffJoinedDate.TabIndex = 63
         '
         'txtStaffPosition
@@ -157,7 +217,7 @@ Partial Class UpdateStaffDetails
         Me.txtStaffPosition.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtStaffPosition.Name = "txtStaffPosition"
         Me.txtStaffPosition.ReadOnly = True
-        Me.txtStaffPosition.Size = New System.Drawing.Size(322, 45)
+        Me.txtStaffPosition.Size = New System.Drawing.Size(355, 45)
         Me.txtStaffPosition.TabIndex = 61
         '
         'cbStaffMembers
@@ -165,7 +225,7 @@ Partial Class UpdateStaffDetails
         Me.cbStaffMembers.FormattingEnabled = True
         Me.cbStaffMembers.Location = New System.Drawing.Point(361, 42)
         Me.cbStaffMembers.Name = "cbStaffMembers"
-        Me.cbStaffMembers.Size = New System.Drawing.Size(290, 24)
+        Me.cbStaffMembers.Size = New System.Drawing.Size(322, 24)
         Me.cbStaffMembers.TabIndex = 60
         '
         'Label7
@@ -174,9 +234,9 @@ Partial Class UpdateStaffDetails
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(19, 29)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(188, 37)
+        Me.Label7.Size = New System.Drawing.Size(231, 37)
         Me.Label7.TabIndex = 59
-        Me.Label7.Text = "Select Staff:"
+        Me.Label7.Text = "Staff Selection:"
         '
         'Label2
         '
@@ -194,7 +254,7 @@ Partial Class UpdateStaffDetails
         Me.comboStaffPosition.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.comboStaffPosition.FormattingEnabled = True
         Me.comboStaffPosition.Items.AddRange(New Object() {"Admin", "Cashier", "Salesperson", "Janitor", ""})
-        Me.comboStaffPosition.Location = New System.Drawing.Point(876, 562)
+        Me.comboStaffPosition.Location = New System.Drawing.Point(742, 573)
         Me.comboStaffPosition.Margin = New System.Windows.Forms.Padding(4)
         Me.comboStaffPosition.Name = "comboStaffPosition"
         Me.comboStaffPosition.Size = New System.Drawing.Size(322, 33)
@@ -230,17 +290,6 @@ Partial Class UpdateStaffDetails
         Me.Label3.TabIndex = 38
         Me.Label3.Text = "Staff Date Of Birth:"
         '
-        'Button1
-        '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(361, 636)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(278, 53)
-        Me.Button1.TabIndex = 56
-        Me.Button1.Text = "Update Staff Details"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -258,7 +307,7 @@ Partial Class UpdateStaffDetails
         Me.txtStaffID.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtStaffID.Name = "txtStaffID"
         Me.txtStaffID.ReadOnly = True
-        Me.txtStaffID.Size = New System.Drawing.Size(322, 45)
+        Me.txtStaffID.Size = New System.Drawing.Size(355, 45)
         Me.txtStaffID.TabIndex = 50
         '
         'Label5
@@ -273,7 +322,7 @@ Partial Class UpdateStaffDetails
         '
         'dtpStaffJoinedDate
         '
-        Me.dtpStaffJoinedDate.Location = New System.Drawing.Point(876, 508)
+        Me.dtpStaffJoinedDate.Location = New System.Drawing.Point(742, 501)
         Me.dtpStaffJoinedDate.MaximumSize = New System.Drawing.Size(400, 200)
         Me.dtpStaffJoinedDate.MinimumSize = New System.Drawing.Size(40, 40)
         Me.dtpStaffJoinedDate.Name = "dtpStaffJoinedDate"
@@ -290,15 +339,6 @@ Partial Class UpdateStaffDetails
         Me.Label6.TabIndex = 41
         Me.Label6.Text = "Staff ID:"
         '
-        'txtStaffPhoneNumber
-        '
-        Me.txtStaffPhoneNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtStaffPhoneNumber.Location = New System.Drawing.Point(361, 369)
-        Me.txtStaffPhoneNumber.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.txtStaffPhoneNumber.Name = "txtStaffPhoneNumber"
-        Me.txtStaffPhoneNumber.Size = New System.Drawing.Size(322, 45)
-        Me.txtStaffPhoneNumber.TabIndex = 48
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -312,10 +352,10 @@ Partial Class UpdateStaffDetails
         'txtStaffHomeAddress
         '
         Me.txtStaffHomeAddress.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtStaffHomeAddress.Location = New System.Drawing.Point(361, 291)
+        Me.txtStaffHomeAddress.Location = New System.Drawing.Point(361, 299)
         Me.txtStaffHomeAddress.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtStaffHomeAddress.Name = "txtStaffHomeAddress"
-        Me.txtStaffHomeAddress.Size = New System.Drawing.Size(472, 45)
+        Me.txtStaffHomeAddress.Size = New System.Drawing.Size(355, 45)
         Me.txtStaffHomeAddress.TabIndex = 47
         '
         'txtStaffName
@@ -324,26 +364,17 @@ Partial Class UpdateStaffDetails
         Me.txtStaffName.Location = New System.Drawing.Point(361, 93)
         Me.txtStaffName.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtStaffName.Name = "txtStaffName"
-        Me.txtStaffName.Size = New System.Drawing.Size(322, 45)
+        Me.txtStaffName.Size = New System.Drawing.Size(355, 45)
         Me.txtStaffName.TabIndex = 44
         '
         'dtpDob
         '
-        Me.dtpDob.Location = New System.Drawing.Point(876, 235)
+        Me.dtpDob.Location = New System.Drawing.Point(742, 240)
         Me.dtpDob.MaximumSize = New System.Drawing.Size(400, 200)
         Me.dtpDob.MinimumSize = New System.Drawing.Size(40, 40)
         Me.dtpDob.Name = "dtpDob"
         Me.dtpDob.Size = New System.Drawing.Size(322, 40)
         Me.dtpDob.TabIndex = 46
-        '
-        'txtStaffIc
-        '
-        Me.txtStaffIc.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtStaffIc.Location = New System.Drawing.Point(361, 161)
-        Me.txtStaffIc.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.txtStaffIc.Name = "txtStaffIc"
-        Me.txtStaffIc.Size = New System.Drawing.Size(311, 45)
-        Me.txtStaffIc.TabIndex = 45
         '
         'UpdateStaffDetails
         '
@@ -352,6 +383,7 @@ Partial Class UpdateStaffDetails
         Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(1654, 1035)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.lblWelcome)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -361,6 +393,7 @@ Partial Class UpdateStaffDetails
         Me.Panel1.ResumeLayout(False)
         CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
@@ -371,7 +404,12 @@ Partial Class UpdateStaffDetails
     Friend WithEvents picBack As PictureBox
     Friend WithEvents picDelete As PictureBox
     Friend WithEvents lblWelcome As Label
+    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents mtxtStaffPhoneNumber As MaskedTextBox
+    Friend WithEvents mtxtStaffIcNo As MaskedTextBox
+    Friend WithEvents btnUpdate As Button
+    Friend WithEvents Button2 As Button
     Friend WithEvents txtStaffDob As TextBox
     Friend WithEvents txtStaffJoinedDate As TextBox
     Friend WithEvents txtStaffPosition As TextBox
@@ -382,16 +420,13 @@ Partial Class UpdateStaffDetails
     Friend WithEvents Label1 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents Button1 As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents txtStaffID As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents dtpStaffJoinedDate As DateTimePicker
     Friend WithEvents Label6 As Label
-    Friend WithEvents txtStaffPhoneNumber As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents txtStaffHomeAddress As TextBox
     Friend WithEvents txtStaffName As TextBox
     Friend WithEvents dtpDob As DateTimePicker
-    Friend WithEvents txtStaffIc As TextBox
 End Class

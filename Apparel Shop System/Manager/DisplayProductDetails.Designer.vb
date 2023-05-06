@@ -24,8 +24,6 @@ Partial Class DisplayProductDetails
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DisplayProductDetails))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.picBack = New System.Windows.Forms.PictureBox()
-        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -36,7 +34,6 @@ Partial Class DisplayProductDetails
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.picImage = New System.Windows.Forms.PictureBox()
         Me.lblProductID = New System.Windows.Forms.Label()
         Me.lblProductName = New System.Windows.Forms.Label()
         Me.lblProductGender = New System.Windows.Forms.Label()
@@ -48,11 +45,16 @@ Partial Class DisplayProductDetails
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.lblDateCreated = New System.Windows.Forms.Label()
-        Me.lblProductPromotion = New System.Windows.Forms.Label()
+        Me.lblPromotionID = New System.Windows.Forms.Label()
+        Me.picImage = New System.Windows.Forms.PictureBox()
+        Me.picBack = New System.Windows.Forms.PictureBox()
+        Me.picDelete = New System.Windows.Forms.PictureBox()
+        Me.lblPromotionDiscount = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
+        CType(Me.picImage, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picImage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -65,28 +67,6 @@ Partial Class DisplayProductDetails
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1654, 46)
         Me.Panel1.TabIndex = 6
-        '
-        'picBack
-        '
-        Me.picBack.Dock = System.Windows.Forms.DockStyle.Left
-        Me.picBack.Image = CType(resources.GetObject("picBack.Image"), System.Drawing.Image)
-        Me.picBack.Location = New System.Drawing.Point(0, 0)
-        Me.picBack.Name = "picBack"
-        Me.picBack.Size = New System.Drawing.Size(46, 46)
-        Me.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picBack.TabIndex = 3
-        Me.picBack.TabStop = False
-        '
-        'picDelete
-        '
-        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
-        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
-        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
-        Me.picDelete.Name = "picDelete"
-        Me.picDelete.Size = New System.Drawing.Size(46, 46)
-        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picDelete.TabIndex = 0
-        Me.picDelete.TabStop = False
         '
         'lblWelcome
         '
@@ -189,16 +169,6 @@ Partial Class DisplayProductDetails
         Me.Label6.TabIndex = 81
         Me.Label6.Text = "Product Price:"
         '
-        'picImage
-        '
-        Me.picImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.picImage.Location = New System.Drawing.Point(1006, 234)
-        Me.picImage.Name = "picImage"
-        Me.picImage.Size = New System.Drawing.Size(598, 512)
-        Me.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picImage.TabIndex = 84
-        Me.picImage.TabStop = False
-        '
         'lblProductID
         '
         Me.lblProductID.AutoSize = True
@@ -291,17 +261,17 @@ Partial Class DisplayProductDetails
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(85, 823)
+        Me.Label18.Location = New System.Drawing.Point(717, 774)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(314, 38)
+        Me.Label18.Size = New System.Drawing.Size(228, 38)
         Me.Label18.TabIndex = 93
-        Me.Label18.Text = "Product Promotion:"
+        Me.Label18.Text = "Promotion ID:"
         '
         'Label19
         '
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(85, 864)
+        Me.Label19.Location = New System.Drawing.Point(85, 823)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(233, 38)
         Me.Label19.TabIndex = 94
@@ -312,22 +282,75 @@ Partial Class DisplayProductDetails
         Me.lblDateCreated.AutoSize = True
         Me.lblDateCreated.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblDateCreated.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDateCreated.Location = New System.Drawing.Point(484, 871)
+        Me.lblDateCreated.Location = New System.Drawing.Point(484, 830)
         Me.lblDateCreated.Name = "lblDateCreated"
         Me.lblDateCreated.Size = New System.Drawing.Size(134, 40)
         Me.lblDateCreated.TabIndex = 96
         Me.lblDateCreated.Text = "Label20"
         '
-        'lblProductPromotion
+        'lblPromotionID
         '
-        Me.lblProductPromotion.AutoSize = True
-        Me.lblProductPromotion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblProductPromotion.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProductPromotion.Location = New System.Drawing.Point(484, 822)
-        Me.lblProductPromotion.Name = "lblProductPromotion"
-        Me.lblProductPromotion.Size = New System.Drawing.Size(134, 40)
-        Me.lblProductPromotion.TabIndex = 95
-        Me.lblProductPromotion.Text = "Label21"
+        Me.lblPromotionID.AutoSize = True
+        Me.lblPromotionID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblPromotionID.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPromotionID.Location = New System.Drawing.Point(1116, 773)
+        Me.lblPromotionID.Name = "lblPromotionID"
+        Me.lblPromotionID.Size = New System.Drawing.Size(134, 40)
+        Me.lblPromotionID.TabIndex = 95
+        Me.lblPromotionID.Text = "Label21"
+        '
+        'picImage
+        '
+        Me.picImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picImage.Location = New System.Drawing.Point(1006, 234)
+        Me.picImage.Name = "picImage"
+        Me.picImage.Size = New System.Drawing.Size(598, 512)
+        Me.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picImage.TabIndex = 84
+        Me.picImage.TabStop = False
+        '
+        'picBack
+        '
+        Me.picBack.Dock = System.Windows.Forms.DockStyle.Left
+        Me.picBack.Image = CType(resources.GetObject("picBack.Image"), System.Drawing.Image)
+        Me.picBack.Location = New System.Drawing.Point(0, 0)
+        Me.picBack.Name = "picBack"
+        Me.picBack.Size = New System.Drawing.Size(46, 46)
+        Me.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picBack.TabIndex = 3
+        Me.picBack.TabStop = False
+        '
+        'picDelete
+        '
+        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
+        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
+        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
+        Me.picDelete.Name = "picDelete"
+        Me.picDelete.Size = New System.Drawing.Size(46, 46)
+        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDelete.TabIndex = 0
+        Me.picDelete.TabStop = False
+        '
+        'lblPromotionDiscount
+        '
+        Me.lblPromotionDiscount.AutoSize = True
+        Me.lblPromotionDiscount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblPromotionDiscount.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPromotionDiscount.Location = New System.Drawing.Point(1116, 831)
+        Me.lblPromotionDiscount.Name = "lblPromotionDiscount"
+        Me.lblPromotionDiscount.Size = New System.Drawing.Size(134, 40)
+        Me.lblPromotionDiscount.TabIndex = 98
+        Me.lblPromotionDiscount.Text = "Label21"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(717, 832)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(330, 38)
+        Me.Label11.TabIndex = 97
+        Me.Label11.Text = "Promotion Discount:"
         '
         'DisplayProductDetails
         '
@@ -335,8 +358,10 @@ Partial Class DisplayProductDetails
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(1654, 1035)
+        Me.Controls.Add(Me.lblPromotionDiscount)
+        Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.lblDateCreated)
-        Me.Controls.Add(Me.lblProductPromotion)
+        Me.Controls.Add(Me.lblPromotionID)
         Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.lblProductStock)
@@ -364,9 +389,9 @@ Partial Class DisplayProductDetails
         Me.Text = "DisplayProductDetails"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
+        CType(Me.picImage, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picImage, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -397,5 +422,7 @@ Partial Class DisplayProductDetails
     Friend WithEvents Label18 As Label
     Friend WithEvents Label19 As Label
     Friend WithEvents lblDateCreated As Label
-    Friend WithEvents lblProductPromotion As Label
+    Friend WithEvents lblPromotionID As Label
+    Friend WithEvents lblPromotionDiscount As Label
+    Friend WithEvents Label11 As Label
 End Class

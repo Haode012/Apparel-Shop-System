@@ -19,9 +19,9 @@ Public Class ViewStaffDetails
 
 
         If OpenConnection() = True Then
-            strSql = "Select * From Staff where StaffId =@StaffId"
+            strSql = "Select * From Staff where StaffID =@StaffID"
             MySqlCommand = New SqlCommand(strSql, conn)
-            MySqlCommand.Parameters.AddWithValue("@StaffId", strSelectedStaffId)
+            MySqlCommand.Parameters.AddWithValue("@StaffID", strSelectedStaffId)
             Dim reader As SqlDataReader = MySqlCommand.ExecuteReader()
             If reader.HasRows Then
                 reader.Read()
@@ -38,6 +38,7 @@ Public Class ViewStaffDetails
                     strEndDate = reader("EndDate").ToString
                     lblViewStaffName.Text = strName
                     lblViewStaffId.Text = strStaffID
+                    lblHomeAddress.Text = strAddress
                     lblViewStaffPhoneNum.Text = strPhoneNumber
                     lblViewStaffIC.Text = strIcNo
                     lblViewStaffPosition.Text = strPosition
@@ -45,23 +46,10 @@ Public Class ViewStaffDetails
                     lblViewStaffStartDate.Text = strStartDate
                     lblViewStaffDob.Text = strDateOfBirth
                     lblViewStaffEndDate.Text = strEndDate
+                    reader.Close()
                     CloseConnection()
                 End If
             End If
         End If
     End Sub
-
-    Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
-        Me.Close()
-        StaffMaintenance.Close()
-        ProductMaintenance.Close()
-        MembershipMaintenance.Close()
-        PromotionMaintenance.Close()
-    End Sub
-
-    Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
-        Me.Close()
-    End Sub
-
-
 End Class
