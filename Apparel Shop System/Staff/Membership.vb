@@ -8,118 +8,167 @@ Public Class Membership
         OrderCart.Close()
     End Sub
 
-    Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
-        If String.IsNullOrEmpty(txtMemberName.Text) Then
-            MessageBox.Show("Please enter a your name")
-            Return
-        End If
-        If IsNumeric(txtMemberName.Text) Then
-            MessageBox.Show("Please enter a valid Name")
-        End If
-        If String.IsNullOrEmpty(txtMemberIC.Text) Or Not IsNumeric(txtMemberIC.Text) Or txtMemberIC.Text.Length <> 12 Then
-            MessageBox.Show("Please enter a valid member IC number (12 digits)")
-            Return
-        End If
-
-        If String.IsNullOrEmpty(txtMemberPhoneNumber.Text) Or Not IsNumeric(txtMemberPhoneNumber.Text) Or txtMemberPhoneNumber.Text.Length < 10 Or txtMemberPhoneNumber.Text.Length > 11 Then
-            MessageBox.Show("Please enter a valid member phone number (10 or 11 digits)")
-            Return
-        End If
-        If Not IsValidEmail(txtMemberEmail.Text) Then
-            MessageBox.Show("Please enter a valid email")
-            Return
-        End If
-        Dim registrationDate As String = DateTime.Now.ToString()
-        Dim memberStatus As String = "Active"
-
-        Dim connectionString As String = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True"
-        Dim query As String = "INSERT INTO [Membership] ([memberName], [memberIC], [memberPhoneNumber], [memberEmail], [memberRegistrationDate], [memberStatus]) VALUES (@memberName, @memberIC, @memberPhoneNumber, @memberEmail, @memberRegistrationDate, @memberStatus)"
-        Dim selectSql As String = "SELECT COUNT(*) FROM Membership WHERE memberEmail = @memberEmail"
-        Using connection As New SqlConnection(connectionString)
-            Using command As New SqlCommand(query, connection)
-
-                Using selectCommand As New SqlCommand(selectSql, connection)
-                    selectCommand.Parameters.AddWithValue("@memberEmail", txtMemberEmail.Text)
-
-                    connection.Open()
-                    Dim count As Integer = CInt(selectCommand.ExecuteScalar())
-
-                    If count > 0 Then
-                        MessageBox.Show("Email already exists in database!")
-                        Exit Sub
-                    End If
-                End Using
-                command.Parameters.AddWithValue("@memberName", txtMemberName.Text)
-                command.Parameters.AddWithValue("@memberIC", txtMemberIC.Text)
-                command.Parameters.AddWithValue("@memberPhoneNumber", txtMemberPhoneNumber.Text)
-                command.Parameters.AddWithValue("@memberEmail", txtMemberEmail.Text)
-                command.Parameters.AddWithValue("@memberRegistrationDate", registrationDate)
-                command.Parameters.AddWithValue("@memberStatus", "Active")
-
-                command.ExecuteNonQuery()
-            End Using
-        End Using
-
-        MessageBox.Show("Member registered successfully")
+    Private Sub MemberMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        RefreshData()
+        Me.MembershipTableAdapter.Fill(Me.ApparelShopSystemDataset.Membership)
+        LoadData()
     End Sub
 
-    Private Function ValidateFields() As Boolean
-        If String.IsNullOrEmpty(txtMemberName.Text) Then
-            MessageBox.Show("Please enter a your name")
-            Return True
-        End If
-        If IsNumeric(txtMemberName.Text) Then
-            MessageBox.Show("Please enter a valid Name")
-        End If
-        If String.IsNullOrEmpty(txtMemberIC.Text) Or Not IsNumeric(txtMemberIC.Text) Or txtMemberIC.Text.Length <> 12 Then
-            MessageBox.Show("Please enter a valid member IC number (12 digits)")
-            Return True
+    Private Sub dgvList_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvList.CellDoubleClick
+        Dim memberID As Integer = CInt(dgvList.Rows(e.RowIndex).Cells(0).Value)
+        Dim memberName As String = dgvList.Rows(e.RowIndex).Cells(1).Value.ToString()
+        Dim memberIC As String = dgvList.Rows(e.RowIndex).Cells(2).Value.ToString()
+        Dim memberPhoneNumber As String = dgvList.Rows(e.RowIndex).Cells(3).Value.ToString()
+        Dim memberEmail As String = dgvList.Rows(e.RowIndex).Cells(4).Value.ToString()
+        Dim memberRegistrationDate As String = dgvList.Rows(e.RowIndex).Cells(5).Value.ToString()
+        Dim memberStatus As String = dgvList.Rows(e.RowIndex).Cells(6).Value.ToString()
+        Dim memberAddress As String = dgvList.Rows(e.RowIndex).Cells(7).Value.ToString()
+        Dim memberDetailsForm As New MemberSearchResult3(memberID, memberName, memberIC, memberPhoneNumber, memberEmail, memberRegistrationDate, memberStatus, memberAddress)
+        With memberDetailsForm
+            .TopLevel = False
+            Me.Controls.Add(memberDetailsForm)
+            .BringToFront()
+            .Show()
+        End With
+    End Sub
+
+    Private Sub LoadData()
+        Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True")
+            Dim da As New SqlDataAdapter("SELECT * FROM Membership", con)
+            Dim dt As New DataTable()
+            da.Fill(dt)
+            dgvList.DataSource = dt
+        End Using
+    End Sub
+    Public Sub RefreshData()
+        LoadData()
+    End Sub
+
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        With MemberRegister2
+            .TopLevel = False
+            Me.Controls.Add(MemberRegister2)
+            .BringToFront()
+            .Show()
+        End With
+    End Sub
+
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+
+        Dim searchValue As String = txtSearch.Text.Trim()
+
+        If String.IsNullOrWhiteSpace(searchValue) Then
+            DirectCast(dgvList.DataSource, DataTable).DefaultView.RowFilter = ""
+            Return
         End If
 
-        If String.IsNullOrEmpty(txtMemberPhoneNumber.Text) Or Not IsNumeric(txtMemberPhoneNumber.Text) Or txtMemberPhoneNumber.Text.Length < 10 Or txtMemberPhoneNumber.Text.Length > 11 Then
-            MessageBox.Show("Please enter a valid member phone number (10 or 11 digits)")
-            Return True
-        End If
+        Dim filterExpression As String = $"memberName LIKE '%{searchValue}%'"
+        DirectCast(dgvList.DataSource, DataTable).DefaultView.RowFilter = filterExpression
 
-        If Not IsValidEmail(txtMemberEmail.Text) Then
-            MessageBox.Show("Please enter a valid member email address")
-            Return True
-        End If
-        Return True
-    End Function
-    Private Function IsValidEmail(email As String) As Boolean
-        Try
-            Dim addr As New MailAddress(email)
-            Return addr.Address = email
-        Catch ex As Exception
-            Return False
-        End Try
+    End Sub
 
-    End Function
-    Public Function CheckEmailExists(email As String) As Boolean
-        Dim result As Boolean = False
-        Dim connString As String = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True"
-        Dim conn As New SqlConnection(connString)
-        Dim cmd As New SqlCommand("SELECT COUNT(*) FROM Membership WHERE memberEmail=@Email", conn)
-        cmd.Parameters.AddWithValue("@Email", email)
+    Private Sub btnReport_Click(sender As Object, e As EventArgs) Handles btnReport.Click
+        Dim rowsToPrint As New List(Of DataGridViewRow)
 
-        Try
-            conn.Open()
-            Dim count As Integer = CInt(cmd.ExecuteScalar())
-            If count > 0 Then
-                result = True
+        For Each row As DataGridViewRow In dgvList.Rows
+            If row.IsNewRow = False Then
+                Dim regDate As Date = row.Cells("MemberRegistrationDateDataGridViewTextBoxColumn").Value
+                If regDate.Month = DateTime.Now.Month And regDate.Year = DateTime.Now.Year Then
+                    rowsToPrint.Add(row)
+                End If
             End If
-        Catch ex As Exception
-            MessageBox.Show("Error checking email: " & ex.Message)
-        Finally
-            conn.Close()
-        End Try
+        Next
 
-        Return result
-    End Function
+        'PrintPreviewDialog1.ShowDialog()
 
-    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        Me.Close()
+
+        'Dim docReport As New Printing.PrintDocument()
+        'docReport.DefaultPageSettings.PaperSize = New Printing.PaperSize("A4", 827, 1169)
+
+
+        'AddHandler docReport.PrintPage, Sub(sender2, e2)
+        '                                    Dim colHeaderFont As New Font("Arial", 10, FontStyle.Bold)
+        '                                    Dim colHeaderBrush As New SolidBrush(Color.Black)
+        '                                    Dim colHeaderYPos As Single = 200
+        '                                    Dim currentPageNumber As Integer = 1
+        '                                    Dim totalPages As Integer = Math.Ceiling(rowsToPrint.Count / 30) ' Change 30 to the number of rows you want to print per page
+        '                                    Dim currentMonth As Integer = DateTime.Now.Month
+        '                                    Dim currentYear As Integer = DateTime.Now.Year
+
+        '                                    ' Generate an array of column positions based on the number of columns in DGVMemberMainMemberList
+        '                                    Dim colPositions(DGVMemberMainMemberList.Columns.Count - 1) As Single
+        '                                    For i As Integer = 0 To DGVMemberMainMemberList.Columns.Count - 1
+        '                                        Dim col As DataGridViewColumn = DGVMemberMainMemberList.Columns(i)
+        '                                        colPositions(i) = If(i = 0, e2.MarginBounds.Left, colPositions(i - 1) + e2.Graphics.MeasureString(col.HeaderText, colHeaderFont).Width + 20)
+        '                                    Next
+
+        '                                    e2.Graphics.DrawString("Monthly Registration Report", New Font("Arial", 14), Brushes.Black, New PointF(100, 100))
+        '                                    e2.Graphics.DrawString(DateTime.Now.ToString(), New Font("Arial", 10), Brushes.Black, New PointF(100, 150))
+        '                                    e2.Graphics.DrawLine(Pens.Black, New Point(100, 200), New Point(700, 200))
+        '                                    Dim pageNumberText As String = "Page " & currentPageNumber & " of " & totalPages
+        '                                    e2.Graphics.DrawString(pageNumberText, New Font("Arial", 10), Brushes.Black, New PointF(600, 50))
+
+        '                                    For i As Integer = 0 To DGVMemberMainMemberList.Columns.Count - 1
+        '                                        Dim col As DataGridViewColumn = DGVMemberMainMemberList.Columns(i)
+        '                                        Dim colHeaderText As String = col.HeaderText
+        '                                        Dim colHeaderWidth As Single = e2.Graphics.MeasureString(colHeaderText, colHeaderFont).Width
+        '                                        e2.Graphics.DrawString(colHeaderText, colHeaderFont, colHeaderBrush, colPositions(i), colHeaderYPos)
+        '                                    Next
+
+        '                                    Dim rowFont As New Font("Arial", 8)
+        '                                    Dim rowBrush As New SolidBrush(Color.Black)
+        '                                    Dim rowYPos As Single = colHeaderYPos + 100
+        '                                    Dim cellWidth As Single = e2.MarginBounds.Width / DGVMemberMainMemberList.Columns.Count
+
+
+        PrintPreviewDialog1.ShowDialog()
+        Dim docReport As New Printing.PrintDocument()
+        PrintPreviewDialog1.Document = docReport
+        docReport.DefaultPageSettings.PaperSize = New Printing.PaperSize("A4", 1169, 827) ' swap width and height for landscape
+        docReport.DefaultPageSettings.Landscape = True ' set landscape orientation
+        AddHandler docReport.PrintPage, Sub(sender2, e2)
+                                            Dim colHeaderFont As New Font("Arial", 10, FontStyle.Bold)
+                                            Dim colHeaderBrush As New SolidBrush(Color.Black)
+                                            Dim colHeaderXPos As Single = 80
+                                            Dim colHeaderYPos As Single = 200
+                                            Dim currentPageNumber As Integer = 1
+                                            Dim totalPages As Integer = 10
+
+                                            e2.Graphics.DrawString("Monthly Registration Report", New Font("Arial", 14), Brushes.Black, New PointF(100, 100))
+                                            e2.Graphics.DrawString(DateTime.Now.ToString(), New Font("Arial", 10), Brushes.Black, New PointF(100, 150))
+                                            e2.Graphics.DrawLine(Pens.Black, New Point(100, 200), New Point(1000, 200)) ' adjust the endpoint of the line
+                                            Dim pageNumberText As String = "Page " & currentPageNumber & " of " & totalPages
+                                            e2.Graphics.DrawString(pageNumberText, New Font("Arial", 10), Brushes.Black, New PointF(900, 50)) ' adjust the position of the page number
+
+                                            For Each col As DataGridViewColumn In dgvList.Columns
+                                                Dim colHeaderWidth As Single = e2.Graphics.MeasureString(col.HeaderText, colHeaderFont).Width
+                                                e2.Graphics.DrawString(col.HeaderText, colHeaderFont, colHeaderBrush, colHeaderXPos, colHeaderYPos)
+                                                colHeaderXPos += colHeaderWidth + 20
+                                            Next
+
+                                            Dim rowFont As New Font("Arial", 8)
+                                            Dim rowBrush As New SolidBrush(Color.Black)
+                                            Dim rowXPos As Single = e2.MarginBounds.Left
+                                            Dim rowYPos As Single = colHeaderYPos + 100
+                                            Dim cellWidth As Single = e2.Graphics.MeasureString(cellWidth.ToString(), rowFont).Width
+                                            For Each row As DataGridViewRow In dgvList.Rows
+                                                rowXPos = e2.MarginBounds.Left
+
+                                                For Each cell As DataGridViewCell In row.Cells
+                                                    If Not cell.Value Is Nothing Then
+                                                        cellWidth = e2.Graphics.MeasureString(cell.Value.ToString(), rowFont).Width
+                                                        e2.Graphics.DrawString(cell.Value.ToString(), rowFont, rowBrush, rowXPos, rowYPos)
+                                                        rowXPos += cellWidth + 20
+                                                    End If
+
+
+                                                Next
+                                                rowYPos += 30
+                                            Next
+                                            e2.HasMorePages = False
+
+
+                                        End Sub
     End Sub
 
 End Class

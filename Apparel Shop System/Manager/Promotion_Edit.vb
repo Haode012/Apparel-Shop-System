@@ -51,7 +51,7 @@ Public Class Promotion_Edit
         Dim ctr As Control = Nothing
 
         Dim now As DateTime = DateTime.Now
-        Dim editor As String = "Manager1"
+        Dim editor As String = strFullName
 
 
         If String.IsNullOrEmpty(txtPromotionName.Text) Then

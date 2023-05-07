@@ -22,21 +22,34 @@ Partial Class Membership
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Membership))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.picDelete = New System.Windows.Forms.PictureBox()
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.btnReport = New System.Windows.Forms.Button()
+        Me.btnAdd = New System.Windows.Forms.Button()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.dgvList = New System.Windows.Forms.DataGridView()
+        Me.MemberIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MemberNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MemberICDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MemberPhoneNumberDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MemberEmailDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MemberRegistrationDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MemberStatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lblWelcome = New System.Windows.Forms.Label()
-        Me.btnCancel = New System.Windows.Forms.Button()
-        Me.btnRegister = New System.Windows.Forms.Button()
-        Me.txtMemberIC = New System.Windows.Forms.TextBox()
-        Me.txtMemberPhoneNumber = New System.Windows.Forms.TextBox()
-        Me.txtMemberEmail = New System.Windows.Forms.TextBox()
-        Me.txtMemberName = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.lblMemberPhoneNumber = New System.Windows.Forms.Label()
-        Me.lblMemberID = New System.Windows.Forms.Label()
-        Me.lblMemberName = New System.Windows.Forms.Label()
+        Me.MembershipTableAdapter = New Apparel_Shop_System.ApparelShopSystemDatasetTableAdapters.MembershipTableAdapter()
+        Me.ApparelShopSystemDataset = New Apparel_Shop_System.ApparelShopSystemDataset()
+        Me.MembershipBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
+        Me.PrintMemberMonthlyRegister = New System.Drawing.Printing.PrintDocument()
+        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.Panel1.SuspendLayout()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvList, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ApparelShopSystemDataset, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MembershipBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -60,110 +73,169 @@ Partial Class Membership
         Me.picDelete.TabIndex = 0
         Me.picDelete.TabStop = False
         '
+        'btnSearch
+        '
+        Me.btnSearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSearch.ForeColor = System.Drawing.Color.White
+        Me.btnSearch.Location = New System.Drawing.Point(1312, 285)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(157, 53)
+        Me.btnSearch.TabIndex = 67
+        Me.btnSearch.Text = "&Search"
+        Me.btnSearch.UseVisualStyleBackColor = False
+        '
+        'btnReport
+        '
+        Me.btnReport.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReport.ForeColor = System.Drawing.Color.White
+        Me.btnReport.Location = New System.Drawing.Point(539, 214)
+        Me.btnReport.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnReport.Name = "btnReport"
+        Me.btnReport.Size = New System.Drawing.Size(157, 53)
+        Me.btnReport.TabIndex = 66
+        Me.btnReport.Text = "&Report"
+        Me.btnReport.UseVisualStyleBackColor = False
+        '
+        'btnAdd
+        '
+        Me.btnAdd.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdd.ForeColor = System.Drawing.Color.White
+        Me.btnAdd.Location = New System.Drawing.Point(349, 214)
+        Me.btnAdd.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(157, 53)
+        Me.btnAdd.TabIndex = 65
+        Me.btnAdd.Text = "&Add"
+        Me.btnAdd.UseVisualStyleBackColor = False
+        '
+        'txtSearch
+        '
+        Me.txtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSearch.Location = New System.Drawing.Point(928, 293)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(378, 38)
+        Me.txtSearch.TabIndex = 64
+        '
+        'dgvList
+        '
+        Me.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.MemberIDDataGridViewTextBoxColumn, Me.MemberNameDataGridViewTextBoxColumn, Me.MemberICDataGridViewTextBoxColumn, Me.MemberPhoneNumberDataGridViewTextBoxColumn, Me.MemberEmailDataGridViewTextBoxColumn, Me.MemberRegistrationDateDataGridViewTextBoxColumn, Me.MemberStatusDataGridViewTextBoxColumn})
+        Me.dgvList.Location = New System.Drawing.Point(349, 343)
+        Me.dgvList.Name = "dgvList"
+        Me.dgvList.RowHeadersWidth = 51
+        Me.dgvList.RowTemplate.Height = 24
+        Me.dgvList.Size = New System.Drawing.Size(1137, 464)
+        Me.dgvList.TabIndex = 63
+        '
+        'MemberIDDataGridViewTextBoxColumn
+        '
+        Me.MemberIDDataGridViewTextBoxColumn.DataPropertyName = "memberID"
+        Me.MemberIDDataGridViewTextBoxColumn.HeaderText = "memberID"
+        Me.MemberIDDataGridViewTextBoxColumn.MinimumWidth = 6
+        Me.MemberIDDataGridViewTextBoxColumn.Name = "MemberIDDataGridViewTextBoxColumn"
+        Me.MemberIDDataGridViewTextBoxColumn.ReadOnly = True
+        Me.MemberIDDataGridViewTextBoxColumn.Width = 125
+        '
+        'MemberNameDataGridViewTextBoxColumn
+        '
+        Me.MemberNameDataGridViewTextBoxColumn.DataPropertyName = "memberName"
+        Me.MemberNameDataGridViewTextBoxColumn.HeaderText = "memberName"
+        Me.MemberNameDataGridViewTextBoxColumn.MinimumWidth = 6
+        Me.MemberNameDataGridViewTextBoxColumn.Name = "MemberNameDataGridViewTextBoxColumn"
+        Me.MemberNameDataGridViewTextBoxColumn.Width = 125
+        '
+        'MemberICDataGridViewTextBoxColumn
+        '
+        Me.MemberICDataGridViewTextBoxColumn.DataPropertyName = "memberIC"
+        Me.MemberICDataGridViewTextBoxColumn.HeaderText = "memberIC"
+        Me.MemberICDataGridViewTextBoxColumn.MinimumWidth = 6
+        Me.MemberICDataGridViewTextBoxColumn.Name = "MemberICDataGridViewTextBoxColumn"
+        Me.MemberICDataGridViewTextBoxColumn.Width = 125
+        '
+        'MemberPhoneNumberDataGridViewTextBoxColumn
+        '
+        Me.MemberPhoneNumberDataGridViewTextBoxColumn.DataPropertyName = "memberPhoneNumber"
+        Me.MemberPhoneNumberDataGridViewTextBoxColumn.HeaderText = "memberPhoneNumber"
+        Me.MemberPhoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6
+        Me.MemberPhoneNumberDataGridViewTextBoxColumn.Name = "MemberPhoneNumberDataGridViewTextBoxColumn"
+        Me.MemberPhoneNumberDataGridViewTextBoxColumn.Width = 125
+        '
+        'MemberEmailDataGridViewTextBoxColumn
+        '
+        Me.MemberEmailDataGridViewTextBoxColumn.DataPropertyName = "memberEmail"
+        Me.MemberEmailDataGridViewTextBoxColumn.HeaderText = "memberEmail"
+        Me.MemberEmailDataGridViewTextBoxColumn.MinimumWidth = 6
+        Me.MemberEmailDataGridViewTextBoxColumn.Name = "MemberEmailDataGridViewTextBoxColumn"
+        Me.MemberEmailDataGridViewTextBoxColumn.Width = 125
+        '
+        'MemberRegistrationDateDataGridViewTextBoxColumn
+        '
+        Me.MemberRegistrationDateDataGridViewTextBoxColumn.DataPropertyName = "memberRegistrationDate"
+        Me.MemberRegistrationDateDataGridViewTextBoxColumn.HeaderText = "memberRegistrationDate"
+        Me.MemberRegistrationDateDataGridViewTextBoxColumn.MinimumWidth = 6
+        Me.MemberRegistrationDateDataGridViewTextBoxColumn.Name = "MemberRegistrationDateDataGridViewTextBoxColumn"
+        Me.MemberRegistrationDateDataGridViewTextBoxColumn.Width = 125
+        '
+        'MemberStatusDataGridViewTextBoxColumn
+        '
+        Me.MemberStatusDataGridViewTextBoxColumn.DataPropertyName = "memberStatus"
+        Me.MemberStatusDataGridViewTextBoxColumn.HeaderText = "memberStatus"
+        Me.MemberStatusDataGridViewTextBoxColumn.MinimumWidth = 6
+        Me.MemberStatusDataGridViewTextBoxColumn.Name = "MemberStatusDataGridViewTextBoxColumn"
+        Me.MemberStatusDataGridViewTextBoxColumn.Width = 125
+        '
         'lblWelcome
         '
         Me.lblWelcome.BackColor = System.Drawing.Color.LightCyan
         Me.lblWelcome.Font = New System.Drawing.Font("Segoe Script", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblWelcome.Location = New System.Drawing.Point(269, 72)
+        Me.lblWelcome.Location = New System.Drawing.Point(460, 89)
         Me.lblWelcome.Name = "lblWelcome"
-        Me.lblWelcome.Size = New System.Drawing.Size(1091, 113)
-        Me.lblWelcome.TabIndex = 60
-        Me.lblWelcome.Text = "Membership Register Form"
+        Me.lblWelcome.Size = New System.Drawing.Size(933, 107)
+        Me.lblWelcome.TabIndex = 62
+        Me.lblWelcome.Text = "Membership"
         Me.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnCancel
+        'MembershipTableAdapter
         '
-        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(739, 503)
-        Me.btnCancel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(157, 53)
-        Me.btnCancel.TabIndex = 83
-        Me.btnCancel.Text = "&Cancel"
-        Me.btnCancel.UseVisualStyleBackColor = True
+        Me.MembershipTableAdapter.ClearBeforeFill = True
         '
-        'btnRegister
+        'ApparelShopSystemDataset
         '
-        Me.btnRegister.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRegister.Location = New System.Drawing.Point(564, 503)
-        Me.btnRegister.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnRegister.Name = "btnRegister"
-        Me.btnRegister.Size = New System.Drawing.Size(157, 53)
-        Me.btnRegister.TabIndex = 82
-        Me.btnRegister.Text = "&Register"
-        Me.btnRegister.UseVisualStyleBackColor = True
+        Me.ApparelShopSystemDataset.DataSetName = "ApparelShopSystemDataset"
+        Me.ApparelShopSystemDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'txtMemberIC
+        'MembershipBindingSource
         '
-        Me.txtMemberIC.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMemberIC.Location = New System.Drawing.Point(707, 402)
-        Me.txtMemberIC.Name = "txtMemberIC"
-        Me.txtMemberIC.Size = New System.Drawing.Size(291, 45)
-        Me.txtMemberIC.TabIndex = 81
+        Me.MembershipBindingSource.DataMember = "Membership"
+        Me.MembershipBindingSource.DataSource = Me.ApparelShopSystemDataset
         '
-        'txtMemberPhoneNumber
+        'PrintPreviewDialog1
         '
-        Me.txtMemberPhoneNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMemberPhoneNumber.Location = New System.Drawing.Point(707, 340)
-        Me.txtMemberPhoneNumber.Name = "txtMemberPhoneNumber"
-        Me.txtMemberPhoneNumber.Size = New System.Drawing.Size(474, 45)
-        Me.txtMemberPhoneNumber.TabIndex = 80
+        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
+        Me.PrintPreviewDialog1.Enabled = True
+        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
+        Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
+        Me.PrintPreviewDialog1.Visible = False
         '
-        'txtMemberEmail
+        'PrintMemberMonthlyRegister
         '
-        Me.txtMemberEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMemberEmail.Location = New System.Drawing.Point(707, 286)
-        Me.txtMemberEmail.Name = "txtMemberEmail"
-        Me.txtMemberEmail.Size = New System.Drawing.Size(474, 45)
-        Me.txtMemberEmail.TabIndex = 79
+        Me.PrintMemberMonthlyRegister.DocumentName = "Monthly Registration"
+        Me.PrintMemberMonthlyRegister.OriginAtMargins = True
         '
-        'txtMemberName
+        'PrintDialog1
         '
-        Me.txtMemberName.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMemberName.Location = New System.Drawing.Point(707, 235)
-        Me.txtMemberName.Name = "txtMemberName"
-        Me.txtMemberName.Size = New System.Drawing.Size(474, 45)
-        Me.txtMemberName.TabIndex = 78
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(487, 402)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(195, 38)
-        Me.Label4.TabIndex = 77
-        Me.Label4.Text = "Member IC :"
-        '
-        'lblMemberPhoneNumber
-        '
-        Me.lblMemberPhoneNumber.AutoSize = True
-        Me.lblMemberPhoneNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMemberPhoneNumber.Location = New System.Drawing.Point(293, 346)
-        Me.lblMemberPhoneNumber.Name = "lblMemberPhoneNumber"
-        Me.lblMemberPhoneNumber.Size = New System.Drawing.Size(382, 38)
-        Me.lblMemberPhoneNumber.TabIndex = 76
-        Me.lblMemberPhoneNumber.Text = "Member Phone Number :"
-        '
-        'lblMemberID
-        '
-        Me.lblMemberID.AutoSize = True
-        Me.lblMemberID.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMemberID.Location = New System.Drawing.Point(436, 286)
-        Me.lblMemberID.Name = "lblMemberID"
-        Me.lblMemberID.Size = New System.Drawing.Size(244, 38)
-        Me.lblMemberID.TabIndex = 75
-        Me.lblMemberID.Text = "Member Email :"
-        '
-        'lblMemberName
-        '
-        Me.lblMemberName.AutoSize = True
-        Me.lblMemberName.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMemberName.Location = New System.Drawing.Point(431, 235)
-        Me.lblMemberName.Name = "lblMemberName"
-        Me.lblMemberName.Size = New System.Drawing.Size(250, 38)
-        Me.lblMemberName.TabIndex = 74
-        Me.lblMemberName.Text = "Member Name :"
+        Me.PrintDialog1.AllowCurrentPage = True
+        Me.PrintDialog1.AllowSelection = True
+        Me.PrintDialog1.AllowSomePages = True
+        Me.PrintDialog1.Document = Me.PrintMemberMonthlyRegister
+        Me.PrintDialog1.PrintToFile = True
+        Me.PrintDialog1.UseEXDialog = True
         '
         'Membership
         '
@@ -171,16 +243,11 @@ Partial Class Membership
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(1654, 1035)
-        Me.Controls.Add(Me.btnCancel)
-        Me.Controls.Add(Me.btnRegister)
-        Me.Controls.Add(Me.txtMemberIC)
-        Me.Controls.Add(Me.txtMemberPhoneNumber)
-        Me.Controls.Add(Me.txtMemberEmail)
-        Me.Controls.Add(Me.txtMemberName)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.lblMemberPhoneNumber)
-        Me.Controls.Add(Me.lblMemberID)
-        Me.Controls.Add(Me.lblMemberName)
+        Me.Controls.Add(Me.btnSearch)
+        Me.Controls.Add(Me.btnReport)
+        Me.Controls.Add(Me.btnAdd)
+        Me.Controls.Add(Me.txtSearch)
+        Me.Controls.Add(Me.dgvList)
         Me.Controls.Add(Me.lblWelcome)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -189,6 +256,9 @@ Partial Class Membership
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvList, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ApparelShopSystemDataset, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MembershipBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -196,15 +266,23 @@ Partial Class Membership
 
     Friend WithEvents Panel1 As Panel
     Friend WithEvents picDelete As PictureBox
+    Friend WithEvents btnSearch As Button
+    Friend WithEvents btnReport As Button
+    Friend WithEvents btnAdd As Button
+    Friend WithEvents txtSearch As TextBox
+    Friend WithEvents dgvList As DataGridView
+    Friend WithEvents MemberIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents MemberNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents MemberICDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents MemberPhoneNumberDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents MemberEmailDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents MemberRegistrationDateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents MemberStatusDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents lblWelcome As Label
-    Friend WithEvents btnCancel As Button
-    Friend WithEvents btnRegister As Button
-    Friend WithEvents txtMemberIC As TextBox
-    Friend WithEvents txtMemberPhoneNumber As TextBox
-    Friend WithEvents txtMemberEmail As TextBox
-    Friend WithEvents txtMemberName As TextBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents lblMemberPhoneNumber As Label
-    Friend WithEvents lblMemberID As Label
-    Friend WithEvents lblMemberName As Label
+    Friend WithEvents MembershipTableAdapter As ApparelShopSystemDatasetTableAdapters.MembershipTableAdapter
+    Friend WithEvents ApparelShopSystemDataset As ApparelShopSystemDataset
+    Friend WithEvents MembershipBindingSource As BindingSource
+    Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
+    Friend WithEvents PrintMemberMonthlyRegister As Printing.PrintDocument
+    Friend WithEvents PrintDialog1 As PrintDialog
 End Class

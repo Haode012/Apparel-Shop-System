@@ -23,6 +23,7 @@ Partial Class MembershipMaintenance
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MembershipMaintenance))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.lblWelcome = New System.Windows.Forms.Label()
@@ -35,17 +36,20 @@ Partial Class MembershipMaintenance
         Me.MemberEmailDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MemberRegistrationDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MemberStatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MembershipBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ApparelShopSystemDataset = New Apparel_Shop_System.ApparelShopSystemDataset()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.btnReport = New System.Windows.Forms.Button()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.MembershipTableAdapter = New Apparel_Shop_System.ApparelShopSystemDatasetTableAdapters.MembershipTableAdapter()
+        Me.ApparelShopSystemDataset = New Apparel_Shop_System.ApparelShopSystemDataset()
+        Me.MembershipBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
+        Me.PrintMemberMonthlyRegister = New System.Drawing.Printing.PrintDocument()
+        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.Panel1.SuspendLayout()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvList, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.MembershipBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApparelShopSystemDataset, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MembershipBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -90,10 +94,8 @@ Partial Class MembershipMaintenance
         '
         'dgvList
         '
-        Me.dgvList.AutoGenerateColumns = False
         Me.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.MemberIDDataGridViewTextBoxColumn, Me.MemberNameDataGridViewTextBoxColumn, Me.MemberICDataGridViewTextBoxColumn, Me.MemberPhoneNumberDataGridViewTextBoxColumn, Me.MemberEmailDataGridViewTextBoxColumn, Me.MemberRegistrationDateDataGridViewTextBoxColumn, Me.MemberStatusDataGridViewTextBoxColumn})
-        Me.dgvList.DataSource = Me.MembershipBindingSource
         Me.dgvList.Location = New System.Drawing.Point(316, 318)
         Me.dgvList.Name = "dgvList"
         Me.dgvList.RowHeadersWidth = 51
@@ -158,52 +160,82 @@ Partial Class MembershipMaintenance
         Me.MemberStatusDataGridViewTextBoxColumn.Name = "MemberStatusDataGridViewTextBoxColumn"
         Me.MemberStatusDataGridViewTextBoxColumn.Width = 125
         '
-        'MembershipBindingSource
-        '
-        Me.MembershipBindingSource.DataMember = "Membership"
-        Me.MembershipBindingSource.DataSource = Me.ApparelShopSystemDataset
-        '
-        'ApparelShopSystemDataset
-        '
-        Me.ApparelShopSystemDataset.DataSetName = "ApparelShopSystemDataset"
-        Me.ApparelShopSystemDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'btnAdd
         '
+        Me.btnAdd.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdd.ForeColor = System.Drawing.Color.White
         Me.btnAdd.Location = New System.Drawing.Point(316, 189)
         Me.btnAdd.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(157, 53)
         Me.btnAdd.TabIndex = 57
         Me.btnAdd.Text = "&Add"
-        Me.btnAdd.UseVisualStyleBackColor = True
+        Me.btnAdd.UseVisualStyleBackColor = False
         '
         'btnReport
         '
+        Me.btnReport.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReport.ForeColor = System.Drawing.Color.White
         Me.btnReport.Location = New System.Drawing.Point(506, 189)
         Me.btnReport.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnReport.Name = "btnReport"
         Me.btnReport.Size = New System.Drawing.Size(157, 53)
         Me.btnReport.TabIndex = 60
         Me.btnReport.Text = "&Report"
-        Me.btnReport.UseVisualStyleBackColor = True
+        Me.btnReport.UseVisualStyleBackColor = False
         '
         'btnSearch
         '
+        Me.btnSearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSearch.ForeColor = System.Drawing.Color.White
         Me.btnSearch.Location = New System.Drawing.Point(1279, 260)
         Me.btnSearch.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(157, 53)
         Me.btnSearch.TabIndex = 61
         Me.btnSearch.Text = "&Search"
-        Me.btnSearch.UseVisualStyleBackColor = True
+        Me.btnSearch.UseVisualStyleBackColor = False
         '
         'MembershipTableAdapter
         '
         Me.MembershipTableAdapter.ClearBeforeFill = True
+        '
+        'ApparelShopSystemDataset
+        '
+        Me.ApparelShopSystemDataset.DataSetName = "ApparelShopSystemDataset"
+        Me.ApparelShopSystemDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'MembershipBindingSource
+        '
+        Me.MembershipBindingSource.DataMember = "Membership"
+        Me.MembershipBindingSource.DataSource = Me.ApparelShopSystemDataset
+        '
+        'PrintPreviewDialog1
+        '
+        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
+        Me.PrintPreviewDialog1.Enabled = True
+        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
+        Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
+        Me.PrintPreviewDialog1.Visible = False
+        '
+        'PrintMemberMonthlyRegister
+        '
+        Me.PrintMemberMonthlyRegister.DocumentName = "Monthly Registration"
+        Me.PrintMemberMonthlyRegister.OriginAtMargins = True
+        '
+        'PrintDialog1
+        '
+        Me.PrintDialog1.AllowCurrentPage = True
+        Me.PrintDialog1.AllowSelection = True
+        Me.PrintDialog1.AllowSomePages = True
+        Me.PrintDialog1.Document = Me.PrintMemberMonthlyRegister
+        Me.PrintDialog1.PrintToFile = True
+        Me.PrintDialog1.UseEXDialog = True
         '
         'MembershipMaintenance
         '
@@ -225,8 +257,8 @@ Partial Class MembershipMaintenance
         Me.Panel1.ResumeLayout(False)
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvList, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MembershipBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ApparelShopSystemDataset, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MembershipBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -240,9 +272,6 @@ Partial Class MembershipMaintenance
     Friend WithEvents btnAdd As Button
     Friend WithEvents btnReport As Button
     Friend WithEvents btnSearch As Button
-    Friend WithEvents ApparelShopSystemDataset As ApparelShopSystemDataset
-    Friend WithEvents MembershipBindingSource As BindingSource
-    Friend WithEvents MembershipTableAdapter As ApparelShopSystemDatasetTableAdapters.MembershipTableAdapter
     Friend WithEvents MemberIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents MemberNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents MemberICDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -250,4 +279,10 @@ Partial Class MembershipMaintenance
     Friend WithEvents MemberEmailDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents MemberRegistrationDateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents MemberStatusDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents MembershipTableAdapter As ApparelShopSystemDatasetTableAdapters.MembershipTableAdapter
+    Friend WithEvents ApparelShopSystemDataset As ApparelShopSystemDataset
+    Friend WithEvents MembershipBindingSource As BindingSource
+    Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
+    Friend WithEvents PrintMemberMonthlyRegister As Printing.PrintDocument
+    Friend WithEvents PrintDialog1 As PrintDialog
 End Class

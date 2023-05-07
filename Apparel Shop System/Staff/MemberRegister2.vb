@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Net.Mail
 Imports Membership
-Public Class MemberRegister
+Public Class MemberRegister2
     Private Sub frmMemberRegister_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtMemberName.Text = "alphabets"
         txtMemberEmail.Text = "xx@mail.com"
@@ -10,7 +10,7 @@ Public Class MemberRegister
         txtMemberAddress.Text = "xxxxxxxxxxx"
     End Sub
 
-    Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
+    Private Sub btnRegister_Click(sender As Object, e As EventArgs)
         If String.IsNullOrEmpty(txtMemberName.Text) Then
             MessageBox.Show("Please enter your name", "Empty Member Name")
             Return
@@ -127,21 +127,20 @@ Public Class MemberRegister
     End Function
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        MembershipMaintenance.RefreshData()
+        Membership.RefreshData()
         Me.Close()
     End Sub
 
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
-        MembershipMaintenance.RefreshData()
+        Membership.RefreshData()
         Me.Close()
-        ProductMaintenance.Close()
-        StaffMaintenance.Close()
-        MembershipMaintenance.Close()
-        PromotionMaintenance.Close()
+        Membership.Close()
+        ProductItem.Close()
+        OrderCart.Close()
     End Sub
 
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
-        MembershipMaintenance.RefreshData()
+        Membership.RefreshData()
         Me.Close()
     End Sub
 

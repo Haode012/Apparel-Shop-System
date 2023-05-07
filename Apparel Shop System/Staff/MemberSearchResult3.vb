@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Net.Mail
-Public Class MemberSearchResult2
+Public Class MemberSearchResult3
 
     Private sqlConnection As SqlConnection = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True")
     Private sqlCommand As SqlCommand
@@ -70,21 +70,20 @@ Public Class MemberSearchResult2
     End Sub
 
     Private Sub btnReturn_Click(sender As Object, e As EventArgs) Handles btnReturn.Click
-        MembershipMaintenance.RefreshData()
+        Membership.RefreshData()
         Me.Close()
     End Sub
 
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
-        MembershipMaintenance.RefreshData()
+        Membership.RefreshData()
         Me.Close()
-        ProductMaintenance.Close()
-        StaffMaintenance.Close()
-        MembershipMaintenance.Close()
-        PromotionMaintenance.Close()
+        Membership.Close()
+        ProductItem.Close()
+        OrderCart.Close()
     End Sub
 
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
-        MembershipMaintenance.RefreshData()
+        Membership.RefreshData()
         Me.Close()
     End Sub
 
