@@ -51,19 +51,23 @@ Public Class ChangeSecretQuestionAndAnswer
         ElseIf txtSecretAnswer.Text = "" Then
             MessageBox.Show("Please enter secret question answer", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
-            If OpenConnection() = True Then
-                'strSql = "SELECT Name,Position,Status,Password From NewStaff Where Name = @name and Password= @Password"
-                strSql = "Update Staff SET SecretQuestion=@SecretQuestion,SecretAnswer=@SecretAnswer Where StaffID = @StaffID"
-                '"Select* From Users WHERE Name = @Name AND Position = @Position"
-                mySqlCommand = New SqlCommand(strSql, conn)
-                mySqlCommand.Parameters.AddWithValue("@StaffID", txtUserID.Text)
-                mySqlCommand.Parameters.AddWithValue("@SecretQuestion", selectedQuestion)
-                mySqlCommand.Parameters.AddWithValue("@SecretAnswer", newSecretAnswer)
-                mySqlCommand.ExecuteNonQuery()
-                MessageBox.Show("Secret Question and Answer Updated", "Updated Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Else
-                MessageBox.Show("No connection")
-            End If
+            Try
+                If OpenConnection() = True Then
+                    'strSql = "SELECT Name,Position,Status,Password From NewStaff Where Name = @name and Password= @Password"
+                    strSql = "Update Staff SET SecretQuestion=@SecretQuestion,SecretAnswer=@SecretAnswer Where StaffID = @StaffID"
+                    '"Select* From Users WHERE Name = @Name AND Position = @Position"
+                    mySqlCommand = New SqlCommand(strSql, conn)
+                    mySqlCommand.Parameters.AddWithValue("@StaffID", txtUserID.Text)
+                    mySqlCommand.Parameters.AddWithValue("@SecretQuestion", selectedQuestion)
+                    mySqlCommand.Parameters.AddWithValue("@SecretAnswer", newSecretAnswer)
+                    mySqlCommand.ExecuteNonQuery()
+                    MessageBox.Show("Secret Question and Answer Updated", "Updated Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    MessageBox.Show("No connection", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+            Catch ex As Exception
+                MessageBox.Show("Please Check the data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
         End If
         CloseConnection()
     End Sub

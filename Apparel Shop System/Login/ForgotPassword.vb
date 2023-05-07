@@ -14,55 +14,76 @@ Public Class ForgotPassword
         Dim strSql As String
         Dim readerDateOfBirth As String
         Dim readerUsername As String
+        Dim readerOldPassword As String
         Dim readerSecretQuestion As String
         Dim readerSecretQuestionAnswer As String
         Dim secretQuestion As String = cboSecretQues.SelectedItem
         Dim secretAnswer As String = txtSecretAnswer.Text
         Dim strUsername = txtUsername.Text
         Dim strNewPassword = txtNewPassword.Text
+        Dim strConfrimPassword = txtConfirmPassword.Text
         ' Dim strDateOfBirth = dtpStaffDob.Value
 
         If strUsername = "" And strNewPassword = "" Then
-            MessageBox.Show("Please input all the fields", "Validation")
+            MessageBox.Show("Please input all the fields", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
             'ElseIf strDateOfBirth = "" Then
             'MessageBox.Show("Please input all the fields", "Validation")
+        ElseIf strNewPassword <> strConfrimPassword Then
+            MessageBox.Show("Passwords are not matching", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
             If OpenConnection() = True Then
-                strSql1 = "SELECT StaffID,Position,Status,Password,DateOfBirth,SecretQuestion,SecretAnswer From Staff Where StaffID = @StaffID"
-                MySqlCommand = New SqlCommand(strSql1, conn)
-                MySqlCommand.Parameters.AddWithValue("@StaffID", txtUsername.Text)
-                MySqlCommand.ExecuteNonQuery()
-                Dim reader As SqlDataReader = MySqlCommand.ExecuteReader()
-                If reader.HasRows Then
-                    reader.Read()
-                    'readerUsername = reader("Name").ToString
-                    readerSecretQuestion = reader("SecretQuestion").ToString
-                    readerSecretQuestionAnswer = reader("SecretAnswer")
-                    reader.Close()
-                    If readerSecretQuestion.Equals(secretQuestion) Then
-                        If readerSecretQuestionAnswer.Equals(secretAnswer) Then
-                            If strNewPassword.Length > 9 Then
-                                strSql = "Update Staff SET Password =@Password Where StaffID=@StaffID"
-                                MySqlCommand = New SqlCommand(strSql, conn)
-                                MySqlCommand.Parameters.AddWithValue("@StaffID", txtUsername.Text)
-                                MySqlCommand.Parameters.AddWithValue("@Password", txtNewPassword.Text)
-                                'MySqlCommand.Parameters.AddWithValue("@DateOfBirth", secretQuestion)
-                                MySqlCommand.ExecuteNonQuery()
-                                MessageBox.Show("Password Reset Successfully", "Reset Password", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Try
+                    strSql1 = "SELECT StaffID,Position,Status,Password,DateOfBirth,SecretQuestion,SecretAnswer From Staff Where StaffID = @StaffID"
+                    MySqlCommand = New SqlCommand(strSql1, conn)
+                    MySqlCommand.Parameters.AddWithValue("@StaffID", txtUsername.Text)
+                    MySqlCommand.ExecuteNonQuery()
+                    Dim reader As SqlDataReader = MySqlCommand.ExecuteReader()
+                    If reader.HasRows Then
+                        reader.Read()
+                        lblUsernameError.Visible = False
+                        'readerUsername = reader("Name").ToString
+                        readerSecretQuestion = reader("SecretQuestion").ToString
+                        readerSecretQuestionAnswer = reader("SecretAnswer").ToString
+                        readerOldPassword = reader("Password").ToString
+                        reader.Close()
+                        If readerSecretQuestion.Equals(secretQuestion) Then
+                            If readerSecretQuestionAnswer.Equals(secretAnswer) Then
+                                If strNewPassword.Length >= 9 Then
+                                    If strNewPassword <> readerOldPassword Then
+                                        strSql = "Update Staff SET Password =@Password Where StaffID=@StaffID"
+                                        MySqlCommand = New SqlCommand(strSql, conn)
+                                        MySqlCommand.Parameters.AddWithValue("@StaffID", txtUsername.Text)
+                                        MySqlCommand.Parameters.AddWithValue("@Password", txtNewPassword.Text)
+                                        'MySqlCommand.Parameters.AddWithValue("@DateOfBirth", secretQuestion)
+                                        MySqlCommand.ExecuteNonQuery()
+                                        MessageBox.Show("Password Reset Successfully", "Reset Password", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                        Me.Close()
+                                    Else
+                                        MessageBox.Show("Your new password cannot be the same as your current password", "Validation", MessageBoxButtons.OK,
+            MessageBoxIcon.Error)
+                                    End If
+                                Else
+                                    lblValidationPassword.Visible = True
+                                End If
                             Else
-                                lblValidationPassword.Visible = True
+                                MessageBox.Show("Secret answer was wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             End If
                         Else
-                            MessageBox.Show("Secret answer was wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show("Secret Question was wrong", "Unable to reset password", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         End If
                     Else
-                        MessageBox.Show("Secret Question was wrong", "Unable to reset password")
+                        lblUsernameError.Visible = True
+                        txtNewPassword.Text = ""
+                        txtConfirmPassword.Text = ""
+                        txtSecretAnswer.Text = ""
+                        txtUsername.Text = ""
+                        cboSecretQues.SelectedIndex = -1
                     End If
-                Else
-                    lblUsernameError.Visible = True
-                End If
+                Catch Ex As Exception
+                    MessageBox.Show("Check the data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
             Else
-                MessageBox.Show("Not connected", "Unable to reset password")
+                MessageBox.Show("Not connected", "Unable to reset password", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
             CloseConnection()
         End If

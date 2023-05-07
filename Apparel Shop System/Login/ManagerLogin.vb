@@ -15,57 +15,64 @@ Public Class ManagerLogin
         Dim strSql As String
         Dim position As String
         Dim strStatus As String
+        Dim fullName As String
         Dim strName = txtUserId.Text
         Dim strPasswd = txtPassword.Text
         Dim dbPasswd As String
-        Dim fullName As String
         'For userID to show in staff Management'
         strPassName = strUserId
         If strName = "" Or strPasswd = "" Then
             MessageBox.Show("Please input all the fields", "Validation")
         Else
             If OpenConnection() = True Then
-                'strSql = "SELECT Name,Position,Status,Password From NewStaff Where Name = @name and Password= @Password"
-                strSql = "SELECT Name,Position,Status,Password From Staff Where StaffID = @StaffID"
-                '"Select* From Users WHERE Name = @Name AND Position = @Position"
-                MySqlCommand = New SqlCommand(strSql, conn)
+                Try
+                    'strSql = "SELECT Name,Position,Status,Password From NewStaff Where Name = @name and Password= @Password"
+                    strSql = "SELECT Name,Position,Status,Password From Staff Where StaffID = @StaffID"
+                    '"Select* From Users WHERE Name = @Name AND Position = @Position"
+                    MySqlCommand = New SqlCommand(strSql, conn)
 
-                MySqlCommand.Parameters.AddWithValue("@StaffID", txtUserId.Text)
-                'MySqlCommand.Parameters.AddWithValue("@Password", txtPassword.Text)
-                Dim reader As SqlDataReader = MySqlCommand.ExecuteReader()
-                If reader.HasRows Then
-                    reader.Read()
-                    fullName = reader("Name").ToString
-                    strFullName = fullName
-                    position = reader("Position").ToString
-                    strStatus = reader("Status").ToString
-                    dbPasswd = reader("Password").ToString
-                    strPosition = position
-                    'Pass log in username to staff management form
-                    'dbPasswd = reader("Name").ToString
-                    If strStatus = "Active" Then
-                        If position = "Manager" Or position = "Assistant Manager" Then
-                            If dbPasswd.Equals(strPasswd) Then
-                                CloseConnection()
-                                Me.Hide()
+                    MySqlCommand.Parameters.AddWithValue("@StaffID", txtUserId.Text)
+                    'MySqlCommand.Parameters.AddWithValue("@Password", txtPassword.Text)
+                    Dim reader As SqlDataReader = MySqlCommand.ExecuteReader()
+                    If reader.HasRows Then
+                        reader.Read()
+                        fullName = reader("Name").ToString
+                        strFullName = fullName
+                        position = reader("Position").ToString
+                        strStatus = reader("Status").ToString
+                        dbPasswd = reader("Password").ToString
+                        strPosition = position
+                        'Pass log in username to staff management form
+                        'dbPasswd = reader("Name").ToString
+                        If strStatus = "Active" Then
+                            If position = "Manager" Or position = "Assistant Manager" Then
+                                If dbPasswd.Equals(strPasswd) Then
+                                    CloseConnection()
+                                    Me.Hide()
 
-                                ManagerHomepage.ShowDialog()
+                                    ManagerHomepage.ShowDialog()
+                                Else
+                                    MessageBox.Show("Password is invalid", "Unable to login", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                    txtPassword.Focus()
+                                End If
                             Else
-                                MessageBox.Show("Password is invalid", "Unable to login")
-                                txtPassword.Focus()
+                                MessageBox.Show("Only Manager will be allowed to login", "Unable to login", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                txtUserId.Text = ""
+                                txtPassword.Text = ""
                             End If
                         Else
-                            MessageBox.Show("Only Manager will be allowed to login", "Unable to login")
+                            MessageBox.Show("Account is inactive", "Unable to login", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            txtUserId.Text = ""
+                            txtPassword.Text = ""
+                            txtUserId.Focus()
                         End If
                     Else
-                        MessageBox.Show("Account is inactive", "Unable to login")
-                        txtUserId.Text = ""
-                        txtPassword.Text = ""
+                        MessageBox.Show("Please check the information you have entered properly", "Unable to login", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         txtUserId.Focus()
                     End If
-                Else
-                    MessageBox.Show("Please check the information you have entered properly", "Unable to login")
-                End If
+                Catch e As Exception
+                    MessageBox.Show("Error Retrieving information", "Exeption error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
             End If
             CloseConnection()
         End If
@@ -93,8 +100,7 @@ Public Class ManagerLogin
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Me.Hide()
+        Me.Close()
         Main.Show()
     End Sub
-
 End Class

@@ -47,9 +47,9 @@ Public Class ViewStaffDetails
                     lblViewStaffDob.Text = strDateOfBirth
                     lblViewStaffEndDate.Text = strEndDate
                     reader.Close()
-                    CloseConnection()
                 End If
             End If
         End If
+        CloseConnection()
     End Sub
 End Class

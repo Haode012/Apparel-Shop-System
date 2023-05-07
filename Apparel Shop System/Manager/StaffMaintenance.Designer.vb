@@ -36,29 +36,32 @@ Partial Class StaffMaintenance
         Me.PrintDocumentStaff = New System.Drawing.Printing.PrintDocument()
         Me.FileSystemWatcher1 = New System.IO.FileSystemWatcher()
         Me.dtgAllStaff = New System.Windows.Forms.DataGridView()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.picDelete = New System.Windows.Forms.PictureBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtFilterV = New System.Windows.Forms.TextBox()
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cbDropDownList = New System.Windows.Forms.ComboBox()
+        Me.c = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dtpFrom = New System.Windows.Forms.DateTimePicker()
         Me.dtpTo = New System.Windows.Forms.DateTimePicker()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.c = New System.Windows.Forms.Button()
-        Me.cbDropDownList = New System.Windows.Forms.ComboBox()
-        Me.btnSearch = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtFilterV = New System.Windows.Forms.TextBox()
-        Me.chkStaffInfoList = New System.Windows.Forms.CheckedListBox()
-        Me.picDelete = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.imagePanel.SuspendLayout()
         CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtgAllStaff, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
-        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox3.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -196,6 +199,116 @@ Partial Class StaffMaintenance
         Me.dtgAllStaff.Size = New System.Drawing.Size(1334, 463)
         Me.dtgAllStaff.TabIndex = 102
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PictureBox1.Image = Global.Apparel_Shop_System.My.Resources.Resources.user_icon
+        Me.PictureBox1.Location = New System.Drawing.Point(64, 40)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(101, 108)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 5
+        Me.PictureBox1.TabStop = False
+        '
+        'picDelete
+        '
+        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
+        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
+        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
+        Me.picDelete.Name = "picDelete"
+        Me.picDelete.Size = New System.Drawing.Size(46, 46)
+        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDelete.TabIndex = 0
+        Me.picDelete.TabStop = False
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.Label1)
+        Me.GroupBox3.Controls.Add(Me.txtFilterV)
+        Me.GroupBox3.Controls.Add(Me.btnSearch)
+        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.GroupBox3.Location = New System.Drawing.Point(246, 167)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(622, 83)
+        Me.GroupBox3.TabIndex = 106
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Search By Name:"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(15, 34)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(115, 25)
+        Me.Label1.TabIndex = 78
+        Me.Label1.Text = "Staff Name:"
+        '
+        'txtFilterV
+        '
+        Me.txtFilterV.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFilterV.Location = New System.Drawing.Point(158, 34)
+        Me.txtFilterV.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtFilterV.Name = "txtFilterV"
+        Me.txtFilterV.Size = New System.Drawing.Size(292, 30)
+        Me.txtFilterV.TabIndex = 77
+        '
+        'btnSearch
+        '
+        Me.btnSearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnSearch.ForeColor = System.Drawing.SystemColors.InactiveBorder
+        Me.btnSearch.Location = New System.Drawing.Point(456, 34)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(158, 37)
+        Me.btnSearch.TabIndex = 80
+        Me.btnSearch.Text = "&Search"
+        Me.btnSearch.UseVisualStyleBackColor = False
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Label2)
+        Me.GroupBox2.Controls.Add(Me.cbDropDownList)
+        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.GroupBox2.Location = New System.Drawing.Point(246, 265)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(622, 100)
+        Me.GroupBox2.TabIndex = 105
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Search By Status:"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(15, 47)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(119, 25)
+        Me.Label2.TabIndex = 88
+        Me.Label2.Text = "Staff Status:"
+        '
+        'cbDropDownList
+        '
+        Me.cbDropDownList.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbDropDownList.FormattingEnabled = True
+        Me.cbDropDownList.Items.AddRange(New Object() {"Active", "Inactive"})
+        Me.cbDropDownList.Location = New System.Drawing.Point(158, 44)
+        Me.cbDropDownList.Name = "cbDropDownList"
+        Me.cbDropDownList.Size = New System.Drawing.Size(292, 33)
+        Me.cbDropDownList.TabIndex = 81
+        '
+        'c
+        '
+        Me.c.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.c.ForeColor = System.Drawing.SystemColors.HighlightText
+        Me.c.Location = New System.Drawing.Point(874, 324)
+        Me.c.Name = "c"
+        Me.c.Size = New System.Drawing.Size(169, 41)
+        Me.c.TabIndex = 103
+        Me.c.Text = "&Reset Changes"
+        Me.c.UseVisualStyleBackColor = False
+        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Button6)
@@ -203,10 +316,11 @@ Partial Class StaffMaintenance
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.dtpFrom)
         Me.GroupBox1.Controls.Add(Me.dtpTo)
-        Me.GroupBox1.Location = New System.Drawing.Point(248, 259)
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.GroupBox1.Location = New System.Drawing.Point(887, 201)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(605, 100)
-        Me.GroupBox1.TabIndex = 110
+        Me.GroupBox1.Size = New System.Drawing.Size(636, 100)
+        Me.GroupBox1.TabIndex = 104
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Fired Date"
         '
@@ -214,9 +328,9 @@ Partial Class StaffMaintenance
         '
         Me.Button6.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Button6.ForeColor = System.Drawing.SystemColors.InactiveBorder
-        Me.Button6.Location = New System.Drawing.Point(436, 36)
+        Me.Button6.Location = New System.Drawing.Point(462, 41)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(158, 37)
+        Me.Button6.Size = New System.Drawing.Size(168, 36)
         Me.Button6.TabIndex = 90
         Me.Button6.Text = "&View"
         Me.Button6.UseVisualStyleBackColor = False
@@ -243,114 +357,17 @@ Partial Class StaffMaintenance
         '
         'dtpFrom
         '
-        Me.dtpFrom.Location = New System.Drawing.Point(138, 33)
+        Me.dtpFrom.Location = New System.Drawing.Point(86, 29)
         Me.dtpFrom.Name = "dtpFrom"
-        Me.dtpFrom.Size = New System.Drawing.Size(292, 22)
+        Me.dtpFrom.Size = New System.Drawing.Size(366, 30)
         Me.dtpFrom.TabIndex = 85
         '
         'dtpTo
         '
-        Me.dtpTo.Location = New System.Drawing.Point(138, 68)
+        Me.dtpTo.Location = New System.Drawing.Point(86, 64)
         Me.dtpTo.Name = "dtpTo"
-        Me.dtpTo.Size = New System.Drawing.Size(292, 22)
+        Me.dtpTo.Size = New System.Drawing.Size(366, 30)
         Me.dtpTo.TabIndex = 86
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(243, 215)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(119, 25)
-        Me.Label2.TabIndex = 109
-        Me.Label2.Text = "Staff Status:"
-        '
-        'c
-        '
-        Me.c.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.c.ForeColor = System.Drawing.SystemColors.HighlightText
-        Me.c.Location = New System.Drawing.Point(684, 218)
-        Me.c.Name = "c"
-        Me.c.Size = New System.Drawing.Size(169, 41)
-        Me.c.TabIndex = 108
-        Me.c.Text = "&Reset Changes"
-        Me.c.UseVisualStyleBackColor = False
-        '
-        'cbDropDownList
-        '
-        Me.cbDropDownList.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbDropDownList.FormattingEnabled = True
-        Me.cbDropDownList.Items.AddRange(New Object() {"Active", "Inactive"})
-        Me.cbDropDownList.Location = New System.Drawing.Point(386, 220)
-        Me.cbDropDownList.Name = "cbDropDownList"
-        Me.cbDropDownList.Size = New System.Drawing.Size(292, 33)
-        Me.cbDropDownList.TabIndex = 107
-        '
-        'btnSearch
-        '
-        Me.btnSearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.btnSearch.ForeColor = System.Drawing.SystemColors.InactiveBorder
-        Me.btnSearch.Location = New System.Drawing.Point(684, 167)
-        Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(158, 37)
-        Me.btnSearch.TabIndex = 106
-        Me.btnSearch.Text = "&Search"
-        Me.btnSearch.UseVisualStyleBackColor = False
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(243, 167)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(115, 25)
-        Me.Label1.TabIndex = 105
-        Me.Label1.Text = "Staff Name:"
-        '
-        'txtFilterV
-        '
-        Me.txtFilterV.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFilterV.Location = New System.Drawing.Point(386, 167)
-        Me.txtFilterV.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.txtFilterV.Name = "txtFilterV"
-        Me.txtFilterV.Size = New System.Drawing.Size(292, 30)
-        Me.txtFilterV.TabIndex = 104
-        '
-        'chkStaffInfoList
-        '
-        Me.chkStaffInfoList.BackColor = System.Drawing.Color.LightBlue
-        Me.chkStaffInfoList.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkStaffInfoList.FormattingEnabled = True
-        Me.chkStaffInfoList.Items.AddRange(New Object() {"Staff ID", "Staff Name", "Staff Age", "Staff IC", "Staff Phone", "Staff Position", "Staff Status"})
-        Me.chkStaffInfoList.Location = New System.Drawing.Point(968, 167)
-        Me.chkStaffInfoList.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.chkStaffInfoList.Name = "chkStaffInfoList"
-        Me.chkStaffInfoList.Size = New System.Drawing.Size(222, 156)
-        Me.chkStaffInfoList.TabIndex = 103
-        '
-        'picDelete
-        '
-        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
-        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
-        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
-        Me.picDelete.Name = "picDelete"
-        Me.picDelete.Size = New System.Drawing.Size(46, 46)
-        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picDelete.TabIndex = 0
-        Me.picDelete.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox1.Image = Global.Apparel_Shop_System.My.Resources.Resources.user_icon
-        Me.PictureBox1.Location = New System.Drawing.Point(64, 40)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(101, 108)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 5
-        Me.PictureBox1.TabStop = False
         '
         'StaffMaintenance
         '
@@ -358,14 +375,10 @@ Partial Class StaffMaintenance
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(1654, 1035)
-        Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.GroupBox3)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.c)
-        Me.Controls.Add(Me.cbDropDownList)
-        Me.Controls.Add(Me.btnSearch)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.txtFilterV)
-        Me.Controls.Add(Me.chkStaffInfoList)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.dtgAllStaff)
         Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.lblRecords)
@@ -381,12 +394,15 @@ Partial Class StaffMaintenance
         Me.imagePanel.ResumeLayout(False)
         CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dtgAllStaff, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -404,18 +420,19 @@ Partial Class StaffMaintenance
     Friend WithEvents PrintDocumentStaff As Printing.PrintDocument
     Friend WithEvents FileSystemWatcher1 As IO.FileSystemWatcher
     Friend WithEvents dtgAllStaff As DataGridView
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txtFilterV As TextBox
+    Friend WithEvents btnSearch As Button
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents cbDropDownList As ComboBox
+    Friend WithEvents c As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Button6 As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents dtpFrom As DateTimePicker
     Friend WithEvents dtpTo As DateTimePicker
-    Friend WithEvents Label2 As Label
-    Friend WithEvents c As Button
-    Friend WithEvents cbDropDownList As ComboBox
-    Friend WithEvents btnSearch As Button
-    Friend WithEvents Label1 As Label
-    Friend WithEvents txtFilterV As TextBox
-    Friend WithEvents chkStaffInfoList As CheckedListBox
-    Friend WithEvents PictureBox1 As PictureBox
 End Class

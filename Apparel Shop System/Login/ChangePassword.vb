@@ -42,7 +42,7 @@ Public Class ChangePassword
                 'End If
             End If
         Else
-            MessageBox.Show("Not connected", "Connection Disconnected")
+            MessageBox.Show("Not connected", "Aiyo")
         End If
         CloseConnection()
     End Sub
@@ -73,15 +73,12 @@ Public Class ChangePassword
         Dim strNewPassword As String = txtNewPasswd.Text
         Dim strCnfirmNewPassword As String = txtConfirmPasswd.Text
 
-
-
-        'Ruth, password here it wont change if the validation is there
         If strNewPassword = "" Or strCnfirmNewPassword = "" Then
-            MessageBox.Show("Please input all the fields", "Validation")
+            MessageBox.Show("Please input all the fields", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
             'ElseIf strNewPassword.Length < 9 And strCnfirmNewPassword.Length < 9 Then
             'MessageBox.Show("Password must be 9 or more characters", "Error")
         ElseIf strNewPassword <> strCnfirmNewPassword Then
-            MessageBox.Show("Password is not matching", "Validation")
+            MessageBox.Show("Password is not matching", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
         ElseIf txtConfirmPasswd.Text.Equals(txtOldPasswd.Text) Then
             MessageBox.Show("Your new password cannot be the same as your current password", "Validation", MessageBoxButtons.OK,
             MessageBoxIcon.Error)
@@ -89,16 +86,18 @@ Public Class ChangePassword
             txtConfirmPasswd.Text = ""
         Else
             If OpenConnection() = True Then
-                If strNewPassword.Length > 9 Then
+                If strNewPassword.Length > 8 Then
                     strSql = "Update Staff SET Password =@Password Where StaffID=@StaffID"
                     MySqlCommand = New SqlCommand(strSql, conn)
                     MySqlCommand.Parameters.AddWithValue("@StaffID", txtUserID.Text)
                     MySqlCommand.Parameters.AddWithValue("@Password", txtConfirmPasswd.Text)
                     MySqlCommand.ExecuteNonQuery()
                     MessageBox.Show("Password Reset Successfully", "Reset Password", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    txtNewPasswd.Text = ""
+                    txtConfirmPasswd.Text = ""
                     Me.Close()
                 Else
-                    MessageBox.Show("Password length must be more than 9 characters")
+                    MessageBox.Show("Password length must be more than 9 characters", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     lblValidationPassword.Visible = True
                 End If
             Else

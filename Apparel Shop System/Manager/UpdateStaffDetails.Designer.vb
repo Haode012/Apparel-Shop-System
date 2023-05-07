@@ -253,7 +253,7 @@ Partial Class UpdateStaffDetails
         Me.comboStaffPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.comboStaffPosition.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.comboStaffPosition.FormattingEnabled = True
-        Me.comboStaffPosition.Items.AddRange(New Object() {"Admin", "Cashier", "Salesperson", "Janitor", ""})
+        Me.comboStaffPosition.Items.AddRange(New Object() {"Manager", "Assistant Manager", "Cashier", "Salesperson", "Janitor"})
         Me.comboStaffPosition.Location = New System.Drawing.Point(742, 573)
         Me.comboStaffPosition.Margin = New System.Windows.Forms.Padding(4)
         Me.comboStaffPosition.Name = "comboStaffPosition"

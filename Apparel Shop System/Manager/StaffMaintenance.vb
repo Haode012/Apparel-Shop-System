@@ -9,10 +9,6 @@ Public Class StaffMaintenance
 
     End Sub
 
-    Private Sub lblUsername_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If strPosition = "Manager" Then
             With AddStaff
@@ -26,7 +22,7 @@ Public Class StaffMaintenance
         End If
     End Sub
 
-    Private Sub StaffMaintenance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub StaffManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Load()
     End Sub
 
@@ -40,37 +36,45 @@ Public Class StaffMaintenance
         Dim strSql As String
 
         'If OpenConnection() = True Then
-        strSql = "Select StaffID,Name,IcNo,Address,DateOfBirth,PhoneNumber,StartDate,EndDate,Position,Status From Staff"
-        MySqlCommand = New SqlCommand(strSql, conn)
-        Dim adapter As New SqlDataAdapter(MySqlCommand)
-        Dim dataTable As New DataTable()
-        adapter.Fill(dataTable)
-        dtgAllStaff.DataSource = dataTable
-        'dtgAllStaff.DataSource = "lololol"
-        lblRecords.Text = "Number of records:" + dtgAllStaff.Rows.Count.ToString
-        'End If
         Try
-            If dtgAllStaff.Rows.Count > 0 Then
-                For i As Integer = 0 To dtgAllStaff.Rows.Count - 1
-                    Dim status As String = dtgAllStaff.Rows(i).Cells("Status").Value.ToString().Trim()
-                    If status = "Active" Then
-                        For j As Integer = 0 To dtgAllStaff.Columns.Count - 1
-                            With dtgAllStaff.Rows(i).Cells(j).Style
-                                .BackColor = Color.Green
-                                .ForeColor = Color.White
-                            End With
-                        Next
-                    Else
-                        For j As Integer = 0 To dtgAllStaff.Columns.Count - 1
-                            With dtgAllStaff.Rows(i).Cells(j).Style
-                                .BackColor = Color.Red
-                                .ForeColor = Color.White
-                            End With
-                        Next
-                    End If
+            strSql = "Select StaffID,Name,IcNo,Address,DateOfBirth,PhoneNumber,StartDate,EndDate,Position,Status From Staff"
+            MySqlCommand = New SqlCommand(strSql, conn)
+            Dim adapter As New SqlDataAdapter(MySqlCommand)
+            Dim dataTable As New DataTable()
+            adapter.Fill(dataTable)
+            dtgAllStaff.DataSource = dataTable
+            'dtgAllStaff(0)
+            'dtgAllStaff.DataSource = "lololol"
+            For Each row As DataGridViewRow In dtgAllStaff.Rows
+                row.Height = 50
+            Next
 
-                Next
-            End If
+            For Each Font As DataGridViewColumn In dtgAllStaff.Columns
+                Font.DefaultCellStyle.Font = New Font("Arial", 12, FontStyle.Regular)
+            Next
+            lblRecords.Text = "Number of records:" + dtgAllStaff.Rows.Count.ToString
+            'End If
+            'If dtgAllStaff.Rows.Count > 0 Then
+            '    For i As Integer = 0 To dtgAllStaff.Rows.Count - 1
+            '        Dim status As String = dtgAllStaff.Rows(i).Cells("Status").Value.ToString().Trim()
+            '        If status = "Active" Then
+            '            For j As Integer = 0 To dtgAllStaff.Columns.Count - 1
+            '                With dtgAllStaff.Rows(i).Cells(j).Style
+            '                    .BackColor = Color.Green
+            '                    .ForeColor = Color.White
+            '                End With
+            '            Next
+            '        Else
+            '            For j As Integer = 0 To dtgAllStaff.Columns.Count - 1
+            '                With dtgAllStaff.Rows(i).Cells(j).Style
+            '                    .BackColor = Color.Red
+            '                    .ForeColor = Color.White
+            '                End With
+            '            Next
+            '        End If
+
+            '    Next
+            'End If
         Catch e As Exception
             MessageBox.Show(e.ToString())
         End Try
@@ -82,22 +86,6 @@ Public Class StaffMaintenance
         strId = dtgAllStaff.SelectedRows(0).Cells(0).ToString
         Return strId
     End Function
-
-    Private Sub chkStaffInfoList_SelectedIndexChanged(sender As Object, e As EventArgs)
-
-        If chkStaffInfoList.SelectedItem.ToString = "Staff ID" Then
-            dtgAllStaff.Columns(0).Visible = False
-        Else
-            dtgAllStaff.Columns(0).Visible = True
-            dtgAllStaff.Columns(1).Visible = True
-            dtgAllStaff.Columns(2).Visible = True
-            dtgAllStaff.Columns(3).Visible = True
-            dtgAllStaff.Columns(4).Visible = True
-            dtgAllStaff.Columns(5).Visible = True
-            dtgAllStaff.Columns(6).Visible = True
-        End If
-
-    End Sub
 
     Private Sub searchFilter()
         Dim MySqlCommand As New SqlCommand
@@ -119,8 +107,7 @@ Public Class StaffMaintenance
 
     End Sub
 
-
-    Private Sub btnSearch_Click(sender As Object, e As EventArgs)
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         searchFilter()
     End Sub
 
@@ -151,34 +138,34 @@ Public Class StaffMaintenance
         End If
     End Sub
 
-    Private Sub txtFilterV_TextChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
     Private Sub dtgAllStaff_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgAllStaff.CellDoubleClick
         'AddStaff.Show()
         Dim intNo As Integer = e.RowIndex
         Try
             ViewStaffDetails.strSelectedStaffId = CStr(dtgAllStaff.Rows(intNo).Cells(0).Value)
             ViewStaffDetails.Show()
-            Load()
+            'Load()
         Catch ex As ArgumentOutOfRangeException
         End Try
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs)
-        Dim user As New ChangePassword
-        user.strUserId = strPassName
-        ChangePassword.ShowDialog()
-    End Sub
-
-    Private Sub Button6_Click(sender As Object, e As EventArgs)
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles c.Click
         ' Dim i As Integer
         'For i = 0 To 7
         'dtgAllStaff.Columns(i).Visible = True
         ' Next
         Load()
+        For i As Integer = 0 To 9
+            dtgAllStaff.Columns(i).Visible = True
+        Next
         cbDropDownList.SelectedIndex = -1
+        txtFilterV.Text = ""
+        dtpFrom.Value = Date.Today
+        dtpTo.Value = Date.Today
+
+        'For Each i As Integer In chkStaffInfoList.CheckedIndices
+        '    chkStaffInfoList.SetItemCheckState(i, CheckState.Unchecked)
+        'Next
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
@@ -196,7 +183,7 @@ Public Class StaffMaintenance
         Dim fntHeader As New Font("Arial", 28, FontStyle.Bold Or FontStyle.Underline)
         Dim fntNextSubHeader As New Font("Arial", 13, FontStyle.Regular)
         Dim strHeader As String = "STAFF REPORT OF APPARELL SHOP SYSTEM“
-        Dim reportGenerateUser As String = "Report Generate By: " & strPassName & "Position: ".PadLeft(90) & strPosition
+        Dim reportGenerateUser As String = "Report Generate By: " & strFullName & "Position: ".PadLeft(90) & strPosition
         Dim reportGenerateUserPosition As String = "Position: " + strPosition
         Dim reportGeneratedTimeDate As String = "Report Generated At: " + strDate
         Dim body As New System.Text.StringBuilder
@@ -336,7 +323,7 @@ Public Class StaffMaintenance
 
 
 
-    Private Sub cbDropDownList_SelectedIndexChanged(sender As Object, e As EventArgs)
+    Private Sub cbDropDownList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbDropDownList.SelectedIndexChanged
         If cbDropDownList.SelectedIndex = 0 Then
             showActiveUsersOnly()
         ElseIf cbDropDownList.SelectedIndex = 1 Then
@@ -352,7 +339,7 @@ Public Class StaffMaintenance
     Private Sub LoadFiredStaffBasedOnDate()
         Dim MySqlCommand As New SqlCommand
         Dim strSql As String
-        strSql = "SELECT StaffID, Name, IcNo, Address, DateOfBirth, PhoneNumber, StartDate, EndDate, Position, Status FROM Staff WHERE Status = 'Inactive'AND EndDate Between @DateStart AND @DateEnd"
+        strSql = "SELECT StaffID, Name, IcNo, Address, DateOfBirth, PhoneNumber, StartDate, EndDate, Position, Status FROM Staff WHERE Status = 'Inactive'AND EndDate Between @DateStart AND @DateEnd ORDER BY EndDate ASC"
         'strSql = "SELECT * FROM NewestStaff WHERE Convert(datetime,[EndDate],110) BETWEEN Convert(datetime,@FromDate,103) AND Convert(datetime,@ToDate,103)"
         MySqlCommand = New SqlCommand(strSql, conn)
         MySqlCommand.Parameters.AddWithValue("@DateStart", dtpFrom.Value)
@@ -363,9 +350,6 @@ Public Class StaffMaintenance
         dtgAllStaff.DataSource = dataTable
         strCurrentStaff = "Current Employed Staff"
         lblRecords.Text = "Number of records:" + dtgAllStaff.Rows.Count.ToString
-    End Sub
-    Private Sub Button8_Click(sender As Object, e As EventArgs)
-        ChangeSecretQuestionAndAnswer.Show()
     End Sub
 
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click

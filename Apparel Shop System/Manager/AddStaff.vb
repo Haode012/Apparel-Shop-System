@@ -34,8 +34,8 @@ Public Class AddStaff
 
         If txtStaffName.Text = "" Then
             MessageBox.Show("Please enter the staff name", "Error Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        ElseIf mtxtIcNo.Text = "" Then
-            MessageBox.Show("Please enter the staff Ic No", "Error Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf mtxtIcNo.MaskCompleted = False Then
+            MessageBox.Show("Please enter the staff Ic No correctly", "Error Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
         ElseIf txtHomeAddress.Text = "" Then
             MessageBox.Show("Please enter the staff home address", "Error Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
         ElseIf phoneNumber.IsMatch(mtxtPhoneNumber.Text) = False Then
@@ -56,57 +56,57 @@ Public Class AddStaff
             MessageBox.Show("Too young to recruit", "Under Age", MessageBoxButtons.OK, MessageBoxIcon.Error)
             dtpDob.Value = DateTime.Now
         Else
-            'Try
-            If OpenConnection() = True Then
-                strSql2 = "Select * From Staff Where IcNo= @IcNo"
-                MySqlCommandCheck = New SqlCommand(strSql2, conn)
-                MySqlCommandCheck.Parameters.AddWithValue("@IcNo", mtxtIcNo.Text)
-                Dim reader As SqlDataReader = MySqlCommandCheck.ExecuteReader()
-                If reader.HasRows Then
-                    reader.Read()
-                    MessageBox.Show("Ic Number exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Else
-                    reader.Close()
-                    strSql2 = "Select * From Staff Where PhoneNumber = @PhoneNumber"
+            Try
+                If OpenConnection() = True Then
+                    strSql2 = "Select * From Staff Where IcNo= @IcNo"
                     MySqlCommandCheck = New SqlCommand(strSql2, conn)
-                    MySqlCommandCheck.Parameters.AddWithValue("@PhoneNumber", mtxtPhoneNumber.Text)
-                    Dim reader2 As SqlDataReader = MySqlCommandCheck.ExecuteReader()
-                    If reader2.HasRows Then
-                        reader2.Read()
-                        MessageBox.Show("Phone Number exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        reader2.Close()
+                    MySqlCommandCheck.Parameters.AddWithValue("@IcNo", mtxtIcNo.Text)
+                    Dim reader As SqlDataReader = MySqlCommandCheck.ExecuteReader()
+                    If reader.HasRows Then
+                        reader.Read()
+                        MessageBox.Show("Ic Number exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
-                        reader2.Close()
-                        strSql = "Insert Into Staff(StaffID,Name,Address,PhoneNumber,DateOfBirth,startDate,endDate,IcNo,Position,Status,Password,SecretQuestion,SecretAnswer)Values(@StaffID,@Name,@Address,@PhoneNumber,@DateOfBirth,@startDate,NULL,@IcNo,@Position,@Status,@Password,@SecretQuestion,@SecretAnswer)"
-                        MySqlCommand = New SqlCommand(strSql, conn)
-                        'MySqlCommand.Parameters.AddWithValue("@Id", 6)
-                        MySqlCommand.Parameters.AddWithValue("@StaffID", lblStaffID.Text)
-                        MySqlCommand.Parameters.AddWithValue("@Name", txtStaffName.Text)
-                        MySqlCommand.Parameters.AddWithValue("@Address", txtHomeAddress.Text)
-                        MySqlCommand.Parameters.AddWithValue("@PhoneNumber", mtxtPhoneNumber.Text)
-                        MySqlCommand.Parameters.AddWithValue("@DateOfBirth", dateOfBirth)
-                        MySqlCommand.Parameters.AddWithValue("@startDate", startDate)
-                        'MySqlCommand.Parameters.AddWithValue("@endDate", null)
-                        MySqlCommand.Parameters.AddWithValue("@IcNo", mtxtIcNo.Text)
-                        MySqlCommand.Parameters.AddWithValue("@Position", comboStaffPosition.Text)
-                        MySqlCommand.Parameters.AddWithValue("@Status", "Active")
-                        MySqlCommand.Parameters.AddWithValue("@Password", txtPassword.Text)
-                        MySqlCommand.Parameters.AddWithValue("@SecretQuestion", choosenSecretQuestion)
-                        MySqlCommand.Parameters.AddWithValue("@SecretAnswer", txtStaffSecretQuestionAns.Text)
-                        MySqlCommand.ExecuteNonQuery()
-                        MessageBox.Show("Record Added.", "Add Record")
-                        Me.Close()
-                        StaffMaintenance.RefreshDataGridView()
+                        reader.Close()
+                        strSql2 = "Select * From Staff Where PhoneNumber = @PhoneNumber"
+                        MySqlCommandCheck = New SqlCommand(strSql2, conn)
+                        MySqlCommandCheck.Parameters.AddWithValue("@PhoneNumber", mtxtPhoneNumber.Text)
+                        Dim reader2 As SqlDataReader = MySqlCommandCheck.ExecuteReader()
+                        If reader2.HasRows Then
+                            reader2.Read()
+                            MessageBox.Show("Phone Number exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            reader2.Close()
+                        Else
+                            reader2.Close()
+                            strSql = "Insert Into Staff(StaffID,Name,Address,PhoneNumber,DateOfBirth,startDate,endDate,IcNo,Position,Status,Password,SecretQuestion,SecretAnswer)Values(@StaffID,@Name,@Address,@PhoneNumber,@DateOfBirth,@startDate,NULL,@IcNo,@Position,@Status,@Password,@SecretQuestion,@SecretAnswer)"
+                            MySqlCommand = New SqlCommand(strSql, conn)
+                            'MySqlCommand.Parameters.AddWithValue("@Id", 6)
+                            MySqlCommand.Parameters.AddWithValue("@StaffID", lblStaffID.Text)
+                            MySqlCommand.Parameters.AddWithValue("@Name", txtStaffName.Text)
+                            MySqlCommand.Parameters.AddWithValue("@Address", txtHomeAddress.Text)
+                            MySqlCommand.Parameters.AddWithValue("@PhoneNumber", mtxtPhoneNumber.Text)
+                            MySqlCommand.Parameters.AddWithValue("@DateOfBirth", dateOfBirth)
+                            MySqlCommand.Parameters.AddWithValue("@startDate", startDate)
+                            'MySqlCommand.Parameters.AddWithValue("@endDate", null)
+                            MySqlCommand.Parameters.AddWithValue("@IcNo", mtxtIcNo.Text)
+                            MySqlCommand.Parameters.AddWithValue("@Position", comboStaffPosition.Text)
+                            MySqlCommand.Parameters.AddWithValue("@Status", "Active")
+                            MySqlCommand.Parameters.AddWithValue("@Password", txtPassword.Text)
+                            MySqlCommand.Parameters.AddWithValue("@SecretQuestion", choosenSecretQuestion)
+                            MySqlCommand.Parameters.AddWithValue("@SecretAnswer", txtStaffSecretQuestionAns.Text)
+                            MySqlCommand.ExecuteNonQuery()
+                            MessageBox.Show("Record Added.", "Add Record", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Me.Close()
+                            StaffMaintenance.RefreshDataGridView()
+                        End If
                     End If
+                Else
+                    MessageBox.Show("Connection closed", "Error Connection")
                 End If
-            Else
-                MessageBox.Show("Connection closed", "Error Connection")
-            End If
+            Catch ex As Exception
+                MessageBox.Show("Check the data", "Error")
+            End Try
         End If
         CloseConnection()
-        ' Catch
-        '  MessageBox.Show("Check the data", "Error")
-        ' End Try
     End Sub
 
     Private Sub txtHomeAddress_TextChanged(sender As Object, e As EventArgs) Handles txtHomeAddress.TextChanged
@@ -147,6 +147,13 @@ Public Class AddStaff
         StaffMaintenance.Show()
     End Sub
 
+    Private Sub dtpDob_ValueChanged(sender As Object, e As EventArgs) Handles dtpDob.ValueChanged
+        If dtpDob.Value > DateTime.Today Then
+            MessageBox.Show("Can't assign future date of birth for staff", "Date Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            dtpDob.Value = Today.Date
+        End If
+    End Sub
+
     'Private Sub cboSecretQues_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboSecretQues.SelectedIndexChanged
     '    lblSecretQuestionChoosed.Text = cboSecretQues.SelectedItem
     'End Sub
@@ -162,6 +169,5 @@ Public Class AddStaff
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
         Me.Close()
     End Sub
-
 
 End Class
