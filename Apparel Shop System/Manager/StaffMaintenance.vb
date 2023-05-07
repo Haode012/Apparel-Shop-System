@@ -96,7 +96,7 @@ Public Class StaffMaintenance
             MessageBox.Show("Search field is empty", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
             If OpenConnection() = True Then
-                strSql = "Select StaffID,Name,IcNo,Address,DateOfBirth,PhoneNumber,StartDate,EndDate,Position,Status From AllStaff where Name like '%" + txtFilterV.Text + "%'"
+                strSql = "Select StaffID,Name,IcNo,Address,DateOfBirth,PhoneNumber,StartDate,EndDate,Position,Status From Staff where Name like '%" + txtFilterV.Text + "%'"
                 MySqlCommand = New SqlCommand(strSql, conn)
 
                 Dim adapter As New SqlDataAdapter(MySqlCommand)
