@@ -34,7 +34,7 @@ Partial Class SplashScreen
         Me.lblWelcome.Name = "lblWelcome"
         Me.lblWelcome.Size = New System.Drawing.Size(699, 264)
         Me.lblWelcome.TabIndex = 6
-        Me.lblWelcome.Text = "YJRCH Apperal Shop System"
+        Me.lblWelcome.Text = "YJRCH Apparel Shop System"
         Me.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'SplashScreen

@@ -23,6 +23,13 @@ Partial Class Homepage
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.leftPanel = New System.Windows.Forms.Panel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.panelShow = New System.Windows.Forms.Panel()
+        Me.lblWelcome = New System.Windows.Forms.Label()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.btnLogOut = New System.Windows.Forms.Button()
         Me.btnChangeSecret = New System.Windows.Forms.Button()
         Me.btnChangePassowrd = New System.Windows.Forms.Button()
@@ -34,18 +41,11 @@ Partial Class Homepage
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblUsername = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.panelShow = New System.Windows.Forms.Panel()
-        Me.lblWelcome = New System.Windows.Forms.Label()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.leftPanel.SuspendLayout()
-        Me.imagePanel.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelShow.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.imagePanel.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'leftPanel
@@ -64,6 +64,74 @@ Partial Class Homepage
         Me.leftPanel.Name = "leftPanel"
         Me.leftPanel.Size = New System.Drawing.Size(250, 1055)
         Me.leftPanel.TabIndex = 2
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel1.Location = New System.Drawing.Point(250, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(10, 1055)
+        Me.Panel1.TabIndex = 3
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.White
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel3.Location = New System.Drawing.Point(260, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(1664, 10)
+        Me.Panel3.TabIndex = 5
+        '
+        'Panel4
+        '
+        Me.Panel4.BackColor = System.Drawing.Color.White
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel4.Location = New System.Drawing.Point(260, 1045)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(1664, 10)
+        Me.Panel4.TabIndex = 6
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.White
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel2.Location = New System.Drawing.Point(1914, 10)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(10, 1035)
+        Me.Panel2.TabIndex = 7
+        '
+        'panelShow
+        '
+        Me.panelShow.Controls.Add(Me.lblWelcome)
+        Me.panelShow.Controls.Add(Me.PictureBox2)
+        Me.panelShow.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.panelShow.Location = New System.Drawing.Point(260, 10)
+        Me.panelShow.Name = "panelShow"
+        Me.panelShow.Size = New System.Drawing.Size(1654, 1035)
+        Me.panelShow.TabIndex = 8
+        '
+        'lblWelcome
+        '
+        Me.lblWelcome.BackColor = System.Drawing.Color.LightCyan
+        Me.lblWelcome.Font = New System.Drawing.Font("Segoe Script", 60.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWelcome.Location = New System.Drawing.Point(136, 318)
+        Me.lblWelcome.Name = "lblWelcome"
+        Me.lblWelcome.Size = New System.Drawing.Size(1381, 398)
+        Me.lblWelcome.TabIndex = 5
+        Me.lblWelcome.Text = "Welcome to YJRCH Apparel Shop System"
+        Me.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox2.Image = Global.Apparel_Shop_System.My.Resources.Resources.apperal_shop
+        Me.PictureBox2.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(1654, 1035)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 4
+        Me.PictureBox2.TabStop = False
         '
         'btnLogOut
         '
@@ -231,74 +299,6 @@ Partial Class Homepage
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
         '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.White
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel1.Location = New System.Drawing.Point(250, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(10, 1055)
-        Me.Panel1.TabIndex = 3
-        '
-        'Panel3
-        '
-        Me.Panel3.BackColor = System.Drawing.Color.White
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel3.Location = New System.Drawing.Point(260, 0)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1664, 10)
-        Me.Panel3.TabIndex = 5
-        '
-        'Panel4
-        '
-        Me.Panel4.BackColor = System.Drawing.Color.White
-        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel4.Location = New System.Drawing.Point(260, 1045)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(1664, 10)
-        Me.Panel4.TabIndex = 6
-        '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.White
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel2.Location = New System.Drawing.Point(1914, 10)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(10, 1035)
-        Me.Panel2.TabIndex = 7
-        '
-        'panelShow
-        '
-        Me.panelShow.Controls.Add(Me.lblWelcome)
-        Me.panelShow.Controls.Add(Me.PictureBox2)
-        Me.panelShow.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.panelShow.Location = New System.Drawing.Point(260, 10)
-        Me.panelShow.Name = "panelShow"
-        Me.panelShow.Size = New System.Drawing.Size(1654, 1035)
-        Me.panelShow.TabIndex = 8
-        '
-        'lblWelcome
-        '
-        Me.lblWelcome.BackColor = System.Drawing.Color.LightCyan
-        Me.lblWelcome.Font = New System.Drawing.Font("Segoe Script", 60.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblWelcome.Location = New System.Drawing.Point(136, 318)
-        Me.lblWelcome.Name = "lblWelcome"
-        Me.lblWelcome.Size = New System.Drawing.Size(1381, 398)
-        Me.lblWelcome.TabIndex = 5
-        Me.lblWelcome.Text = "Welcome to YJRCH Apperal Shop System"
-        Me.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox2.Image = Global.Apparel_Shop_System.My.Resources.Resources.apperal_shop
-        Me.PictureBox2.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(1654, 1035)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 4
-        Me.PictureBox2.TabStop = False
-        '
         'Homepage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -315,10 +315,10 @@ Partial Class Homepage
         Me.Text = "YJRCH Apperal Shop System"
         Me.WindowState = System.Windows.Forms.FormWindowState.Minimized
         Me.leftPanel.ResumeLayout(False)
-        Me.imagePanel.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelShow.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.imagePanel.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

@@ -93,6 +93,8 @@ Public Class ProductItemDetails
         End Set
     End Property
 
+    Private PromotionStatus As String
+
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
         Me.Close()
         Membership.Close()
@@ -179,28 +181,28 @@ Public Class ProductItemDetails
 
                     Calculation()
 
-                    Me.Close()
-                    ProductItem.Close()
-                    OrderCart.Close()
-                    OrderHistory.Close()
+                        Me.Close()
+                        ProductItem.Close()
+                        OrderCart.Close()
+                        OrderHistory.Close()
+                    Else
+                        cmd = con.CreateCommand
+                        cmd.CommandType = CommandType.Text
+                        cmd.CommandText = "UPDATE Product SET productStock=@stock WHERE productId=@id"
+                        cmd.Parameters.AddWithValue("@stock", lblProductStock.Text)
+                        cmd.Parameters.AddWithValue("@id", lblProductID.Text)
+                        cmd.ExecuteNonQuery()
+
+                        Calculation()
+
+                        Me.Close()
+                        ProductItem.Close()
+                        OrderCart.Close()
+                        OrderHistory.Close()
+                    End If
                 Else
-                    cmd = con.CreateCommand
-                    cmd.CommandType = CommandType.Text
-                    cmd.CommandText = "UPDATE Product SET productStock=@stock WHERE productId=@id"
-                    cmd.Parameters.AddWithValue("@stock", lblProductStock.Text)
-                    cmd.Parameters.AddWithValue("@id", lblProductID.Text)
-                    cmd.ExecuteNonQuery()
-
-                    Calculation()
-
-                    Me.Close()
-                    ProductItem.Close()
-                    OrderCart.Close()
-                    OrderHistory.Close()
+                    MessageBox.Show("Only Cashier allow to add to cart", "Unauthorized Access", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
-            Else
-                MessageBox.Show("Only Cashier allow to add to cart", "Unauthorized Access", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
 
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -227,7 +229,28 @@ Public Class ProductItemDetails
 
         Dim prices As String = price.ToString("0.00")
 
-        If percentageString <> "-" Then
+        cmd = con.CreateCommand
+        cmd.CommandType = CommandType.Text
+        cmd.CommandText = "SELECT promotionId FROM Product WHERE productId=@id"
+        cmd.Parameters.AddWithValue("@id", lblProductID.Text)
+        Dim promotionId As Object = cmd.ExecuteScalar()
+
+        If promotionId IsNot Nothing AndAlso Not IsDBNull(promotionId) Then
+            cmd = con.CreateCommand
+            cmd.CommandType = CommandType.Text
+            cmd.CommandText = "SELECT promotionDiscount, status FROM Promotion WHERE promotionId=@id"
+            cmd.Parameters.AddWithValue("@id", promotionId)
+            Dim reader As SqlDataReader = cmd.ExecuteReader()
+
+            If reader.Read() Then
+                PromotionDiscount = reader.GetDecimal(0)
+                PromotionStatus = reader.GetString(1)
+            End If
+
+            reader.Close()
+        End If
+
+        If PromotionStatus = "started" Or percentageString <> "-" Then
             percentageWithoutS = percentageString.Replace("%", "")
             percentage = Double.Parse(percentageWithoutS) / 100
             totalPrice = price * percentage * quantity
