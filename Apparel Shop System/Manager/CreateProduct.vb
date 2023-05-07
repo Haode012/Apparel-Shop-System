@@ -94,10 +94,8 @@ Public Class CreateProduct
                     picImage.Image.Save(ms, picImage.Image.RawFormat)
                     Dim img As Byte() = ms.ToArray()
 
-                    Dim sql As String = "INSERT INTO Product (productID, productName, productGender, productCategory, productSize, productDescription, productPrice, productStock, productImage, dateCreated) VALUES (@ProductID, @ProductName, @Gender, @Category, @Size, @Description, @Price, @Stock, @Image, CONVERT(nvarchar(10), GETDATE(), 103))"
+                    Dim sql As String = "INSERT INTO Product (productName, productGender, productCategory, productSize, productDescription, productPrice, productStock, productImage, dateCreated) VALUES (@ProductName, @Gender, @Category, @Size, @Description, @Price, @Stock, @Image, CONVERT(nvarchar(10), GETDATE(), 103))"
                     Using cmd As New SqlCommand(sql, con)
-                        Dim productID As String = "P" & Guid.NewGuid().ToString().Substring(0, 8)
-                        cmd.Parameters.AddWithValue("@ProductID", productID)
                         cmd.Parameters.AddWithValue("@ProductName", txtProductName.Text)
                         cmd.Parameters.AddWithValue("@Gender", gender)
                         cmd.Parameters.AddWithValue("@Category", cmbProductCategory.Text)

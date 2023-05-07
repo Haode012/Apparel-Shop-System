@@ -1,22 +1,11 @@
 ﻿Imports System.ComponentModel
 Imports System.Data.SqlClient
+Imports System.Text
 
 Public Class Promotion_Add
 
     Dim con As New SqlConnection
     Dim cmd As New SqlCommand
-
-    Private Sub Promotion_Add_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-        con.ConnectionString = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True"
-
-        If con.State = ConnectionState.Open Then
-            con.Close()
-        End If
-
-        con.Open()
-
-    End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
 
@@ -24,65 +13,79 @@ Public Class Promotion_Add
 
     End Sub
 
-
-    'Private Sub txtTitle_Validating(sender As Object, e As CancelEventArgs) Handles txtPromotionName.Validating
-
-    '    Dim strtitle As String = txtPromotionName.Text
-
-    '    If strtitle = "" Then
-    '        Err.SetError(txtPromotionName, "Title cannot be empty")
-    '        e.Cancel = True
-    '    Else
-    '        Err.SetError(txtPromotionName, Nothing)
-    '    End If
-
-    'End Sub
-
-    'Private Sub txtDesc_Validating(sender As Object, e As CancelEventArgs) Handles txtDesc.Validating
-
-    '    Dim strDecs As String = txtDesc.Text
-
-    '    If strDecs = "" Then
-    '        Err.SetError(txtDesc, "Title cannot be empty")
-    '        e.Cancel = True
-    '    Else
-    '        Err.SetError(txtDesc, Nothing)
-    '    End If
-    'End Sub
-
     Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
 
-        Me.Close()
+        Dim strManager As String = strFullName
+        Dim now As DateTime = DateTime.Now
+
+        Dim strTitle As String = txtPromotionName.Text
+        Dim strDesc As String = txtDesc.Text
+
+        Dim status As String
+        If DateTime.Now < dtpStarting.Value Then
+            status = "Pending"
+        ElseIf DateTime.Now > dtpEnding.Value Then
+            status = "Ended"
+        Else
+            status = "Started"
+        End If
+
+        Dim err As New StringBuilder()
+        Dim ctr As Control = Nothing
+
+        If String.IsNullOrEmpty(txtPromotionName.Text) Then
+            err.AppendLine("- Please Enter Promotion Name")
+            ctr = If(ctr, txtPromotionName)
+        End If
+
+        If String.IsNullOrEmpty(txtDesc.Text) Then
+            err.AppendLine("- Please Enter Promotion Description")
+            ctr = If(ctr, txtDesc)
+        End If
+
+        If String.IsNullOrEmpty(txtDiscount.Text) Then
+            err.AppendLine("- Please Enter discount percentage")
+            ctr = If(ctr, txtDiscount)
+        End If
+
+
+        If err.Length > 0 Then
+            MessageBox.Show(err.ToString(), "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ctr.Focus()
+            Return
+        End If
+
+        con.Close()
+
+        Dim connectionString As String = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True"
+        con = New SqlConnection(connectionString)
+        con.Open()
+
+        Dim sql As String = "INSERT INTO Promotion (promotionName, promotionDescription, promotionStart, promotionEnd, createBy, creationDay, promotionDiscount, promotionStatus) VALUES (@Name, @Desc, @Start, @End, @createBy, @creationDay, @Discount, @Status)"
+        Using cmd As New SqlCommand(sql, con)
+            cmd.Parameters.AddWithValue("@Name", txtPromotionName.Text)
+            cmd.Parameters.AddWithValue("@Desc", txtDesc.Text)
+            cmd.Parameters.AddWithValue("@Start", dtpStarting.Value)
+            cmd.Parameters.AddWithValue("@End", dtpEnding.Value)
+            cmd.Parameters.AddWithValue("@createBy", strManager)
+            cmd.Parameters.AddWithValue("@creationDay", now)
+
+            If Not txtDiscount.Text.Contains("%") Then
+                txtDiscount.Text &= "%"
+            End If
+
+            cmd.Parameters.AddWithValue("@Discount", txtDiscount.Text)
+            cmd.Parameters.AddWithValue("@Status", status)
+
+            cmd.ExecuteNonQuery()
+
+            MessageBox.Show("Promotion created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Me.Close()
+
+        End Using
 
     End Sub
 
-    Private Sub txtDiscount_TextChanged(sender As Object, e As EventArgs) Handles txtDiscount.TextChanged
-
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
-    End Sub
-
-    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
-
-    End Sub
-
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
-
-    End Sub
-
-    Private Sub dtpEnding_ValueChanged(sender As Object, e As EventArgs) Handles dtpEnding.ValueChanged
-
-    End Sub
-
-    Private Sub Label10_Click(sender As Object, e As EventArgs) Handles Label10.Click
-
-    End Sub
-
-    Private Sub dtpStarting_ValueChanged(sender As Object, e As EventArgs) Handles dtpStarting.ValueChanged
-
-    End Sub
 
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
         Me.Close()
