@@ -137,6 +137,7 @@ Public Class MemberRegister2
         Membership.Close()
         ProductItem.Close()
         OrderCart.Close()
+        OrderHistory.Close()
     End Sub
 
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click

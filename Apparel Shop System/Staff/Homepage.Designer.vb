@@ -78,7 +78,7 @@ Partial Class Homepage
         Me.btnLogOut.Location = New System.Drawing.Point(0, 526)
         Me.btnLogOut.Name = "btnLogOut"
         Me.btnLogOut.Size = New System.Drawing.Size(250, 46)
-        Me.btnLogOut.TabIndex = 17
+        Me.btnLogOut.TabIndex = 22
         Me.btnLogOut.Text = "&Log Out"
         Me.btnLogOut.UseVisualStyleBackColor = True
         '
@@ -95,7 +95,7 @@ Partial Class Homepage
         Me.btnChangeSecret.Location = New System.Drawing.Point(0, 442)
         Me.btnChangeSecret.Name = "btnChangeSecret"
         Me.btnChangeSecret.Size = New System.Drawing.Size(250, 84)
-        Me.btnChangeSecret.TabIndex = 16
+        Me.btnChangeSecret.TabIndex = 21
         Me.btnChangeSecret.Text = "C&hange Secret " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Question " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Information"
         Me.btnChangeSecret.UseVisualStyleBackColor = True
         '
@@ -112,7 +112,7 @@ Partial Class Homepage
         Me.btnChangePassowrd.Location = New System.Drawing.Point(0, 373)
         Me.btnChangePassowrd.Name = "btnChangePassowrd"
         Me.btnChangePassowrd.Size = New System.Drawing.Size(250, 69)
-        Me.btnChangePassowrd.TabIndex = 15
+        Me.btnChangePassowrd.TabIndex = 20
         Me.btnChangePassowrd.Text = "&Change " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Password"
         Me.btnChangePassowrd.UseVisualStyleBackColor = True
         '
@@ -339,7 +339,7 @@ Partial Class Homepage
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents btnMyCart As Button
     Friend WithEvents btnOrderHistory As Button
-    Friend WithEvents btnChangePassowrd As Button
     Friend WithEvents btnLogOut As Button
     Friend WithEvents btnChangeSecret As Button
+    Friend WithEvents btnChangePassowrd As Button
 End Class

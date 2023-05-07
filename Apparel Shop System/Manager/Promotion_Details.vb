@@ -283,6 +283,7 @@ Public Class Promotion_Details
         StaffMaintenance.Close()
         MembershipMaintenance.Close()
         PromotionMaintenance.Close()
+        DailySalesReportViewer.Close()
         con.Close()
     End Sub
 

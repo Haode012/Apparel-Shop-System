@@ -55,7 +55,7 @@ Public Class PaymentReceipt
         con.Open()
         cmd = con.CreateCommand
         cmd.CommandType = CommandType.Text
-        cmd.CommandText = "select productId,productName,unitPrice,quantity,promotion,amount from OrderItem where receiptId = @ReceiptId"
+        cmd.CommandText = "select productId,productName,unitPrice,quantity,promotion,amount from OrderHistory where receiptId = @ReceiptId"
 
 
 
@@ -87,6 +87,7 @@ Public Class PaymentReceipt
         ProductItem.Close()
         OrderCart.Close()
         Payment.Close()
+        OrderHistory.Close()
     End Sub
 
     Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click

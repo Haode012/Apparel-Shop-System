@@ -23,6 +23,7 @@ Public Class ProductItem
         Me.Close()
         Membership.Close()
         OrderCart.Close()
+        OrderHistory.Close()
     End Sub
 
     Private Sub MenuItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -392,7 +393,7 @@ Public Class ProductItem
                         menu.ProductDescription = dr.Item("productDescription").ToString()
                         menu.ProductPrice = dr.Item("productPrice").ToString()
                         menu.ProductStock = dr.Item("productStock").ToString()
-                        menu.PromotionDiscount = dr.Item("productPromotion").ToString()
+                        menu.PromotionDiscount = dr.Item("promotionDiscount").ToString()
                         If String.IsNullOrEmpty(menu.PromotionDiscount) Then
                             menu.PromotionDiscount = "-"
                         End If

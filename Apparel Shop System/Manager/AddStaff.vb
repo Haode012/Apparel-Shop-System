@@ -47,11 +47,16 @@ Public Class AddStaff
         ElseIf txtStaffSecretQuestionAns.Text = "" Then
             MessageBox.Show("Please enter the secret question answer", "Secret question was not entered", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         ElseIf strPassword = "" Or strPassword = "Password" Then
-            MessageBox.Show("Please enter the password", "Error")
+            MessageBox.Show("Please enter the password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf strconfirmPassword = "" Or strconfirmPassword = "Confirm Password" Then
+            MessageBox.Show("Please enter the confirm password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         ElseIf strPassword.Length < 9 Or strconfirmPassword.Length < 9 Then
-            MessageBox.Show("Password must be 9 or more characters", "Error")
+            MessageBox.Show("Password must be 9 or more characters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         ElseIf strPassword <> strconfirmPassword Then
-            MessageBox.Show("Password not matching", "Error")
+            MessageBox.Show("Password not matching", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf dtpDob.Value > DateTime.Today Then
+            MessageBox.Show("Can't assign future date of birth for staff", "Date Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            dtpDob.Value = Today.Date
         ElseIf age < 18 Then
             MessageBox.Show("Too young to recruit", "Under Age", MessageBoxButtons.OK, MessageBoxIcon.Error)
             dtpDob.Value = DateTime.Now
@@ -147,12 +152,12 @@ Public Class AddStaff
         StaffMaintenance.Show()
     End Sub
 
-    Private Sub dtpDob_ValueChanged(sender As Object, e As EventArgs) Handles dtpDob.ValueChanged
-        If dtpDob.Value > DateTime.Today Then
-            MessageBox.Show("Can't assign future date of birth for staff", "Date Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            dtpDob.Value = Today.Date
-        End If
-    End Sub
+    'Private Sub dtpDob_ValueChanged(sender As Object, e As EventArgs) Handles dtpDob.ValueChanged
+    '    If dtpDob.Value > DateTime.Today Then
+    '        MessageBox.Show("Can't assign future date of birth for staff", "Date Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+    '        dtpDob.Value = Today.Date
+    '    End If
+    'End Sub
 
     'Private Sub cboSecretQues_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboSecretQues.SelectedIndexChanged
     '    lblSecretQuestionChoosed.Text = cboSecretQues.SelectedItem
@@ -164,6 +169,7 @@ Public Class AddStaff
         ProductMaintenance.Close()
         MembershipMaintenance.Close()
         PromotionMaintenance.Close()
+        DailySalesReportViewer.Close()
     End Sub
 
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click

@@ -280,6 +280,18 @@
     <Compile Include="SplashScreen.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Manager\DailySalesReportViewer.Designer.vb">
+      <DependentUpon>DailySalesReportViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\DailySalesReportViewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\DSR%28CrystalReport%29.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSR%28CrystalReport%29.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Staff\MemberRegister2.Designer.vb">
       <DependentUpon>MemberRegister2.vb</DependentUpon>
     </Compile>
@@ -309,6 +321,12 @@
       <DependentUpon>OrderCart.vb</DependentUpon>
     </Compile>
     <Compile Include="Staff\OrderCart.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff\OrderHistory.Designer.vb">
+      <DependentUpon>OrderHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\OrderHistory.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Staff\Payment.Designer.vb">
@@ -361,6 +379,12 @@
       <DependentUpon>ManagerHomepage.vb</DependentUpon>
     </Compile>
     <Compile Include="Manager\ManagerHomepage.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff\UpdateOrderStatus.Designer.vb">
+      <DependentUpon>UpdateOrderStatus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\UpdateOrderStatus.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -444,6 +468,13 @@
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Manager\DailySalesReportViewer.resx">
+      <DependentUpon>DailySalesReportViewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\DSR%28CrystalReport%29.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DSR%28CrystalReport%29.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Staff\MemberRegister2.resx">
       <DependentUpon>MemberRegister2.vb</DependentUpon>
     </EmbeddedResource>
@@ -458,6 +489,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Staff\OrderCart.resx">
       <DependentUpon>OrderCart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff\OrderHistory.resx">
+      <DependentUpon>OrderHistory.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff\Payment.resx">
       <DependentUpon>Payment.vb</DependentUpon>
@@ -482,6 +516,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\ManagerHomepage.resx">
       <DependentUpon>ManagerHomepage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff\UpdateOrderStatus.resx">
+      <DependentUpon>UpdateOrderStatus.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -626,6 +663,10 @@
     <None Include="Resources\update staff.png" />
     <None Include="Resources\change_password_icon.png" />
     <None Include="Resources\secret_icon.png" />
+    <None Include="Resources\download.png" />
+    <None Include="Resources\images.png" />
+    <None Include="Resources\daily_sales_report_icon.png" />
+    <None Include="Resources\daily_sales_report_icon_big.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

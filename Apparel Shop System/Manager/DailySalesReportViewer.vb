@@ -1,41 +1,26 @@
 ﻿Imports System.Data.SqlClient
 
-Public Class ProductReportViewer
-
+Public Class DailySalesReportViewer
     Private con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True")
     Private cmd As New SqlCommand
-    Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
-        Me.Close()
-        ProductMaintenance.Close()
-        StaffMaintenance.Close()
-        MembershipMaintenance.Close()
-        PromotionMaintenance.Close()
-        DailySalesReportViewer.Close()
-    End Sub
 
-    Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
-        Me.Close()
-    End Sub
-
-    Private Sub ProductReportViewer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+    Private Sub DailySalesReportViewer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If con.State = ConnectionState.Open Then
             con.Close()
         End If
 
         con.Open()
-    End Sub
-    Private Sub btnDisplay_Click(sender As Object, e As EventArgs) Handles btnDisplay.Click
+
         Dim adp As New SqlDataAdapter
         Dim dt As New DataSet
         Dim sql As String
-        sql = "select * from Product"
+        sql = "select * from OrderHistory"
 
         Try
             cmd = New SqlCommand(sql, con)
             adp.SelectCommand = cmd
-            adp.Fill(dt, "Product")
-            Dim report As New ProductCrystalReport
+            adp.Fill(dt, "OrderHistory")
+            Dim report As New DSRCrystalReport
             report.SetDataSource(dt)
             CrystalReportViewer1.ReportSource = report
             CrystalReportViewer1.Refresh()
@@ -51,4 +36,16 @@ Public Class ProductReportViewer
         con.Close()
     End Sub
 
+    Private Sub picBack_Click(sender As Object, e As EventArgs)
+        Me.Close()
+
+    End Sub
+
+    Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
+        Me.Close()
+        StaffMaintenance.Close()
+        ProductMaintenance.Close()
+        PromotionMaintenance.Close()
+        MembershipMaintenance.Close()
+    End Sub
 End Class

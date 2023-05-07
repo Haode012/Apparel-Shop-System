@@ -62,6 +62,7 @@ Public Class ChangeSecretQuestionAndAnswer
                     mySqlCommand.Parameters.AddWithValue("@SecretAnswer", newSecretAnswer)
                     mySqlCommand.ExecuteNonQuery()
                     MessageBox.Show("Secret Question and Answer Updated", "Updated Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Me.Close()
                 Else
                     MessageBox.Show("No connection", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If

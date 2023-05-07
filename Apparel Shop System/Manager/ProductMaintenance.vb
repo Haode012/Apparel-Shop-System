@@ -5,6 +5,7 @@
         StaffMaintenance.Close()
         MembershipMaintenance.Close()
         PromotionMaintenance.Close()
+        DailySalesReportViewer.Close()
     End Sub
 
     Private Sub btnDisplay_Click(sender As Object, e As EventArgs) Handles btnDisplay.Click

@@ -92,17 +92,20 @@ Public Class StaffMaintenance
         Dim strSql As String
         Dim strName As String
 
+        If txtFilterV.Text = "" Then
+            MessageBox.Show("Search field is empty", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            If OpenConnection() = True Then
+                strSql = "Select StaffID,Name,IcNo,Address,DateOfBirth,PhoneNumber,StartDate,EndDate,Position,Status From AllStaff where Name like '%" + txtFilterV.Text + "%'"
+                MySqlCommand = New SqlCommand(strSql, conn)
 
-        If OpenConnection() = True Then
-            strSql = "Select StaffID,Name,IcNo,Address,DateOfBirth,PhoneNumber,StartDate,EndDate,Position,Status From Staff where Name like '%" + txtFilterV.Text + "%'"
-            MySqlCommand = New SqlCommand(strSql, conn)
+                Dim adapter As New SqlDataAdapter(MySqlCommand)
+                Dim dataTable As New DataTable()
+                adapter.Fill(dataTable)
+                dtgAllStaff.DataSource = dataTable
 
-            Dim adapter As New SqlDataAdapter(MySqlCommand)
-            Dim dataTable As New DataTable()
-            adapter.Fill(dataTable)
-            dtgAllStaff.DataSource = dataTable
-
-            CloseConnection()
+                CloseConnection()
+            End If
         End If
 
     End Sub
@@ -357,6 +360,8 @@ Public Class StaffMaintenance
         ProductMaintenance.Close()
         MembershipMaintenance.Close()
         PromotionMaintenance.Close()
+        DailySalesReportViewer.Close()
     End Sub
+
 
 End Class

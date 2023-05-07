@@ -199,5 +199,6 @@ Public Class PromotionMaintenance
         StaffMaintenance.Close()
         ProductMaintenance.Close()
         MembershipMaintenance.Close()
+        DailySalesReportViewer.Close()
     End Sub
 End Class

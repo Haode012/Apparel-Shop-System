@@ -88,11 +88,29 @@
         End With
     End Sub
 
-    Private Sub btnChangePassowrd_Click(sender As Object, e As EventArgs) Handles btnChangePassowrd.Click
+    Private Sub btnChangePassowrd_Click(sender As Object, e As EventArgs) Handles btnChangePassword.Click
         ChangePassword.Show()
     End Sub
 
     Private Sub btnChangeSecret_Click(sender As Object, e As EventArgs) Handles btnChangeSecret.Click
         ChangeSecretQuestionAndAnswer.Show()
+    End Sub
+
+    Private Sub btnDsr_Click(sender As Object, e As EventArgs) Handles btnDsr.Click
+        With DailySalesReportViewer
+            .TopLevel = False
+            panelShow.Controls.Add(DailySalesReportViewer)
+            .BringToFront()
+            .Show()
+        End With
+    End Sub
+
+    Private Sub btnDailySalesReportBig_Click(sender As Object, e As EventArgs) Handles btnDailySalesReportBig.Click
+        With DailySalesReportViewer
+            .TopLevel = False
+            panelShow.Controls.Add(DailySalesReportViewer)
+            .BringToFront()
+            .Show()
+        End With
     End Sub
 End Class

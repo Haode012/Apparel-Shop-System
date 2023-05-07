@@ -25,22 +25,25 @@ Partial Class ManagerHomepage
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ManagerHomepage))
         Me.panelShow = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.btnPromotionMaintenanceBig = New System.Windows.Forms.Button()
         Me.lblMembershipMaintenance = New System.Windows.Forms.Label()
-        Me.btnMembershipMaintenanceBig = New System.Windows.Forms.Button()
         Me.lblStaffMaintenance = New System.Windows.Forms.Label()
-        Me.btnStaffMaintenanceBig = New System.Windows.Forms.Button()
         Me.lblProductMaintenance = New System.Windows.Forms.Label()
-        Me.btnProductMaintenanceBig = New System.Windows.Forms.Button()
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.leftPanel = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.btnDailySalesReportBig = New System.Windows.Forms.Button()
+        Me.btnPromotionMaintenanceBig = New System.Windows.Forms.Button()
+        Me.btnMembershipMaintenanceBig = New System.Windows.Forms.Button()
+        Me.btnStaffMaintenanceBig = New System.Windows.Forms.Button()
+        Me.btnProductMaintenanceBig = New System.Windows.Forms.Button()
         Me.btnLogOut = New System.Windows.Forms.Button()
         Me.btnChangeSecret = New System.Windows.Forms.Button()
-        Me.btnChangePassowrd = New System.Windows.Forms.Button()
+        Me.btnChangePassword = New System.Windows.Forms.Button()
+        Me.btnDsr = New System.Windows.Forms.Button()
         Me.btnPromotion = New System.Windows.Forms.Button()
         Me.btnMembershipMaintenance = New System.Windows.Forms.Button()
         Me.btnProductMaintenance = New System.Windows.Forms.Button()
@@ -59,6 +62,8 @@ Partial Class ManagerHomepage
         'panelShow
         '
         Me.panelShow.BackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.panelShow.Controls.Add(Me.btnDailySalesReportBig)
+        Me.panelShow.Controls.Add(Me.Label3)
         Me.panelShow.Controls.Add(Me.Label2)
         Me.panelShow.Controls.Add(Me.btnPromotionMaintenanceBig)
         Me.panelShow.Controls.Add(Me.lblMembershipMaintenance)
@@ -77,82 +82,42 @@ Partial Class ManagerHomepage
         'Label2
         '
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(1005, 788)
+        Me.Label2.Location = New System.Drawing.Point(499, 757)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(276, 81)
         Me.Label2.TabIndex = 11
         Me.Label2.Text = "Promotion Maintenance"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnPromotionMaintenanceBig
-        '
-        Me.btnPromotionMaintenanceBig.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.promotion_maintenance_icon_big
-        Me.btnPromotionMaintenanceBig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnPromotionMaintenanceBig.Location = New System.Drawing.Point(1065, 628)
-        Me.btnPromotionMaintenanceBig.Name = "btnPromotionMaintenanceBig"
-        Me.btnPromotionMaintenanceBig.Size = New System.Drawing.Size(141, 142)
-        Me.btnPromotionMaintenanceBig.TabIndex = 10
-        Me.btnPromotionMaintenanceBig.UseVisualStyleBackColor = True
-        '
         'lblMembershipMaintenance
         '
         Me.lblMembershipMaintenance.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMembershipMaintenance.Location = New System.Drawing.Point(509, 798)
+        Me.lblMembershipMaintenance.Location = New System.Drawing.Point(1211, 479)
         Me.lblMembershipMaintenance.Name = "lblMembershipMaintenance"
         Me.lblMembershipMaintenance.Size = New System.Drawing.Size(276, 81)
         Me.lblMembershipMaintenance.TabIndex = 9
         Me.lblMembershipMaintenance.Text = "Membership Maintenance"
         Me.lblMembershipMaintenance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnMembershipMaintenanceBig
-        '
-        Me.btnMembershipMaintenanceBig.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.membership_maintenance_big
-        Me.btnMembershipMaintenanceBig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnMembershipMaintenanceBig.Location = New System.Drawing.Point(575, 640)
-        Me.btnMembershipMaintenanceBig.Name = "btnMembershipMaintenanceBig"
-        Me.btnMembershipMaintenanceBig.Size = New System.Drawing.Size(141, 142)
-        Me.btnMembershipMaintenanceBig.TabIndex = 8
-        Me.btnMembershipMaintenanceBig.UseVisualStyleBackColor = True
-        '
         'lblStaffMaintenance
         '
         Me.lblStaffMaintenance.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStaffMaintenance.Location = New System.Drawing.Point(501, 479)
+        Me.lblStaffMaintenance.Location = New System.Drawing.Point(264, 479)
         Me.lblStaffMaintenance.Name = "lblStaffMaintenance"
         Me.lblStaffMaintenance.Size = New System.Drawing.Size(276, 81)
         Me.lblStaffMaintenance.TabIndex = 7
         Me.lblStaffMaintenance.Text = "Staff " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Maintenance"
         Me.lblStaffMaintenance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnStaffMaintenanceBig
-        '
-        Me.btnStaffMaintenanceBig.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.staff_maintenance_big
-        Me.btnStaffMaintenanceBig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnStaffMaintenanceBig.Location = New System.Drawing.Point(564, 321)
-        Me.btnStaffMaintenanceBig.Name = "btnStaffMaintenanceBig"
-        Me.btnStaffMaintenanceBig.Size = New System.Drawing.Size(141, 142)
-        Me.btnStaffMaintenanceBig.TabIndex = 6
-        Me.btnStaffMaintenanceBig.UseVisualStyleBackColor = True
-        '
         'lblProductMaintenance
         '
         Me.lblProductMaintenance.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProductMaintenance.Location = New System.Drawing.Point(993, 479)
+        Me.lblProductMaintenance.Location = New System.Drawing.Point(756, 479)
         Me.lblProductMaintenance.Name = "lblProductMaintenance"
         Me.lblProductMaintenance.Size = New System.Drawing.Size(276, 81)
         Me.lblProductMaintenance.TabIndex = 1
         Me.lblProductMaintenance.Text = "Product Maintenance"
         Me.lblProductMaintenance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnProductMaintenanceBig
-        '
-        Me.btnProductMaintenanceBig.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.menu_maintenance_icon_big
-        Me.btnProductMaintenanceBig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnProductMaintenanceBig.Location = New System.Drawing.Point(1052, 321)
-        Me.btnProductMaintenanceBig.Name = "btnProductMaintenanceBig"
-        Me.btnProductMaintenanceBig.Size = New System.Drawing.Size(141, 142)
-        Me.btnProductMaintenanceBig.TabIndex = 0
-        Me.btnProductMaintenanceBig.UseVisualStyleBackColor = True
         '
         'lblWelcome
         '
@@ -206,7 +171,8 @@ Partial Class ManagerHomepage
         Me.leftPanel.BackColor = System.Drawing.Color.LightCyan
         Me.leftPanel.Controls.Add(Me.btnLogOut)
         Me.leftPanel.Controls.Add(Me.btnChangeSecret)
-        Me.leftPanel.Controls.Add(Me.btnChangePassowrd)
+        Me.leftPanel.Controls.Add(Me.btnChangePassword)
+        Me.leftPanel.Controls.Add(Me.btnDsr)
         Me.leftPanel.Controls.Add(Me.btnPromotion)
         Me.leftPanel.Controls.Add(Me.btnMembershipMaintenance)
         Me.leftPanel.Controls.Add(Me.btnProductMaintenance)
@@ -219,6 +185,66 @@ Partial Class ManagerHomepage
         Me.leftPanel.Size = New System.Drawing.Size(250, 1055)
         Me.leftPanel.TabIndex = 9
         '
+        'Label3
+        '
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(1045, 757)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(276, 81)
+        Me.Label3.TabIndex = 12
+        Me.Label3.Text = "Daily Sales " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Report"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnDailySalesReportBig
+        '
+        Me.btnDailySalesReportBig.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.daily_sales_report_icon_big
+        Me.btnDailySalesReportBig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnDailySalesReportBig.Location = New System.Drawing.Point(1105, 597)
+        Me.btnDailySalesReportBig.Name = "btnDailySalesReportBig"
+        Me.btnDailySalesReportBig.Size = New System.Drawing.Size(141, 142)
+        Me.btnDailySalesReportBig.TabIndex = 13
+        Me.btnDailySalesReportBig.UseVisualStyleBackColor = True
+        '
+        'btnPromotionMaintenanceBig
+        '
+        Me.btnPromotionMaintenanceBig.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.promotion_maintenance_icon_big
+        Me.btnPromotionMaintenanceBig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnPromotionMaintenanceBig.Location = New System.Drawing.Point(559, 597)
+        Me.btnPromotionMaintenanceBig.Name = "btnPromotionMaintenanceBig"
+        Me.btnPromotionMaintenanceBig.Size = New System.Drawing.Size(141, 142)
+        Me.btnPromotionMaintenanceBig.TabIndex = 10
+        Me.btnPromotionMaintenanceBig.UseVisualStyleBackColor = True
+        '
+        'btnMembershipMaintenanceBig
+        '
+        Me.btnMembershipMaintenanceBig.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.membership_maintenance_big
+        Me.btnMembershipMaintenanceBig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnMembershipMaintenanceBig.Location = New System.Drawing.Point(1277, 321)
+        Me.btnMembershipMaintenanceBig.Name = "btnMembershipMaintenanceBig"
+        Me.btnMembershipMaintenanceBig.Size = New System.Drawing.Size(141, 142)
+        Me.btnMembershipMaintenanceBig.TabIndex = 8
+        Me.btnMembershipMaintenanceBig.UseVisualStyleBackColor = True
+        '
+        'btnStaffMaintenanceBig
+        '
+        Me.btnStaffMaintenanceBig.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.staff_maintenance_big
+        Me.btnStaffMaintenanceBig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnStaffMaintenanceBig.Location = New System.Drawing.Point(327, 321)
+        Me.btnStaffMaintenanceBig.Name = "btnStaffMaintenanceBig"
+        Me.btnStaffMaintenanceBig.Size = New System.Drawing.Size(141, 142)
+        Me.btnStaffMaintenanceBig.TabIndex = 6
+        Me.btnStaffMaintenanceBig.UseVisualStyleBackColor = True
+        '
+        'btnProductMaintenanceBig
+        '
+        Me.btnProductMaintenanceBig.BackgroundImage = Global.Apparel_Shop_System.My.Resources.Resources.menu_maintenance_icon_big
+        Me.btnProductMaintenanceBig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnProductMaintenanceBig.Location = New System.Drawing.Point(815, 321)
+        Me.btnProductMaintenanceBig.Name = "btnProductMaintenanceBig"
+        Me.btnProductMaintenanceBig.Size = New System.Drawing.Size(141, 142)
+        Me.btnProductMaintenanceBig.TabIndex = 0
+        Me.btnProductMaintenanceBig.UseVisualStyleBackColor = True
+        '
         'btnLogOut
         '
         Me.btnLogOut.Dock = System.Windows.Forms.DockStyle.Top
@@ -229,10 +255,10 @@ Partial Class ManagerHomepage
         Me.btnLogOut.ForeColor = System.Drawing.Color.Black
         Me.btnLogOut.Image = Global.Apparel_Shop_System.My.Resources.Resources.log_out_icon
         Me.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnLogOut.Location = New System.Drawing.Point(0, 654)
+        Me.btnLogOut.Location = New System.Drawing.Point(0, 717)
         Me.btnLogOut.Name = "btnLogOut"
         Me.btnLogOut.Size = New System.Drawing.Size(250, 42)
-        Me.btnLogOut.TabIndex = 16
+        Me.btnLogOut.TabIndex = 21
         Me.btnLogOut.Text = "&Log Out"
         Me.btnLogOut.UseVisualStyleBackColor = True
         '
@@ -246,29 +272,46 @@ Partial Class ManagerHomepage
         Me.btnChangeSecret.ForeColor = System.Drawing.Color.Black
         Me.btnChangeSecret.Image = Global.Apparel_Shop_System.My.Resources.Resources.secret_icon
         Me.btnChangeSecret.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnChangeSecret.Location = New System.Drawing.Point(0, 570)
+        Me.btnChangeSecret.Location = New System.Drawing.Point(0, 633)
         Me.btnChangeSecret.Name = "btnChangeSecret"
         Me.btnChangeSecret.Size = New System.Drawing.Size(250, 84)
-        Me.btnChangeSecret.TabIndex = 15
+        Me.btnChangeSecret.TabIndex = 20
         Me.btnChangeSecret.Text = "C&hange Secret " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Question " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Information"
         Me.btnChangeSecret.UseVisualStyleBackColor = True
         '
-        'btnChangePassowrd
+        'btnChangePassword
         '
-        Me.btnChangePassowrd.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnChangePassowrd.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.btnChangePassowrd.FlatAppearance.BorderSize = 0
-        Me.btnChangePassowrd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnChangePassowrd.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnChangePassowrd.ForeColor = System.Drawing.Color.Black
-        Me.btnChangePassowrd.Image = Global.Apparel_Shop_System.My.Resources.Resources.change_password_icon1
-        Me.btnChangePassowrd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnChangePassowrd.Location = New System.Drawing.Point(0, 501)
-        Me.btnChangePassowrd.Name = "btnChangePassowrd"
-        Me.btnChangePassowrd.Size = New System.Drawing.Size(250, 69)
-        Me.btnChangePassowrd.TabIndex = 14
-        Me.btnChangePassowrd.Text = "&Change " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Password"
-        Me.btnChangePassowrd.UseVisualStyleBackColor = True
+        Me.btnChangePassword.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnChangePassword.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnChangePassword.FlatAppearance.BorderSize = 0
+        Me.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnChangePassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnChangePassword.ForeColor = System.Drawing.Color.Black
+        Me.btnChangePassword.Image = Global.Apparel_Shop_System.My.Resources.Resources.change_password_icon1
+        Me.btnChangePassword.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnChangePassword.Location = New System.Drawing.Point(0, 570)
+        Me.btnChangePassword.Name = "btnChangePassword"
+        Me.btnChangePassword.Size = New System.Drawing.Size(250, 63)
+        Me.btnChangePassword.TabIndex = 19
+        Me.btnChangePassword.Text = "&Change " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Password"
+        Me.btnChangePassword.UseVisualStyleBackColor = True
+        '
+        'btnDsr
+        '
+        Me.btnDsr.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnDsr.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnDsr.FlatAppearance.BorderSize = 0
+        Me.btnDsr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDsr.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDsr.ForeColor = System.Drawing.Color.Black
+        Me.btnDsr.Image = Global.Apparel_Shop_System.My.Resources.Resources.daily_sales_report_icon
+        Me.btnDsr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnDsr.Location = New System.Drawing.Point(0, 501)
+        Me.btnDsr.Name = "btnDsr"
+        Me.btnDsr.Size = New System.Drawing.Size(250, 69)
+        Me.btnDsr.TabIndex = 14
+        Me.btnDsr.Text = "&Daily Sales" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Report"
+        Me.btnDsr.UseVisualStyleBackColor = True
         '
         'btnPromotion
         '
@@ -449,7 +492,10 @@ Partial Class ManagerHomepage
     Friend WithEvents btnPromotion As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents btnPromotionMaintenanceBig As Button
-    Friend WithEvents btnChangePassowrd As Button
+    Friend WithEvents btnDsr As Button
     Friend WithEvents btnLogOut As Button
     Friend WithEvents btnChangeSecret As Button
+    Friend WithEvents btnChangePassword As Button
+    Friend WithEvents btnDailySalesReportBig As Button
+    Friend WithEvents Label3 As Label
 End Class

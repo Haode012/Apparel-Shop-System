@@ -15,6 +15,7 @@ Public Class MembershipMaintenance
         StaffMaintenance.Close()
         ProductMaintenance.Close()
         PromotionMaintenance.Close()
+        DailySalesReportViewer.Close()
     End Sub
 
     Private Sub MemberMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load

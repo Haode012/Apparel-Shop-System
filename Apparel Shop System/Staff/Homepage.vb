@@ -53,4 +53,18 @@
     Private Sub btnChangeSecret_Click(sender As Object, e As EventArgs) Handles btnChangeSecret.Click
         ChangeSecretQuestionAndAnswer.Show()
     End Sub
+
+    Private Sub btnOrderHistory_Click(sender As Object, e As EventArgs) Handles btnOrderHistory.Click
+        With OrderHistory
+            .TopLevel = False
+            panelShow.Controls.Add(OrderHistory)
+            .BringToFront()
+            .Show()
+        End With
+
+        ProductItemDetails.Close()
+        Payment.Close()
+    End Sub
+
+
 End Class

@@ -148,6 +148,7 @@ Public Class CreateProduct
         StaffMaintenance.Close()
         MembershipMaintenance.Close()
         PromotionMaintenance.Close()
+        DailySalesReportViewer.Close()
     End Sub
 
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click

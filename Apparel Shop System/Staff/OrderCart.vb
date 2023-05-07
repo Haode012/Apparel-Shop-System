@@ -39,6 +39,7 @@ Public Class OrderCart
         Me.Close()
         ProductItem.Close()
         Membership.Close()
+        OrderHistory.Close()
     End Sub
 
     Public Sub display_all_record()
@@ -77,7 +78,7 @@ Public Class OrderCart
         '        btnPayAsMembership.Enabled = False
         '    End If
         'End If
-
+        btnPayAsMembership.Enabled = False
 
         Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True")
             con.Open()
@@ -99,7 +100,7 @@ Public Class OrderCart
 
 
 
-    Private Sub picRefresh_Click(sender As Object, e As EventArgs) Handles picRefresh.Click
+    Private Sub picRefresh_Click(sender As Object, e As EventArgs)
         display_all_record()
     End Sub
 
@@ -116,48 +117,71 @@ Public Class OrderCart
         If selectedMemberName = "" Then
             lblMemberId.Text = ""
             btnPayAsMembership.Enabled = False
-        Else
-            Try
-                Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True")
-                    con.Open()
-                    ' Execute SQL commands here
-
-
-
-
-                    Dim sql As String = "SELECT * FROM Membership WHERE memberName = @MemberName"
-                    Dim cmd As New SqlCommand(sql, con)
-                    cmd.Parameters.AddWithValue("@MemberName", selectedMemberName)
-                    'Execute the SQL command and read the result
-                    Dim reader As SqlDataReader = cmd.ExecuteReader()
-                    If reader.Read() Then
-                        'Set the lblMemberId.Text with the memberName from the selected row
-                        lblMemberId.Text = reader("memberId").ToString()
-                    Else
-                        'If no row is returned, clear the lblMemberName.Text
-                        lblMemberId.Text = ""
-                    End If
-                    reader.Close()
-                    con.Close()
-                End Using
-            Catch ex As Exception
-
-            End Try
         End If
+        Try
+            Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True")
+                con.Open()
+                ' Execute SQL commands here
 
 
+
+
+                Dim sql As String = "SELECT * FROM Membership WHERE memberName = @MemberName"
+                Dim cmd As New SqlCommand(sql, con)
+                cmd.Parameters.AddWithValue("@MemberName", selectedMemberName)
+                'Execute the SQL command and read the result
+                Dim reader As SqlDataReader = cmd.ExecuteReader()
+                If reader.Read() Then
+                    'Set the lblMemberId.Text with the memberName from the selected row
+                    lblMemberId.Text = reader("memberId").ToString()
+                Else
+                    'If no row is returned, clear the lblMemberName.Text
+                    lblMemberId.Text = ""
+                End If
+                reader.Close()
+                con.Close()
+            End Using
+            reload()
+        Catch ex As Exception
+            reload()
+        End Try
 
         If cmbMemberName.Text = "" Then
         Else
             If cmbMemberName.Text <> "" Then
                 btnPayAsMembership.Enabled = True
-
+            ElseIf dgvOrderCart.Rows.Count <= 0 Then
+                btnPayAsMembership.Enabled = False
             End If
         End If
 
     End Sub
 
+    Private Sub reload()
+        Dim dt As New DataTable()
+        Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True")
+            con.Open()
 
+            Using cmd As New SqlCommand()
+                cmd.Connection = con
+                cmd.CommandType = CommandType.Text
+                cmd.CommandText = "Select * From Cart"
+
+                Dim da As New SqlDataAdapter(cmd)
+                da.Fill(dt)
+
+                dgvOrderCart.DataSource = dt
+                lblTotalCount.Text = dgvOrderCart.Rows.Count.ToString
+                'End If
+            End Using
+            con.Close()
+        End Using
+
+        If lblTotalCount.Text = "1" Then
+            btnNotMembership.Enabled = False
+            btnPayAsMembership.Enabled = False
+        End If
+    End Sub
 
     Private Sub btnNotMembership_Click(sender As Object, e As EventArgs) Handles btnNotMembership.Click
 
@@ -286,4 +310,5 @@ Public Class OrderCart
     Private Sub picCancel_Click(sender As Object, e As EventArgs) Handles picCancel.Click
         display_all_record()
     End Sub
+
 End Class

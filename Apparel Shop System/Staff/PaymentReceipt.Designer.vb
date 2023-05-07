@@ -24,8 +24,6 @@ Partial Class PaymentReceipt
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PaymentReceipt))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.picBack = New System.Windows.Forms.PictureBox()
-        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.lblTotalAmount1 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.dgvReceipt = New System.Windows.Forms.DataGridView()
@@ -45,10 +43,14 @@ Partial Class PaymentReceipt
         Me.lblMemberId = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.lblMemberName = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.picBack = New System.Windows.Forms.PictureBox()
+        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
+        CType(Me.dgvReceipt, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgvReceipt, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -62,29 +64,6 @@ Partial Class PaymentReceipt
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1654, 46)
         Me.Panel1.TabIndex = 107
-        '
-        'picBack
-        '
-        Me.picBack.Dock = System.Windows.Forms.DockStyle.Left
-        Me.picBack.Image = CType(resources.GetObject("picBack.Image"), System.Drawing.Image)
-        Me.picBack.Location = New System.Drawing.Point(0, 0)
-        Me.picBack.Name = "picBack"
-        Me.picBack.Size = New System.Drawing.Size(46, 46)
-        Me.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picBack.TabIndex = 4
-        Me.picBack.TabStop = False
-        '
-        'picDelete
-        '
-        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
-        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
-        Me.picDelete.Location = New System.Drawing.Point(1609, 0)
-        Me.picDelete.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.picDelete.Name = "picDelete"
-        Me.picDelete.Size = New System.Drawing.Size(45, 46)
-        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picDelete.TabIndex = 0
-        Me.picDelete.TabStop = False
         '
         'lblTotalAmount1
         '
@@ -271,6 +250,39 @@ Partial Class PaymentReceipt
         Me.lblMemberName.TabIndex = 121
         Me.lblMemberName.Text = "memberName"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Apparel_Shop_System.My.Resources.Resources.download
+        Me.PictureBox1.Location = New System.Drawing.Point(1148, 123)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(74, 78)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 125
+        Me.PictureBox1.TabStop = False
+        '
+        'picBack
+        '
+        Me.picBack.Dock = System.Windows.Forms.DockStyle.Left
+        Me.picBack.Image = CType(resources.GetObject("picBack.Image"), System.Drawing.Image)
+        Me.picBack.Location = New System.Drawing.Point(0, 0)
+        Me.picBack.Name = "picBack"
+        Me.picBack.Size = New System.Drawing.Size(46, 46)
+        Me.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picBack.TabIndex = 4
+        Me.picBack.TabStop = False
+        '
+        'picDelete
+        '
+        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
+        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
+        Me.picDelete.Location = New System.Drawing.Point(1609, 0)
+        Me.picDelete.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.picDelete.Name = "picDelete"
+        Me.picDelete.Size = New System.Drawing.Size(45, 46)
+        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDelete.TabIndex = 0
+        Me.picDelete.TabStop = False
+        '
         'PaymentReceipt
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -278,6 +290,7 @@ Partial Class PaymentReceipt
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(1654, 1035)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.lblMemberName)
         Me.Controls.Add(Me.Label3)
@@ -299,9 +312,10 @@ Partial Class PaymentReceipt
         Me.Text = "PaymentReceipt"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
+        CType(Me.dgvReceipt, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgvReceipt, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -329,4 +343,5 @@ Partial Class PaymentReceipt
     Friend WithEvents lblMemberId As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents lblMemberName As Label
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

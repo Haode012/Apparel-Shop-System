@@ -154,6 +154,9 @@
   <data name="promotion_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vecteezy_sales-promotion-line-icon-logo-vector_.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="secret_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\secret_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="campaign" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\campaign_FILL0_wght400_GRAD0_opsz48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -211,6 +214,9 @@
   <data name="right_double_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keyboard_double_arrow_right_FILL0_wght400_GRAD0_opsz48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="staff_maintenance_big" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\staff_maintenance_big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -262,6 +268,9 @@
   <data name="eye_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eye 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="daily_sales_report_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\daily_sales_report_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="right_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chevron_right_FILL0_wght400_GRAD0_opsz48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -310,6 +319,9 @@
   <data name="search_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\search_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="download" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="sock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -322,7 +334,7 @@
   <data name="feedback_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\feedback_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="secret_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\secret_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="daily_sales_report_icon_big" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\daily_sales_report_icon_big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

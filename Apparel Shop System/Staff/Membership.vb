@@ -6,6 +6,7 @@ Public Class Membership
         Me.Close()
         ProductItem.Close()
         OrderCart.Close()
+        OrderHistory.Close()
     End Sub
 
     Private Sub MemberMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load

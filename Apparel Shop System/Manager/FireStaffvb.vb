@@ -29,7 +29,7 @@ Public Class FireStaffvb
                 MySqlCommand.Parameters.AddWithValue("@EndDate", firedDate)
                 intDeleteCount = MySqlCommand.ExecuteNonQuery()
                 StaffMaintenance.RefreshDataGridView()
-                MessageBox.Show(intDeleteCount & " record deleted.!", "Deleted Record", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show(intDeleteCount & " Staff successfully fired!", "Fired", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Me.Close()
 
                 ' loadTheStaff()
@@ -213,6 +213,7 @@ Public Class FireStaffvb
         ProductMaintenance.Close()
         MembershipMaintenance.Close()
         PromotionMaintenance.Close()
+        DailySalesReportViewer.Close()
     End Sub
 
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click

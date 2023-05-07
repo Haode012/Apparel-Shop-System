@@ -119,6 +119,7 @@ Public Class Promotion_Edit
         MembershipMaintenance.Close()
         PromotionMaintenance.Close()
         Promotion_Details.Close()
+        DailySalesReportViewer.Close()
     End Sub
 
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click

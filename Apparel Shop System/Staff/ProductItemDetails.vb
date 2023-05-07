@@ -98,6 +98,7 @@ Public Class ProductItemDetails
         Membership.Close()
         ProductItem.Close()
         OrderCart.Close()
+        OrderHistory.Close()
     End Sub
 
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
@@ -181,6 +182,7 @@ Public Class ProductItemDetails
                     Me.Close()
                     ProductItem.Close()
                     OrderCart.Close()
+                    OrderHistory.Close()
                 Else
                     cmd = con.CreateCommand
                     cmd.CommandType = CommandType.Text
@@ -194,6 +196,7 @@ Public Class ProductItemDetails
                     Me.Close()
                     ProductItem.Close()
                     OrderCart.Close()
+                    OrderHistory.Close()
                 End If
             Else
                 MessageBox.Show("Only Cashier allow to add to cart", "Unauthorized Access", MessageBoxButtons.OK, MessageBoxIcon.Error)

@@ -32,6 +32,7 @@ Public Class StaffLogin
                 If reader.HasRows Then
                     reader.Read()
                     position = reader("Position").ToString
+                    strPosition = position
                     staffName = reader("Name").ToString
                     strFullName = staffName
                     strStatus = reader("Status").ToString
@@ -39,7 +40,7 @@ Public Class StaffLogin
                     'Pass log in username to staff management form
                     'dbPasswd = reader("Name").ToString
                     If strStatus = "Active" Then
-                        If position <> "Admin" Then
+                        If position <> "Manager" And position <> "Assistant Manager" Then
                             If dbPasswd.Equals(strPasswd) Then
                                 CloseConnection()
                                 Me.Hide()

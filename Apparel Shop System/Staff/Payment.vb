@@ -244,6 +244,7 @@ Public Class Payment
         Membership.Close()
         ProductItem.Close()
         OrderCart.Close()
+        OrderHistory.Close()
 
 
     End Sub
@@ -273,17 +274,19 @@ Public Class Payment
         Dim args As PaymentReceipt = DirectCast(sender.Tag, PaymentReceipt)
 
 
-        Dim sql As String = "INSERT INTO OrderItem (productId,productName,receiptId,memberId,unitPrice,quantity,promotion,amount,orderDate) " &
-                    "SELECT productId,productName,@ReceiptId,@MemberId,productPrice,productQuantity,productPromotion,totalPrice, CONVERT(nvarchar(19), GETDATE(), 120) " &
+        Dim sql As String = "INSERT INTO OrderHistory(productId,productName,receiptId,memberId,unitPrice,quantity,promotion,amount,orderDate,paymentMethod,status) " &
+                    "SELECT productId,productName,@ReceiptId,@MemberId,productPrice,productQuantity,promotionDiscount,totalPrice, CONVERT(nvarchar(19), GETDATE(), 120),@PaymentMethod, @Status " &
                     "FROM Cart"
 
         Dim sql2 As String = "DELETE FROM Cart"
 
-        Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\USERS\HP\SOURCE\REPOS\HAODE012\APPAREL-SHOP-SYSTEM\APPAREL SHOP SYSTEM\APPARELSHOPSYSTEMDATABASE.MDF"";Integrated Security=True")
+        Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True")
             Using cmd As New SqlCommand(sql, con)
                 cmd.Parameters.AddWithValue("@ReceiptId", paymentId)
                 'cmd.Parameters.AddWithValue("@Amount", )
                 cmd.Parameters.AddWithValue("@MemberId", lblMembershipID.Text)
+                cmd.Parameters.AddWithValue("@PaymentMethod", "Touch n Go eWallet")
+                cmd.Parameters.AddWithValue("@Status", "Sold")
 
 
                 con.Open()
@@ -294,7 +297,7 @@ Public Class Payment
 
         'Dim sql2 As String = "INSERT INTO OrderHistory(paymentId) VALUE (@paymentId)"
 
-        Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\USERS\HP\SOURCE\REPOS\HAODE012\APPAREL-SHOP-SYSTEM\APPAREL SHOP SYSTEM\APPARELSHOPSYSTEMDATABASE.MDF"";Integrated Security=True")
+        Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True")
             Using cmd As New SqlCommand(sql2, con)
                 con.Open()
                 cmd.ExecuteNonQuery()
@@ -397,17 +400,19 @@ Public Class Payment
         Dim args As PaymentReceipt = DirectCast(sender.Tag, PaymentReceipt)
 
 
-        Dim sql As String = "INSERT INTO OrderItem (productId,productName,receiptId,memberId,unitPrice,quantity,promotion,amount,orderDate) " &
-                    "SELECT productId,productName,@ReceiptId,@MemberId,productPrice,productQuantity,productPromotion,totalPrice, CONVERT(nvarchar(19), GETDATE(), 120) " &
+        Dim sql As String = "INSERT INTO OrderHistory(productId,productName,receiptId,memberId,unitPrice,quantity,promotion,amount,orderDate,paymentMethod,status) " &
+                    "SELECT productId,productName,@ReceiptId,@MemberId,productPrice,productQuantity,promotionDiscount,totalPrice, CONVERT(nvarchar(19), GETDATE(), 120),@PaymentMethod, @Status " &
                     "FROM Cart"
 
         Dim sql2 As String = "DELETE FROM Cart"
 
-        Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\USERS\HP\SOURCE\REPOS\HAODE012\APPAREL-SHOP-SYSTEM\APPAREL SHOP SYSTEM\APPARELSHOPSYSTEMDATABASE.MDF"";Integrated Security=True")
+        Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True")
             Using cmd As New SqlCommand(sql, con)
                 cmd.Parameters.AddWithValue("@ReceiptId", paymentId)
                 'cmd.Parameters.AddWithValue("@Amount", )
                 cmd.Parameters.AddWithValue("@MemberId", lblMembershipID.Text)
+                cmd.Parameters.AddWithValue("@PaymentMethod", "Mastercard")
+                cmd.Parameters.AddWithValue("@Status", "Sold")
 
 
                 con.Open()
@@ -421,7 +426,7 @@ Public Class Payment
 
 
 
-        Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\USERS\HP\SOURCE\REPOS\HAODE012\APPAREL-SHOP-SYSTEM\APPAREL SHOP SYSTEM\APPARELSHOPSYSTEMDATABASE.MDF"";Integrated Security=True")
+        Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True")
             Using cmd As New SqlCommand(sql2, con)
                 con.Open()
                 cmd.ExecuteNonQuery()
@@ -440,4 +445,6 @@ Public Class Payment
             .Show()
         End With
     End Sub
+
+
 End Class
