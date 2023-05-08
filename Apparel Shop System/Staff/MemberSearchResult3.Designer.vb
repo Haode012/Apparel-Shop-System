@@ -29,7 +29,6 @@ Partial Class MemberSearchResult3
         Me.lblSearchMemberEmail = New System.Windows.Forms.Label()
         Me.TxtMemberSearchName = New System.Windows.Forms.TextBox()
         Me.LblMemberSearchName = New System.Windows.Forms.Label()
-        Me.TxtMemberStatus = New System.Windows.Forms.TextBox()
         Me.TxtMemberRegistrationDate = New System.Windows.Forms.TextBox()
         Me.TxtSearchMemberPhoneNumber = New System.Windows.Forms.TextBox()
         Me.txtSearchMemberIC = New System.Windows.Forms.TextBox()
@@ -45,6 +44,7 @@ Partial Class MemberSearchResult3
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.picBack = New System.Windows.Forms.PictureBox()
         Me.picDelete = New System.Windows.Forms.PictureBox()
+        Me.cboMemberStatus = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -53,7 +53,7 @@ Partial Class MemberSearchResult3
         'txtSearchMemberAddress
         '
         Me.txtSearchMemberAddress.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSearchMemberAddress.Location = New System.Drawing.Point(708, 647)
+        Me.txtSearchMemberAddress.Location = New System.Drawing.Point(710, 647)
         Me.txtSearchMemberAddress.Name = "txtSearchMemberAddress"
         Me.txtSearchMemberAddress.Size = New System.Drawing.Size(407, 45)
         Me.txtSearchMemberAddress.TabIndex = 100
@@ -104,14 +104,6 @@ Partial Class MemberSearchResult3
         Me.LblMemberSearchName.Size = New System.Drawing.Size(232, 38)
         Me.LblMemberSearchName.TabIndex = 95
         Me.LblMemberSearchName.Text = "MemberName:"
-        '
-        'TxtMemberStatus
-        '
-        Me.TxtMemberStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtMemberStatus.Location = New System.Drawing.Point(710, 589)
-        Me.TxtMemberStatus.Name = "TxtMemberStatus"
-        Me.TxtMemberStatus.Size = New System.Drawing.Size(407, 45)
-        Me.TxtMemberStatus.TabIndex = 94
         '
         'TxtMemberRegistrationDate
         '
@@ -265,19 +257,30 @@ Partial Class MemberSearchResult3
         Me.picDelete.TabIndex = 0
         Me.picDelete.TabStop = False
         '
+        'cboMemberStatus
+        '
+        Me.cboMemberStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboMemberStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboMemberStatus.FormattingEnabled = True
+        Me.cboMemberStatus.Items.AddRange(New Object() {"Active", "Deactive"})
+        Me.cboMemberStatus.Location = New System.Drawing.Point(710, 589)
+        Me.cboMemberStatus.Name = "cboMemberStatus"
+        Me.cboMemberStatus.Size = New System.Drawing.Size(407, 46)
+        Me.cboMemberStatus.TabIndex = 101
+        '
         'MemberSearchResult3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(1654, 1035)
+        Me.Controls.Add(Me.cboMemberStatus)
         Me.Controls.Add(Me.txtSearchMemberAddress)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TxtMemberEmail)
         Me.Controls.Add(Me.lblSearchMemberEmail)
         Me.Controls.Add(Me.TxtMemberSearchName)
         Me.Controls.Add(Me.LblMemberSearchName)
-        Me.Controls.Add(Me.TxtMemberStatus)
         Me.Controls.Add(Me.TxtMemberRegistrationDate)
         Me.Controls.Add(Me.TxtSearchMemberPhoneNumber)
         Me.Controls.Add(Me.txtSearchMemberIC)
@@ -309,7 +312,6 @@ Partial Class MemberSearchResult3
     Friend WithEvents lblSearchMemberEmail As Label
     Friend WithEvents TxtMemberSearchName As TextBox
     Friend WithEvents LblMemberSearchName As Label
-    Friend WithEvents TxtMemberStatus As TextBox
     Friend WithEvents TxtMemberRegistrationDate As TextBox
     Friend WithEvents TxtSearchMemberPhoneNumber As TextBox
     Friend WithEvents picBack As PictureBox
@@ -325,4 +327,5 @@ Partial Class MemberSearchResult3
     Friend WithEvents lblSearchMemberId As Label
     Friend WithEvents lblWelcome As Label
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents cboMemberStatus As ComboBox
 End Class

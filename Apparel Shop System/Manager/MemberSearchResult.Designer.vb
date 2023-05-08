@@ -24,12 +24,13 @@ Partial Class MemberSearchResult2
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MemberSearchResult2))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.picBack = New System.Windows.Forms.PictureBox()
+        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.TxtMemberEmail = New System.Windows.Forms.TextBox()
         Me.lblSearchMemberEmail = New System.Windows.Forms.Label()
         Me.TxtMemberSearchName = New System.Windows.Forms.TextBox()
         Me.LblMemberSearchName = New System.Windows.Forms.Label()
-        Me.TxtMemberStatus = New System.Windows.Forms.TextBox()
         Me.TxtMemberRegistrationDate = New System.Windows.Forms.TextBox()
         Me.TxtSearchMemberPhoneNumber = New System.Windows.Forms.TextBox()
         Me.txtSearchMemberIC = New System.Windows.Forms.TextBox()
@@ -43,8 +44,7 @@ Partial Class MemberSearchResult2
         Me.lblSearchMemberId = New System.Windows.Forms.Label()
         Me.txtSearchMemberAddress = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.picBack = New System.Windows.Forms.PictureBox()
-        Me.picDelete = New System.Windows.Forms.PictureBox()
+        Me.cboMemberStatus = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -60,6 +60,28 @@ Partial Class MemberSearchResult2
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1654, 46)
         Me.Panel1.TabIndex = 9
+        '
+        'picBack
+        '
+        Me.picBack.Dock = System.Windows.Forms.DockStyle.Left
+        Me.picBack.Image = CType(resources.GetObject("picBack.Image"), System.Drawing.Image)
+        Me.picBack.Location = New System.Drawing.Point(0, 0)
+        Me.picBack.Name = "picBack"
+        Me.picBack.Size = New System.Drawing.Size(46, 46)
+        Me.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picBack.TabIndex = 3
+        Me.picBack.TabStop = False
+        '
+        'picDelete
+        '
+        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
+        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
+        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
+        Me.picDelete.Name = "picDelete"
+        Me.picDelete.Size = New System.Drawing.Size(46, 46)
+        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDelete.TabIndex = 0
+        Me.picDelete.TabStop = False
         '
         'lblWelcome
         '
@@ -108,14 +130,6 @@ Partial Class MemberSearchResult2
         Me.LblMemberSearchName.Size = New System.Drawing.Size(232, 38)
         Me.LblMemberSearchName.TabIndex = 75
         Me.LblMemberSearchName.Text = "MemberName:"
-        '
-        'TxtMemberStatus
-        '
-        Me.TxtMemberStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtMemberStatus.Location = New System.Drawing.Point(701, 548)
-        Me.TxtMemberStatus.Name = "TxtMemberStatus"
-        Me.TxtMemberStatus.Size = New System.Drawing.Size(407, 45)
-        Me.TxtMemberStatus.TabIndex = 74
         '
         'TxtMemberRegistrationDate
         '
@@ -243,27 +257,16 @@ Partial Class MemberSearchResult2
         Me.Label1.TabIndex = 79
         Me.Label1.Text = "MemberAddress:"
         '
-        'picBack
+        'cboMemberStatus
         '
-        Me.picBack.Dock = System.Windows.Forms.DockStyle.Left
-        Me.picBack.Image = CType(resources.GetObject("picBack.Image"), System.Drawing.Image)
-        Me.picBack.Location = New System.Drawing.Point(0, 0)
-        Me.picBack.Name = "picBack"
-        Me.picBack.Size = New System.Drawing.Size(46, 46)
-        Me.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picBack.TabIndex = 3
-        Me.picBack.TabStop = False
-        '
-        'picDelete
-        '
-        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
-        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
-        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
-        Me.picDelete.Name = "picDelete"
-        Me.picDelete.Size = New System.Drawing.Size(46, 46)
-        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picDelete.TabIndex = 0
-        Me.picDelete.TabStop = False
+        Me.cboMemberStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboMemberStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboMemberStatus.FormattingEnabled = True
+        Me.cboMemberStatus.Items.AddRange(New Object() {"Active", "Deactive"})
+        Me.cboMemberStatus.Location = New System.Drawing.Point(699, 548)
+        Me.cboMemberStatus.Name = "cboMemberStatus"
+        Me.cboMemberStatus.Size = New System.Drawing.Size(407, 46)
+        Me.cboMemberStatus.TabIndex = 81
         '
         'MemberSearchResult2
         '
@@ -271,13 +274,13 @@ Partial Class MemberSearchResult2
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(1654, 1035)
+        Me.Controls.Add(Me.cboMemberStatus)
         Me.Controls.Add(Me.txtSearchMemberAddress)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TxtMemberEmail)
         Me.Controls.Add(Me.lblSearchMemberEmail)
         Me.Controls.Add(Me.TxtMemberSearchName)
         Me.Controls.Add(Me.LblMemberSearchName)
-        Me.Controls.Add(Me.TxtMemberStatus)
         Me.Controls.Add(Me.TxtMemberRegistrationDate)
         Me.Controls.Add(Me.TxtSearchMemberPhoneNumber)
         Me.Controls.Add(Me.txtSearchMemberIC)
@@ -311,7 +314,6 @@ Partial Class MemberSearchResult2
     Friend WithEvents lblSearchMemberEmail As Label
     Friend WithEvents TxtMemberSearchName As TextBox
     Friend WithEvents LblMemberSearchName As Label
-    Friend WithEvents TxtMemberStatus As TextBox
     Friend WithEvents TxtMemberRegistrationDate As TextBox
     Friend WithEvents TxtSearchMemberPhoneNumber As TextBox
     Friend WithEvents txtSearchMemberIC As TextBox
@@ -325,4 +327,5 @@ Partial Class MemberSearchResult2
     Friend WithEvents lblSearchMemberId As Label
     Friend WithEvents txtSearchMemberAddress As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents cboMemberStatus As ComboBox
 End Class

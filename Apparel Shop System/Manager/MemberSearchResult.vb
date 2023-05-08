@@ -13,7 +13,7 @@ Public Class MemberSearchResult2
         TxtSearchMemberPhoneNumber.Text = memberPhoneNumber
         TxtMemberEmail.Text = memberEmail
         TxtMemberRegistrationDate.Text = memberRegistrationDate
-        TxtMemberStatus.Text = memberStatus
+        cboMemberStatus.Text = memberStatus
         txtSearchMemberAddress.Text = memberAddress
 
     End Sub
@@ -46,7 +46,7 @@ Public Class MemberSearchResult2
             Dim memberIC As String = txtSearchMemberIC.Text
             Dim memberPhoneNumber As String = TxtSearchMemberPhoneNumber.Text
             Dim memberEmail As String = TxtMemberEmail.Text
-            Dim memberStatus As String = TxtMemberStatus.Text
+            Dim memberStatus As String = cboMemberStatus.Text
             Dim memberAddress As String = txtSearchMemberAddress.Text
             Dim query As String = "UPDATE Membership SET memberName = @memberName, memberIC = @memberIC, memberPhoneNumber = @memberPhoneNumber, memberEmail = @memberEmail, memberStatus = @memberStatus, memberAddress =@memberAddress WHERE memberID = @memberID"
             Using cmd As New SqlCommand(query, sqlConnection)
