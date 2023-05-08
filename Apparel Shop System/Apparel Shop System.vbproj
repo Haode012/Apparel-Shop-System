@@ -667,6 +667,7 @@
     <None Include="Resources\images.png" />
     <None Include="Resources\daily_sales_report_icon.png" />
     <None Include="Resources\daily_sales_report_icon_big.png" />
+    <None Include="Resources\refresh_icon.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

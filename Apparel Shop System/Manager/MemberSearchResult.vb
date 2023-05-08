@@ -21,24 +21,27 @@ Public Class MemberSearchResult2
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         Try
             If String.IsNullOrEmpty(TxtMemberSearchName.Text) Then
-                MessageBox.Show("Please enter a your name")
+                MessageBox.Show("Please enter your name", "Empty Member Name", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return
             End If
+
             If IsNumeric(TxtMemberSearchName.Text) Then
-                MessageBox.Show("Please enter a valid Name")
+                MessageBox.Show("Please enter a valid Name", "Invalid Member Name", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
             End If
+
             If String.IsNullOrEmpty(txtSearchMemberIC.Text) Or Not IsNumeric(txtSearchMemberIC.Text) Or txtSearchMemberIC.Text.Length <> 12 Then
-                MessageBox.Show("Please enter a valid member IC number (12 digits)")
+                MessageBox.Show("Please enter a valid member IC number (12 digits)", "Invalid IC", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return
             End If
 
             If String.IsNullOrEmpty(TxtSearchMemberPhoneNumber.Text) Or Not IsNumeric(TxtSearchMemberPhoneNumber.Text) Or TxtSearchMemberPhoneNumber.Text.Length < 10 Or TxtSearchMemberPhoneNumber.Text.Length > 11 Then
-                MessageBox.Show("Please enter a valid member phone number (10 or 11 digits)")
+                MessageBox.Show("Please enter a valid member phone number (10 or 11 digits)", "Invalid Phone Number", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return
             End If
 
             If String.IsNullOrEmpty(txtSearchMemberAddress.Text) Then
-                MessageBox.Show("Please enter Address ")
+                MessageBox.Show("Please enter Address ", "Empty Address", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return
             End If
             Dim memberId As Integer = Integer.Parse(TxtSearchMemberID.Text)

@@ -44,7 +44,7 @@ Public Class OrderHistory
     End Sub
 
     Private Sub btnDisplayOrder_Click(sender As Object, e As EventArgs) Handles btnDisplayOrder.Click
-        SearchOrder()
+        Load()
     End Sub
 
 
@@ -56,20 +56,35 @@ Public Class OrderHistory
         Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True")
             con.Open()
 
-            Using cmd As New SqlCommand()
-                cmd.Connection = con
-                cmd.CommandType = CommandType.Text
-                cmd.CommandText = "Select orderId,productId,productName,receiptId,memberId,unitPrice,quantity,promotion,amount,orderDate,paymentMethod,status From OrderHistory where productName like '%" + txtSearchOrder.Text + "%' AND status = @Status "
-                cmd.Parameters.AddWithValue("@Status", lblStatus.Text.ToString)
 
-                Dim da As New SqlDataAdapter(cmd)
-                da.Fill(dt)
+            If cmbStatus.Text = "" And cmbPaymentMethod.Text = "" Then
+                Using cmd As New SqlCommand()
+                    cmd.Connection = con
+                    cmd.CommandType = CommandType.Text
+                    cmd.CommandText = "Select orderId,productId,productName,receiptId,memberId,unitPrice,quantity,promotion,amount,orderDate,paymentMethod,status From OrderHistory where productName like '%" + txtSearchOrder.Text + "%'"
+                    Dim da As New SqlDataAdapter(cmd)
+                    da.Fill(dt)
 
-                dtgAllOrder.DataSource = dt
-            End Using
-            CloseConnection()
+                    dtgAllOrder.DataSource = dt
+                End Using
+                CloseConnection()
+            Else
+            If cmbStatus.Text <> "" And cmbPaymentMethod.Text <> "" Then
+                Using cmd As New SqlCommand()
+                    cmd.Connection = con
+                    cmd.CommandType = CommandType.Text
+                    cmd.CommandText = "Select orderId,productId,productName,receiptId,memberId,unitPrice,quantity,promotion,amount,orderDate,paymentMethod,status From OrderHistory where productName like '%" + txtSearchOrder.Text + "%' AND status = @Status AND paymentMethod=@PaymentMethod"
+                    cmd.Parameters.AddWithValue("@Status", cmbStatus.Text.ToString)
+                    cmd.Parameters.AddWithValue("@PaymentMethod", cmbPaymentMethod.Text.ToString)
 
+                    Dim da As New SqlDataAdapter(cmd)
+                    da.Fill(dt)
 
+                    dtgAllOrder.DataSource = dt
+                End Using
+                CloseConnection()
+            End If
+            End If
 
         End Using
 
@@ -109,15 +124,26 @@ Public Class OrderHistory
 
 
         Load()
+        refresh()
 
 
         cmbStatus.Items.Add("Cancelled")
         cmbStatus.Items.Add("Sold")
 
+        cmbPaymentMethod.Items.Add("Touch n Go eWallet")
+        cmbPaymentMethod.Items.Add("Mastercard")
+
     End Sub
 
-    Private Sub btnSearch_Click(sender As Object, e As EventArgs)
-        SearchOrder()
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        If txtSearchOrder.Text = "" Then
+            MessageBox.Show("Please insert the keyword", "Keyword", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+
+        Else
+            If txtSearchOrder.Text <> "" Then
+                SearchOrder()
+            End If
+        End If
     End Sub
 
     Private Sub picBack_Click(sender As Object, e As EventArgs) Handles picBack.Click
@@ -129,19 +155,6 @@ Public Class OrderHistory
         ProductItem.Close()
         OrderCart.Close()
         Membership.Close()
-    End Sub
-
-    Private Sub cmbStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbStatus.SelectedIndexChanged
-        Dim selectedStatus = cmbStatus.Text
-
-
-        If selectedStatus = "Sold" Then
-            lblStatus.Text = "Sold"
-        Else
-            lblStatus.Text = "Cancelled"
-        End If
-
-
     End Sub
 
 

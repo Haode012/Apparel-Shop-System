@@ -25,8 +25,8 @@ Partial Class DailySalesReportViewer
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
-        Me.DSRCrystalReport1 = New Apparel_Shop_System.DSRCrystalReport()
         Me.picDelete = New System.Windows.Forms.PictureBox()
+        Me.DSRCrystalReport1 = New Apparel_Shop_System.DSRCrystalReport()
         Me.Panel1.SuspendLayout()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -61,7 +61,7 @@ Partial Class DailySalesReportViewer
         Me.CrystalReportViewer1.Location = New System.Drawing.Point(20, 212)
         Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
         Me.CrystalReportViewer1.ReportSource = Me.DSRCrystalReport1
-        Me.CrystalReportViewer1.Size = New System.Drawing.Size(1590, 615)
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(1590, 786)
         Me.CrystalReportViewer1.TabIndex = 112
         Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '

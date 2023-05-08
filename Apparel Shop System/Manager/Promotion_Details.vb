@@ -165,7 +165,7 @@ Public Class Promotion_Details
 
         If count > 0 Then
             'record exist
-            Dim result As DialogResult = MessageBox.Show("The selected product is already applied to another promotion. Do you want to overwrite the existing record?", "Record Exist", MessageBoxButtons.YesNo)
+            Dim result As DialogResult = MessageBox.Show("The selected product is already applied to another promotion. Do you want to overwrite the existing record?", "Record Exist", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
             If result = DialogResult.Yes Then
                 'delete exist record
                 cmd = con.CreateCommand()
@@ -206,7 +206,7 @@ Public Class Promotion_Details
 
             If count1 > 0 Then
                 'is duplicated
-                Dim result As DialogResult = MessageBox.Show("The selected product already exists in the promotion.", "Record Exist", MessageBoxButtons.OK)
+                Dim result As DialogResult = MessageBox.Show("The selected product already exists in the promotion.", "Record Exist", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
                 'not duplicated, save record
                 cmd = con.CreateCommand()

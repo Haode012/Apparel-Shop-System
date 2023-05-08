@@ -12,7 +12,7 @@ Public Class PromotionMaintenance
         If con.State = ConnectionState.Open Then
             con.Close()
         End If
-
+        cboPromotionStatus.SelectedItem = "All"
         con.Open()
         BindData()
 
@@ -21,9 +21,21 @@ Public Class PromotionMaintenance
     Private Sub BindData()
 
         cmd = con.CreateCommand
+        Dim strName As String = txtSearchBox.Text
+        Dim strStatus As String = cboPromotionStatus.Text
+
+        cmd = con.CreateCommand
         cmd.CommandType = CommandType.Text
-        cmd.CommandText = "select * from Promotion"
-        cmd.ExecuteNonQuery()
+
+        If strStatus = "All" Then
+            cmd.CommandText = "SELECT * FROM Promotion WHERE promotionName LIKE @name"
+        Else
+            cmd.CommandText = "SELECT * FROM Promotion WHERE promotionName LIKE @name AND promotionStatus = @status"
+            cmd.Parameters.AddWithValue("@status", strStatus)
+        End If
+
+        cmd.Parameters.AddWithValue("@name", "%" & strName & "%")
+
         Dim dt As New DataTable()
         Dim da As New SqlDataAdapter(cmd)
         da.Fill(dt)
@@ -192,6 +204,22 @@ Public Class PromotionMaintenance
         dlgPreview.Document = docsPromotion
         dlgPreview.ShowDialog(Me)
 
+    End Sub
+
+    Private Sub txtSearchBox_TextChanged(sender As Object, e As EventArgs) Handles txtSearchBox.TextChanged
+        BindData()
+
+    End Sub
+
+    Private Sub cboPromotionStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboPromotionStatus.SelectedIndexChanged
+        BindData()
+    End Sub
+
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+
+        txtSearchBox.Text = ""
+        cboPromotionStatus.SelectedItem = "All"
+        BindData()
     End Sub
 
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click

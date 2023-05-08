@@ -42,7 +42,7 @@ Partial Class Payment
         Me.Label2 = New System.Windows.Forms.Label()
         Me.tbMasterCard = New System.Windows.Forms.TabPage()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnCancelMaster = New System.Windows.Forms.Button()
         Me.btnSubmit = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label30 = New System.Windows.Forms.Label()
@@ -344,7 +344,7 @@ Partial Class Payment
         '
         Me.GroupBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.GroupBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.GroupBox3.Controls.Add(Me.Button1)
+        Me.GroupBox3.Controls.Add(Me.btnCancelMaster)
         Me.GroupBox3.Controls.Add(Me.btnSubmit)
         Me.GroupBox3.Controls.Add(Me.TableLayoutPanel1)
         Me.GroupBox3.Controls.Add(Me.TableLayoutPanel2)
@@ -357,18 +357,18 @@ Partial Class Payment
         Me.GroupBox3.TabIndex = 98
         Me.GroupBox3.TabStop = False
         '
-        'Button1
+        'btnCancelMaster
         '
-        Me.Button1.BackColor = System.Drawing.Color.Red
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(48, 386)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(264, 58)
-        Me.Button1.TabIndex = 6
-        Me.Button1.Text = "&Cancel"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnCancelMaster.BackColor = System.Drawing.Color.Red
+        Me.btnCancelMaster.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancelMaster.ForeColor = System.Drawing.Color.White
+        Me.btnCancelMaster.Location = New System.Drawing.Point(48, 386)
+        Me.btnCancelMaster.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnCancelMaster.Name = "btnCancelMaster"
+        Me.btnCancelMaster.Size = New System.Drawing.Size(264, 58)
+        Me.btnCancelMaster.TabIndex = 6
+        Me.btnCancelMaster.Text = "&Cancel"
+        Me.btnCancelMaster.UseVisualStyleBackColor = False
         '
         'btnSubmit
         '
@@ -633,7 +633,7 @@ Partial Class Payment
         'Panel2
         '
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(3, 1190)
+        Me.Panel2.Location = New System.Drawing.Point(3, 1192)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1591, 100)
@@ -691,7 +691,7 @@ Partial Class Payment
     Friend WithEvents Label2 As Label
     Friend WithEvents tbMasterCard As TabPage
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnCancelMaster As Button
     Friend WithEvents btnSubmit As Button
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Label30 As Label

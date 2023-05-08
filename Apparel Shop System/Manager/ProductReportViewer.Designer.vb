@@ -24,12 +24,12 @@ Partial Class ProductReportViewer
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ProductReportViewer))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.picBack = New System.Windows.Forms.PictureBox()
-        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.ProductCrystalReport1 = New Apparel_Shop_System.ProductCrystalReport()
         Me.btnDisplay = New System.Windows.Forms.Button()
+        Me.picBack = New System.Windows.Forms.PictureBox()
+        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -45,28 +45,6 @@ Partial Class ProductReportViewer
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1654, 46)
         Me.Panel1.TabIndex = 6
-        '
-        'picBack
-        '
-        Me.picBack.Dock = System.Windows.Forms.DockStyle.Left
-        Me.picBack.Image = CType(resources.GetObject("picBack.Image"), System.Drawing.Image)
-        Me.picBack.Location = New System.Drawing.Point(0, 0)
-        Me.picBack.Name = "picBack"
-        Me.picBack.Size = New System.Drawing.Size(46, 46)
-        Me.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picBack.TabIndex = 3
-        Me.picBack.TabStop = False
-        '
-        'picDelete
-        '
-        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
-        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
-        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
-        Me.picDelete.Name = "picDelete"
-        Me.picDelete.Size = New System.Drawing.Size(46, 46)
-        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picDelete.TabIndex = 0
-        Me.picDelete.TabStop = False
         '
         'lblWelcome
         '
@@ -101,6 +79,28 @@ Partial Class ProductReportViewer
         Me.btnDisplay.TabIndex = 64
         Me.btnDisplay.Text = "&Display Product Report"
         Me.btnDisplay.UseVisualStyleBackColor = False
+        '
+        'picBack
+        '
+        Me.picBack.Dock = System.Windows.Forms.DockStyle.Left
+        Me.picBack.Image = CType(resources.GetObject("picBack.Image"), System.Drawing.Image)
+        Me.picBack.Location = New System.Drawing.Point(0, 0)
+        Me.picBack.Name = "picBack"
+        Me.picBack.Size = New System.Drawing.Size(46, 46)
+        Me.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picBack.TabIndex = 3
+        Me.picBack.TabStop = False
+        '
+        'picDelete
+        '
+        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
+        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
+        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
+        Me.picDelete.Name = "picDelete"
+        Me.picDelete.Size = New System.Drawing.Size(46, 46)
+        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDelete.TabIndex = 0
+        Me.picDelete.TabStop = False
         '
         'ProductReportViewer
         '

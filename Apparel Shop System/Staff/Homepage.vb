@@ -1,26 +1,40 @@
 ﻿Public Class Homepage
     Private Sub btnMembership_Click(sender As Object, e As EventArgs) Handles btnMembership.Click
-        With Membership
-            .TopLevel = False
-            panelShow.Controls.Add(Membership)
-            .BringToFront()
-            .Show()
-        End With
 
-        ProductItemDetails.Close()
-        Payment.Close()
+        If strPosition = "Cashier" Then
+
+            With Membership
+                .TopLevel = False
+                panelShow.Controls.Add(Membership)
+                .BringToFront()
+                .Show()
+            End With
+
+            ProductItemDetails.Close()
+            Payment.Close()
+
+        Else
+            MessageBox.Show("Only Cashier allow to view membership", "Unauthorized Access", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
     End Sub
 
     Private Sub btnProduct_Click(sender As Object, e As EventArgs) Handles btnProduct.Click
-        With ProductItem
-            .TopLevel = False
-            panelShow.Controls.Add(ProductItem)
-            .BringToFront()
-            .Show()
-        End With
 
-        ProductItemDetails.Close()
-        Payment.Close()
+        If strPosition = "Cashier" Or strPosition = "Salesperson" Then
+
+            With ProductItem
+                .TopLevel = False
+                panelShow.Controls.Add(ProductItem)
+                .BringToFront()
+                .Show()
+            End With
+
+            ProductItemDetails.Close()
+            Payment.Close()
+
+        Else
+            MessageBox.Show("Only Cashier Or Salesperson allow to view product", "Unauthorized Access", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
     End Sub
 
     Private Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
@@ -32,7 +46,11 @@
     End Sub
 
     Private Sub btnMyCart_Click(sender As Object, e As EventArgs) Handles btnMyCart.Click
-        With OrderCart
+
+        If strPosition = "Cashier" Then
+
+
+            With OrderCart
             .TopLevel = False
             panelShow.Controls.Add(OrderCart)
             .BringToFront()
@@ -41,6 +59,9 @@
 
         ProductItemDetails.Close()
         Payment.Close()
+        Else
+            MessageBox.Show("Only Cashier allow to view my cart", "Unauthorized Access", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
     End Sub
 
     Private Sub Homepage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -55,15 +76,21 @@
     End Sub
 
     Private Sub btnOrderHistory_Click(sender As Object, e As EventArgs) Handles btnOrderHistory.Click
-        With OrderHistory
-            .TopLevel = False
-            panelShow.Controls.Add(OrderHistory)
-            .BringToFront()
-            .Show()
-        End With
+        If strPosition = "Cashier" Then
 
-        ProductItemDetails.Close()
-        Payment.Close()
+            With OrderHistory
+                .TopLevel = False
+                panelShow.Controls.Add(OrderHistory)
+                .BringToFront()
+                .Show()
+            End With
+
+            ProductItemDetails.Close()
+            Payment.Close()
+
+        Else
+            MessageBox.Show("Only Cashier allow to view order history", "Unauthorized Access", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
     End Sub
 
 

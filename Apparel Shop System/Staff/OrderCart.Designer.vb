@@ -27,42 +27,41 @@ Partial Class OrderCart
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.grpOrderCart = New System.Windows.Forms.GroupBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.picCancel = New System.Windows.Forms.PictureBox()
         Me.lblMemberId = New System.Windows.Forms.Label()
         Me.btnNotMembership = New System.Windows.Forms.Button()
         Me.btnPayAsMembership = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.cmbMemberName = New System.Windows.Forms.ComboBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.lblTotalCount = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.lblStock = New System.Windows.Forms.Label()
         Me.dgvOrderCart = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.picDelete = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnClear = New System.Windows.Forms.Button()
         Me.grpOrderCart.SuspendLayout()
-        CType(Me.picCancel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        CType(Me.dgvOrderCart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgvOrderCart, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grpOrderCart
         '
+        Me.grpOrderCart.Controls.Add(Me.btnClear)
         Me.grpOrderCart.Controls.Add(Me.Label3)
-        Me.grpOrderCart.Controls.Add(Me.picCancel)
         Me.grpOrderCart.Controls.Add(Me.lblMemberId)
         Me.grpOrderCart.Controls.Add(Me.btnNotMembership)
         Me.grpOrderCart.Controls.Add(Me.btnPayAsMembership)
         Me.grpOrderCart.Controls.Add(Me.Label10)
         Me.grpOrderCart.Controls.Add(Me.cmbMemberName)
-        Me.grpOrderCart.Location = New System.Drawing.Point(274, 178)
+        Me.grpOrderCart.Location = New System.Drawing.Point(274, 164)
         Me.grpOrderCart.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.grpOrderCart.Name = "grpOrderCart"
         Me.grpOrderCart.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.grpOrderCart.Size = New System.Drawing.Size(1100, 168)
+        Me.grpOrderCart.Size = New System.Drawing.Size(1156, 210)
         Me.grpOrderCart.TabIndex = 119
         Me.grpOrderCart.TabStop = False
         '
@@ -71,30 +70,19 @@ Partial Class OrderCart
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(47, 93)
+        Me.Label3.Location = New System.Drawing.Point(53, 117)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(174, 32)
         Me.Label3.TabIndex = 92
         Me.Label3.Text = "Member Id :"
         '
-        'picCancel
-        '
-        Me.picCancel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.picCancel.Image = Global.Apparel_Shop_System.My.Resources.Resources.cancel_icon_new
-        Me.picCancel.Location = New System.Drawing.Point(580, 35)
-        Me.picCancel.Name = "picCancel"
-        Me.picCancel.Size = New System.Drawing.Size(44, 41)
-        Me.picCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picCancel.TabIndex = 91
-        Me.picCancel.TabStop = False
-        '
         'lblMemberId
         '
         Me.lblMemberId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblMemberId.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMemberId.Location = New System.Drawing.Point(303, 97)
+        Me.lblMemberId.Location = New System.Drawing.Point(309, 121)
         Me.lblMemberId.Name = "lblMemberId"
-        Me.lblMemberId.Size = New System.Drawing.Size(262, 29)
+        Me.lblMemberId.Size = New System.Drawing.Size(318, 29)
         Me.lblMemberId.TabIndex = 90
         Me.lblMemberId.Text = "--"
         Me.lblMemberId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -104,7 +92,7 @@ Partial Class OrderCart
         Me.btnNotMembership.BackColor = System.Drawing.Color.Red
         Me.btnNotMembership.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNotMembership.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnNotMembership.Location = New System.Drawing.Point(736, 94)
+        Me.btnNotMembership.Location = New System.Drawing.Point(803, 122)
         Me.btnNotMembership.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnNotMembership.Name = "btnNotMembership"
         Me.btnNotMembership.Size = New System.Drawing.Size(329, 65)
@@ -117,7 +105,7 @@ Partial Class OrderCart
         Me.btnPayAsMembership.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnPayAsMembership.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPayAsMembership.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnPayAsMembership.Location = New System.Drawing.Point(736, 0)
+        Me.btnPayAsMembership.Location = New System.Drawing.Point(803, 33)
         Me.btnPayAsMembership.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnPayAsMembership.Name = "btnPayAsMembership"
         Me.btnPayAsMembership.Size = New System.Drawing.Size(329, 65)
@@ -130,7 +118,7 @@ Partial Class OrderCart
         Me.Label10.AutoSize = True
         Me.Label10.BackColor = System.Drawing.Color.Transparent
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(47, 38)
+        Me.Label10.Location = New System.Drawing.Point(53, 62)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(228, 32)
         Me.Label10.TabIndex = 82
@@ -141,10 +129,10 @@ Partial Class OrderCart
         Me.cmbMemberName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbMemberName.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbMemberName.FormattingEnabled = True
-        Me.cmbMemberName.Location = New System.Drawing.Point(303, 35)
+        Me.cmbMemberName.Location = New System.Drawing.Point(309, 59)
         Me.cmbMemberName.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmbMemberName.Name = "cmbMemberName"
-        Me.cmbMemberName.Size = New System.Drawing.Size(262, 39)
+        Me.cmbMemberName.Size = New System.Drawing.Size(318, 39)
         Me.cmbMemberName.TabIndex = 83
         '
         'Panel1
@@ -158,18 +146,6 @@ Partial Class OrderCart
         Me.Panel1.Size = New System.Drawing.Size(1654, 46)
         Me.Panel1.TabIndex = 115
         '
-        'picDelete
-        '
-        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
-        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
-        Me.picDelete.Location = New System.Drawing.Point(1609, 0)
-        Me.picDelete.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.picDelete.Name = "picDelete"
-        Me.picDelete.Size = New System.Drawing.Size(45, 46)
-        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picDelete.TabIndex = 0
-        Me.picDelete.TabStop = False
-        '
         'lblTotalCount
         '
         Me.lblTotalCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -177,17 +153,6 @@ Partial Class OrderCart
         Me.lblTotalCount.Name = "lblTotalCount"
         Me.lblTotalCount.Size = New System.Drawing.Size(354, 38)
         Me.lblTotalCount.TabIndex = 122
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Apparel_Shop_System.My.Resources.Resources._335_3354780_icon_02_green_shopping_cart_icon
-        Me.PictureBox1.Location = New System.Drawing.Point(1034, 66)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(83, 83)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 118
-        Me.PictureBox1.TabStop = False
         '
         'lblWelcome
         '
@@ -204,7 +169,7 @@ Partial Class OrderCart
         '
         Me.lblStock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblStock.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStock.Location = New System.Drawing.Point(20, 106)
+        Me.lblStock.Location = New System.Drawing.Point(22, 66)
         Me.lblStock.Name = "lblStock"
         Me.lblStock.Size = New System.Drawing.Size(262, 29)
         Me.lblStock.TabIndex = 120
@@ -232,7 +197,7 @@ Partial Class OrderCart
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvOrderCart.DefaultCellStyle = DataGridViewCellStyle2
-        Me.dgvOrderCart.Location = New System.Drawing.Point(146, 378)
+        Me.dgvOrderCart.Location = New System.Drawing.Point(161, 378)
         Me.dgvOrderCart.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dgvOrderCart.Name = "dgvOrderCart"
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -258,6 +223,39 @@ Partial Class OrderCart
         Me.Label1.Size = New System.Drawing.Size(0, 17)
         Me.Label1.TabIndex = 116
         '
+        'picDelete
+        '
+        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
+        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
+        Me.picDelete.Location = New System.Drawing.Point(1609, 0)
+        Me.picDelete.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.picDelete.Name = "picDelete"
+        Me.picDelete.Size = New System.Drawing.Size(45, 46)
+        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDelete.TabIndex = 0
+        Me.picDelete.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Apparel_Shop_System.My.Resources.Resources._335_3354780_icon_02_green_shopping_cart_icon
+        Me.PictureBox1.Location = New System.Drawing.Point(1034, 66)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(83, 83)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 118
+        Me.PictureBox1.TabStop = False
+        '
+        'btnClear
+        '
+        Me.btnClear.BackColor = System.Drawing.Color.PowderBlue
+        Me.btnClear.Location = New System.Drawing.Point(644, 62)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(75, 32)
+        Me.btnClear.TabIndex = 93
+        Me.btnClear.Text = "&Clear"
+        Me.btnClear.UseVisualStyleBackColor = False
+        '
         'OrderCart
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -279,11 +277,10 @@ Partial Class OrderCart
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.grpOrderCart.ResumeLayout(False)
         Me.grpOrderCart.PerformLayout()
-        CType(Me.picCancel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
+        CType(Me.dgvOrderCart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgvOrderCart, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -291,7 +288,6 @@ Partial Class OrderCart
 
     Friend WithEvents grpOrderCart As GroupBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents picCancel As PictureBox
     Friend WithEvents lblMemberId As Label
     Friend WithEvents btnNotMembership As Button
     Friend WithEvents btnPayAsMembership As Button
@@ -305,4 +301,5 @@ Partial Class OrderCart
     Friend WithEvents lblStock As Label
     Friend WithEvents dgvOrderCart As DataGridView
     Friend WithEvents Label1 As Label
+    Friend WithEvents btnClear As Button
 End Class

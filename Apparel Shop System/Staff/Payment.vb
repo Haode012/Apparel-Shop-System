@@ -304,10 +304,7 @@ Public Class Payment
             End Using
         End Using
 
-
-
         args.ShowPaymentReceipt(paymentId)
-
         With PaymentReceipt
             .TopLevel = False
             Me.Controls.Add(PaymentReceipt)
@@ -436,15 +433,16 @@ Public Class Payment
 
         args.ShowPaymentReceipt(paymentId)
 
-
-
         With PaymentReceipt
             .TopLevel = False
             Me.Controls.Add(PaymentReceipt)
             .BringToFront()
             .Show()
         End With
+
     End Sub
 
-
+    Private Sub btnCancelMaster_Click(sender As Object, e As EventArgs) Handles btnCancelMaster.Click
+        Me.Close()
+    End Sub
 End Class

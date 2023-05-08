@@ -31,7 +31,7 @@ Public Class Promotion_Edit
             txtPromotionDescription.Text = reader("promotionDescription").ToString()
             dtStartDate.Value = Convert.ToDateTime(reader("promotionStart"))
             dtEndDate.Value = Convert.ToDateTime(reader("promotionEnd"))
-            txtDiscount.Text = reader("promotionDiscount").ToString()
+            txtDiscount.Text = reader("promotionDiscount").ToString().Replace("%", "")
             cboStatus.Text = reader("promotionStatus").ToString()
 
         End If
@@ -64,8 +64,18 @@ Public Class Promotion_Edit
             ctr = If(ctr, txtPromotionDescription)
         End If
 
+        Dim discount As Double
         If String.IsNullOrEmpty(txtDiscount.Text) Then
-            err.AppendLine("- Please Enter discount percentage")
+            err.AppendLine("- Please enter discount percentage.")
+            ctr = If(ctr, txtDiscount)
+        ElseIf Not Double.TryParse(txtDiscount.Text, discount) Then
+            err.AppendLine("- Please enter a valid discount percentage (must be a number).")
+            ctr = If(ctr, txtDiscount)
+        ElseIf discount <= 0 Then
+            err.AppendLine("- Discount percentage must be greater than 0.")
+            ctr = If(ctr, txtDiscount)
+        ElseIf discount >= 100 Then
+            err.AppendLine("- Discount percentage cannot greater or equal to 100.")
             ctr = If(ctr, txtDiscount)
         End If
 
@@ -105,7 +115,7 @@ Public Class Promotion_Edit
         Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
 
         If rowsAffected > 0 Then
-            MessageBox.Show("Promotion updated successfully.")
+            MessageBox.Show("Promotion updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             MessageBox.Show("Failed to update promotion.")
         End If

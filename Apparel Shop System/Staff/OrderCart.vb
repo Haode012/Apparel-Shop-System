@@ -20,8 +20,10 @@ Public Class OrderCart
                 End If
             End If
 
-            Dim cmd As New SqlCommand("select memberName from Membership", con)
+            Dim cmd As New SqlCommand("select memberName from Membership where memberStatus=@MemberStatus", con)
+            cmd.Parameters.AddWithValue("@MemberStatus", "Active")
             Dim reader As SqlDataReader = cmd.ExecuteReader()
+
             While reader.Read()
                 cmbMemberName.Items.Add(reader("memberName"))
             End While
@@ -72,12 +74,6 @@ Public Class OrderCart
 
         cmbMemberName.SelectedIndex = -1
 
-        'If cmbMemberName.Text <> "" Then
-        'Else
-        '    If cmbMemberName.Text = "" Then
-        '        btnPayAsMembership.Enabled = False
-        '    End If
-        'End If
         btnPayAsMembership.Enabled = False
 
         Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True")
@@ -85,10 +81,10 @@ Public Class OrderCart
             Dim cmd As New SqlCommand("SELECT COUNT(*) FROM Cart", con)
             Dim count As Integer = Convert.ToInt32(cmd.ExecuteScalar())
             If count > 0 Then
-                ' Enable the button
+
                 btnNotMembership.Enabled = True
             Else
-                ' Disable the button
+                MessageBox.Show("Cart is empty..", "Empty", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 btnNotMembership.Enabled = False
                 btnPayAsMembership.Enabled = False
             End If
@@ -114,46 +110,45 @@ Public Class OrderCart
 
         Dim selectedMemberName As String = cmbMemberName.Text
 
-        If selectedMemberName = "" Then
+        If selectedMemberName = "" Or dgvOrderCart.Rows.Count <= 1 Then
+
             lblMemberId.Text = ""
             btnPayAsMembership.Enabled = False
-        End If
-        Try
+        Else
+
+            Try
             Using con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\HP\Source\Repos\Haode012\Apparel-Shop-System\Apparel Shop System\ApparelShopSystemDatabase.mdf"";Integrated Security=True")
                 con.Open()
-                ' Execute SQL commands here
 
-
-
-
-                Dim sql As String = "SELECT * FROM Membership WHERE memberName = @MemberName"
-                Dim cmd As New SqlCommand(sql, con)
-                cmd.Parameters.AddWithValue("@MemberName", selectedMemberName)
-                'Execute the SQL command and read the result
-                Dim reader As SqlDataReader = cmd.ExecuteReader()
+                    Dim sql As String = "SELECT * FROM Membership WHERE memberName = @MemberName And memberStatus = @MemberStatus"
+                    Dim cmd As New SqlCommand(sql, con)
+                    cmd.Parameters.AddWithValue("@MemberName", selectedMemberName)
+                    cmd.Parameters.AddWithValue("@MemberStatus", "Active")
+                    'Execute the SQL command and read the result
+                    Dim reader As SqlDataReader = cmd.ExecuteReader()
                 If reader.Read() Then
-                    'Set the lblMemberId.Text with the memberName from the selected row
-                    lblMemberId.Text = reader("memberId").ToString()
+
+                        lblMemberId.Text = reader("memberId").ToString()
                 Else
-                    'If no row is returned, clear the lblMemberName.Text
+            
                     lblMemberId.Text = ""
                 End If
                 reader.Close()
                 con.Close()
             End Using
-            reload()
-        Catch ex As Exception
+
+            Catch ex As Exception
             reload()
         End Try
 
-        If cmbMemberName.Text = "" Then
-        Else
-            If cmbMemberName.Text <> "" Then
-                btnPayAsMembership.Enabled = True
-            ElseIf dgvOrderCart.Rows.Count <= 0 Then
+            If cmbMemberName.Text = "" Or dgvOrderCart.Rows.Count <= 1 Then
                 btnPayAsMembership.Enabled = False
+            Else
+                If cmbMemberName.Text <> "" And dgvOrderCart.Rows.Count > 1 Then
+                    btnPayAsMembership.Enabled = True
+                End If
             End If
-        End If
+            End If
 
     End Sub
 
@@ -307,8 +302,9 @@ Public Class OrderCart
 
     End Sub
 
-    Private Sub picCancel_Click(sender As Object, e As EventArgs) Handles picCancel.Click
+
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         display_all_record()
     End Sub
-
 End Class

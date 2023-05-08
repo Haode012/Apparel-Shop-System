@@ -25,7 +25,6 @@ Partial Class MembershipMaintenance
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MembershipMaintenance))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.dgvList = New System.Windows.Forms.DataGridView()
@@ -45,11 +44,12 @@ Partial Class MembershipMaintenance
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.PrintMemberMonthlyRegister = New System.Drawing.Printing.PrintDocument()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
+        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
-        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApparelShopSystemDataset, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MembershipBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -61,17 +61,6 @@ Partial Class MembershipMaintenance
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1654, 46)
         Me.Panel1.TabIndex = 5
-        '
-        'picDelete
-        '
-        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
-        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
-        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
-        Me.picDelete.Name = "picDelete"
-        Me.picDelete.Size = New System.Drawing.Size(46, 46)
-        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picDelete.TabIndex = 0
-        Me.picDelete.TabStop = False
         '
         'lblWelcome
         '
@@ -237,6 +226,17 @@ Partial Class MembershipMaintenance
         Me.PrintDialog1.PrintToFile = True
         Me.PrintDialog1.UseEXDialog = True
         '
+        'picDelete
+        '
+        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
+        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
+        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
+        Me.picDelete.Name = "picDelete"
+        Me.picDelete.Size = New System.Drawing.Size(46, 46)
+        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDelete.TabIndex = 0
+        Me.picDelete.TabStop = False
+        '
         'MembershipMaintenance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -255,10 +255,10 @@ Partial Class MembershipMaintenance
         Me.Text = "MembershipMaintenance"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
-        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvList, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ApparelShopSystemDataset, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MembershipBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

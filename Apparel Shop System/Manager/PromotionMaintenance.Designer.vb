@@ -25,18 +25,23 @@ Partial Class PromotionMaintenance
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PromotionMaintenance))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.lblCountRecord = New System.Windows.Forms.Label()
         Me.docsPromotion = New System.Drawing.Printing.PrintDocument()
         Me.dlgPreview = New System.Windows.Forms.PrintPreviewDialog()
         Me.dgvPromotionList = New System.Windows.Forms.DataGridView()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtSearchBox = New System.Windows.Forms.TextBox()
+        Me.cboPromotionStatus = New System.Windows.Forms.ComboBox()
+        Me.btnRefresh = New System.Windows.Forms.Button()
         Me.Button18 = New System.Windows.Forms.Button()
-        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.ApparelShopSystemDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Panel1.SuspendLayout()
-        CType(Me.dgvPromotionList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvPromotionList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApparelShopSystemDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -49,6 +54,17 @@ Partial Class PromotionMaintenance
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1654, 46)
         Me.Panel1.TabIndex = 4
+        '
+        'picDelete
+        '
+        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
+        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
+        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
+        Me.picDelete.Name = "picDelete"
+        Me.picDelete.Size = New System.Drawing.Size(46, 46)
+        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDelete.TabIndex = 0
+        Me.picDelete.TabStop = False
         '
         'lblWelcome
         '
@@ -118,6 +134,54 @@ Partial Class PromotionMaintenance
         Me.dgvPromotionList.Size = New System.Drawing.Size(1455, 531)
         Me.dgvPromotionList.TabIndex = 15
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(321, 269)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(81, 25)
+        Me.Label1.TabIndex = 71
+        Me.Label1.Text = "Search:"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(800, 269)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(74, 25)
+        Me.Label2.TabIndex = 72
+        Me.Label2.Text = "Status:"
+        '
+        'txtSearchBox
+        '
+        Me.txtSearchBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSearchBox.Location = New System.Drawing.Point(408, 269)
+        Me.txtSearchBox.Name = "txtSearchBox"
+        Me.txtSearchBox.Size = New System.Drawing.Size(292, 30)
+        Me.txtSearchBox.TabIndex = 73
+        '
+        'cboPromotionStatus
+        '
+        Me.cboPromotionStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboPromotionStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboPromotionStatus.FormattingEnabled = True
+        Me.cboPromotionStatus.Items.AddRange(New Object() {"All", "Pending", "Started", "Ended"})
+        Me.cboPromotionStatus.Location = New System.Drawing.Point(880, 266)
+        Me.cboPromotionStatus.Name = "cboPromotionStatus"
+        Me.cboPromotionStatus.Size = New System.Drawing.Size(216, 33)
+        Me.cboPromotionStatus.TabIndex = 74
+        '
+        'btnRefresh
+        '
+        Me.btnRefresh.Image = Global.Apparel_Shop_System.My.Resources.Resources.refresh_icon
+        Me.btnRefresh.Location = New System.Drawing.Point(1130, 257)
+        Me.btnRefresh.Name = "btnRefresh"
+        Me.btnRefresh.Size = New System.Drawing.Size(54, 49)
+        Me.btnRefresh.TabIndex = 75
+        Me.btnRefresh.UseVisualStyleBackColor = True
+        '
         'Button18
         '
         Me.Button18.AutoSize = True
@@ -131,23 +195,17 @@ Partial Class PromotionMaintenance
         Me.Button18.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button18.UseVisualStyleBackColor = True
         '
-        'picDelete
-        '
-        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
-        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
-        Me.picDelete.Location = New System.Drawing.Point(1608, 0)
-        Me.picDelete.Name = "picDelete"
-        Me.picDelete.Size = New System.Drawing.Size(46, 46)
-        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picDelete.TabIndex = 0
-        Me.picDelete.TabStop = False
-        '
         'PromotionMaintenance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(1654, 1035)
+        Me.Controls.Add(Me.btnRefresh)
+        Me.Controls.Add(Me.cboPromotionStatus)
+        Me.Controls.Add(Me.txtSearchBox)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dgvPromotionList)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.Button18)
@@ -156,11 +214,11 @@ Partial Class PromotionMaintenance
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "PromotionMaintenance"
-        Me.Text = "PromotionMaintenance"
+        Me.Text = "m"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
-        CType(Me.dgvPromotionList, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvPromotionList, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ApparelShopSystemDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -177,4 +235,9 @@ Partial Class PromotionMaintenance
     Friend WithEvents docsPromotion As Printing.PrintDocument
     Friend WithEvents dlgPreview As PrintPreviewDialog
     Friend WithEvents dgvPromotionList As DataGridView
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents txtSearchBox As TextBox
+    Friend WithEvents cboPromotionStatus As ComboBox
+    Friend WithEvents btnRefresh As Button
 End Class

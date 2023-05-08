@@ -24,6 +24,7 @@ Partial Class PaymentReceipt
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PaymentReceipt))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.lblTotalAmount1 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.dgvReceipt = New System.Windows.Forms.DataGridView()
@@ -44,19 +45,15 @@ Partial Class PaymentReceipt
         Me.Label5 = New System.Windows.Forms.Label()
         Me.lblMemberName = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.picBack = New System.Windows.Forms.PictureBox()
-        Me.picDelete = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
+        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvReceipt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Silver
-        Me.Panel1.Controls.Add(Me.picBack)
         Me.Panel1.Controls.Add(Me.picDelete)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
@@ -65,13 +62,25 @@ Partial Class PaymentReceipt
         Me.Panel1.Size = New System.Drawing.Size(1654, 46)
         Me.Panel1.TabIndex = 107
         '
+        'picDelete
+        '
+        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
+        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
+        Me.picDelete.Location = New System.Drawing.Point(1609, 0)
+        Me.picDelete.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.picDelete.Name = "picDelete"
+        Me.picDelete.Size = New System.Drawing.Size(45, 46)
+        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDelete.TabIndex = 0
+        Me.picDelete.TabStop = False
+        '
         'lblTotalAmount1
         '
         Me.lblTotalAmount1.AutoSize = True
         Me.lblTotalAmount1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblTotalAmount1.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalAmount1.ForeColor = System.Drawing.Color.Black
-        Me.lblTotalAmount1.Location = New System.Drawing.Point(1279, 821)
+        Me.lblTotalAmount1.Location = New System.Drawing.Point(1264, 779)
         Me.lblTotalAmount1.Name = "lblTotalAmount1"
         Me.lblTotalAmount1.Size = New System.Drawing.Size(346, 40)
         Me.lblTotalAmount1.TabIndex = 112
@@ -82,7 +91,7 @@ Partial Class PaymentReceipt
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.Black
-        Me.Label6.Location = New System.Drawing.Point(941, 823)
+        Me.Label6.Location = New System.Drawing.Point(926, 781)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(309, 38)
         Me.Label6.TabIndex = 111
@@ -94,7 +103,7 @@ Partial Class PaymentReceipt
         Me.dgvReceipt.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvReceipt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvReceipt.Cursor = System.Windows.Forms.Cursors.Default
-        Me.dgvReceipt.Location = New System.Drawing.Point(150, 339)
+        Me.dgvReceipt.Location = New System.Drawing.Point(144, 296)
         Me.dgvReceipt.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvReceipt.Name = "dgvReceipt"
         Me.dgvReceipt.ReadOnly = True
@@ -107,7 +116,7 @@ Partial Class PaymentReceipt
         'lblPaymentId
         '
         Me.lblPaymentId.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPaymentId.Location = New System.Drawing.Point(1368, 297)
+        Me.lblPaymentId.Location = New System.Drawing.Point(1362, 254)
         Me.lblPaymentId.Name = "lblPaymentId"
         Me.lblPaymentId.Size = New System.Drawing.Size(126, 38)
         Me.lblPaymentId.TabIndex = 109
@@ -117,7 +126,7 @@ Partial Class PaymentReceipt
         '
         Me.lblWelcome.BackColor = System.Drawing.Color.LightCyan
         Me.lblWelcome.Font = New System.Drawing.Font("Segoe Script", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblWelcome.Location = New System.Drawing.Point(387, 110)
+        Me.lblWelcome.Location = New System.Drawing.Point(381, 67)
         Me.lblWelcome.Name = "lblWelcome"
         Me.lblWelcome.Size = New System.Drawing.Size(933, 107)
         Me.lblWelcome.TabIndex = 108
@@ -136,7 +145,7 @@ Partial Class PaymentReceipt
         Me.btnPrint.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnPrint.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold)
         Me.btnPrint.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnPrint.Location = New System.Drawing.Point(1198, 909)
+        Me.btnPrint.Location = New System.Drawing.Point(1180, 850)
         Me.btnPrint.Name = "btnPrint"
         Me.btnPrint.Size = New System.Drawing.Size(329, 65)
         Me.btnPrint.TabIndex = 113
@@ -156,7 +165,7 @@ Partial Class PaymentReceipt
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(1247, 297)
+        Me.Label1.Location = New System.Drawing.Point(1241, 254)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(126, 38)
         Me.Label1.TabIndex = 114
@@ -169,7 +178,7 @@ Partial Class PaymentReceipt
         'Label2
         '
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(170, 297)
+        Me.Label2.Location = New System.Drawing.Point(164, 254)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(126, 38)
         Me.Label2.TabIndex = 116
@@ -179,7 +188,7 @@ Partial Class PaymentReceipt
         '
         Me.lblDate.AutoSize = True
         Me.lblDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDate.Location = New System.Drawing.Point(291, 297)
+        Me.lblDate.Location = New System.Drawing.Point(285, 254)
         Me.lblDate.Name = "lblDate"
         Me.lblDate.Size = New System.Drawing.Size(50, 25)
         Me.lblDate.TabIndex = 115
@@ -191,7 +200,7 @@ Partial Class PaymentReceipt
         Me.lblDiscount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblDiscount.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDiscount.ForeColor = System.Drawing.Color.Black
-        Me.lblDiscount.Location = New System.Drawing.Point(1279, 764)
+        Me.lblDiscount.Location = New System.Drawing.Point(1264, 722)
         Me.lblDiscount.Name = "lblDiscount"
         Me.lblDiscount.Size = New System.Drawing.Size(55, 40)
         Me.lblDiscount.TabIndex = 118
@@ -202,7 +211,7 @@ Partial Class PaymentReceipt
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Black
-        Me.Label4.Location = New System.Drawing.Point(1033, 764)
+        Me.Label4.Location = New System.Drawing.Point(1018, 722)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(217, 38)
         Me.Label4.TabIndex = 117
@@ -212,7 +221,7 @@ Partial Class PaymentReceipt
         '
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(170, 250)
+        Me.Label3.Location = New System.Drawing.Point(164, 207)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(126, 38)
         Me.Label3.TabIndex = 120
@@ -223,7 +232,7 @@ Partial Class PaymentReceipt
         Me.lblMemberId.AutoSize = True
         Me.lblMemberId.BackColor = System.Drawing.Color.Transparent
         Me.lblMemberId.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMemberId.Location = New System.Drawing.Point(302, 250)
+        Me.lblMemberId.Location = New System.Drawing.Point(296, 207)
         Me.lblMemberId.Name = "lblMemberId"
         Me.lblMemberId.Size = New System.Drawing.Size(99, 25)
         Me.lblMemberId.TabIndex = 119
@@ -233,7 +242,7 @@ Partial Class PaymentReceipt
         '
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(430, 250)
+        Me.Label5.Location = New System.Drawing.Point(424, 207)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(180, 38)
         Me.Label5.TabIndex = 122
@@ -244,7 +253,7 @@ Partial Class PaymentReceipt
         Me.lblMemberName.AutoSize = True
         Me.lblMemberName.BackColor = System.Drawing.Color.Transparent
         Me.lblMemberName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMemberName.Location = New System.Drawing.Point(616, 250)
+        Me.lblMemberName.Location = New System.Drawing.Point(610, 207)
         Me.lblMemberName.Name = "lblMemberName"
         Me.lblMemberName.Size = New System.Drawing.Size(135, 25)
         Me.lblMemberName.TabIndex = 121
@@ -253,41 +262,17 @@ Partial Class PaymentReceipt
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Apparel_Shop_System.My.Resources.Resources.download
-        Me.PictureBox1.Location = New System.Drawing.Point(1148, 123)
+        Me.PictureBox1.Location = New System.Drawing.Point(1142, 80)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(74, 78)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 125
         Me.PictureBox1.TabStop = False
         '
-        'picBack
-        '
-        Me.picBack.Dock = System.Windows.Forms.DockStyle.Left
-        Me.picBack.Image = CType(resources.GetObject("picBack.Image"), System.Drawing.Image)
-        Me.picBack.Location = New System.Drawing.Point(0, 0)
-        Me.picBack.Name = "picBack"
-        Me.picBack.Size = New System.Drawing.Size(46, 46)
-        Me.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picBack.TabIndex = 4
-        Me.picBack.TabStop = False
-        '
-        'picDelete
-        '
-        Me.picDelete.Dock = System.Windows.Forms.DockStyle.Right
-        Me.picDelete.Image = Global.Apparel_Shop_System.My.Resources.Resources.close
-        Me.picDelete.Location = New System.Drawing.Point(1609, 0)
-        Me.picDelete.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.picDelete.Name = "picDelete"
-        Me.picDelete.Size = New System.Drawing.Size(45, 46)
-        Me.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picDelete.TabIndex = 0
-        Me.picDelete.TabStop = False
-        '
         'PaymentReceipt
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.AutoScroll = True
         Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(1654, 1035)
         Me.Controls.Add(Me.PictureBox1)
@@ -312,10 +297,9 @@ Partial Class PaymentReceipt
         Me.Text = "PaymentReceipt"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
+        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvReceipt, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picBack, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picDelete, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -336,7 +320,6 @@ Partial Class PaymentReceipt
     Friend WithEvents PrintDialog2 As PrintDialog
     Friend WithEvents Label2 As Label
     Friend WithEvents lblDate As Label
-    Friend WithEvents picBack As PictureBox
     Friend WithEvents lblDiscount As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label

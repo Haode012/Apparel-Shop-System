@@ -43,11 +43,20 @@ Public Class Promotion_Add
             ctr = If(ctr, txtDesc)
         End If
 
+        Dim discount As Double
         If String.IsNullOrEmpty(txtDiscount.Text) Then
-            err.AppendLine("- Please Enter discount percentage")
+            err.AppendLine("- Please enter discount percentage.")
+            ctr = If(ctr, txtDiscount)
+        ElseIf Not Double.TryParse(txtDiscount.Text, discount) Then
+            err.AppendLine("- Please enter a valid discount percentage (must be a number).")
+            ctr = If(ctr, txtDiscount)
+        ElseIf discount <= 0 Then
+            err.AppendLine("- Discount percentage must be greater than 0.")
+            ctr = If(ctr, txtDiscount)
+        ElseIf discount >= 100 Then
+            err.AppendLine("- Discount percentage cannot greater or equal to 100.")
             ctr = If(ctr, txtDiscount)
         End If
-
 
         If err.Length > 0 Then
             MessageBox.Show(err.ToString(), "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

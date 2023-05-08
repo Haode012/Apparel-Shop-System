@@ -3,6 +3,8 @@
         StaffMaintenance.Close()
         ProductMaintenance.Close()
         MembershipMaintenance.Close()
+        PromotionMaintenance.Close()
+        DailySalesReportViewer.Close()
     End Sub
     Private Sub btnProductMaintenance_Click(sender As Object, e As EventArgs) Handles btnProductMaintenance.Click
         With ProductMaintenance

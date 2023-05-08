@@ -12,27 +12,27 @@ Public Class MemberRegister
 
     Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
         If String.IsNullOrEmpty(txtMemberName.Text) Then
-            MessageBox.Show("Please enter your name", "Empty Member Name")
+            MessageBox.Show("Please enter your name", "Empty Member Name", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
         If IsNumeric(txtMemberName.Text) Then
-            MessageBox.Show("Please enter a valid Name", "Invalid Member Name")
-        End If
-        If String.IsNullOrEmpty(txtMemberIC.Text) Or Not IsNumeric(txtMemberIC.Text) Or txtMemberIC.Text.Length <> 12 Then
-            MessageBox.Show("Please enter a valid member IC number (12 digits)", "Invalid IC")
-            Return
-        End If
-
-        If String.IsNullOrEmpty(txtMemberPhoneNumber.Text) Or Not IsNumeric(txtMemberPhoneNumber.Text) Or txtMemberPhoneNumber.Text.Length < 10 Or txtMemberPhoneNumber.Text.Length > 11 Then
-            MessageBox.Show("Please enter a valid member phone number (10 or 11 digits)", "Invalid Phone Number")
+            MessageBox.Show("Please enter a valid Name", "Invalid Member Name", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
         If Not IsValidEmail(txtMemberEmail.Text) Then
-            MessageBox.Show("Please enter a valid email", "Invalid Email")
+            MessageBox.Show("Please enter a valid email", "Invalid Email", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+        If String.IsNullOrEmpty(txtMemberPhoneNumber.Text) Or Not IsNumeric(txtMemberPhoneNumber.Text) Or txtMemberPhoneNumber.Text.Length < 10 Or txtMemberPhoneNumber.Text.Length > 11 Then
+            MessageBox.Show("Please enter a valid member phone number (10 or 11 digits)", "Invalid Phone Number", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+        If String.IsNullOrEmpty(txtMemberIC.Text) Or Not IsNumeric(txtMemberIC.Text) Or txtMemberIC.Text.Length <> 12 Then
+            MessageBox.Show("Please enter a valid member IC number (12 digits)", "Invalid IC", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
         If String.IsNullOrEmpty(txtMemberAddress.Text) Then
-            MessageBox.Show("Please enter Address ", "Empty Address")
+            MessageBox.Show("Please enter Address ", "Empty Address", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
 
 
@@ -53,7 +53,7 @@ Public Class MemberRegister
                     Dim count As Integer = CInt(selectCommand.ExecuteScalar())
 
                     If count > 0 Then
-                        MessageBox.Show("Email already exists in database!")
+                        MessageBox.Show("Email already exists in database!", "Duplicate email", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
                     End If
                 End Using
@@ -68,7 +68,7 @@ Public Class MemberRegister
             End Using
         End Using
 
-        MessageBox.Show("Member registered successfully")
+        MessageBox.Show("Member registered successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Private Function ValidateFields() As Boolean
@@ -79,6 +79,10 @@ Public Class MemberRegister
         If IsNumeric(txtMemberName.Text) Then
             MessageBox.Show("Please enter a valid Name")
         End If
+        If Not IsValidEmail(txtMemberEmail.Text) Then
+            MessageBox.Show("Please enter a valid member email address")
+            Return True
+        End If
         If String.IsNullOrEmpty(txtMemberIC.Text) Or Not IsNumeric(txtMemberIC.Text) Or txtMemberIC.Text.Length <> 12 Then
             MessageBox.Show("Please enter a valid member IC number (12 digits)")
             Return True
@@ -86,11 +90,6 @@ Public Class MemberRegister
 
         If String.IsNullOrEmpty(txtMemberPhoneNumber.Text) Or Not IsNumeric(txtMemberPhoneNumber.Text) Or txtMemberPhoneNumber.Text.Length < 10 Or txtMemberPhoneNumber.Text.Length > 11 Then
             MessageBox.Show("Please enter a valid member phone number (10 or 11 digits)")
-            Return True
-        End If
-
-        If Not IsValidEmail(txtMemberEmail.Text) Then
-            MessageBox.Show("Please enter a valid member email address")
             Return True
         End If
         Return True
