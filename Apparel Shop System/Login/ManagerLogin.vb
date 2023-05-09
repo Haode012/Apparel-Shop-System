@@ -19,6 +19,7 @@ Public Class ManagerLogin
         Dim strName = txtUserId.Text
         Dim strPasswd = txtPassword.Text
         Dim dbPasswd As String
+        Dim secretAnswer As String
         'For userID to show in staff Management'
         strPassName = strUserId
         If strName = "" Or strPasswd = "" Then
@@ -27,7 +28,7 @@ Public Class ManagerLogin
             If OpenConnection() = True Then
                 Try
                     'strSql = "SELECT Name,Position,Status,Password From NewStaff Where Name = @name and Password= @Password"
-                    strSql = "SELECT Name,Position,Status,Password From Staff Where StaffID = @StaffID"
+                    strSql = "SELECT Name,Position,Status,Password,SecretAnswer From Staff Where StaffID = @StaffID"
                     '"Select* From Users WHERE Name = @Name AND Position = @Position"
                     MySqlCommand = New SqlCommand(strSql, conn)
 
@@ -39,6 +40,8 @@ Public Class ManagerLogin
                         fullName = reader("Name").ToString
                         strFullName = fullName
                         position = reader("Position").ToString
+                        secretAnswer = reader("SecretAnswer").ToString
+                        'strSecretAnswer = secretAnswer
                         strStatus = reader("Status").ToString
                         dbPasswd = reader("Password").ToString
                         strPosition = position

@@ -83,7 +83,7 @@ Public Class Promotion_Details
             End With
             BindData()
         Else
-            MessageBox.Show("Only manager is allowed to add new staff", "Unauthorized Access", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MessageBox.Show("Only manager is allowed to edit promotion", "Unauthorized Access", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
 
     End Sub

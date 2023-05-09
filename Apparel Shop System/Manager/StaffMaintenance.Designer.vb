@@ -177,7 +177,7 @@ Partial Class StaffMaintenance
         Me.Button7.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button7.ForeColor = System.Drawing.SystemColors.Window
-        Me.Button7.Location = New System.Drawing.Point(1299, 846)
+        Me.Button7.Location = New System.Drawing.Point(1346, 857)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(283, 77)
         Me.Button7.TabIndex = 101
@@ -187,7 +187,7 @@ Partial Class StaffMaintenance
         'lblRecords
         '
         Me.lblRecords.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRecords.Location = New System.Drawing.Point(243, 855)
+        Me.lblRecords.Location = New System.Drawing.Point(290, 857)
         Me.lblRecords.Name = "lblRecords"
         Me.lblRecords.Size = New System.Drawing.Size(354, 38)
         Me.lblRecords.TabIndex = 100
@@ -216,7 +216,7 @@ Partial Class StaffMaintenance
         Me.dtgAllStaff.AllowUserToAddRows = False
         Me.dtgAllStaff.BackgroundColor = System.Drawing.SystemColors.ControlLight
         Me.dtgAllStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgAllStaff.Location = New System.Drawing.Point(246, 377)
+        Me.dtgAllStaff.Location = New System.Drawing.Point(295, 378)
         Me.dtgAllStaff.Name = "dtgAllStaff"
         Me.dtgAllStaff.RowHeadersWidth = 51
         Me.dtgAllStaff.RowTemplate.Height = 24
@@ -229,7 +229,7 @@ Partial Class StaffMaintenance
         Me.GroupBox3.Controls.Add(Me.txtFilterV)
         Me.GroupBox3.Controls.Add(Me.btnSearch)
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.GroupBox3.Location = New System.Drawing.Point(246, 167)
+        Me.GroupBox3.Location = New System.Drawing.Point(295, 168)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(622, 83)
         Me.GroupBox3.TabIndex = 106
@@ -271,7 +271,7 @@ Partial Class StaffMaintenance
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.cbDropDownList)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.GroupBox2.Location = New System.Drawing.Point(246, 265)
+        Me.GroupBox2.Location = New System.Drawing.Point(295, 266)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(622, 100)
         Me.GroupBox2.TabIndex = 105
@@ -303,7 +303,7 @@ Partial Class StaffMaintenance
         Me.c.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.c.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.c.ForeColor = System.Drawing.SystemColors.HighlightText
-        Me.c.Location = New System.Drawing.Point(874, 324)
+        Me.c.Location = New System.Drawing.Point(923, 325)
         Me.c.Name = "c"
         Me.c.Size = New System.Drawing.Size(169, 41)
         Me.c.TabIndex = 103
@@ -318,7 +318,7 @@ Partial Class StaffMaintenance
         Me.GroupBox1.Controls.Add(Me.dtpFrom)
         Me.GroupBox1.Controls.Add(Me.dtpTo)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.GroupBox1.Location = New System.Drawing.Point(887, 201)
+        Me.GroupBox1.Location = New System.Drawing.Point(993, 202)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(636, 100)
         Me.GroupBox1.TabIndex = 104

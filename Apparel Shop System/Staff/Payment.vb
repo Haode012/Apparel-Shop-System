@@ -269,7 +269,9 @@ Public Class Payment
                 con.Open()
                 cmd.ExecuteNonQuery()
                 MessageBox.Show("Order successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                OrderCart.Close()
+                picBack.Enabled = False
+
+
             End Using
         End Using
 
@@ -393,7 +395,7 @@ Public Class Payment
                 con.Open()
                 cmd.ExecuteNonQuery()
                 MessageBox.Show("Payment successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                OrderCart.Close()
+                picBack.Enabled = False
             End Using
         End Using
 

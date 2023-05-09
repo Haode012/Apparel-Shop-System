@@ -307,4 +307,5 @@ Public Class OrderCart
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         display_all_record()
     End Sub
+
 End Class

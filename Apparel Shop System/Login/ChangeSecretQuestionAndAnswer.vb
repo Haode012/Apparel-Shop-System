@@ -21,6 +21,7 @@ Public Class ChangeSecretQuestionAndAnswer
                 reader.Read()
                 secretQuestion = reader("SecretQuestion").ToString
                 secretAnswer = reader("SecretAnswer").ToString
+                strSecretAnswer = secretAnswer
                 cboSecretQuestion.SelectedItem = secretQuestion
                 txtSecretAnswer.Text = secretAnswer
             End If
@@ -50,6 +51,9 @@ Public Class ChangeSecretQuestionAndAnswer
             MessageBox.Show("Select a secret question", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
         ElseIf txtSecretAnswer.Text = "" Then
             MessageBox.Show("Please enter secret question answer", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txtSecretAnswer.Focus()
+        ElseIf newSecretAnswer.Equals(strSecretAnswer) Then
+            MessageBox.Show("New secret answer can't be the same as your current secret answer", "Secret Answer Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtSecretAnswer.Focus()
         Else
             Try
