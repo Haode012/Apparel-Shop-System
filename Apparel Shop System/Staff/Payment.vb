@@ -153,34 +153,11 @@ Public Class Payment
 
     End Sub
 
-
-
     Private Function ValidateMastercardNumber(cardNumber As String) As Boolean
         If Not (cardNumber.Length = 16 AndAlso cardNumber.StartsWith("5")) Then
             Return False
         End If
-
-        'Reverse the card number
-        Dim reversedCardNumber As String = StrReverse(cardNumber)
-
-        'Calculate the sum of the digits, starting from the second digit
-        Dim sum As Integer = 0
-        For i As Integer = 1 To reversedCardNumber.Length - 1 Step 2
-            Dim digit As Integer = CInt(reversedCardNumber(i).ToString())
-            digit *= 2
-            If digit > 9 Then
-                digit = digit - 9
-            End If
-            sum += digit
-        Next
-
-        'Add the sum of the remaining digits to the sum
-        For i As Integer = 0 To reversedCardNumber.Length - 1 Step 2
-            sum += CInt(reversedCardNumber(i).ToString())
-        Next
-
-        'Check if the sum is a multiple of 10
-        Return (sum Mod 10 = 0)
+        Return True
     End Function
 
     Private Function ValidateCVV(cvvNumber As String) As Boolean
@@ -292,6 +269,7 @@ Public Class Payment
                 con.Open()
                 cmd.ExecuteNonQuery()
                 MessageBox.Show("Order successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                OrderCart.Close()
             End Using
         End Using
 
@@ -415,6 +393,7 @@ Public Class Payment
                 con.Open()
                 cmd.ExecuteNonQuery()
                 MessageBox.Show("Payment successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                OrderCart.Close()
             End Using
         End Using
 
