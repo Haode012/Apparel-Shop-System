@@ -71,7 +71,7 @@ Public Class AddStaff
         ElseIf age < 18 Then
             MessageBox.Show("Too young to recruit", "Under Age", MessageBoxButtons.OK, MessageBoxIcon.Error)
             dtpDob.Value = DateTime.Now
-        ElseIf get18Years < 18 Then
+        ElseIf startDate < dateOfBirth.AddYears(18) Then
             MessageBox.Show("Staff needs to be more than 18 to be recruited", "Under Age", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
             Try
@@ -112,7 +112,7 @@ Public Class AddStaff
                             MySqlCommand.Parameters.AddWithValue("@SecretQuestion", choosenSecretQuestion)
                             MySqlCommand.Parameters.AddWithValue("@SecretAnswer", txtStaffSecretQuestionAns.Text)
                             MySqlCommand.ExecuteNonQuery()
-                            MessageBox.Show("Record Added.", "Add Record", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            MessageBox.Show("Staff Account Successfully Created.", "New Staff Account Created", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Me.Close()
                             StaffMaintenance.RefreshDataGridView()
                         End If
@@ -168,7 +168,7 @@ Public Class AddStaff
 
     Private Sub dtpDob_ValueChanged(sender As Object, e As EventArgs) Handles dtpDob.ValueChanged
         Dim startDate As Date = dtpDob.Value
-        dtpJoinedDate.Value = startDate.AddYears(+18)
+        dtpJoinedDate.Value = Today.Date
         'If dtpDob.Value > DateTime.Today Then
         '    MessageBox.Show("Can't assign future date of birth for staff", "Date Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
         '    dtpDob.Value = Today.Date

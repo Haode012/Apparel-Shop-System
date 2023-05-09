@@ -47,164 +47,170 @@ Public Class ProductItem
         cmd.CommandText = "select productImage, productId, productName, productGender, productCategory, productSize, productDescription, productPrice, productStock, dateCreated, promotionDiscount from Product"
         cmd.ExecuteNonQuery()
         dr = cmd.ExecuteReader
-        While dr.Read
-            Dim len As Long = dr.GetBytes(dr.GetOrdinal("productImage"), 0, Nothing, 0, 0)
-            Dim array(CInt(len)) As Byte
-            dr.GetBytes(dr.GetOrdinal("productImage"), 0, array, 0, CInt(len))
+        If dr.HasRows Then
+            FlowLayoutPanel1.Controls.Clear()
+            While dr.Read
+                Dim len As Long = dr.GetBytes(dr.GetOrdinal("productImage"), 0, Nothing, 0, 0)
+                Dim array(CInt(len)) As Byte
+                dr.GetBytes(dr.GetOrdinal("productImage"), 0, array, 0, CInt(len))
 
-            panelShow = New Panel
-            panelShow.Height = 430
+                panelShow = New Panel
+                panelShow.Height = 430
 
-            picProductImage = New PictureBox
-            picProductImage.Width = 200
-            picProductImage.Height = 200
-            picProductImage.BackgroundImageLayout = ImageLayout.Stretch
-            picProductImage.Dock = DockStyle.Top
-            picProductImage.BorderStyle = BorderStyle.FixedSingle
+                picProductImage = New PictureBox
+                picProductImage.Width = 200
+                picProductImage.Height = 200
+                picProductImage.BackgroundImageLayout = ImageLayout.Stretch
+                picProductImage.Dock = DockStyle.Top
+                picProductImage.BorderStyle = BorderStyle.FixedSingle
 
-            lbl1 = New Label
-            lbl1.Width = 200
-            lbl1.ForeColor = Color.Black
-            lbl1.Font = New Font(lbl1.Font, FontStyle.Bold)
-            lbl1.BackColor = Color.LightCyan
-            lbl1.Dock = DockStyle.Bottom
-            lbl1.TextAlign = ContentAlignment.MiddleCenter
-            lbl1.BorderStyle = BorderStyle.FixedSingle
+                lbl1 = New Label
+                lbl1.Width = 200
+                lbl1.ForeColor = Color.Black
+                lbl1.Font = New Font(lbl1.Font, FontStyle.Bold)
+                lbl1.BackColor = Color.LightCyan
+                lbl1.Dock = DockStyle.Bottom
+                lbl1.TextAlign = ContentAlignment.MiddleCenter
+                lbl1.BorderStyle = BorderStyle.FixedSingle
 
-            lblProductID = New Label
-            lblProductID.Width = 200
-            lblProductID.ForeColor = Color.Black
-            lblProductID.BackColor = Color.White
-            lblProductID.Dock = DockStyle.Bottom
-            lblProductID.TextAlign = ContentAlignment.MiddleCenter
-            lblProductID.BorderStyle = BorderStyle.FixedSingle
+                lblProductID = New Label
+                lblProductID.Width = 200
+                lblProductID.ForeColor = Color.Black
+                lblProductID.BackColor = Color.White
+                lblProductID.Dock = DockStyle.Bottom
+                lblProductID.TextAlign = ContentAlignment.MiddleCenter
+                lblProductID.BorderStyle = BorderStyle.FixedSingle
 
-            lbl2 = New Label
-            lbl2.Width = 200
-            lbl2.ForeColor = Color.Black
-            lbl2.Font = New Font(lbl2.Font, FontStyle.Bold)
-            lbl2.BackColor = Color.LightCyan
-            lbl2.Dock = DockStyle.Bottom
-            lbl2.TextAlign = ContentAlignment.MiddleCenter
-            lbl2.BorderStyle = BorderStyle.FixedSingle
+                lbl2 = New Label
+                lbl2.Width = 200
+                lbl2.ForeColor = Color.Black
+                lbl2.Font = New Font(lbl2.Font, FontStyle.Bold)
+                lbl2.BackColor = Color.LightCyan
+                lbl2.Dock = DockStyle.Bottom
+                lbl2.TextAlign = ContentAlignment.MiddleCenter
+                lbl2.BorderStyle = BorderStyle.FixedSingle
 
-            lblProductName = New Label
-            lblProductName.Width = 200
-            lblProductName.ForeColor = Color.Black
-            lblProductName.BackColor = Color.White
-            lblProductName.Dock = DockStyle.Bottom
-            lblProductName.TextAlign = ContentAlignment.MiddleCenter
-            lblProductName.BorderStyle = BorderStyle.FixedSingle
+                lblProductName = New Label
+                lblProductName.Width = 200
+                lblProductName.ForeColor = Color.Black
+                lblProductName.BackColor = Color.White
+                lblProductName.Dock = DockStyle.Bottom
+                lblProductName.TextAlign = ContentAlignment.MiddleCenter
+                lblProductName.BorderStyle = BorderStyle.FixedSingle
 
-            lbl3 = New Label
-            lbl3.Width = 200
-            lbl3.ForeColor = Color.Black
-            lbl3.Font = New Font(lbl3.Font, FontStyle.Bold)
-            lbl3.BackColor = Color.LightCyan
-            lbl3.Dock = DockStyle.Bottom
-            lbl3.TextAlign = ContentAlignment.MiddleCenter
-            lbl3.BorderStyle = BorderStyle.FixedSingle
+                lbl3 = New Label
+                lbl3.Width = 200
+                lbl3.ForeColor = Color.Black
+                lbl3.Font = New Font(lbl3.Font, FontStyle.Bold)
+                lbl3.BackColor = Color.LightCyan
+                lbl3.Dock = DockStyle.Bottom
+                lbl3.TextAlign = ContentAlignment.MiddleCenter
+                lbl3.BorderStyle = BorderStyle.FixedSingle
 
-            lblProductGender = New Label
-            lblProductGender.Width = 200
-            lblProductGender.ForeColor = Color.Black
-            lblProductGender.BackColor = Color.White
-            lblProductGender.Dock = DockStyle.Bottom
-            lblProductGender.TextAlign = ContentAlignment.MiddleCenter
-            lblProductGender.BorderStyle = BorderStyle.FixedSingle
+                lblProductGender = New Label
+                lblProductGender.Width = 200
+                lblProductGender.ForeColor = Color.Black
+                lblProductGender.BackColor = Color.White
+                lblProductGender.Dock = DockStyle.Bottom
+                lblProductGender.TextAlign = ContentAlignment.MiddleCenter
+                lblProductGender.BorderStyle = BorderStyle.FixedSingle
 
-            lbl4 = New Label
-            lbl4.Width = 200
-            lbl4.ForeColor = Color.Black
-            lbl4.Font = New Font(lbl4.Font, FontStyle.Bold)
-            lbl4.BackColor = Color.LightCyan
-            lbl4.Dock = DockStyle.Bottom
-            lbl4.TextAlign = ContentAlignment.MiddleCenter
-            lbl4.BorderStyle = BorderStyle.FixedSingle
+                lbl4 = New Label
+                lbl4.Width = 200
+                lbl4.ForeColor = Color.Black
+                lbl4.Font = New Font(lbl4.Font, FontStyle.Bold)
+                lbl4.BackColor = Color.LightCyan
+                lbl4.Dock = DockStyle.Bottom
+                lbl4.TextAlign = ContentAlignment.MiddleCenter
+                lbl4.BorderStyle = BorderStyle.FixedSingle
 
-            lblProductCategory = New Label
-            lblProductCategory.Width = 200
-            lblProductCategory.ForeColor = Color.Black
-            lblProductCategory.BackColor = Color.White
-            lblProductCategory.Dock = DockStyle.Bottom
-            lblProductCategory.TextAlign = ContentAlignment.MiddleCenter
-            lblProductCategory.BorderStyle = BorderStyle.FixedSingle
+                lblProductCategory = New Label
+                lblProductCategory.Width = 200
+                lblProductCategory.ForeColor = Color.Black
+                lblProductCategory.BackColor = Color.White
+                lblProductCategory.Dock = DockStyle.Bottom
+                lblProductCategory.TextAlign = ContentAlignment.MiddleCenter
+                lblProductCategory.BorderStyle = BorderStyle.FixedSingle
 
-            lbl5 = New Label
-            lbl5.Width = 200
-            lbl5.ForeColor = Color.Black
-            lbl5.Font = New Font(lbl5.Font, FontStyle.Bold)
-            lbl5.BackColor = Color.LightCyan
-            lbl5.Dock = DockStyle.Bottom
-            lbl5.TextAlign = ContentAlignment.MiddleCenter
-            lbl5.BorderStyle = BorderStyle.FixedSingle
+                lbl5 = New Label
+                lbl5.Width = 200
+                lbl5.ForeColor = Color.Black
+                lbl5.Font = New Font(lbl5.Font, FontStyle.Bold)
+                lbl5.BackColor = Color.LightCyan
+                lbl5.Dock = DockStyle.Bottom
+                lbl5.TextAlign = ContentAlignment.MiddleCenter
+                lbl5.BorderStyle = BorderStyle.FixedSingle
 
-            lblPromotionDiscount = New Label
-            lblPromotionDiscount.Width = 200
-            lblPromotionDiscount.ForeColor = Color.Black
-            lblPromotionDiscount.BackColor = Color.White
-            lblPromotionDiscount.Dock = DockStyle.Bottom
-            lblPromotionDiscount.TextAlign = ContentAlignment.MiddleCenter
-            lblPromotionDiscount.BorderStyle = BorderStyle.FixedSingle
+                lblPromotionDiscount = New Label
+                lblPromotionDiscount.Width = 200
+                lblPromotionDiscount.ForeColor = Color.Black
+                lblPromotionDiscount.BackColor = Color.White
+                lblPromotionDiscount.Dock = DockStyle.Bottom
+                lblPromotionDiscount.TextAlign = ContentAlignment.MiddleCenter
+                lblPromotionDiscount.BorderStyle = BorderStyle.FixedSingle
 
-            Dim ms As New System.IO.MemoryStream(array)
-            Dim bitmap As New System.Drawing.Bitmap(ms)
-            picProductImage.BackgroundImage = bitmap
+                Dim ms As New System.IO.MemoryStream(array)
+                Dim bitmap As New System.Drawing.Bitmap(ms)
+                picProductImage.BackgroundImage = bitmap
 
-            lbl1.Text = "Product ID"
-            lblProductID.Text = dr.Item("productId").ToString
-            lbl2.Text = "Product Name"
-            lblProductName.Text = dr.Item("productName").ToString
-            lbl3.Text = "Product For"
-            lblProductGender.Text = dr.Item("productGender").ToString
-            lbl4.Text = "Product Category"
-            lblProductCategory.Text = dr.Item("productCategory").ToString
-            lbl5.Text = "Promotion Discount"
-            lblPromotionDiscount.Text = dr.Item("promotionDiscount").ToString
+                lbl1.Text = "Product ID"
+                lblProductID.Text = dr.Item("productId").ToString
+                lbl2.Text = "Product Name"
+                lblProductName.Text = dr.Item("productName").ToString
+                lbl3.Text = "Product For"
+                lblProductGender.Text = dr.Item("productGender").ToString
+                lbl4.Text = "Product Category"
+                lblProductCategory.Text = dr.Item("productCategory").ToString
+                lbl5.Text = "Promotion Discount"
+                lblPromotionDiscount.Text = dr.Item("promotionDiscount").ToString
 
-            If String.IsNullOrEmpty(lblPromotionDiscount.Text) Then
-                lblPromotionDiscount.Text = "-"
-            End If
+                If String.IsNullOrEmpty(lblPromotionDiscount.Text) Then
+                    lblPromotionDiscount.Text = "-"
+                End If
 
-            panelShow.Controls.Add(picProductImage)
-            panelShow.Controls.Add(lbl1)
-            panelShow.Controls.Add(lblProductID)
-            panelShow.Controls.Add(lbl2)
-            panelShow.Controls.Add(lblProductName)
-            panelShow.Controls.Add(lbl3)
-            panelShow.Controls.Add(lblProductGender)
-            panelShow.Controls.Add(lbl4)
-            panelShow.Controls.Add(lblProductCategory)
-            panelShow.Controls.Add(lbl5)
-            panelShow.Controls.Add(lblPromotionDiscount)
+                panelShow.Controls.Add(picProductImage)
+                panelShow.Controls.Add(lbl1)
+                panelShow.Controls.Add(lblProductID)
+                panelShow.Controls.Add(lbl2)
+                panelShow.Controls.Add(lblProductName)
+                panelShow.Controls.Add(lbl3)
+                panelShow.Controls.Add(lblProductGender)
+                panelShow.Controls.Add(lbl4)
+                panelShow.Controls.Add(lblProductCategory)
+                panelShow.Controls.Add(lbl5)
+                panelShow.Controls.Add(lblPromotionDiscount)
 
-            FlowLayoutPanel1.Controls.Add(panelShow)
+                FlowLayoutPanel1.Controls.Add(panelShow)
 
-            ' Create a new instance of the MenuItemDetails user control
-            Dim menu As New ProductItemDetails()
+                ' Create a new instance of the MenuItemDetails user control
+                Dim menu As New ProductItemDetails()
 
-            ' Set the ProductID and ProductName properties of the user control
+                ' Set the ProductID and ProductName properties of the user control
 
-            menu.ProductImage = Image.FromStream(ms)
-            menu.ProductID = dr.Item("productId").ToString()
-            menu.ProductName = dr.Item("productName").ToString()
-            menu.ProductGender = dr.Item("productGender").ToString()
-            menu.ProductCategory = dr.Item("productCategory").ToString()
-            menu.ProductSize = dr.Item("productSize").ToString()
-            menu.ProductDescription = dr.Item("productDescription").ToString()
-            menu.ProductPrice = dr.Item("productPrice").ToString()
-            menu.ProductStock = dr.Item("productStock").ToString()
-            menu.PromotionDiscount = dr.Item("promotionDiscount").ToString()
-            If String.IsNullOrEmpty(menu.PromotionDiscount) Then
-                menu.PromotionDiscount = "-"
-            End If
+                menu.ProductImage = Image.FromStream(ms)
+                menu.ProductID = dr.Item("productId").ToString()
+                menu.ProductName = dr.Item("productName").ToString()
+                menu.ProductGender = dr.Item("productGender").ToString()
+                menu.ProductCategory = dr.Item("productCategory").ToString()
+                menu.ProductSize = dr.Item("productSize").ToString()
+                menu.ProductDescription = dr.Item("productDescription").ToString()
+                menu.ProductPrice = dr.Item("productPrice").ToString()
+                menu.ProductStock = dr.Item("productStock").ToString()
+                menu.PromotionDiscount = dr.Item("promotionDiscount").ToString()
+                If String.IsNullOrEmpty(menu.PromotionDiscount) Then
+                    menu.PromotionDiscount = "-"
+                End If
 
-            ' Set the Tag property of the picture box control to the MenuItemDetails instance
-            picProductImage.Tag = menu
+                ' Set the Tag property of the picture box control to the MenuItemDetails instance
+                picProductImage.Tag = menu
 
-            ' Add a handler for the Click event of the picture box control
-            AddHandler picProductImage.Click, AddressOf lblProductID_Click
-        End While
+                ' Add a handler for the Click event of the picture box control
+                AddHandler picProductImage.Click, AddressOf lblProductID_Click
+            End While
+        Else
+            MessageBox.Show("No product found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+
         dr.Close()
         con.Close()
     End Sub
@@ -602,9 +608,11 @@ Public Class ProductItem
                     ' Add a handler for the Click event of the picture box control
                     AddHandler picProductImage.Click, AddressOf lblProductID_Click
                 End While
-                txtSearch.Text = ""
-                txtSearch.Focus()
+            Else
+                MessageBox.Show("No product category Shirt found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
+            txtSearch.Text = ""
+            txtSearch.Focus()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -782,9 +790,11 @@ Public Class ProductItem
                     ' Add a handler for the Click event of the picture box control
                     AddHandler picProductImage.Click, AddressOf lblProductID_Click
                 End While
-                txtSearch.Text = ""
-                txtSearch.Focus()
+            Else
+                MessageBox.Show("No product category Pant found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
+            txtSearch.Text = ""
+            txtSearch.Focus()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -962,9 +972,11 @@ Public Class ProductItem
                     ' Add a handler for the Click event of the picture box control
                     AddHandler picProductImage.Click, AddressOf lblProductID_Click
                 End While
-                txtSearch.Text = ""
-                txtSearch.Focus()
+            Else
+                MessageBox.Show("No product category Shoe found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
+            txtSearch.Text = ""
+            txtSearch.Focus()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -1142,9 +1154,11 @@ Public Class ProductItem
                     ' Add a handler for the Click event of the picture box control
                     AddHandler picProductImage.Click, AddressOf lblProductID_Click
                 End While
-                txtSearch.Text = ""
-                txtSearch.Focus()
+            Else
+                MessageBox.Show("No product category Sock found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
+            txtSearch.Text = ""
+            txtSearch.Focus()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -1322,9 +1336,11 @@ Public Class ProductItem
                     ' Add a handler for the Click event of the picture box control
                     AddHandler picProductImage.Click, AddressOf lblProductID_Click
                 End While
-                txtSearch.Text = ""
-                txtSearch.Focus()
+            Else
+                MessageBox.Show("No product gender For Male found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
+            txtSearch.Text = ""
+            txtSearch.Focus()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -1502,9 +1518,11 @@ Public Class ProductItem
                     ' Add a handler for the Click event of the picture box control
                     AddHandler picProductImage.Click, AddressOf lblProductID_Click
                 End While
-                txtSearch.Text = ""
-                txtSearch.Focus()
+            Else
+                MessageBox.Show("No product gender For Female found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
+            txtSearch.Text = ""
+            txtSearch.Focus()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -1681,9 +1699,11 @@ Public Class ProductItem
                     ' Add a handler for the Click event of the picture box control
                     AddHandler picProductImage.Click, AddressOf lblProductID_Click
                 End While
-                txtSearch.Text = ""
-                txtSearch.Focus()
+            Else
+                MessageBox.Show("No promotion product found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
+            txtSearch.Text = ""
+            txtSearch.Focus()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
