@@ -22,7 +22,7 @@ Public Class ManagerLogin
         'For userID to show in staff Management'
         strPassName = strUserId
         If strName = "" Or strPasswd = "" Then
-            MessageBox.Show("Please input all the fields", "Validation")
+            MessageBox.Show("Please input all the fields", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
             If OpenConnection() = True Then
                 Try
@@ -44,29 +44,54 @@ Public Class ManagerLogin
                         strPosition = position
                         'Pass log in username to staff management form
                         'dbPasswd = reader("Name").ToString
-                        If strStatus = "Active" Then
-                            If position = "Manager" Or position = "Assistant Manager" Then
+                        If position = "Manager" Or position = "Assistant Manager" Then
+                            If strStatus = "Active" Then
                                 If dbPasswd.Equals(strPasswd) Then
                                     CloseConnection()
                                     Me.Hide()
 
+
+                                    StaffMaintenance.Hide()
+                                    ProductMaintenance.Hide()
+                                    MembershipMaintenance.Hide()
+                                    PromotionMaintenance.Hide()
+                                    DailySalesReportViewer.Hide()
+                                    AddStaff.Hide()
+                                    CreateProduct.Hide()
+                                    DeleteProduct.Hide()
+                                    DisplayProduct.Hide（）
+                                    DisplayProductDetails.Hide()
+                                    FireStaffvb.Hide()
+                                    MemberRegister.Hide()
+                                    ProductReportViewer.Hide()
+                                    Promotion_Add.Hide()
+                                    Promotion_Details.Hide()
+                                    Promotion_Edit.Hide()
+                                    UpdateProduct.Hide()
+                                    UpdateStaffDetails.Hide()
+                                    ViewStaffDetails.Hide()
+
+                                    chkShow.Checked = False
+
                                     ManagerHomepage.ShowDialog()
+
                                 Else
                                     MessageBox.Show("Password is invalid", "Unable to login", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                     txtPassword.Focus()
                                 End If
                             Else
+                                MessageBox.Show("Account is inactive", "Unable to login", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                txtUserId.Text = ""
+                                txtPassword.Text = ""
+                                txtUserId.Focus()
+                            End If
+                        Else
                                 MessageBox.Show("Only Manager will be allowed to login", "Unable to login", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 txtUserId.Text = ""
                                 txtPassword.Text = ""
                             End If
+
                         Else
-                            MessageBox.Show("Account is inactive", "Unable to login", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                            txtUserId.Text = ""
-                            txtPassword.Text = ""
-                            txtUserId.Focus()
-                        End If
-                    Else
                         MessageBox.Show("Please check the information you have entered properly", "Unable to login", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         txtUserId.Focus()
                     End If

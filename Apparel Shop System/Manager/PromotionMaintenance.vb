@@ -62,15 +62,17 @@ Public Class PromotionMaintenance
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-
-        With Promotion_Add
-            .TopLevel = False
-            Me.Controls.Add(Promotion_Add)
-            .BringToFront()
-            .Show()
-        End With
-        BindData()
-
+        If strPosition = "Manager" Then
+            With Promotion_Add
+                .TopLevel = False
+                Me.Controls.Add(Promotion_Add)
+                .BringToFront()
+                .Show()
+            End With
+            BindData()
+        Else
+            MessageBox.Show("Only manager is allowed to add new staff", "Unauthorized Access", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
     End Sub
     Private Sub dgvPromotionList_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPromotionList.CellDoubleClick
 

@@ -109,6 +109,7 @@ Public Class UpdateStaffDetails
         Dim updatedStartDate As Date = dtpStaffJoinedDate.Value
         Dim updatedDateOfBirth As Date = dtpDob.Value
         Dim phoneNumber As New Regex("^01[0-46-9]-\d{7,8}$")
+        Dim get18Years As Integer = updatedStartDate.Year - updatedDateOfBirth.Year
 
         Dim age As Integer
         Dim ts As TimeSpan = DateTime.Now.Date - dtpDob.Value
@@ -117,14 +118,19 @@ Public Class UpdateStaffDetails
 
         If txtStaffName.Text = "" Then
             MessageBox.Show("Please enter the staff name", "Error Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txtStaffName.Focus()
         ElseIf mtxtStaffIcNo.MaskCompleted = False Then
+            mtxtStaffIcNo.Focus()
             MessageBox.Show("Please enter the staff Ic No correctly", "Error Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
         ElseIf txtStaffHomeAddress.Text = "" Then
             MessageBox.Show("Please enter the staff home address", "Error Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txtStaffHomeAddress.Focus()
         ElseIf mtxtStaffIcNo.Text = "" Then
             MessageBox.Show("Please enter the staff Ic No", "Error Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            mtxtStaffIcNo.Focus()
         ElseIf phoneNumber.IsMatch(mtxtStaffPhoneNumber.Text) = False Then
             MessageBox.Show("Invalid Phone Number", "Invalid Format", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            mtxtStaffPhoneNumber.Focus()
             'ElseIf comboStaffPosition.SelectedIndex = -1 Then
             '    MessageBox.Show("Select a position for staff", "No Choosen Position", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         ElseIf txtStaffPosition.Text = "" Then
@@ -139,6 +145,9 @@ Public Class UpdateStaffDetails
             MessageBox.Show("Can't assign future date for existing staff", "Date Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
             dtpStaffJoinedDate.Value = Today.Date
             txtStaffJoinedDate.Text = startDate
+            dtpStaffJoinedDate.Focus()
+        ElseIf updatedStartDate < updatedDateOfBirth.AddYears(18) Then
+            MessageBox.Show("Staff needs to be more than 18 to be recruited", "Under Age", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
             Try
                 If OpenConnection() = True Then
@@ -148,24 +157,26 @@ Public Class UpdateStaffDetails
                     ' Extract the ID from the row view
                     selectedID = rowView("StaffID")
 
-                    strSql2 = "Select * From AllStaff Where IcNo= @IcNo AND StaffID !=@StaffID"
+                    strSql2 = "Select * From Staff Where IcNo= @IcNo AND StaffID !=@StaffID"
                     MySqlCommand1 = New SqlCommand(strSql2, conn)
                     MySqlCommand1.Parameters.AddWithValue("@IcNo", mtxtStaffIcNo.Text)
                     MySqlCommand1.Parameters.AddWithValue("@StaffID", selectedID)
                     Dim reader As SqlDataReader = MySqlCommand1.ExecuteReader()
                     If reader.HasRows Then
                         reader.Read()
-                        MessageBox.Show("Ic Number exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        MessageBox.Show("Ic Number exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        mtxtStaffIcNo.Focus()
                     Else
                         reader.Close()
-                        strSql2 = "Select * From AllStaff Where PhoneNumber = @PhoneNumber AND StaffID !=@StaffID"
+                        strSql2 = "Select * From Staff Where PhoneNumber = @PhoneNumber AND StaffID !=@StaffID"
                         MySqlCommand1 = New SqlCommand(strSql2, conn)
                         MySqlCommand1.Parameters.AddWithValue("@PhoneNumber", mtxtStaffPhoneNumber.Text)
                         MySqlCommand1.Parameters.AddWithValue("@StaffID", selectedID)
                         Dim reader2 As SqlDataReader = MySqlCommand1.ExecuteReader()
                         If reader2.HasRows Then
                             reader2.Read()
-                            MessageBox.Show("Phone Number exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            MessageBox.Show("Phone Number exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            mtxtStaffPhoneNumber.Focus()
                             reader2.Close()
                         Else
                             reader2.Close()
@@ -181,7 +192,7 @@ Public Class UpdateStaffDetails
                             MySqlCommand.Parameters.AddWithValue("@PhoneNumber", mtxtStaffPhoneNumber.Text)
                             MySqlCommand.Parameters.AddWithValue("@startDate", updatedStartDate)
                             intUpdateCount = MySqlCommand.ExecuteNonQuery()
-                            MessageBox.Show(intUpdateCount & " record updated.!", "Upadated Record")
+                            MessageBox.Show(intUpdateCount & " record updated.!", "Updated Record", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Me.Close()
                             StaffMaintenance.RefreshDataGridView()
                         End If
@@ -199,6 +210,7 @@ Public Class UpdateStaffDetails
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Close()
     End Sub
+
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
         Me.Close()
         StaffMaintenance.Close()

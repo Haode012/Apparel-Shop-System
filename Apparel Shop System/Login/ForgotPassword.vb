@@ -26,10 +26,24 @@ Public Class ForgotPassword
 
         If strUsername = "" And strNewPassword = "" Then
             MessageBox.Show("Please input all the fields", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            'ElseIf secretAnswer = "" Or secretQuestion = "" Then
+            '    MessageBox.Show("Please input all the fields", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            'ElseIf strConfrimPassword = "" Then
+            '    MessageBox.Show("Please input all the fields", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
             'ElseIf strDateOfBirth = "" Then
             'MessageBox.Show("Please input all the fields", "Validation")
-        ElseIf strNewPassword <> strConfrimPassword Then
-            MessageBox.Show("Passwords are not matching", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            'ElseIf strNewPassword <> strConfrimPassword Then
+            '    MessageBox.Show("Passwords are not matching", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf cboSecretQues.SelectedIndex = -1 Then
+            MessageBox.Show("Please select a secret question", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf txtSecretAnswer.Text = "" Then
+            MessageBox.Show("Please enter your secret question answer", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf txtNewPassword.Text = "" Then
+            MessageBox.Show("Please enter your new password", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf txtConfirmPassword.Text = "" Then
+            MessageBox.Show("Please enter your confirm new password", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf strNewPassword.Length < 9 Then
+            MessageBox.Show("Password length must be 9 or more", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
             If OpenConnection() = True Then
                 Try
@@ -50,34 +64,47 @@ Public Class ForgotPassword
                             If readerSecretQuestionAnswer.Equals(secretAnswer) Then
                                 If strNewPassword.Length >= 9 Then
                                     If strNewPassword <> readerOldPassword Then
-                                        strSql = "Update Staff SET Password =@Password Where StaffID=@StaffID"
-                                        MySqlCommand = New SqlCommand(strSql, conn)
-                                        MySqlCommand.Parameters.AddWithValue("@StaffID", txtUsername.Text)
-                                        MySqlCommand.Parameters.AddWithValue("@Password", txtNewPassword.Text)
-                                        'MySqlCommand.Parameters.AddWithValue("@DateOfBirth", secretQuestion)
-                                        MySqlCommand.ExecuteNonQuery()
-                                        MessageBox.Show("Password Reset Successfully", "Reset Password", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                                        Me.Close()
+                                        If strNewPassword.Equals(strConfrimPassword) Then
+                                            strSql = "Update Staff SET Password =@Password Where StaffID=@StaffID"
+                                            MySqlCommand = New SqlCommand(strSql, conn)
+                                            MySqlCommand.Parameters.AddWithValue("@StaffID", txtUsername.Text)
+                                            MySqlCommand.Parameters.AddWithValue("@Password", txtNewPassword.Text)
+                                            'MySqlCommand.Parameters.AddWithValue("@DateOfBirth", secretQuestion)
+                                            MySqlCommand.ExecuteNonQuery()
+                                            MessageBox.Show("Password Reset Successfully", "Reset Password", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                            Me.Close()
+                                        Else
+                                            MessageBox.Show("Passwords are not matching", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                        End If
                                     Else
                                         MessageBox.Show("Your new password cannot be the same as your current password", "Validation", MessageBoxButtons.OK,
-            MessageBoxIcon.Error)
+        MessageBoxIcon.Error)
+                                        txtNewPassword.Text = ""
+                                        txtConfirmPassword.Text = ""
                                     End If
                                 Else
                                     lblValidationPassword.Visible = True
                                 End If
                             Else
                                 MessageBox.Show("Secret answer was wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                txtSecretAnswer.Text = ""
+                                txtSecretAnswer.Focus()
                             End If
                         Else
                             MessageBox.Show("Secret Question was wrong", "Unable to reset password", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            cboSecretQues.SelectedIndex = -1
+                            txtSecretAnswer.Text = ""
                         End If
                     Else
+                        MessageBox.Show("Account does not exists", "Invalid Account", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         lblUsernameError.Visible = True
+                        'lblValidationPassword.Visible = False
                         txtNewPassword.Text = ""
                         txtConfirmPassword.Text = ""
                         txtSecretAnswer.Text = ""
                         txtUsername.Text = ""
                         cboSecretQues.SelectedIndex = -1
+                        chkShow.Checked = False
                     End If
                 Catch Ex As Exception
                     MessageBox.Show("Check the data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -94,7 +121,9 @@ Public Class ForgotPassword
     End Sub
 
     Private Sub txtNewPassword_TextChanged(sender As Object, e As EventArgs) Handles txtNewPassword.TextChanged
-        If txtNewPassword.Text.Length >= 9 AndAlso txtNewPassword.Text.Length <= 11 Then
+        If txtNewPassword.Text.Length = 0 Then
+            lblValidationPassword.Visible = False
+        ElseIf txtNewPassword.Text.Length >= 9 AndAlso txtNewPassword.Text.Length <= 11 Then
             'lblValidationPassword.Visible = False
             lblValidationPassword.Text = "Password Moderate"
             lblValidationPassword.ForeColor = Color.Orange

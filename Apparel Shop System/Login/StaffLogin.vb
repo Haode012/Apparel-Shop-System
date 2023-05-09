@@ -18,7 +18,7 @@ Public Class StaffLogin
         'For userID to show in staff Management'
         ' strPassName = strUserId
         If strName = "" And strPasswd = "" Then
-            MessageBox.Show("Please input all the fields", "Validation")
+            MessageBox.Show("Please input all the fields", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
             If OpenConnection() = True Then
                 'strSql = "SELECT Name,Position,Status,Password From NewStaff Where Name = @name and Password= @Password"
@@ -39,29 +39,44 @@ Public Class StaffLogin
                     dbPasswd = reader("Password").ToString
                     'Pass log in username to staff management form
                     'dbPasswd = reader("Name").ToString
-                    If strStatus = "Active" Then
-                        If position <> "Manager" And position <> "Assistant Manager" Then
+                    If position <> "Manager" And position <> "Assistant Manager" Then
+                        If strStatus = "Active" Then
                             If dbPasswd.Equals(strPasswd) Then
                                 CloseConnection()
                                 Me.Hide()
                                 strPassName = txtStaffId.Text
+
+                                MemberRegister2.Hide()
+                                Membership.Hide()
+                                OrderCart.Hide()
+                                OrderHistory.Hide()
+                                Payment.Hide()
+                                PaymentReceipt.Hide()
+                                ProductItem.Hide()
+                                ProductItemDetails.Hide()
+                                UpdateOrderStatus.Hide()
+
+                                chkShow.Checked = False
+
                                 Homepage.ShowDialog()
                             Else
                                 MessageBox.Show("Password is invalid", "Unable to login", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                txtPassword.Focus()
                             End If
                         Else
-                            MessageBox.Show("Only Staff will be able to login", "Unable to login", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show("Account is inactive", "Unable to login", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             txtStaffId.Text = ""
                             txtPassword.Text = ""
                             txtStaffId.Focus()
                         End If
                     Else
-                        MessageBox.Show("Account is inactive", "Unable to login", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        txtStaffId.Text = ""
-                        txtPassword.Text = ""
-                        txtStaffId.Focus()
+                            MessageBox.Show("Only Staff will be able to login", "Unable to login", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            txtStaffId.Text = ""
+                            txtPassword.Text = ""
+                            txtStaffId.Focus()
+                        End If
+
                     End If
-                End If
             End If
             CloseConnection()
         End If
@@ -76,8 +91,10 @@ Public Class StaffLogin
     Private Sub chkShow_CheckedChanged(sender As Object, e As EventArgs) Handles chkShow.CheckedChanged
         If chkShow.Checked = True Then
             txtPassword.PasswordChar = ""
+            chkShow.Text = "Hide Password"
         ElseIf chkShow.Checked = False Then
             txtPassword.PasswordChar = "*"
+            chkShow.Text = "Show Password"
         End If
     End Sub
 

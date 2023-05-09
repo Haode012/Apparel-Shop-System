@@ -45,9 +45,9 @@ Public Class StaffMaintenance
             dtgAllStaff.DataSource = dataTable
             'dtgAllStaff(0)
             'dtgAllStaff.DataSource = "lololol"
-            For Each row As DataGridViewRow In dtgAllStaff.Rows
-                row.Height = 50
-            Next
+            'For Each row As DataGridViewRow In dtgAllStaff.Rows
+            '    row.Height = 50
+            'Next
 
             For Each Font As DataGridViewColumn In dtgAllStaff.Columns
                 Font.DefaultCellStyle.Font = New Font("Arial", 12, FontStyle.Regular)

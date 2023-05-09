@@ -50,6 +50,7 @@ Public Class ChangeSecretQuestionAndAnswer
             MessageBox.Show("Select a secret question", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
         ElseIf txtSecretAnswer.Text = "" Then
             MessageBox.Show("Please enter secret question answer", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txtSecretAnswer.Focus()
         Else
             Try
                 If OpenConnection() = True Then

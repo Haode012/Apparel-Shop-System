@@ -30,6 +30,7 @@ Partial Class FireStaffvb
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.mtxtPhoneNumber = New System.Windows.Forms.MaskedTextBox()
         Me.mtxtIcNo = New System.Windows.Forms.MaskedTextBox()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -51,7 +52,6 @@ Partial Class FireStaffvb
         Me.txtStaffName = New System.Windows.Forms.TextBox()
         Me.dtpStaffFireDate = New System.Windows.Forms.DateTimePicker()
         Me.txtStaffAddress = New System.Windows.Forms.TextBox()
-        Me.mtxtPhoneNumber = New System.Windows.Forms.MaskedTextBox()
         Me.Panel1.SuspendLayout()
         CType(Me.picBack, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picDelete, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -154,12 +154,23 @@ Partial Class FireStaffvb
         Me.GroupBox1.TabIndex = 93
         Me.GroupBox1.TabStop = False
         '
+        'mtxtPhoneNumber
+        '
+        Me.mtxtPhoneNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!)
+        Me.mtxtPhoneNumber.Location = New System.Drawing.Point(286, 414)
+        Me.mtxtPhoneNumber.Mask = "000-00000000"
+        Me.mtxtPhoneNumber.Name = "mtxtPhoneNumber"
+        Me.mtxtPhoneNumber.ReadOnly = True
+        Me.mtxtPhoneNumber.Size = New System.Drawing.Size(778, 45)
+        Me.mtxtPhoneNumber.TabIndex = 96
+        '
         'mtxtIcNo
         '
         Me.mtxtIcNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!)
         Me.mtxtIcNo.Location = New System.Drawing.Point(286, 205)
         Me.mtxtIcNo.Mask = "000000-00-0000"
         Me.mtxtIcNo.Name = "mtxtIcNo"
+        Me.mtxtIcNo.ReadOnly = True
         Me.mtxtIcNo.Size = New System.Drawing.Size(778, 45)
         Me.mtxtIcNo.TabIndex = 95
         '
@@ -213,7 +224,7 @@ Partial Class FireStaffvb
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(6, 33)
+        Me.Label6.Location = New System.Drawing.Point(6, 24)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(132, 37)
         Me.Label6.TabIndex = 41
@@ -233,7 +244,7 @@ Partial Class FireStaffvb
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(6, 84)
+        Me.Label1.Location = New System.Drawing.Point(6, 79)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(187, 37)
         Me.Label1.TabIndex = 36
@@ -261,11 +272,11 @@ Partial Class FireStaffvb
         '
         'cbId
         '
-        Me.cbId.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbId.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbId.FormattingEnabled = True
-        Me.cbId.Location = New System.Drawing.Point(286, 37)
+        Me.cbId.Location = New System.Drawing.Point(286, 19)
         Me.cbId.Name = "cbId"
-        Me.cbId.Size = New System.Drawing.Size(537, 33)
+        Me.cbId.Size = New System.Drawing.Size(537, 46)
         Me.cbId.TabIndex = 87
         '
         'Label3
@@ -367,15 +378,6 @@ Partial Class FireStaffvb
         Me.txtStaffAddress.ReadOnly = True
         Me.txtStaffAddress.Size = New System.Drawing.Size(778, 45)
         Me.txtStaffAddress.TabIndex = 47
-        '
-        'mtxtPhoneNumber
-        '
-        Me.mtxtPhoneNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!)
-        Me.mtxtPhoneNumber.Location = New System.Drawing.Point(286, 414)
-        Me.mtxtPhoneNumber.Mask = "000-00000000"
-        Me.mtxtPhoneNumber.Name = "mtxtPhoneNumber"
-        Me.mtxtPhoneNumber.Size = New System.Drawing.Size(778, 45)
-        Me.mtxtPhoneNumber.TabIndex = 96
         '
         'FireStaffvb
         '

@@ -75,15 +75,18 @@ Public Class ChangePassword
 
         If strNewPassword = "" Or strCnfirmNewPassword = "" Then
             MessageBox.Show("Please input all the fields", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txtNewPasswd.Focus()
             'ElseIf strNewPassword.Length < 9 And strCnfirmNewPassword.Length < 9 Then
             'MessageBox.Show("Password must be 9 or more characters", "Error")
-        ElseIf strNewPassword <> strCnfirmNewPassword Then
+        ElseIf strCnfirmNewPassword <> strNewPassword Then
             MessageBox.Show("Password is not matching", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txtConfirmPasswd.Focus()
         ElseIf txtConfirmPasswd.Text.Equals(txtOldPasswd.Text) Then
             MessageBox.Show("Your new password cannot be the same as your current password", "Validation", MessageBoxButtons.OK,
             MessageBoxIcon.Error)
             txtNewPasswd.Text = ""
             txtConfirmPasswd.Text = ""
+            txtNewPasswd.Focus()
         Else
             If OpenConnection() = True Then
                 If strNewPassword.Length > 8 Then
@@ -92,13 +95,16 @@ Public Class ChangePassword
                     MySqlCommand.Parameters.AddWithValue("@StaffID", txtUserID.Text)
                     MySqlCommand.Parameters.AddWithValue("@Password", txtConfirmPasswd.Text)
                     MySqlCommand.ExecuteNonQuery()
-                    MessageBox.Show("Password Reset Successfully", "Reset Password", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("Your password has been changed successfully", "Password Changed", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     txtNewPasswd.Text = ""
                     txtConfirmPasswd.Text = ""
                     Me.Close()
                 Else
                     MessageBox.Show("Password length must be more than 9 characters", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     lblValidationPassword.Visible = True
+                    txtNewPasswd.Text = ""
+                    txtConfirmPasswd.Text = ""
+                    txtNewPasswd.Focus()
                 End If
             Else
                 MessageBox.Show("Not connected", "Unable to reset password")
@@ -111,10 +117,13 @@ Public Class ChangePassword
     End Sub
 
     Private Sub txtNewPasswd_TextChanged(sender As Object, e As EventArgs) Handles txtNewPasswd.TextChanged
-        If txtNewPasswd.Text.Length >= 9 AndAlso txtNewPasswd.Text.Length <= 11 Then
+
+        If txtNewPasswd.Text.Length = 0 Then
+            lblValidationPassword.Visible = False
+        ElseIf txtNewPasswd.Text.Length >= 9 AndAlso txtNewPasswd.Text.Length <= 11 Then
             'lblValidationPassword.Visible = False
             lblValidationPassword.Text = "Password Moderate"
-            lblValidationPassword.ForeColor = Color.Yellow
+            lblValidationPassword.ForeColor = Color.Orange
         ElseIf txtNewPasswd.Text.Length > 11 Then
             lblValidationPassword.Text = "Password Strong"
             lblValidationPassword.ForeColor = Color.Green

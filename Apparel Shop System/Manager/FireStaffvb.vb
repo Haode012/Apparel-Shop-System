@@ -2,8 +2,11 @@
 Imports System.Data.SqlClient
 Public Class FireStaffvb
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If cbId.SelectedIndex = -1 Then
-            MessageBox.Show("Please select a staff to fire", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Dim firedDate As Date = dtpStaffFireDate.Value
+        Dim joinedDate As Date = txtStaffStartDate.Text
+        If firedDate < joinedDate Then
+            MessageBox.Show("Can't assign date before the staff join date to fire", "Fire Date Validation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            dtpStaffFireDate.Value = Today.Date
         Else
             'addFiredStaffToDatabase()
             deleteStaff()
@@ -17,31 +20,38 @@ Public Class FireStaffvb
         Dim selectedID As String
         Dim MySqlCommand As New SqlCommand
         Dim strSql As String
+        Dim selectedStaffIndex = cbId.SelectedItem
         Dim firedDate As Date = dtpStaffFireDate.Value
+        Dim joinedDate As Date = txtStaffStartDate.Text
         Dim rowView As DataRowView = DirectCast(cbId.SelectedItem, DataRowView)
         selectedID = rowView("StaffID")
-        Try
-            If OpenConnection() = True Then
-                strSql = "Update Staff SET Status =@Status,EndDate = @EndDate Where StaffID=@StaffID"
-                MySqlCommand = New SqlCommand(strSql, conn)
-                MySqlCommand.Parameters.AddWithValue("@Status", "Inactive")
-                MySqlCommand.Parameters.AddWithValue("@StaffID", selectedID)
-                MySqlCommand.Parameters.AddWithValue("@EndDate", firedDate)
-                intDeleteCount = MySqlCommand.ExecuteNonQuery()
-                StaffMaintenance.RefreshDataGridView()
-                MessageBox.Show(intDeleteCount & " Staff successfully fired!", "Fired", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Me.Close()
 
-                ' loadTheStaff()
-                'currentRow = 0
-                'Me.Close()
-                'UpdateDatabase_Load(Nothing, Nothing)
-            Else
-                MessageBox.Show("Error connecting to database server.", "Error", MessageBoxButtons.OK)
-            End If
-        Catch ex As Exception
-            MessageBox.Show("Check the data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+
+
+        Try
+                If OpenConnection() = True Then
+                    strSql = "Update Staff SET Status =@Status,EndDate = @EndDate Where StaffID=@StaffID"
+                    MySqlCommand = New SqlCommand(strSql, conn)
+                    MySqlCommand.Parameters.AddWithValue("@Status", "Inactive")
+                    MySqlCommand.Parameters.AddWithValue("@StaffID", selectedID)
+                    MySqlCommand.Parameters.AddWithValue("@EndDate", firedDate)
+                    intDeleteCount = MySqlCommand.ExecuteNonQuery()
+                    StaffMaintenance.RefreshDataGridView()
+                    MessageBox.Show("Staff has been successfully fired", "Fired Staff", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Me.Close()
+
+                    ' loadTheStaff()
+                    'currentRow = 0
+                    'Me.Close()
+                    'UpdateDatabase_Load(Nothing, Nothing)
+                Else
+                    MessageBox.Show("Error connecting to database server.", "Error", MessageBoxButtons.OK)
+                End If
+            Catch ex As Exception
+                MessageBox.Show("Check the data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+            End Try
+
         CloseConnection()
     End Sub
 
@@ -192,7 +202,7 @@ Public Class FireStaffvb
         'If OpenConnection() = True Then
         Try
             'Only retrieve staff members that are active to fire and no admin(Manager)'
-            strSql = "Select * From Staff where Status = 'Active'AND position!='Manager'"
+            strSql = "Select * From Staff where Status = 'Active'AND position!='Manager' AND position!='Assistant Manager'"
             MySqlCommand = New SqlCommand(strSql, conn)
             Dim adapter As New SqlDataAdapter(MySqlCommand)
             Dim dataTable As New DataTable()
@@ -207,6 +217,9 @@ Public Class FireStaffvb
         'CloseConnection()
     End Sub
 
+    Private Sub dtpStaffFireDate_ValueChanged(sender As Object, e As EventArgs) Handles dtpStaffFireDate.ValueChanged
+
+    End Sub
     Private Sub picDelete_Click(sender As Object, e As EventArgs) Handles picDelete.Click
         Me.Close()
         StaffMaintenance.Close()

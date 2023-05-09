@@ -222,10 +222,11 @@ Partial Class UpdateStaffDetails
         '
         'cbStaffMembers
         '
+        Me.cbStaffMembers.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbStaffMembers.FormattingEnabled = True
-        Me.cbStaffMembers.Location = New System.Drawing.Point(361, 42)
+        Me.cbStaffMembers.Location = New System.Drawing.Point(361, 21)
         Me.cbStaffMembers.Name = "cbStaffMembers"
-        Me.cbStaffMembers.Size = New System.Drawing.Size(322, 24)
+        Me.cbStaffMembers.Size = New System.Drawing.Size(322, 46)
         Me.cbStaffMembers.TabIndex = 60
         '
         'Label7

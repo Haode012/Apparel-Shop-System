@@ -301,6 +301,7 @@ Partial Class StaffMaintenance
         'c
         '
         Me.c.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.c.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.c.ForeColor = System.Drawing.SystemColors.HighlightText
         Me.c.Location = New System.Drawing.Point(874, 324)
         Me.c.Name = "c"
