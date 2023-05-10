@@ -229,7 +229,7 @@ Public Class ProductItemDetails
 
         If promotionStatus = "Started" And percentageString <> "-" Then
             percentageWithoutS = percentageString.Replace("%", "")
-            percentage = Double.Parse(percentageWithoutS) / 100
+            percentage = 1 - (Double.Parse(percentageWithoutS) / 100)
             totalPrice = price * percentage * quantity
             totalPrices = totalPrice.ToString("0.00")
 
